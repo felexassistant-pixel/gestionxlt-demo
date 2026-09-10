@@ -13,13 +13,14 @@
       "type": "residential",
       "size_sqft": 774,
       "year_built": 2024,
-      "status": "not_available",
+      "status": "available",
       "features": [
         "4½",
         "Near services"
       ],
       "transit": "STL buses",
-      "unit": null
+      "unit": null,
+      "demo": true
     },
     {
       "id": "brossard-905",
@@ -34,7 +35,8 @@
         "Near services"
       ],
       "transit": "STL buses",
-      "unit": null
+      "unit": null,
+      "demo": false
     },
     {
       "id": "brossard-879",
@@ -49,7 +51,8 @@
         "Near services"
       ],
       "transit": "STL buses",
-      "unit": null
+      "unit": null,
+      "demo": false
     },
     {
       "id": "taschereau-3",
@@ -64,14 +67,15 @@
         "Parking"
       ],
       "transit": "Bus + highway access",
-      "unit": "3"
+      "unit": "3",
+      "demo": false
     },
     {
       "id": "taschereau-4",
       "address": "8500 Boulevard Taschereau",
       "city": "Brossard",
       "type": "retail",
-      "size_sqft": 4814,
+      "size_sqft": 1950,
       "year_built": 1991,
       "status": "not_available",
       "features": [
@@ -79,14 +83,15 @@
         "Parking"
       ],
       "transit": "Bus + highway access",
-      "unit": "4"
+      "unit": "4",
+      "demo": false
     },
     {
       "id": "taschereau-5",
       "address": "8500 Boulevard Taschereau",
       "city": "Brossard",
       "type": "retail",
-      "size_sqft": 1057,
+      "size_sqft": 4814,
       "year_built": 1991,
       "status": "available",
       "features": [
@@ -94,14 +99,15 @@
         "Parking"
       ],
       "transit": "Bus + highway access",
-      "unit": "5"
+      "unit": "5",
+      "demo": false
     },
     {
       "id": "taschereau-7",
       "address": "8500 Boulevard Taschereau",
       "city": "Brossard",
       "type": "retail",
-      "size_sqft": 1188,
+      "size_sqft": 1057,
       "year_built": 1991,
       "status": "not_available",
       "features": [
@@ -109,10 +115,43 @@
         "Parking"
       ],
       "transit": "Bus + highway access",
-      "unit": "7"
+      "unit": "7",
+      "demo": false
     },
     {
       "id": "taschereau-10",
+      "address": "8500 Boulevard Taschereau",
+      "city": "Brossard",
+      "type": "retail",
+      "size_sqft": 2591,
+      "year_built": 1991,
+      "status": "not_available",
+      "features": [
+        "Retail plaza",
+        "Parking"
+      ],
+      "transit": "Bus + highway access",
+      "unit": "10",
+      "demo": false
+    },
+    {
+      "id": "taschereau-11",
+      "address": "8500 Boulevard Taschereau",
+      "city": "Brossard",
+      "type": "retail",
+      "size_sqft": 1188,
+      "year_built": 1991,
+      "status": "available",
+      "features": [
+        "Retail plaza",
+        "Parking"
+      ],
+      "transit": "Bus + highway access",
+      "unit": "11",
+      "demo": false
+    },
+    {
+      "id": "taschereau-15b",
       "address": "8500 Boulevard Taschereau",
       "city": "Brossard",
       "type": "retail",
@@ -124,10 +163,11 @@
         "Parking"
       ],
       "transit": "Bus + highway access",
-      "unit": "10"
+      "unit": "15B",
+      "demo": false
     },
     {
-      "id": "taschereau-11",
+      "id": "taschereau-17",
       "address": "8500 Boulevard Taschereau",
       "city": "Brossard",
       "type": "retail",
@@ -139,44 +179,15 @@
         "Parking"
       ],
       "transit": "Bus + highway access",
-      "unit": "11"
-    },
-    {
-      "id": "taschereau-15b",
-      "address": "8500 Boulevard Taschereau",
-      "city": "Brossard",
-      "type": "retail",
-      "size_sqft": 1200,
-      "year_built": 1991,
-      "status": "not_available",
-      "features": [
-        "Retail plaza",
-        "Parking"
-      ],
-      "transit": "Bus + highway access",
-      "unit": "15B"
-    },
-    {
-      "id": "taschereau-17",
-      "address": "8500 Boulevard Taschereau",
-      "city": "Brossard",
-      "type": "retail",
-      "size_sqft": 1100,
-      "year_built": 1991,
-      "status": "not_available",
-      "features": [
-        "Retail plaza",
-        "Parking"
-      ],
-      "transit": "Bus + highway access",
-      "unit": "17"
+      "unit": "17",
+      "demo": true
     },
     {
       "id": "taschereau-20",
       "address": "8500 Boulevard Taschereau",
       "city": "Brossard",
       "type": "retail",
-      "size_sqft": 980,
+      "size_sqft": 2269,
       "year_built": 1991,
       "status": "available",
       "features": [
@@ -184,7 +195,8 @@
         "Parking"
       ],
       "transit": "Bus + highway access",
-      "unit": "20"
+      "unit": "20",
+      "demo": false
     },
     {
       "id": "chambly-1295",
@@ -199,7 +211,8 @@
         "Public transport nearby"
       ],
       "transit": "RTL",
-      "unit": null
+      "unit": null,
+      "demo": false
     },
     {
       "id": "chambly-1297",
@@ -214,7 +227,8 @@
         "Public transport nearby"
       ],
       "transit": "RTL",
-      "unit": null
+      "unit": null,
+      "demo": false
     },
     {
       "id": "chambly-1299",
@@ -229,7 +243,8 @@
         "Public transport nearby"
       ],
       "transit": "RTL",
-      "unit": null
+      "unit": null,
+      "demo": false
     },
     {
       "id": "stjean-593",
@@ -243,21 +258,23 @@
         "Retail"
       ],
       "transit": "RTL",
-      "unit": null
+      "unit": null,
+      "demo": false
     },
     {
       "id": "stjean-597-201",
       "address": "597 Rue Saint-Jean",
       "city": "Longueuil",
       "type": "retail",
-      "size_sqft": 325,
+      "size_sqft": 2750,
       "year_built": 1980,
       "status": "not_available",
       "features": [
         "Retail unit"
       ],
       "transit": "RTL",
-      "unit": "201"
+      "unit": "201",
+      "demo": false
     },
     {
       "id": "stjean-597-202",
@@ -271,21 +288,23 @@
         "Retail unit"
       ],
       "transit": "RTL",
-      "unit": "202"
+      "unit": "202",
+      "demo": false
     },
     {
       "id": "stjean-597-203",
       "address": "597 Rue Saint-Jean",
       "city": "Longueuil",
       "type": "retail",
-      "size_sqft": 2750,
+      "size_sqft": 400,
       "year_built": 1980,
       "status": "not_available",
       "features": [
         "Retail unit"
       ],
       "transit": "RTL",
-      "unit": "203"
+      "unit": "203",
+      "demo": false
     },
     {
       "id": "stjean-597-204",
@@ -299,21 +318,23 @@
         "Retail unit"
       ],
       "transit": "RTL",
-      "unit": "204"
+      "unit": "204",
+      "demo": false
     },
     {
       "id": "stjean-597-205",
       "address": "597 Rue Saint-Jean",
       "city": "Longueuil",
       "type": "retail",
-      "size_sqft": 600,
+      "size_sqft": 325,
       "year_built": 1980,
       "status": "not_available",
       "features": [
         "Retail unit"
       ],
       "transit": "RTL",
-      "unit": "205"
+      "unit": "205",
+      "demo": false
     },
     {
       "id": "stjean-599",
@@ -327,7 +348,8 @@
         "Retail"
       ],
       "transit": "RTL",
-      "unit": null
+      "unit": null,
+      "demo": false
     },
     {
       "id": "stthomas-a",
@@ -341,7 +363,8 @@
         "Retail"
       ],
       "transit": "RTL",
-      "unit": "A"
+      "unit": "A",
+      "demo": false
     },
     {
       "id": "stthomas-b",
@@ -355,7 +378,8 @@
         "Retail"
       ],
       "transit": "RTL",
-      "unit": "B"
+      "unit": "B",
+      "demo": false
     },
     {
       "id": "1729-rue-balmoral",
@@ -369,7 +393,8 @@
         "3½/4½"
       ],
       "transit": "RTL",
-      "unit": null
+      "unit": null,
+      "demo": false
     },
     {
       "id": "1729a-rue-balmoral",
@@ -383,7 +408,8 @@
         "3½/4½"
       ],
       "transit": "RTL",
-      "unit": null
+      "unit": null,
+      "demo": true
     },
     {
       "id": "1731-rue-balmoral",
@@ -397,7 +423,8 @@
         "3½/4½"
       ],
       "transit": "RTL",
-      "unit": null
+      "unit": null,
+      "demo": false
     },
     {
       "id": "monk-6518",
@@ -411,7 +438,8 @@
         "Near Monk Metro"
       ],
       "transit": "Metro Monk",
-      "unit": null
+      "unit": null,
+      "demo": false
     },
     {
       "id": "monk-6520",
@@ -425,7 +453,8 @@
         "Near Monk Metro"
       ],
       "transit": "Metro Monk",
-      "unit": null
+      "unit": null,
+      "demo": false
     },
     {
       "id": "monk-6522",
@@ -439,7 +468,8 @@
         "Near Monk Metro"
       ],
       "transit": "Metro Monk",
-      "unit": null
+      "unit": null,
+      "demo": false
     },
     {
       "id": "monk-6524",
@@ -453,7 +483,8 @@
         "Near Monk Metro"
       ],
       "transit": "Metro Monk",
-      "unit": null
+      "unit": null,
+      "demo": false
     },
     {
       "id": "monk-6526",
@@ -467,7 +498,8 @@
         "Near Monk Metro"
       ],
       "transit": "Metro Monk",
-      "unit": null
+      "unit": null,
+      "demo": false
     },
     {
       "id": "monk-6528",
@@ -481,7 +513,8 @@
         "Near Monk Metro"
       ],
       "transit": "Metro Monk",
-      "unit": null
+      "unit": null,
+      "demo": false
     },
     {
       "id": "lamont-6851",
@@ -495,7 +528,8 @@
         "Near Angrignon Metro"
       ],
       "transit": "Metro Angrignon",
-      "unit": null
+      "unit": null,
+      "demo": false
     },
     {
       "id": "lamont-6853",
@@ -509,7 +543,8 @@
         "Near Angrignon Metro"
       ],
       "transit": "Metro Angrignon",
-      "unit": null
+      "unit": null,
+      "demo": false
     },
     {
       "id": "lamont-6855",
@@ -523,7 +558,8 @@
         "Near Angrignon Metro"
       ],
       "transit": "Metro Angrignon",
-      "unit": null
+      "unit": null,
+      "demo": false
     },
     {
       "id": "lamont-6857",
@@ -537,7 +573,8 @@
         "Near Angrignon Metro"
       ],
       "transit": "Metro Angrignon",
-      "unit": null
+      "unit": null,
+      "demo": false
     },
     {
       "id": "land-vacant",
@@ -546,12 +583,13 @@
       "type": "land",
       "size_sqft": 0,
       "year_built": null,
-      "status": "not_available",
+      "status": "available",
       "features": [
         "No electricity/water/road currently"
       ],
       "transit": "—",
-      "unit": null
+      "unit": null,
+      "demo": true
     }
   ]
 }

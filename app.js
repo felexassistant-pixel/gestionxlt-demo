@@ -8,6 +8,7 @@ const i18n = {
     contact: 'Contact', pricing: 'Contact for pricing', details: 'Details',
     close: 'Close', area: 'Area insights', listings: 'Listings',
     demo: 'Demo data — availability seeded for UX testing.',
+    demoBadge: 'Demo availability',
     phone: 'Phone', email: 'Email', address: 'Office', hours: 'Hours',
     size: 'Size', year: 'Year built', transit: 'Transit', features: 'Features', unit: 'Unit',
     none: 'No listings match your filters.'
@@ -21,6 +22,7 @@ const i18n = {
     contact: 'Contact', pricing: 'Contacter pour le prix', details: 'Détails',
     close: 'Fermer', area: 'Aperçu du secteur', listings: 'Annonces',
     demo: 'Données démo — disponibilités pour tester les filtres.',
+    demoBadge: 'Disponibilité démo',
     phone: 'Téléphone', email: 'Courriel', address: 'Bureau', hours: 'Heures',
     size: 'Superficie', year: 'Année', transit: 'Transport', features: 'Caractéristiques', unit: 'Local',
     none: 'Aucune annonce ne correspond à vos filtres.'
@@ -63,7 +65,7 @@ function render(){
   if (!list.length){ grid.innerHTML = `<p class="meta">${t('none')}</p>`; return; }
   grid.innerHTML = list.map(l => `
     <article class="card">
-      <div><span class="badge ${l.status==='available'?'ok':'no'}">${statusLabel(l.status)}</span></div>
+      <div><span class="badge ${l.status==='available'?'ok':'no'}">${statusLabel(l.status)}</span>${l.demo?` <span class="badge ok">${t('demoBadge')}</span>`:''}</div>
       <h3>${l.address}${l.unit?` · #${l.unit}`:''}</h3>
       <div class="meta">${l.city} · ${l.type}${l.size_sqft?` · ${l.size_sqft} sqft`:''}</div>
       <div class="meta">${t('pricing')}</div>
@@ -78,7 +80,7 @@ function openDetail(id){
   const d = $('#detail');
   $('#detailBody').innerHTML = `
     <h2>${l.address}${l.unit?` · #${l.unit}`:''}</h2>
-    <p><span class="badge ${l.status==='available'?'ok':'no'}">${statusLabel(l.status)}</span></p>
+    <p><span class="badge ${l.status==='available'?'ok':'no'}">${statusLabel(l.status)}</span>${l.demo?` <span class="badge ok">${t('demoBadge')}</span>`:''}</p>
     <div class="row"><b>${t('address')}:</b> ${l.city}</div>
     ${l.unit?`<div class="row"><b>${t('unit')}:</b> ${l.unit}</div>`:''}
     <div class="row"><b>Type:</b> ${l.type}</div>
