@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gestion XLT · Property listings demo</title>
+  <meta name="description" content="Gestion XLT — available and leased units across Greater Montreal. Demo site." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="brand" data-i18n="brand">Gestion XLT</div>
+    <nav class="nav">
+      <a href="index.html" data-i18n="listings">Listings</a>
+      <a href="area.html" data-i18n="area">Area</a>
+      <a href="#contact" data-i18n="contact">Contact</a>
+      <button type="button" class="ghost" id="langBtn">EN</button>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <h1 data-i18n="tag">Lease your ideal space</h1>
+      <p data-i18n="sub">Commercial, retail, residential & land.</p>
+      <p class="note" data-i18n="demo">Demo data</p>
+    </section>
+    <section class="filters">
+      <select id="fStatus">
+        <option value="all" data-i18n="all">All</option>
+        <option value="available" data-i18n="available">Available</option>
+        <option value="not_available" data-i18n="not_available">Not available</option>
+      </select>
+      <select id="fType">
+        <option value="all" data-i18n="allTypes">All types</option>
+        <option value="retail">Retail</option>
+        <option value="residential">Residential</option>
+        <option value="commercial">Commercial</option>
+        <option value="land">Land</option>
+      </select>
+      <select id="fCity"><option value="all">All cities</option></select>
+      <input id="fSearch" type="search" data-i18n-placeholder="search" placeholder="Search…" />
+    </section>
+    <section id="grid" class="grid" aria-live="polite"></section>
+    <section id="contact" style="margin-top:2rem">
+      <h2 data-i18n="contact">Contact</h2>
+      <div id="contactBox" class="stat"></div>
+    </section>
+  </main>
+  <footer>© Gestion XLT · Demo rebuild (not Squarespace)</footer>
+  <dialog id="detail"><div class="dlg" id="detailBody"></div></dialog>
+  <script src="app.js"></script>
+</body>
+</html>

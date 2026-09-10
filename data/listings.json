@@ -1,0 +1,557 @@
+{
+  "contact": {
+    "phone": "514-963-1918",
+    "email": "gestionxlt@gmail.com",
+    "address": "8500 Boulevard Taschereau, Unit 10, Brossard, QC J4X 2T4",
+    "hours": "Daily 9:00–19:00"
+  },
+  "listings": [
+    {
+      "id": "brossard-774",
+      "address": "505 Rue De l'Escale (Oria 2)",
+      "city": "Brossard",
+      "type": "residential",
+      "size_sqft": 774,
+      "year_built": 2024,
+      "status": "not_available",
+      "features": [
+        "4½",
+        "Near services"
+      ],
+      "transit": "STL buses",
+      "unit": null
+    },
+    {
+      "id": "brossard-905",
+      "address": "5860 Rue Corneille",
+      "city": "Brossard",
+      "type": "residential",
+      "size_sqft": 905,
+      "year_built": 2010,
+      "status": "not_available",
+      "features": [
+        "4½",
+        "Near services"
+      ],
+      "transit": "STL buses",
+      "unit": null
+    },
+    {
+      "id": "brossard-879",
+      "address": "7130 Rue Du Chardonneret",
+      "city": "Brossard",
+      "type": "residential",
+      "size_sqft": 879,
+      "year_built": 2009,
+      "status": "not_available",
+      "features": [
+        "4½",
+        "Near services"
+      ],
+      "transit": "STL buses",
+      "unit": null
+    },
+    {
+      "id": "taschereau-3",
+      "address": "8500 Boulevard Taschereau",
+      "city": "Brossard",
+      "type": "retail",
+      "size_sqft": 1122,
+      "year_built": 1991,
+      "status": "not_available",
+      "features": [
+        "Retail plaza",
+        "Parking"
+      ],
+      "transit": "Bus + highway access",
+      "unit": "3"
+    },
+    {
+      "id": "taschereau-4",
+      "address": "8500 Boulevard Taschereau",
+      "city": "Brossard",
+      "type": "retail",
+      "size_sqft": 4814,
+      "year_built": 1991,
+      "status": "not_available",
+      "features": [
+        "Retail plaza",
+        "Parking"
+      ],
+      "transit": "Bus + highway access",
+      "unit": "4"
+    },
+    {
+      "id": "taschereau-5",
+      "address": "8500 Boulevard Taschereau",
+      "city": "Brossard",
+      "type": "retail",
+      "size_sqft": 1057,
+      "year_built": 1991,
+      "status": "available",
+      "features": [
+        "Retail plaza",
+        "Parking"
+      ],
+      "transit": "Bus + highway access",
+      "unit": "5"
+    },
+    {
+      "id": "taschereau-7",
+      "address": "8500 Boulevard Taschereau",
+      "city": "Brossard",
+      "type": "retail",
+      "size_sqft": 1188,
+      "year_built": 1991,
+      "status": "not_available",
+      "features": [
+        "Retail plaza",
+        "Parking"
+      ],
+      "transit": "Bus + highway access",
+      "unit": "7"
+    },
+    {
+      "id": "taschereau-10",
+      "address": "8500 Boulevard Taschereau",
+      "city": "Brossard",
+      "type": "retail",
+      "size_sqft": 1618,
+      "year_built": 1991,
+      "status": "not_available",
+      "features": [
+        "Retail plaza",
+        "Parking"
+      ],
+      "transit": "Bus + highway access",
+      "unit": "10"
+    },
+    {
+      "id": "taschereau-11",
+      "address": "8500 Boulevard Taschereau",
+      "city": "Brossard",
+      "type": "retail",
+      "size_sqft": 946,
+      "year_built": 1991,
+      "status": "available",
+      "features": [
+        "Retail plaza",
+        "Parking"
+      ],
+      "transit": "Bus + highway access",
+      "unit": "11"
+    },
+    {
+      "id": "taschereau-15b",
+      "address": "8500 Boulevard Taschereau",
+      "city": "Brossard",
+      "type": "retail",
+      "size_sqft": 1200,
+      "year_built": 1991,
+      "status": "not_available",
+      "features": [
+        "Retail plaza",
+        "Parking"
+      ],
+      "transit": "Bus + highway access",
+      "unit": "15B"
+    },
+    {
+      "id": "taschereau-17",
+      "address": "8500 Boulevard Taschereau",
+      "city": "Brossard",
+      "type": "retail",
+      "size_sqft": 1100,
+      "year_built": 1991,
+      "status": "not_available",
+      "features": [
+        "Retail plaza",
+        "Parking"
+      ],
+      "transit": "Bus + highway access",
+      "unit": "17"
+    },
+    {
+      "id": "taschereau-20",
+      "address": "8500 Boulevard Taschereau",
+      "city": "Brossard",
+      "type": "retail",
+      "size_sqft": 980,
+      "year_built": 1991,
+      "status": "available",
+      "features": [
+        "Retail plaza",
+        "Parking"
+      ],
+      "transit": "Bus + highway access",
+      "unit": "20"
+    },
+    {
+      "id": "chambly-1295",
+      "address": "1295 Ch. Chambly",
+      "city": "Longueuil",
+      "type": "retail",
+      "size_sqft": 1400,
+      "year_built": 1957,
+      "status": "not_available",
+      "features": [
+        "Retail space",
+        "Public transport nearby"
+      ],
+      "transit": "RTL",
+      "unit": null
+    },
+    {
+      "id": "chambly-1297",
+      "address": "1297 Ch. Chambly",
+      "city": "Longueuil",
+      "type": "retail",
+      "size_sqft": 3000,
+      "year_built": 1957,
+      "status": "not_available",
+      "features": [
+        "Retail space",
+        "Public transport nearby"
+      ],
+      "transit": "RTL",
+      "unit": null
+    },
+    {
+      "id": "chambly-1299",
+      "address": "1299 Ch. Chambly",
+      "city": "Longueuil",
+      "type": "retail",
+      "size_sqft": 1600,
+      "year_built": 1957,
+      "status": "not_available",
+      "features": [
+        "Retail space",
+        "Public transport nearby"
+      ],
+      "transit": "RTL",
+      "unit": null
+    },
+    {
+      "id": "stjean-593",
+      "address": "593 Rue Saint-Jean",
+      "city": "Longueuil",
+      "type": "retail",
+      "size_sqft": 1550,
+      "year_built": 1970,
+      "status": "not_available",
+      "features": [
+        "Retail"
+      ],
+      "transit": "RTL",
+      "unit": null
+    },
+    {
+      "id": "stjean-597-201",
+      "address": "597 Rue Saint-Jean",
+      "city": "Longueuil",
+      "type": "retail",
+      "size_sqft": 325,
+      "year_built": 1980,
+      "status": "not_available",
+      "features": [
+        "Retail unit"
+      ],
+      "transit": "RTL",
+      "unit": "201"
+    },
+    {
+      "id": "stjean-597-202",
+      "address": "597 Rue Saint-Jean",
+      "city": "Longueuil",
+      "type": "retail",
+      "size_sqft": 400,
+      "year_built": 1980,
+      "status": "not_available",
+      "features": [
+        "Retail unit"
+      ],
+      "transit": "RTL",
+      "unit": "202"
+    },
+    {
+      "id": "stjean-597-203",
+      "address": "597 Rue Saint-Jean",
+      "city": "Longueuil",
+      "type": "retail",
+      "size_sqft": 2750,
+      "year_built": 1980,
+      "status": "not_available",
+      "features": [
+        "Retail unit"
+      ],
+      "transit": "RTL",
+      "unit": "203"
+    },
+    {
+      "id": "stjean-597-204",
+      "address": "597 Rue Saint-Jean",
+      "city": "Longueuil",
+      "type": "retail",
+      "size_sqft": 500,
+      "year_built": 1980,
+      "status": "available",
+      "features": [
+        "Retail unit"
+      ],
+      "transit": "RTL",
+      "unit": "204"
+    },
+    {
+      "id": "stjean-597-205",
+      "address": "597 Rue Saint-Jean",
+      "city": "Longueuil",
+      "type": "retail",
+      "size_sqft": 600,
+      "year_built": 1980,
+      "status": "not_available",
+      "features": [
+        "Retail unit"
+      ],
+      "transit": "RTL",
+      "unit": "205"
+    },
+    {
+      "id": "stjean-599",
+      "address": "599 Rue Saint-Jean",
+      "city": "Longueuil",
+      "type": "retail",
+      "size_sqft": 975,
+      "year_built": 1975,
+      "status": "not_available",
+      "features": [
+        "Retail"
+      ],
+      "transit": "RTL",
+      "unit": null
+    },
+    {
+      "id": "stthomas-a",
+      "address": "620 Rue Saint-Thomas",
+      "city": "Longueuil",
+      "type": "retail",
+      "size_sqft": 2200,
+      "year_built": 1965,
+      "status": "not_available",
+      "features": [
+        "Retail"
+      ],
+      "transit": "RTL",
+      "unit": "A"
+    },
+    {
+      "id": "stthomas-b",
+      "address": "620 Rue Saint-Thomas",
+      "city": "Longueuil",
+      "type": "retail",
+      "size_sqft": 1000,
+      "year_built": 1965,
+      "status": "not_available",
+      "features": [
+        "Retail"
+      ],
+      "transit": "RTL",
+      "unit": "B"
+    },
+    {
+      "id": "1729-rue-balmoral",
+      "address": "1729 Rue Balmoral",
+      "city": "Longueuil",
+      "type": "residential",
+      "size_sqft": 950,
+      "year_built": 1985,
+      "status": "not_available",
+      "features": [
+        "3½/4½"
+      ],
+      "transit": "RTL",
+      "unit": null
+    },
+    {
+      "id": "1729a-rue-balmoral",
+      "address": "1729A Rue Balmoral",
+      "city": "Longueuil",
+      "type": "residential",
+      "size_sqft": 900,
+      "year_built": 1985,
+      "status": "available",
+      "features": [
+        "3½/4½"
+      ],
+      "transit": "RTL",
+      "unit": null
+    },
+    {
+      "id": "1731-rue-balmoral",
+      "address": "1731 Rue Balmoral",
+      "city": "Longueuil",
+      "type": "residential",
+      "size_sqft": 1000,
+      "year_built": 1985,
+      "status": "not_available",
+      "features": [
+        "3½/4½"
+      ],
+      "transit": "RTL",
+      "unit": null
+    },
+    {
+      "id": "monk-6518",
+      "address": "6518 Boul. Monk",
+      "city": "Montreal",
+      "type": "residential",
+      "size_sqft": 850,
+      "year_built": 1930,
+      "status": "not_available",
+      "features": [
+        "Near Monk Metro"
+      ],
+      "transit": "Metro Monk",
+      "unit": null
+    },
+    {
+      "id": "monk-6520",
+      "address": "6520 Boul. Monk",
+      "city": "Montreal",
+      "type": "retail",
+      "size_sqft": 850,
+      "year_built": 1930,
+      "status": "not_available",
+      "features": [
+        "Near Monk Metro"
+      ],
+      "transit": "Metro Monk",
+      "unit": null
+    },
+    {
+      "id": "monk-6522",
+      "address": "6522 Boul. Monk",
+      "city": "Montreal",
+      "type": "residential",
+      "size_sqft": 850,
+      "year_built": 1930,
+      "status": "available",
+      "features": [
+        "Near Monk Metro"
+      ],
+      "transit": "Metro Monk",
+      "unit": null
+    },
+    {
+      "id": "monk-6524",
+      "address": "6524 Boul. Monk",
+      "city": "Montreal",
+      "type": "retail",
+      "size_sqft": 850,
+      "year_built": 1930,
+      "status": "not_available",
+      "features": [
+        "Near Monk Metro"
+      ],
+      "transit": "Metro Monk",
+      "unit": null
+    },
+    {
+      "id": "monk-6526",
+      "address": "6526 Boul. Monk",
+      "city": "Montreal",
+      "type": "residential",
+      "size_sqft": 850,
+      "year_built": 1930,
+      "status": "not_available",
+      "features": [
+        "Near Monk Metro"
+      ],
+      "transit": "Metro Monk",
+      "unit": null
+    },
+    {
+      "id": "monk-6528",
+      "address": "6528 Boul. Monk",
+      "city": "Montreal",
+      "type": "residential",
+      "size_sqft": 850,
+      "year_built": 1930,
+      "status": "not_available",
+      "features": [
+        "Near Monk Metro"
+      ],
+      "transit": "Metro Monk",
+      "unit": null
+    },
+    {
+      "id": "lamont-6851",
+      "address": "6851 Av. Lamont",
+      "city": "Montreal",
+      "type": "residential",
+      "size_sqft": 900,
+      "year_built": 1991,
+      "status": "not_available",
+      "features": [
+        "Near Angrignon Metro"
+      ],
+      "transit": "Metro Angrignon",
+      "unit": null
+    },
+    {
+      "id": "lamont-6853",
+      "address": "6853 Av. Lamont",
+      "city": "Montreal",
+      "type": "residential",
+      "size_sqft": 900,
+      "year_built": 1991,
+      "status": "not_available",
+      "features": [
+        "Near Angrignon Metro"
+      ],
+      "transit": "Metro Angrignon",
+      "unit": null
+    },
+    {
+      "id": "lamont-6855",
+      "address": "6855 Av. Lamont",
+      "city": "Montreal",
+      "type": "residential",
+      "size_sqft": 900,
+      "year_built": 1991,
+      "status": "not_available",
+      "features": [
+        "Near Angrignon Metro"
+      ],
+      "transit": "Metro Angrignon",
+      "unit": null
+    },
+    {
+      "id": "lamont-6857",
+      "address": "6857 Av. Lamont",
+      "city": "Montreal",
+      "type": "residential",
+      "size_sqft": 900,
+      "year_built": 1991,
+      "status": "not_available",
+      "features": [
+        "Near Angrignon Metro"
+      ],
+      "transit": "Metro Angrignon",
+      "unit": null
+    },
+    {
+      "id": "land-vacant",
+      "address": "Vacant Land (ref 4642888)",
+      "city": "St-Hubert",
+      "type": "land",
+      "size_sqft": 0,
+      "year_built": null,
+      "status": "not_available",
+      "features": [
+        "No electricity/water/road currently"
+      ],
+      "transit": "—",
+      "unit": null
+    }
+  ]
+}
