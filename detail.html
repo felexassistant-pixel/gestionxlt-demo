@@ -53,11 +53,11 @@
     <div class="detail-layout">
       <div>
         <div class="gallery-main">
-          <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1400&q=80" alt="Salon 4½ Longueuil" id="mainPhoto" />
+          <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1400&q=80" alt="Salon 4½ Longueuil" id="mainPhoto" tabindex="-1" />
           <div class="gallery-overlay">
             <div class="gallery-top">
               <span class="gallery-count">&lt; 1 / 12</span>
-              <button type="button" class="gallery-btn">
+              <button type="button" class="gallery-btn" id="viewGalleryBtn">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
                 <span data-fr>Voir la galerie</span><span data-en>View gallery</span>
               </button>
@@ -74,10 +74,10 @@
           <button type="button" data-src="https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=1400&q=80"><img src="https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=300&q=70" alt="" /></button>
           <button type="button" data-src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1400&q=80"><img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=300&q=70" alt="" /></button>
           <button type="button" data-src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1400&q=80"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=300&q=70" alt="" /></button>
-          <a href="#" class="more-thumbs">
+          <button type="button" class="more-thumbs" id="moreThumbsBtn" aria-label="Plus de photos / More photos">
             <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=300&q=70" alt="" />
             <span class="more-overlay">+ 7</span>
-          </a>
+          </button>
         </div>
 
         <div class="detail-content">
@@ -87,7 +87,8 @@
           <p data-en>Bright modern 4½ in a sought-after Longueuil neighbourhood. Close to transit, services and shops. Open kitchen, private balcony, appliances included. Professionally managed by Gestion XLT.</p>
           <a href="#amenities" class="link-more"><span data-fr>Voir plus</span><span data-en>See more</span> ▾</a>
 
-          <h2 id="amenities" data-fr>Commodités</h2>
+          <section id="amenities" class="detail-section">
+          <h2 data-fr>Commodités</h2>
           <h2 data-en>Amenities</h2>
           <ul class="amenity-list">
             <li data-fr>Balcon privé</li><li data-en>Private balcony</li>
@@ -97,6 +98,7 @@
             <li data-fr>Près du métro</li><li data-en>Near metro</li>
             <li data-fr>Animaux sur demande</li><li data-en>Pets on request</li>
           </ul>
+          </section>
 
           <h2 data-fr>Détails de la propriété</h2>
           <h2 data-en>Property details</h2>

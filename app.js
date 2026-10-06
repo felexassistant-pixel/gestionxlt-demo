@@ -101,9 +101,15 @@
 
   function specsHtml(item, lang) {
     var parts = [];
-    if (item.beds != null) parts.push('<span>' + item.beds + ' ch.</span>');
-    if (item.baths != null) parts.push('<span>' + item.baths + ' sdb</span>');
-    if (item.sqft != null) parts.push('<span>' + formatSqft(item.sqft, 'fr') + '</span>');
+    if (item.beds != null) {
+      parts.push('<span data-fr>' + item.beds + ' ch.</span><span data-en>' + item.beds + ' bed</span>');
+    }
+    if (item.baths != null) {
+      parts.push('<span data-fr>' + item.baths + ' sdb</span><span data-en>' + item.baths + ' bath</span>');
+    }
+    if (item.sqft != null) {
+      parts.push('<span data-fr>' + formatSqft(item.sqft, 'fr') + '</span><span data-en>' + formatSqft(item.sqft, 'en') + '</span>');
+    }
     if (item.specExtra) {
       parts.push('<span data-fr>' + item.specExtra.fr + '</span><span data-en>' + item.specExtra.en + '</span>');
     }
@@ -142,9 +148,16 @@
     var pillClass = item.status === 'available' ? 'pill-available' : 'pill-rented';
     var href = 'detail.html?id=' + encodeURIComponent(item.id);
     var specs = [];
-    if (item.beds != null) specs.push('<span>' + item.beds + ' ch.</span>', '<span>·</span>');
-    if (item.baths != null) specs.push('<span>' + item.baths + ' sdb</span>');
-    if (item.beds == null && item.sqft != null) specs.push('<span>' + formatSqft(item.sqft, 'fr') + '</span>');
+    if (item.beds != null) {
+      specs.push('<span data-fr>' + item.beds + ' ch.</span><span data-en>' + item.beds + ' bed</span>');
+      specs.push('<span aria-hidden="true">·</span>');
+    }
+    if (item.baths != null) {
+      specs.push('<span data-fr>' + item.baths + ' sdb</span><span data-en>' + item.baths + ' bath</span>');
+    }
+    if (item.beds == null && item.sqft != null) {
+      specs.push('<span data-fr>' + formatSqft(item.sqft, 'fr') + '</span><span data-en>' + formatSqft(item.sqft, 'en') + '</span>');
+    }
     var near = '';
     if (item.near) {
       near = '<div style="font-size:11px;color:var(--text-light);margin-top:2px;" data-fr>' + item.near.fr + '</div>' +
@@ -797,15 +810,30 @@
           fakeMap.appendChild(el);
         });
       } else {
-        var el = document.createElement('a');
-        el.href = 'detail.html?id=' + encodeURIComponent(item.id);
-        el.className = 'map-pin' + (firstAvail ? ' active' : '');
-        el.setAttribute('data-id', item.id);
+        var isActive = firstAvail;
         firstAvail = false;
-        el.textContent = item.priceUnit === 'sqft' ? (item.price + ' $/pi²') : priceParts(item, 'fr').main;
-        el.style.top = m.top;
-        el.style.left = m.left;
-        fakeMap.appendChild(el);
+        if (item.priceUnit === 'sqft') {
+          ['fr', 'en'].forEach(function (lg) {
+            var el = document.createElement('a');
+            el.href = 'detail.html?id=' + encodeURIComponent(item.id);
+            el.className = 'map-pin' + (isActive ? ' active' : '');
+            el.setAttribute('data-' + lg, '');
+            el.setAttribute('data-id', item.id);
+            el.textContent = item.price + (lg === 'en' ? ' $/sq ft' : ' $/pi²');
+            el.style.top = m.top;
+            el.style.left = m.left;
+            fakeMap.appendChild(el);
+          });
+        } else {
+          var el = document.createElement('a');
+          el.href = 'detail.html?id=' + encodeURIComponent(item.id);
+          el.className = 'map-pin' + (isActive ? ' active' : '');
+          el.setAttribute('data-id', item.id);
+          el.textContent = priceParts(item, 'fr').main;
+          el.style.top = m.top;
+          el.style.left = m.left;
+          fakeMap.appendChild(el);
+        }
       }
     });
   }
@@ -849,14 +877,49 @@
       thumbs.innerHTML = thumbImgs.map(function (src, idx) {
         return '<button type="button" data-src="' + src + '" data-idx="' + (idx + 1) + '"><img src="' + src.replace('w=1400', 'w=300').replace('q=80', 'q=70') + '" alt="" /></button>';
       }).join('') + (more > 0
-        ? '<a href="#" class="more-thumbs"><img src="' + (images[Math.min(4, images.length - 1)]).replace('w=1400', 'w=300').replace('q=80', 'q=70') + '" alt="" /><span class="more-overlay">+ ' + more + '</span></a>'
+        ? '<button type="button" class="more-thumbs" aria-label="Plus de photos / More photos"><img src="' + (images[Math.min(4, images.length - 1)]).replace('w=1400', 'w=300').replace('q=80', 'q=70') + '" alt="" /><span class="more-overlay">+ ' + more + '</span></button>'
         : '');
+      var showPhoto = function (idx) {
+        var i = ((idx % images.length) + images.length) % images.length;
+        var photo = document.getElementById('mainPhoto');
+        if (photo) photo.src = images[i];
+        if (count) count.textContent = '< ' + (i + 1) + ' / ' + (item.photoCount || images.length);
+        return i;
+      };
+      var galleryIdx = 0;
       thumbs.querySelectorAll('button[data-src]').forEach(function (btn) {
         btn.addEventListener('click', function () {
-          document.getElementById('mainPhoto').src = btn.getAttribute('data-src');
-          if (count) count.textContent = '< ' + btn.getAttribute('data-idx') + ' / ' + (item.photoCount || images.length);
+          galleryIdx = parseInt(btn.getAttribute('data-idx'), 10) - 1;
+          showPhoto(galleryIdx);
         });
       });
+      var moreBtn = thumbs.querySelector('.more-thumbs');
+      if (moreBtn) {
+        moreBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          galleryIdx = showPhoto(Math.min(4, images.length - 1));
+          var main = document.querySelector('.gallery-main');
+          if (main) main.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      }
+      var viewBtn = document.getElementById('viewGalleryBtn') || document.querySelector('.gallery-btn');
+      if (viewBtn && !viewBtn._xltBound) {
+        viewBtn._xltBound = true;
+        viewBtn.addEventListener('click', function () {
+          var main = document.querySelector('.gallery-main');
+          if (main) {
+            main.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            main.classList.add('gallery-focus');
+            setTimeout(function () { main.classList.remove('gallery-focus'); }, 1200);
+          }
+          var photo = document.getElementById('mainPhoto');
+          if (photo) {
+            try { photo.focus({ preventScroll: true }); } catch (err) { /* ignore */ }
+          }
+          // Advance one step so the control clearly "opens" the gallery
+          galleryIdx = showPhoto(galleryIdx + 1);
+        });
+      }
     }
 
     // Description
@@ -944,9 +1007,21 @@
       pin.className = 'map-pin active';
       pin.style.top = '48%';
       pin.style.left = '52%';
-      var pp = priceParts(item, 'fr');
-      pin.textContent = item.priceUnit === 'sqft' ? (item.price + ' $/pi²') : pp.main;
-      miniMap.appendChild(pin);
+      if (item.priceUnit === 'sqft') {
+        pin.setAttribute('data-fr', '');
+        pin.textContent = item.price + ' $/pi²';
+        miniMap.appendChild(pin);
+        var pinEn = document.createElement('div');
+        pinEn.className = 'map-pin active';
+        pinEn.setAttribute('data-en', '');
+        pinEn.style.top = '48%';
+        pinEn.style.left = '52%';
+        pinEn.textContent = item.price + ' $/sq ft';
+        miniMap.appendChild(pinEn);
+      } else {
+        pin.textContent = priceParts(item, 'fr').main;
+        miniMap.appendChild(pin);
+      }
     }
 
     // Nearby
@@ -1143,6 +1218,29 @@
       setListingsView(location.hash === '#list' ? 'list' : 'gallery', false);
     });
     setListingsView(location.hash === '#list' ? 'list' : 'gallery', false);
+    // NEW-06: keep Summary (#list) across filter submits
+    var form = document.querySelector('form.filter-search');
+    if (form && !form._xltViewBound) {
+      form._xltViewBound = true;
+      form.addEventListener('submit', function (e) {
+        var inList = location.hash === '#list' ||
+          (document.getElementById('listingsGrid') && document.getElementById('listingsGrid').classList.contains('is-summary'));
+        if (!inList) {
+          form.setAttribute('action', 'listings.html');
+          return;
+        }
+        e.preventDefault();
+        var params = new URLSearchParams();
+        Array.prototype.forEach.call(form.elements, function (el) {
+          if (!el.name || el.disabled) return;
+          if ((el.type === 'checkbox' || el.type === 'radio') && !el.checked) return;
+          if (el.tagName === 'BUTTON') return;
+          if (el.value) params.set(el.name, el.value);
+        });
+        var qs = params.toString();
+        location.href = 'listings.html' + (qs ? '?' + qs : '') + '#list';
+      });
+    }
   }
 
   // Heart buttons on static content
