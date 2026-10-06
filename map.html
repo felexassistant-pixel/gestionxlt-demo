@@ -152,11 +152,11 @@
             </div>
           </a>
         </div>
-        <div class="map-list-foot">
-          <span data-fr>1 à 6 de 9</span><span data-en>1–6 of 9</span>
-          <span>
-            <button type="button" class="btn btn-sm btn-outline" style="padding:4px 10px;">‹</button>
-            <button type="button" class="btn btn-sm btn-outline" style="padding:4px 10px;">›</button>
+        <div class="map-list-foot" id="mapListFoot">
+          <span data-fr id="mapRangeFr">1 à 9 de 9</span><span data-en id="mapRangeEn">1–9 of 9</span>
+          <span class="map-pager" id="mapPager" hidden>
+            <button type="button" class="btn btn-sm btn-outline" id="mapPrev" aria-label="Page précédente" style="padding:4px 10px;">‹</button>
+            <button type="button" class="btn btn-sm btn-outline" id="mapNext" aria-label="Page suivante" style="padding:4px 10px;">›</button>
           </span>
         </div>
       </aside>
@@ -181,8 +181,10 @@
           <a href="detail.html" class="map-pin" style="top:68%;left:52%;">28 $/pi²</a>
           <span class="map-pin rented" style="top:40%;left:35%;" data-fr>Loué</span>
           <span class="map-pin rented" style="top:58%;left:30%;" data-fr>Loué</span>
+          <span class="map-pin rented" style="top:70%;left:22%;" data-fr>Loué</span>
           <span class="map-pin rented" style="top:40%;left:35%;" data-en>Rented</span>
           <span class="map-pin rented" style="top:58%;left:30%;" data-en>Rented</span>
+          <span class="map-pin rented" style="top:70%;left:22%;" data-en>Rented</span>
           <div class="map-zoom">
             <button type="button">+</button>
             <button type="button">−</button>

@@ -151,7 +151,7 @@
              '<div style="font-size:11px;color:var(--text-light);margin-top:2px;" data-en>' + item.near.en + '</div>';
     }
     return (
-      '<a href="' + href + '" class="prop-card-h" data-status="' + item.status + '" data-type="' + item.type + '">' +
+      '<a href="' + href + '" class="prop-card-h" data-id="' + item.id + '" data-status="' + item.status + '" data-type="' + item.type + '">' +
         '<div class="prop-media">' +
           '<img src="' + item.image.replace('w=800', 'w=400').replace('q=80', 'q=70') + '" alt="" />' +
           '<span class="pill ' + pillClass + '" data-fr>' + statusLabel(item.status, 'fr') + '</span>' +
@@ -512,57 +512,92 @@
     bindHearts(grid);
   }
 
+  var MAP_PAGE_SIZE = 10;
+  var _mapPage = 0;
+  var _mapFiltered = [];
+
+  function renderMapList() {
+    var body = document.querySelector('.map-list-body');
+    if (!body) return;
+    var total = _mapFiltered.length;
+    var pages = Math.max(1, Math.ceil(total / MAP_PAGE_SIZE));
+    if (_mapPage > pages - 1) _mapPage = pages - 1;
+    if (_mapPage < 0) _mapPage = 0;
+    var start = _mapPage * MAP_PAGE_SIZE;
+    var slice = _mapFiltered.slice(start, start + MAP_PAGE_SIZE);
+    body.innerHTML = slice.map(mapCardHtml).join('');
+    var from = total ? start + 1 : 0;
+    var to = start + slice.length;
+    var rFr = document.getElementById('mapRangeFr');
+    var rEn = document.getElementById('mapRangeEn');
+    if (rFr) rFr.textContent = from + ' à ' + to + ' de ' + total;
+    if (rEn) rEn.textContent = from + '–' + to + ' of ' + total;
+    var pager = document.getElementById('mapPager');
+    var prev = document.getElementById('mapPrev');
+    var next = document.getElementById('mapNext');
+    if (pager) pager.hidden = pages <= 1;
+    if (prev) prev.disabled = _mapPage <= 0;
+    if (next) next.disabled = _mapPage >= pages - 1;
+    applyLang(currentLang());
+  }
+
+  function bindMapPager() {
+    var prev = document.getElementById('mapPrev');
+    var next = document.getElementById('mapNext');
+    if (prev && !prev._xltBound) {
+      prev._xltBound = true;
+      prev.addEventListener('click', function () { _mapPage--; renderMapList(); });
+    }
+    if (next && !next._xltBound) {
+      next._xltBound = true;
+      next.addEventListener('click', function () { _mapPage++; renderMapList(); });
+    }
+  }
+
   function renderMapPage(listings) {
     var body = document.querySelector('.map-list-body');
-    if (body) {
-      body.innerHTML = listings.slice(0, 6).map(mapCardHtml).join('');
-    }
+    if (!body) return; // map.html only
+    var state = getFilterState();
+    _mapFiltered = listings.filter(function (l) { return listingMatches(l, state); });
+    _mapPage = 0;
+    bindMapPager();
+    renderMapList();
+    var n = _mapFiltered.length;
     var headPFr = document.querySelector('.map-list-head p[data-fr]');
     var headPEn = document.querySelector('.map-list-head p[data-en]');
-    if (headPFr) headPFr.textContent = listings.length + ' locations trouvées';
-    if (headPEn) headPEn.textContent = listings.length + ' rentals found';
-    // Only render pins on the full map page, not detail mini-maps
-    var fakeMap = document.querySelector('.map-page .fake-map, .map-layout .fake-map');
-    if (!fakeMap) {
-      // map.html structure: look for main map container
-      fakeMap = document.querySelector('.map-canvas .fake-map, #mapCanvas .fake-map');
-    }
-    if (!fakeMap) {
-      var allMaps = document.querySelectorAll('.fake-map');
-      // Prefer the largest / map-page one; skip detail mini-map (inside .detail-content)
-      allMaps.forEach(function (m) {
-        if (!m.closest('.detail-content') && !m.closest('.detail-layout')) fakeMap = m;
-      });
-    }
-    if (fakeMap && !fakeMap.closest('.detail-content') && !fakeMap.closest('.detail-layout')) {
-      fakeMap.querySelectorAll('.map-pin').forEach(function (p) { p.remove(); });
-      listings.forEach(function (item, i) {
-        var m = item.map || { top: (30 + i * 5) + '%', left: (35 + i * 4) + '%' };
-        var el;
-        if (item.status === 'rented' || m.rented) {
-          el = document.createElement('span');
-          el.className = 'map-pin rented';
-          el.setAttribute('data-fr', '');
-          el.textContent = 'Loué';
-          var el2 = document.createElement('span');
-          el2.className = 'map-pin rented';
-          el2.setAttribute('data-en', '');
-          el2.textContent = 'Rented';
-          el2.style.top = m.top;
-          el2.style.left = m.left;
-          fakeMap.appendChild(el2);
-        } else {
-          el = document.createElement('a');
+    if (headPFr) headPFr.textContent = n + ' location' + (n === 1 ? '' : 's') + ' trouvée' + (n === 1 ? '' : 's');
+    if (headPEn) headPEn.textContent = n + ' rental' + (n === 1 ? '' : 's') + ' found';
+
+    var fakeMap = document.querySelector('#mapPanel .fake-map');
+    if (!fakeMap) return;
+    fakeMap.querySelectorAll('.map-pin').forEach(function (pin) { pin.remove(); });
+    var firstAvail = true;
+    _mapFiltered.forEach(function (item, i) {
+      var m = item.map || { top: (30 + i * 5) + '%', left: (35 + i * 4) + '%' };
+      if (item.status === 'rented') {
+        ['fr', 'en'].forEach(function (lg) {
+          var el = document.createElement('a');
           el.href = 'detail.html?id=' + encodeURIComponent(item.id);
-          el.className = 'map-pin' + (i === 0 ? ' active' : '');
-          var p = priceParts(item, 'fr');
-          el.textContent = item.priceUnit === 'sqft' ? (item.price + ' $/pi²') : (p.main);
-        }
+          el.className = 'map-pin rented';
+          el.setAttribute('data-' + lg, '');
+          el.setAttribute('data-id', item.id);
+          el.textContent = lg === 'en' ? 'Rented' : 'Loué';
+          el.style.top = m.top;
+          el.style.left = m.left;
+          fakeMap.appendChild(el);
+        });
+      } else {
+        var el = document.createElement('a');
+        el.href = 'detail.html?id=' + encodeURIComponent(item.id);
+        el.className = 'map-pin' + (firstAvail ? ' active' : '');
+        el.setAttribute('data-id', item.id);
+        firstAvail = false;
+        el.textContent = item.priceUnit === 'sqft' ? (item.price + ' $/pi²') : priceParts(item, 'fr').main;
         el.style.top = m.top;
         el.style.left = m.left;
         fakeMap.appendChild(el);
-      });
-    }
+      }
+    });
   }
 
   function findDetailHeading(frText) {
@@ -872,11 +907,38 @@
     });
   }
 
+  function setListingsView(view, push) {
+    var grid = document.getElementById('listingsGrid');
+    if (!grid) return;
+    var isList = view === 'list';
+    grid.classList.toggle('is-summary', isList);
+    var g = document.getElementById('viewGallery');
+    var l = document.getElementById('viewList');
+    if (g) { g.classList.toggle('active', !isList); g.setAttribute('aria-pressed', !isList ? 'true' : 'false'); }
+    if (l) { l.classList.toggle('active', isList); l.setAttribute('aria-pressed', isList ? 'true' : 'false'); }
+    if (push && window.history && history.replaceState) {
+      history.replaceState(null, '', location.pathname + location.search + (isList ? '#list' : ''));
+    }
+  }
+
+  function bindViewToggle() {
+    var g = document.getElementById('viewGallery');
+    var l = document.getElementById('viewList');
+    if (!document.getElementById('listingsGrid') || !g || !l) return;
+    g.addEventListener('click', function (e) { e.preventDefault(); setListingsView('gallery', true); });
+    l.addEventListener('click', function (e) { e.preventDefault(); setListingsView('list', true); });
+    window.addEventListener('hashchange', function () {
+      setListingsView(location.hash === '#list' ? 'list' : 'gallery', false);
+    });
+    setListingsView(location.hash === '#list' ? 'list' : 'gallery', false);
+  }
+
   // Heart buttons on static content
   bindHearts(document);
   bindFilters();
   bindSort();
   bindFilterDrawer();
+  bindViewToggle();
   updateFilterBadge(getFilterState());
 
   fetch(DATA_URL)
