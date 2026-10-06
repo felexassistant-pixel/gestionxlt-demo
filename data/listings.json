@@ -126,6 +126,64 @@
       "map": {
         "top": "55%",
         "left": "58%"
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=1400&q=80"
+      ],
+      "near": {
+        "fr": "Près du Dix30 et du REM",
+        "en": "Near Dix30 and the REM"
+      },
+      "availability": {
+        "fr": "Immédiate",
+        "en": "Immediate"
+      },
+      "description": {
+        "fr": "Charmant 3½ lumineux à Brossard, idéal pour un couple ou une personne seule. Proche des commerces du Dix30, du transport et des axes routiers. Cuisine fonctionnelle, rangement abondant et balcon. Géré par Gestion XLT.",
+        "en": "Charming bright 3½ in Brossard, ideal for a couple or single occupant. Close to Dix30 shops, transit and major roads. Functional kitchen, ample storage and a balcony. Managed by Gestion XLT."
+      },
+      "amenities": {
+        "fr": [
+          "Balcon",
+          "Électroménagers inclus",
+          "Chauffage inclus",
+          "Stationnement disponible",
+          "Près du Dix30",
+          "Animaux sur demande"
+        ],
+        "en": [
+          "Balcony",
+          "Appliances included",
+          "Heating included",
+          "Parking available",
+          "Near Dix30",
+          "Pets on request"
+        ]
+      },
+      "details": {
+        "floor": 3,
+        "unitType": {
+          "fr": "Appartement 3½",
+          "en": "3½ apartment"
+        }
+      },
+      "nearby": {
+        "fr": [
+          "Mail Champlain — 10 min",
+          "Dix30 — 8 min",
+          "REM Brossard — 12 min",
+          "Épicerie — 5 min"
+        ],
+        "en": [
+          "Mail Champlain — 10 min",
+          "Dix30 — 8 min",
+          "REM Brossard — 12 min",
+          "Grocery — 5 min"
+        ]
       }
     },
     {
@@ -158,6 +216,64 @@
         "top": "40%",
         "left": "35%",
         "rented": true
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1560448204-603b3fc33ddc?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80"
+      ],
+      "near": {
+        "fr": "Centre-ville, près du métro Berri-UQAM",
+        "en": "Downtown, near Berri-UQAM metro"
+      },
+      "availability": {
+        "fr": "Loué",
+        "en": "Rented"
+      },
+      "description": {
+        "fr": "Spacieux 4½ au cœur de Montréal, à deux pas de la rue Sainte-Catherine. Grands espaces de vie, beaucoup de lumière naturelle et accès facile au métro. Ce logement est actuellement loué.",
+        "en": "Spacious 4½ in the heart of Montreal, steps from Sainte-Catherine Street. Large living areas, plenty of natural light and easy metro access. This unit is currently rented."
+      },
+      "amenities": {
+        "fr": [
+          "Proche du métro",
+          "Cuisine ouverte",
+          "Buanderie dans l'immeuble",
+          "Chauffage inclus",
+          "Rangement",
+          "Ascenseur"
+        ],
+        "en": [
+          "Near metro",
+          "Open kitchen",
+          "Laundry in building",
+          "Heating included",
+          "Storage",
+          "Elevator"
+        ]
+      },
+      "details": {
+        "floor": 5,
+        "unitType": {
+          "fr": "Appartement 4½",
+          "en": "4½ apartment"
+        }
+      },
+      "nearby": {
+        "fr": [
+          "Métro Berri-UQAM — 400 m",
+          "UQAM — 5 min",
+          "Commerces Sainte-Catherine — 3 min",
+          "Parc Émilie-Gamelin — 5 min"
+        ],
+        "en": [
+          "Berri-UQAM metro — 400 m",
+          "UQAM — 5 min",
+          "Sainte-Catherine shops — 3 min",
+          "Émilie-Gamelin Park — 5 min"
+        ]
       }
     },
     {
@@ -172,7 +288,7 @@
         "fr": "Local commercial, Longueuil",
         "en": "Retail space, Longueuil"
       },
-      "address": "2100 rue King Ouest, Sherbrooke / Longueuil",
+      "address": "2100 rue King Ouest, Longueuil",
       "city": "Longueuil",
       "price": 28,
       "priceUnit": "sqft",
@@ -193,6 +309,64 @@
       "specExtra": {
         "fr": "Local commercial",
         "en": "Retail space"
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1555529771-835f59fc5efe?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1441984904996-e0b6ba18b3ed?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1400&q=80"
+      ],
+      "near": {
+        "fr": "Axe commercial achalandé",
+        "en": "Busy commercial corridor"
+      },
+      "availability": {
+        "fr": "Immédiate",
+        "en": "Immediate"
+      },
+      "description": {
+        "fr": "Local commercial de 1 450 pi² sur un axe fréquenté à Longueuil. Grande vitrine, espace ouvert modulable et stationnement à proximité. Idéal pour commerce de détail, services ou showroom. Gestion XLT.",
+        "en": "1,450 sq ft retail space on a busy Longueuil corridor. Large storefront, flexible open floor plan and nearby parking. Ideal for retail, services or a showroom. Managed by Gestion XLT."
+      },
+      "amenities": {
+        "fr": [
+          "Grande vitrine",
+          "Espace ouvert",
+          "Stationnement client",
+          "Accès livraison",
+          "Climatisation",
+          "Enseigne possible"
+        ],
+        "en": [
+          "Large storefront",
+          "Open floor plan",
+          "Customer parking",
+          "Delivery access",
+          "Air conditioning",
+          "Signage possible"
+        ]
+      },
+      "details": {
+        "floor": 1,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        }
+      },
+      "nearby": {
+        "fr": [
+          "Autoroute 20 — 5 min",
+          "Centropolis — 10 min",
+          "Transport en commun — 2 min",
+          "Stationnement public — adjacent"
+        ],
+        "en": [
+          "Highway 20 — 5 min",
+          "Centropolis — 10 min",
+          "Transit — 2 min",
+          "Public parking — adjacent"
+        ]
       }
     },
     {
@@ -224,6 +398,64 @@
       "map": {
         "top": "35%",
         "left": "62%"
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1400&q=80"
+      ],
+      "near": {
+        "fr": "Vieux-Longueuil, près des services",
+        "en": "Old Longueuil, near services"
+      },
+      "availability": {
+        "fr": "Sous 30 jours",
+        "en": "Within 30 days"
+      },
+      "description": {
+        "fr": "Coquet 3½ dans le Vieux-Longueuil, à distance de marche des cafés, restaurants et du fleuve. Parfait pour un premier appartement. Électroménagers inclus, chauffage inclus.",
+        "en": "Cozy 3½ in Old Longueuil, walking distance to cafés, restaurants and the river. Perfect as a first apartment. Appliances and heating included."
+      },
+      "amenities": {
+        "fr": [
+          "Électroménagers inclus",
+          "Chauffage inclus",
+          "Près du fleuve",
+          "Commerces à pied",
+          "Rangement",
+          "Animaux sur demande"
+        ],
+        "en": [
+          "Appliances included",
+          "Heating included",
+          "Near the river",
+          "Shops within walking distance",
+          "Storage",
+          "Pets on request"
+        ]
+      },
+      "details": {
+        "floor": 2,
+        "unitType": {
+          "fr": "Appartement 3½",
+          "en": "3½ apartment"
+        }
+      },
+      "nearby": {
+        "fr": [
+          "Rue Saint-Charles — 3 min",
+          "Parc Michel-Chartrand — 12 min",
+          "Métro Longueuil — 15 min",
+          "Épicerie — 5 min"
+        ],
+        "en": [
+          "Saint-Charles Street — 3 min",
+          "Michel-Chartrand Park — 12 min",
+          "Longueuil metro — 15 min",
+          "Grocery — 5 min"
+        ]
       }
     },
     {
@@ -260,6 +492,64 @@
       "specExtra": {
         "fr": "Bureau",
         "en": "Office"
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=80"
+      ],
+      "near": {
+        "fr": "Secteur Victoria, Saint-Lambert",
+        "en": "Victoria sector, Saint-Lambert"
+      },
+      "availability": {
+        "fr": "Loué",
+        "en": "Rented"
+      },
+      "description": {
+        "fr": "Bureau de 1 200 pi² à Saint-Lambert, bien situé près des services et du pont Victoria. Espaces de travail ouverts, salles de réunion possibles et stationnement. Actuellement loué.",
+        "en": "1,200 sq ft office in Saint-Lambert, well located near services and the Victoria Bridge. Open work areas, meeting-room potential and parking. Currently rented."
+      },
+      "amenities": {
+        "fr": [
+          "Espace ouvert",
+          "Fibre disponible",
+          "Stationnement",
+          "Climatisation",
+          "Salle de pause",
+          "Accès 24/7"
+        ],
+        "en": [
+          "Open space",
+          "Fibre available",
+          "Parking",
+          "Air conditioning",
+          "Break room",
+          "24/7 access"
+        ]
+      },
+      "details": {
+        "floor": 2,
+        "unitType": {
+          "fr": "Bureau",
+          "en": "Office"
+        }
+      },
+      "nearby": {
+        "fr": [
+          "Gare Saint-Lambert — 8 min",
+          "Pont Victoria — 10 min",
+          "Commerces Victoria — 5 min",
+          "Cafés — 3 min"
+        ],
+        "en": [
+          "Saint-Lambert station — 8 min",
+          "Victoria Bridge — 10 min",
+          "Victoria shops — 5 min",
+          "Cafés — 3 min"
+        ]
       }
     },
     {
@@ -291,6 +581,64 @@
       "map": {
         "top": "48%",
         "left": "70%"
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1600047509807-ba8f99d2cd41?auto=format&fit=crop&w=1400&q=80"
+      ],
+      "near": {
+        "fr": "Secteur résidentiel calme à Laval",
+        "en": "Quiet residential area in Laval"
+      },
+      "availability": {
+        "fr": "Sous 30 jours",
+        "en": "Within 30 days"
+      },
+      "description": {
+        "fr": "Grand 5½ familial à Laval avec 3 chambres et 2 salles de bain. Idéal pour une famille : espaces généreux, rangement et proximité des écoles et parcs. Disponibilité sous 30 jours.",
+        "en": "Large family 5½ in Laval with 3 bedrooms and 2 bathrooms. Ideal for a family: generous rooms, storage and close to schools and parks. Available within 30 days."
+      },
+      "amenities": {
+        "fr": [
+          "3 chambres",
+          "2 salles de bain",
+          "Stationnement inclus",
+          "Cour / espace extérieur",
+          "Chauffage inclus",
+          "Près des écoles"
+        ],
+        "en": [
+          "3 bedrooms",
+          "2 bathrooms",
+          "Parking included",
+          "Yard / outdoor space",
+          "Heating included",
+          "Near schools"
+        ]
+      },
+      "details": {
+        "floor": 1,
+        "unitType": {
+          "fr": "Appartement 5½",
+          "en": "5½ apartment"
+        }
+      },
+      "nearby": {
+        "fr": [
+          "École primaire — 8 min",
+          "Parc — 5 min",
+          "Épicerie — 7 min",
+          "Autoroute 25 — 10 min"
+        ],
+        "en": [
+          "Elementary school — 8 min",
+          "Park — 5 min",
+          "Grocery — 7 min",
+          "Highway 25 — 10 min"
+        ]
       }
     },
     {
@@ -327,6 +675,64 @@
       "specExtra": {
         "fr": "Commerce",
         "en": "Retail"
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1555529771-835f59fc5efe?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1441984904996-e0b6ba18b3ed?auto=format&fit=crop&w=1400&q=80"
+      ],
+      "near": {
+        "fr": "Boulevard Cousineau, Saint-Hubert",
+        "en": "Cousineau Blvd, Saint-Hubert"
+      },
+      "availability": {
+        "fr": "Loué",
+        "en": "Rented"
+      },
+      "description": {
+        "fr": "Local commercial de 900 pi² sur le boulevard Cousineau à Saint-Hubert. Bonne visibilité, accès facile et stationnement. Convient à un commerce de proximité. Actuellement loué.",
+        "en": "900 sq ft retail unit on Cousineau Boulevard in Saint-Hubert. Good visibility, easy access and parking. Suitable for a neighbourhood business. Currently rented."
+      },
+      "amenities": {
+        "fr": [
+          "Vitrine sur rue",
+          "Stationnement",
+          "Accès facile",
+          "Climatisation",
+          "Entreposage arrière",
+          "Enseigne"
+        ],
+        "en": [
+          "Street storefront",
+          "Parking",
+          "Easy access",
+          "Air conditioning",
+          "Rear storage",
+          "Signage"
+        ]
+      },
+      "details": {
+        "floor": 1,
+        "unitType": {
+          "fr": "Commerce",
+          "en": "Retail"
+        }
+      },
+      "nearby": {
+        "fr": [
+          "Promenades St-Bruno — 12 min",
+          "Transport en commun — 3 min",
+          "Épicerie — 5 min",
+          "Autoroute 30 — 8 min"
+        ],
+        "en": [
+          "Promenades St-Bruno — 12 min",
+          "Transit — 3 min",
+          "Grocery — 5 min",
+          "Highway 30 — 8 min"
+        ]
       }
     },
     {
@@ -353,11 +759,69 @@
       "baths": 1,
       "sqft": 780,
       "photoCount": 14,
-      "image": "https://images.unsplash.com/photo-1560185127-6ed189bf61f2?auto=format&fit=crop&w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1560448204-61dc36dc98c8?auto=format&fit=crop&w=800&q=80",
       "featured": false,
       "map": {
         "top": "60%",
         "left": "42%"
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1560448204-61dc36dc98c8?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=1400&q=80"
+      ],
+      "near": {
+        "fr": "Hochelaga, près des services",
+        "en": "Hochelaga, near services"
+      },
+      "availability": {
+        "fr": "Immédiate",
+        "en": "Immediate"
+      },
+      "description": {
+        "fr": "Bel 4½ à louer sur la rue Joliette à Montréal. Quartier vivant d'Hochelaga avec commerces, cafés et parcs à proximité. Deux chambres, cuisine moderne et disponibilité immédiate.",
+        "en": "Nice 4½ for rent on Joliette Street in Montreal. Lively Hochelaga neighbourhood with shops, cafés and parks nearby. Two bedrooms, modern kitchen and immediate availability."
+      },
+      "amenities": {
+        "fr": [
+          "Cuisine moderne",
+          "2 chambres",
+          "Chauffage inclus",
+          "Près des commerces",
+          "Transport en commun",
+          "Animaux sur demande"
+        ],
+        "en": [
+          "Modern kitchen",
+          "2 bedrooms",
+          "Heating included",
+          "Near shops",
+          "Public transit",
+          "Pets on request"
+        ]
+      },
+      "details": {
+        "floor": 3,
+        "unitType": {
+          "fr": "Appartement 4½",
+          "en": "4½ apartment"
+        }
+      },
+      "nearby": {
+        "fr": [
+          "Métro Joliette — 600 m",
+          "Parc Morgan — 8 min",
+          "Épicerie — 4 min",
+          "Café de quartier — 3 min"
+        ],
+        "en": [
+          "Joliette metro — 600 m",
+          "Morgan Park — 8 min",
+          "Grocery — 4 min",
+          "Neighbourhood café — 3 min"
+        ]
       }
     }
   ]

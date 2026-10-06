@@ -52,28 +52,28 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
           <div>
             <label data-fr>Emplacement</label><label data-en>Location</label>
-            <select name="loc"><option>Grand Montréal</option><option>Longueuil</option><option>Brossard</option><option>Montréal</option><option>Saint-Lambert</option></select>
+            <select name="loc"><option value="" data-fr="Grand Montréal" data-en="Greater Montreal">Grand Montréal</option><option value="Longueuil">Longueuil</option><option value="Brossard">Brossard</option><option value="Montréal">Montréal</option><option value="Saint-Lambert">Saint-Lambert</option><option value="Laval">Laval</option><option value="Saint-Hubert">Saint-Hubert</option></select>
           </div>
         </div>
         <div class="search-field">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9.5z"/></svg>
           <div>
             <label data-fr>Type de propriété</label><label data-en>Property type</label>
-            <select name="type"><option value="" data-fr>Tous les types</option><option value="res" data-fr>Résidentiel</option><option value="com" data-fr>Commerce</option><option value="off" data-fr>Bureau</option></select>
+            <select name="type"><option value="" data-fr="Tous les types" data-en="All types">Tous les types</option><option value="res" data-fr="Résidentiel" data-en="Residential">Résidentiel</option><option value="com" data-fr="Commerce" data-en="Retail">Commerce</option><option value="off" data-fr="Bureau" data-en="Office">Bureau</option></select>
           </div>
         </div>
         <div class="search-field">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.6 13.4A9 9 0 1 1 10.6 3.4"/><path d="M22 2 12 12"/></svg>
           <div>
             <label data-fr>Statut</label><label data-en>Status</label>
-            <select name="status"><option value="" data-fr>À louer</option><option value="open" data-fr>Disponible</option><option value="rented" data-fr>Loué</option></select>
+            <select name="status"><option value="" data-fr="Tous les statuts" data-en="All statuses">À louer</option><option value="open" data-fr="Disponible" data-en="Available">Disponible</option><option value="rented" data-fr="Loué" data-en="Rented">Loué</option></select>
           </div>
         </div>
         <div class="search-field">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>
           <div>
             <label data-fr>Disponibilité</label><label data-en>Availability</label>
-            <select name="avail"><option value="" data-fr>Tous les statuts</option><option data-fr>Immédiate</option><option data-fr>Sous 30 jours</option></select>
+            <select name="avail"><option value="" data-fr="Tous" data-en="All">Tous les statuts</option><option value="Immédiate" data-fr="Immédiate" data-en="Immediate">Immédiate</option><option value="Sous 30 jours" data-fr="Sous 30 jours" data-en="Within 30 days">Sous 30 jours</option></select>
           </div>
         </div>
         <button type="submit" class="btn btn-primary">
@@ -122,11 +122,10 @@
       <strong data-fr>9 propriétés trouvées</strong>
       <strong data-en>9 properties found</strong>
       <select class="sort-select" aria-label="Sort">
-        <option data-fr>Trier par : Pertinence</option>
-        <option data-en>Sort: Relevance</option>
-        <option data-fr>Prix ↑</option>
-        <option data-fr>Prix ↓</option>
-        <option data-fr>Plus récent</option>
+        <option value="relevance" data-fr="Trier par : Pertinence" data-en="Sort: Relevance">Trier par : Pertinence</option>
+        <option value="price-asc" data-fr="Prix ↑" data-en="Price ↑">Prix ↑</option>
+        <option value="price-desc" data-fr="Prix ↓" data-en="Price ↓">Prix ↓</option>
+        <option value="newest" data-fr="Plus récent" data-en="Newest">Plus récent</option>
       </select>
     </div>
 

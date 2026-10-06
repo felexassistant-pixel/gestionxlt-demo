@@ -224,6 +224,17 @@ button { cursor: pointer; border: none; background: none; }
   justify-content: center;
   margin-top: 12px;
   width: 100%;
+  color: #fff;
+  background: var(--navy);
+}
+.mobile-nav .btn-cta:hover,
+.mobile-nav a.btn-cta:hover {
+  color: #fff;
+  background: var(--navy-mid);
+}
+.mobile-nav .btn-cta [data-fr],
+.mobile-nav .btn-cta [data-en] {
+  color: inherit;
 }
 
 /* —— Buttons —— */
@@ -604,9 +615,14 @@ button { cursor: pointer; border: none; background: none; }
   background: #fff;
   border-bottom: 1px solid var(--border);
   padding: 16px 0 12px;
-  position: sticky;
-  top: var(--header-h);
+  position: static;
   z-index: 50;
+}
+@media (min-width: 800px) {
+  .page-toolbar {
+    position: sticky;
+    top: var(--header-h);
+  }
 }
 .filter-search {
   background: #fff;
@@ -1210,5 +1226,7 @@ button { cursor: pointer; border: none; background: none; }
 .mb-2 { margin-bottom: 8px; }
 
 /* EN language visibility (JS toggles .lang-en on html) */
-html.lang-en [data-fr] { display: none !important; }
-html:not(.lang-en) [data-en] { display: none !important; }
+html.lang-en [data-fr]:not(option) { display: none !important; }
+html:not(.lang-en) [data-en]:not(option) { display: none !important; }
+/* Options use data-fr/data-en attributes; JS sets textContent on language toggle */
+option[data-en][data-fr] { display: block !important; }
