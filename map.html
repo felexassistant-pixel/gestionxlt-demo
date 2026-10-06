@@ -76,10 +76,25 @@
           <p data-fr>9 locations trouvées</p>
           <p data-en>9 rentals found</p>
           <div class="map-list-actions">
-            <button type="button" class="btn btn-sm btn-outline" data-fr>Filtres</button>
-            <button type="button" class="btn btn-sm btn-outline" data-en>Filters</button>
-            <button type="button" class="btn btn-sm btn-outline" data-fr>Trier ▾</button>
-            <button type="button" class="btn btn-sm btn-outline" data-en>Sort ▾</button>
+            <div class="map-action">
+              <button type="button" class="btn btn-sm btn-outline map-action-btn" id="mapFiltersToggle" aria-haspopup="dialog" aria-expanded="false" aria-controls="mapFilterPanel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5h16M7 12h10M10 19h4"/></svg>
+                <span data-fr>Filtres</span><span data-en>Filters</span>
+                <span class="filter-count" id="mapFilterCount" hidden></span>
+              </button>
+            </div>
+            <div class="map-action" id="mapSortWrap">
+              <button type="button" class="btn btn-sm btn-outline map-action-btn" id="mapSortToggle" aria-haspopup="menu" aria-expanded="false" aria-controls="mapSortMenu">
+                <span data-fr id="mapSortLabelFr">Trier : Pertinence</span><span data-en id="mapSortLabelEn">Sort: Relevance</span>
+                <span class="caret" aria-hidden="true">▾</span>
+              </button>
+              <div class="map-sort-menu" id="mapSortMenu" role="menu" aria-labelledby="mapSortToggle" hidden>
+                <button type="button" role="menuitemradio" aria-checked="true" data-sort="relevance" tabindex="-1"><span data-fr>Pertinence</span><span data-en>Relevance</span></button>
+                <button type="button" role="menuitemradio" aria-checked="false" data-sort="price-asc" tabindex="-1"><span data-fr>Prix ↑</span><span data-en>Price ↑</span></button>
+                <button type="button" role="menuitemradio" aria-checked="false" data-sort="price-desc" tabindex="-1"><span data-fr>Prix ↓</span><span data-en>Price ↓</span></button>
+                <button type="button" role="menuitemradio" aria-checked="false" data-sort="newest" tabindex="-1"><span data-fr>Plus récent</span><span data-en>Newest</span></button>
+              </div>
+            </div>
           </div>
         </div>
         <div class="map-list-body">
@@ -193,6 +208,57 @@
           <p class="map-disclaimer" data-en>Prices are indicative. See the listing for details.</p>
         </div>
       </section>
+    </div>
+  </div>
+
+  <!-- Map list filters: bottom sheet on mobile, popover on desktop -->
+  <div class="map-filter-panel" id="mapFilterPanel" hidden>
+    <div class="map-filter-backdrop" id="mapFilterBackdrop"></div>
+    <div class="map-filter-sheet" role="dialog" aria-modal="true" aria-labelledby="mapFilterTitle">
+      <div class="map-filter-head">
+        <h3 id="mapFilterTitle"><span data-fr>Filtres</span><span data-en>Filters</span></h3>
+        <button type="button" class="map-filter-close" id="mapFilterClose" aria-label="Fermer / Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <form class="map-filter-form" id="mapFilterForm" action="map.html" method="get">
+        <div class="map-filter-fields">
+          <div class="search-field">
+            <div>
+              <label for="mfType"><span data-fr>Type de propriété</span><span data-en>Property type</span></label>
+              <select name="type" id="mfType"><option value="" data-fr="Tous les types" data-en="All types">Tous les types</option><option value="res" data-fr="Résidentiel" data-en="Residential">Résidentiel</option><option value="com" data-fr="Commerce" data-en="Retail">Commerce</option><option value="off" data-fr="Bureau" data-en="Office">Bureau</option></select>
+            </div>
+          </div>
+          <div class="search-field">
+            <div>
+              <label for="mfStatus"><span data-fr>Statut</span><span data-en>Status</span></label>
+              <select name="status" id="mfStatus"><option value="" data-fr="Tous les statuts" data-en="All statuses">Tous les statuts</option><option value="open" data-fr="Disponible" data-en="Available">Disponible</option><option value="rented" data-fr="Loué" data-en="Rented">Loué</option></select>
+            </div>
+          </div>
+          <div class="search-field">
+            <div>
+              <label for="mfLoc"><span data-fr>Emplacement</span><span data-en>Location</span></label>
+              <select name="loc" id="mfLoc"><option value="" data-fr="Grand Montréal" data-en="Greater Montreal">Grand Montréal</option><option value="Longueuil">Longueuil</option><option value="Brossard">Brossard</option><option value="Montréal">Montréal</option><option value="Saint-Lambert">Saint-Lambert</option><option value="Laval">Laval</option><option value="Saint-Hubert">Saint-Hubert</option></select>
+            </div>
+          </div>
+          <div class="search-field">
+            <div>
+              <label for="mfPrice"><span data-fr>Prix maximum</span><span data-en>Max price</span></label>
+              <select name="price" id="mfPrice"><option value="" data-fr="Tout prix" data-en="Any price">Tout prix</option><option value="1 200 $">1 200 $</option><option value="1 500 $">1 500 $</option><option value="2 000 $">2 000 $</option><option value="2 500 $+">2 500 $+</option></select>
+            </div>
+          </div>
+          <div class="search-field">
+            <div>
+              <label for="mfAvail"><span data-fr>Disponibilité</span><span data-en>Availability</span></label>
+              <select name="avail" id="mfAvail"><option value="" data-fr="Tous" data-en="All">Tous</option><option value="Immédiate" data-fr="Immédiate" data-en="Immediate">Immédiate</option><option value="Sous 30 jours" data-fr="Sous 30 jours" data-en="Within 30 days">Sous 30 jours</option></select>
+            </div>
+          </div>
+        </div>
+        <div class="map-filter-actions">
+          <button type="button" class="btn btn-outline" id="mapFilterReset"><span data-fr>Réinitialiser</span><span data-en>Reset</span></button>
+          <button type="submit" class="btn btn-primary" id="mapFilterApply"><span data-fr id="mapApplyFr">Afficher les résultats</span><span data-en id="mapApplyEn">Show results</span></button>
+        </div>
+      </form>
     </div>
   </div>
 

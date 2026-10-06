@@ -462,23 +462,26 @@
     updateFilterBadge(state);
   }
 
-  function updateFilterBadge(state) {
-    state = state || getFilterState();
+  function countActiveFilters(state) {
     var n = 0;
     if (state.loc) n++;
     if (state.type) n++;
     if (state.status) n++;
     if (state.avail) n++;
     if (state.price) n++;
-    var badge = document.getElementById('filterCount');
-    if (!badge) return;
-    if (n > 0) {
-      badge.hidden = false;
-      badge.textContent = String(n);
-    } else {
-      badge.hidden = true;
-      badge.textContent = '';
-    }
+    return n;
+  }
+
+  function updateFilterBadge(state) {
+    state = state || getFilterState();
+    var n = countActiveFilters(state);
+    ['filterCount', 'mapFilterCount'].forEach(function (id) {
+      var badge = document.getElementById(id);
+      if (!badge) return;
+      badge.hidden = n === 0;
+      badge.textContent = n > 0 ? String(n) : '';
+      badge.setAttribute('aria-label', n > 0 ? (n + (currentLang() === 'en' ? ' active filters' : ' filtres actifs')) : '');
+    });
   }
 
   function renderListingsPage(listings) {
@@ -515,6 +518,210 @@
   var MAP_PAGE_SIZE = 10;
   var _mapPage = 0;
   var _mapFiltered = [];
+  var _mapAll = [];
+  var _mapSort = 'relevance';
+  var SORT_LABELS = {
+    'relevance': { fr: 'Pertinence', en: 'Relevance' },
+    'price-asc': { fr: 'Prix ↑', en: 'Price ↑' },
+    'price-desc': { fr: 'Prix ↓', en: 'Price ↓' },
+    'newest': { fr: 'Plus récent', en: 'Newest' }
+  };
+  var FILTER_NAMES = ['loc', 'type', 'status', 'price', 'avail'];
+
+  function sortMapItems(items, mode) {
+    var idx = {};
+    _mapAll.forEach(function (l, i) { idx[l.id] = i; });
+    return items.map(function (l) {
+      return { item: l, id: l.id, price: l.price, unit: l.priceUnit, idx: idx.hasOwnProperty(l.id) ? idx[l.id] : 999 };
+    }).sort(function (a, b) { return compareByMode(a, b, mode); })
+      .map(function (k) { return k.item; });
+  }
+
+  function setMapSort(mode) {
+    if (!SORT_LABELS[mode]) mode = 'relevance';
+    _mapSort = mode;
+    var fr = document.getElementById('mapSortLabelFr');
+    var en = document.getElementById('mapSortLabelEn');
+    if (fr) fr.textContent = 'Trier : ' + SORT_LABELS[mode].fr;
+    if (en) en.textContent = 'Sort: ' + SORT_LABELS[mode].en;
+    document.querySelectorAll('#mapSortMenu [data-sort]').forEach(function (b) {
+      b.setAttribute('aria-checked', b.getAttribute('data-sort') === mode ? 'true' : 'false');
+    });
+    _mapFiltered = sortMapItems(_mapFiltered, mode);
+    _mapPage = 0;
+    renderMapList();
+  }
+
+  function selectOptionMatching(sel, test) {
+    if (!sel) return;
+    var found = '';
+    Array.prototype.forEach.call(sel.options, function (o) { if (!found && o.value && test(o)) found = o.value; });
+    sel.value = found;
+  }
+
+  function syncMapFilterForm(state) {
+    var form = document.getElementById('mapFilterForm');
+    if (!form) return;
+    var el = form.elements;
+    selectOptionMatching(el.type, function (o) { return o.value === state.type; });
+    selectOptionMatching(el.status, function (o) {
+      return (state.status === 'available' && o.value === 'open') || (state.status === 'rented' && o.value === 'rented');
+    });
+    selectOptionMatching(el.loc, function (o) { return state.loc && o.value.toLowerCase() === state.loc.toLowerCase(); });
+    var lim = parsePriceLimit(state.price);
+    selectOptionMatching(el.price, function (o) {
+      var ol = parsePriceLimit(o.value);
+      return lim && ol && ol.value === lim.value && ol.min === lim.min;
+    });
+    var a = (state.avail || '').toLowerCase();
+    selectOptionMatching(el.avail, function (o) {
+      return a && (o.value.toLowerCase() === a || (o.getAttribute('data-en') || '').toLowerCase() === a);
+    });
+  }
+
+  function mapFormState(form) {
+    var el = form.elements;
+    return {
+      type: normalizeType(el.type.value),
+      loc: el.loc.value,
+      price: el.price.value,
+      status: normalizeStatus(el.status.value),
+      avail: el.avail.value
+    };
+  }
+
+  function updateMapApplyLabel() {
+    var form = document.getElementById('mapFilterForm');
+    if (!form || !_mapAll.length) return;
+    var st = mapFormState(form);
+    var n = _mapAll.filter(function (l) { return listingMatches(l, st); }).length;
+    var fr = document.getElementById('mapApplyFr');
+    var en = document.getElementById('mapApplyEn');
+    if (fr) fr.textContent = n === 1 ? 'Afficher 1 résultat' : 'Afficher ' + n + ' résultats';
+    if (en) en.textContent = n === 1 ? 'Show 1 result' : 'Show ' + n + ' results';
+  }
+
+  function applyMapFilterParams(params) {
+    var qs = params.toString();
+    if (window.history && history.replaceState) {
+      history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+    }
+    renderMapPage(_mapAll);
+  }
+
+  function bindMapControls() {
+    var fToggle = document.getElementById('mapFiltersToggle');
+    var panel = document.getElementById('mapFilterPanel');
+    var form = document.getElementById('mapFilterForm');
+    var sToggle = document.getElementById('mapSortToggle');
+    var menu = document.getElementById('mapSortMenu');
+    var sortWrap = document.getElementById('mapSortWrap');
+    if (!fToggle || !panel || !form || !sToggle || !menu) return;
+    var sheet = panel.querySelector('.map-filter-sheet');
+    var mq = window.matchMedia('(max-width: 899px)');
+
+    function positionSheet() {
+      if (mq.matches) {
+        sheet.style.top = ''; sheet.style.left = ''; sheet.style.width = '';
+        return;
+      }
+      var head = document.querySelector('.map-list-head');
+      var hr = head ? head.getBoundingClientRect() : { left: 16, width: 420 };
+      var r = fToggle.getBoundingClientRect();
+      sheet.style.top = Math.round(r.bottom + 8) + 'px';
+      sheet.style.left = Math.round(hr.left + 12) + 'px';
+      sheet.style.width = Math.round(Math.max(300, Math.min(420, hr.width - 24))) + 'px';
+    }
+    function openPanel() {
+      closeSort(false);
+      syncMapFilterForm(getFilterState());
+      updateMapApplyLabel();
+      panel.hidden = false;
+      fToggle.setAttribute('aria-expanded', 'true');
+      positionSheet();
+      var first = form.querySelector('select');
+      if (first) first.focus();
+    }
+    function closePanel(restoreFocus) {
+      if (panel.hidden) return;
+      panel.hidden = true;
+      fToggle.setAttribute('aria-expanded', 'false');
+      if (restoreFocus) fToggle.focus();
+    }
+    function sortItems() { return Array.prototype.slice.call(menu.querySelectorAll('[data-sort]')); }
+    function openSort() {
+      closePanel(false);
+      menu.hidden = false;
+      sToggle.setAttribute('aria-expanded', 'true');
+      var cur = menu.querySelector('[aria-checked="true"]') || sortItems()[0];
+      if (cur) cur.focus();
+    }
+    function closeSort(restoreFocus) {
+      if (menu.hidden) return;
+      menu.hidden = true;
+      sToggle.setAttribute('aria-expanded', 'false');
+      if (restoreFocus) sToggle.focus();
+    }
+
+    fToggle.addEventListener('click', function () { panel.hidden ? openPanel() : closePanel(true); });
+    document.getElementById('mapFilterBackdrop').addEventListener('click', function () { closePanel(true); });
+    document.getElementById('mapFilterClose').addEventListener('click', function () { closePanel(true); });
+    form.addEventListener('change', updateMapApplyLabel);
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var params = new URLSearchParams();
+      FILTER_NAMES.forEach(function (n) {
+        var el = form.elements[n];
+        if (el && el.value) params.set(n, el.value);
+      });
+      applyMapFilterParams(params);
+      closePanel(true);
+    });
+    document.getElementById('mapFilterReset').addEventListener('click', function () {
+      FILTER_NAMES.forEach(function (n) { if (form.elements[n]) form.elements[n].value = ''; });
+      applyMapFilterParams(new URLSearchParams());
+      updateMapApplyLabel();
+    });
+    // Keep focus inside the open filter dialog
+    panel.addEventListener('keydown', function (e) {
+      if (e.key !== 'Tab') return;
+      var f = Array.prototype.filter.call(sheet.querySelectorAll('button, select, a[href], input'), function (x) { return !x.disabled && x.offsetParent !== null; });
+      if (!f.length) return;
+      if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
+      else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
+    });
+
+    sToggle.addEventListener('click', function () { menu.hidden ? openSort() : closeSort(true); });
+    sToggle.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); openSort(); }
+    });
+    sortItems().forEach(function (b) {
+      b.addEventListener('click', function () {
+        setMapSort(b.getAttribute('data-sort'));
+        closeSort(true);
+      });
+    });
+    menu.addEventListener('keydown', function (e) {
+      var items = sortItems();
+      var i = items.indexOf(document.activeElement);
+      if (e.key === 'ArrowDown') { e.preventDefault(); items[(i + 1) % items.length].focus(); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
+      else if (e.key === 'Home') { e.preventDefault(); items[0].focus(); }
+      else if (e.key === 'End') { e.preventDefault(); items[items.length - 1].focus(); }
+      else if (e.key === 'Tab') { closeSort(false); }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!menu.hidden && sortWrap && !sortWrap.contains(e.target)) closeSort(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      if (!panel.hidden) closePanel(true);
+      else if (!menu.hidden) closeSort(true);
+    });
+    window.addEventListener('resize', function () { if (!panel.hidden) positionSheet(); });
+    document.addEventListener('xlt-lang', function () { updateFilterBadge(); });
+  }
 
   function renderMapList() {
     var body = document.querySelector('.map-list-body');
@@ -558,8 +765,11 @@
     var body = document.querySelector('.map-list-body');
     if (!body) return; // map.html only
     var state = getFilterState();
-    _mapFiltered = listings.filter(function (l) { return listingMatches(l, state); });
+    _mapAll = listings;
+    _mapFiltered = sortMapItems(listings.filter(function (l) { return listingMatches(l, state); }), _mapSort);
     _mapPage = 0;
+    updateFilterBadge(state);
+    syncMapFilterForm(state);
     bindMapPager();
     renderMapList();
     var n = _mapFiltered.length;
@@ -834,37 +1044,39 @@
     }
   }
 
+  /** Shared sort for listings grid + map list. a/b: {id, price, unit, idx} */
+  function compareByMode(a, b, mode) {
+    if (mode === 'price-asc' || mode === 'price-desc') {
+      // Monthly rents first, then $/sq ft (units are not comparable)
+      if (a.unit !== b.unit) {
+        if (a.unit === 'month') return -1;
+        if (b.unit === 'month') return 1;
+      }
+      return mode === 'price-asc' ? (a.price - b.price) : (b.price - a.price);
+    }
+    if (mode === 'newest') {
+      return String(b.id).localeCompare(String(a.id), undefined, { numeric: true });
+    }
+    return a.idx - b.idx; // relevance = data order
+  }
+
   function sortListings(mode) {
     var grid = document.getElementById('listingsGrid');
     if (!grid) return;
-    var cards = Array.prototype.slice.call(grid.querySelectorAll('.prop-card'));
     var orderIndex = {};
     (_listingsCache || []).forEach(function (l, i) { orderIndex[l.id] = i; });
-    cards.sort(function (a, b) {
-      var ida = a.getAttribute('data-id') || '';
-      var idb = b.getAttribute('data-id') || '';
-      var pa = parseFloat(a.getAttribute('data-price')) || 0;
-      var pb = parseFloat(b.getAttribute('data-price')) || 0;
-      var ua = a.getAttribute('data-price-unit') || '';
-      var ub = b.getAttribute('data-price-unit') || '';
-      // Keep sqft and monthly somewhat comparable by sorting within unit groups first for price modes
-      if (mode === 'price-asc' || mode === 'price-desc') {
-        if (ua !== ub) {
-          // monthly first, then sqft
-          if (ua === 'month' && ub !== 'month') return -1;
-          if (ub === 'month' && ua !== 'month') return 1;
-        }
-        return mode === 'price-asc' ? (pa - pb) : (pb - pa);
-      }
-      if (mode === 'newest') {
-        return idb.localeCompare(ida, undefined, { numeric: true });
-      }
-      // relevance: original JSON order
-      var ia = orderIndex.hasOwnProperty(ida) ? orderIndex[ida] : 999;
-      var ib = orderIndex.hasOwnProperty(idb) ? orderIndex[idb] : 999;
-      return ia - ib;
+    var keyed = Array.prototype.map.call(grid.querySelectorAll('.prop-card'), function (c) {
+      var id = c.getAttribute('data-id') || '';
+      return {
+        el: c,
+        id: id,
+        price: parseFloat(c.getAttribute('data-price')) || 0,
+        unit: c.getAttribute('data-price-unit') || '',
+        idx: orderIndex.hasOwnProperty(id) ? orderIndex[id] : 999
+      };
     });
-    cards.forEach(function (c) { grid.appendChild(c); });
+    keyed.sort(function (a, b) { return compareByMode(a, b, mode); });
+    keyed.forEach(function (k) { grid.appendChild(k.el); });
   }
 
   function bindSort() {
@@ -939,6 +1151,7 @@
   bindSort();
   bindFilterDrawer();
   bindViewToggle();
+  bindMapControls();
   updateFilterBadge(getFilterState());
 
   fetch(DATA_URL)
