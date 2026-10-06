@@ -1,52 +1,282 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gestion XLT · Property listings demo</title>
-  <meta name="description" content="Gestion XLT — available and leased units across Greater Montreal. Demo site." />
+  <title>Gestion XLT — Locations Grand Montréal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <header>
-    <div class="brand" data-i18n="brand">Gestion XLT</div>
-    <nav class="nav">
-      <a href="index.html" data-i18n="listings">Listings</a>
-      <a href="area.html" data-i18n="area">Area</a>
-      <a href="#contact" data-i18n="contact">Contact</a>
-      <button type="button" class="ghost" id="langBtn">EN</button>
-    </nav>
+<body class="has-bottom-nav">
+
+<header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Gestion XLT">
+        <div class="logo-mark"><span>XLT</span></div>
+        <div class="logo-text">
+          <strong>Gestion XLT</strong>
+          <small>Locations</small>
+        </div>
+      </a>
+      <nav class="nav-desktop" aria-label="Principal">
+        <a href="listings.html" class="active" data-fr>À louer</a><a href="listings.html" class="active" data-en>For rent</a>
+        <a href="listings.html?type=residential" data-fr>Résidentiel</a><a href="listings.html?type=residential" data-en>Residential</a>
+        <a href="listings.html?type=commercial" data-fr>Commercial</a><a href="listings.html?type=commercial" data-en>Commercial</a>
+        <a href="listings.html?type=office" data-fr>Bureaux</a><a href="listings.html?type=office" data-en>Offices</a>
+      </nav>
+      <div class="header-actions">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" class="active" data-lang="fr">FR</button>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+        <a href="detail.html" class="btn-cta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <span data-fr>Planifier une visite</span><span data-en>Book a visit</span>
+        </a>
+        <button type="button" class="menu-btn" id="menuBtn" aria-label="Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
   </header>
-  <main>
-    <section class="hero">
-      <h1 data-i18n="tag">Lease your ideal space</h1>
-      <p data-i18n="sub">Commercial, retail, residential & land.</p>
-      <p class="note" data-i18n="demo">Demo data</p>
-    </section>
-    <section class="filters">
-      <select id="fStatus">
-        <option value="all" data-i18n="all">All</option>
-        <option value="available" data-i18n="available">Available</option>
-        <option value="not_available" data-i18n="not_available">Not available</option>
-      </select>
-      <select id="fType">
-        <option value="all" data-i18n="allTypes">All types</option>
-        <option value="retail">Retail</option>
-        <option value="residential">Residential</option>
-        <option value="commercial">Commercial</option>
-        <option value="land">Land</option>
-      </select>
-      <select id="fCity"><option value="all">All cities</option></select>
-      <input id="fSearch" type="search" data-i18n-placeholder="search" placeholder="Search…" />
-    </section>
-    <section id="grid" class="grid" aria-live="polite"></section>
-    <section id="contact" style="margin-top:2rem">
-      <h2 data-i18n="contact">Contact</h2>
-      <div id="contactBox" class="stat"></div>
-    </section>
-  </main>
-  <footer>© Gestion XLT · Demo rebuild (not Squarespace)</footer>
-  <dialog id="detail"><div class="dlg" id="detailBody"></div></dialog>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="listings.html" class="active" data-fr>À louer</a><a href="listings.html" class="active" data-en>For rent</a>
+    <a href="listings.html?type=residential" data-fr>Résidentiel</a><a href="listings.html?type=residential" data-en>Residential</a>
+    <a href="listings.html?type=commercial" data-fr>Commercial</a><a href="listings.html?type=commercial" data-en>Commercial</a>
+    <a href="listings.html?type=office" data-fr>Bureaux</a><a href="listings.html?type=office" data-en>Offices</a>
+    <a href="map.html" data-fr>Carte</a><a href="map.html" data-en>Map</a>
+    <a href="detail.html" class="btn-cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      <span data-fr>Planifier une visite</span><span data-en>Book a visit</span>
+    </a>
+  </nav>
+
+  <section class="hero" style="background-image:url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=80');">
+    <div class="container hero-content">
+      <h1 data-fr>Trouvez l’espace à louer.</h1>
+      <h1 data-en>Find your space to rent.</h1>
+      <p data-fr>Location résidentielle et commerciale uniquement dans le Grand Montréal.</p>
+      <p data-en>Residential and commercial rentals only across Greater Montreal.</p>
+    </div>
+  </section>
+
+  <div class="container search-widget">
+    <form class="search-card" action="listings.html" method="get">
+      <div class="search-tabs">
+        <button type="button" class="search-tab active" data-tab="res">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9.5z"/><path d="M9 21v-7h6v7"/></svg>
+          <span data-fr>Résidentiel</span><span data-en>Residential</span>
+        </button>
+        <button type="button" class="search-tab" data-tab="com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
+          <span data-fr>Commercial</span><span data-en>Commercial</span>
+        </button>
+      </div>
+      <div class="search-fields">
+        <div class="search-field">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <div>
+            <label data-fr>Emplacement</label><label data-en>Location</label>
+            <select name="loc">
+              <option value="">Longueuil, Montréal…</option>
+              <option>Longueuil</option>
+              <option>Montréal</option>
+              <option>Brossard</option>
+              <option>Saint-Lambert</option>
+              <option>Laval</option>
+            </select>
+          </div>
+        </div>
+        <div class="search-field">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.6 13.4A9 9 0 1 1 10.6 3.4"/><path d="M22 2 12 12"/><circle cx="18.5" cy="5.5" r="2.5"/></svg>
+          <div>
+            <label data-fr>Type de location</label><label data-en>Rental type</label>
+            <select name="type">
+              <option value="" data-fr>À louer</option>
+              <option value="apt" data-fr>Appartement</option>
+              <option value="com" data-fr>Commerce</option>
+              <option value="off" data-fr>Bureau</option>
+            </select>
+          </div>
+        </div>
+        <div class="search-field">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <div>
+            <label data-fr>Prix maximum</label><label data-en>Max price</label>
+            <select name="price">
+              <option value="" data-fr>Tout prix</option>
+              <option>1 200 $</option>
+              <option>1 500 $</option>
+              <option>2 000 $</option>
+              <option>2 500 $+</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-teal search-submit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <span data-fr>Rechercher</span><span data-en>Search</span>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="cat-grid">
+        <a href="listings.html?type=residential" class="cat-card">
+          <div class="cat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V8l4-3 4 3v13M12 21V10l4-3 4 3v11M4 21h16"/></svg>
+          </div>
+          <h3 data-fr>Appartements</h3><h3 data-en>Apartments</h3>
+          <p data-fr>Spacieux et confortables pour tous les styles de vie.</p>
+          <p data-en>Spacious and comfortable for every lifestyle.</p>
+          <span class="cat-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="listings.html?type=commercial" class="cat-card">
+          <div class="cat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V9h14v12M9 9V5h6v4M9 13h.01M15 13h.01M9 17h.01M15 17h.01"/></svg>
+          </div>
+          <h3 data-fr>Commerces</h3><h3 data-en>Retail</h3>
+          <p data-fr>Des emplacements idéals pour votre entreprise.</p>
+          <p data-en>Ideal locations for your business.</p>
+          <span class="cat-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="listings.html?type=office" class="cat-card">
+          <div class="cat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 21v-6h6v6M8 7h.01M12 7h.01M16 7h.01M8 11h.01M12 11h.01M16 11h.01"/></svg>
+          </div>
+          <h3 data-fr>Bureaux</h3><h3 data-en>Offices</h3>
+          <p data-fr>Espaces de travail flexibles et professionnels.</p>
+          <p data-en>Flexible, professional workspaces.</p>
+          <span class="cat-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </a>
+        <a href="map.html" class="cat-card">
+          <div class="cat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3z"/><path d="M9 3v15M15 6v15"/></svg>
+          </div>
+          <h3 data-fr>Carte</h3><h3 data-en>Map</h3>
+          <p data-fr>Explorez les propriétés à louer près de chez vous.</p>
+          <p data-en>Explore rentals near you on the map.</p>
+          <span class="cat-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <h2 class="section-title" data-fr>Propriétés en vedette</h2>
+      <h2 class="section-title" data-en>Featured rentals</h2>
+      <p class="section-sub" data-fr>Sélection de logements et locaux disponibles dans le Grand Montréal.</p>
+      <p class="section-sub" data-en>A selection of homes and commercial spaces across Greater Montreal.</p>
+      <div class="featured-grid">
+        <a href="detail.html" class="prop-card">
+          <div class="prop-media">
+            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80" alt="4½ Longueuil" loading="lazy" />
+            <span class="pill pill-available" data-fr>Disponible</span><span class="pill pill-available" data-en>Available</span>
+            <button type="button" class="prop-heart" aria-label="Favori"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+            <span class="prop-count">1 / 12</span>
+          </div>
+          <div class="prop-body">
+            <div class="prop-price">1 650 $ <span data-fr>/mois</span><span data-en>/mo</span></div>
+            <div class="prop-addr">1297 chemin de Chambly, Longueuil</div>
+            <div class="pill-dot available" data-fr>Disponible</div><div class="pill-dot available" data-en>Available</div>
+            <div class="prop-specs">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7v13h18V7M3 12h18M8 7V4h8v3"/></svg> 2 ch.</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-4zM6 12V7a2 2 0 0 1 2-2h2"/><path d="M4 18v2M20 18v2"/></svg> 1 sdb</span>
+              <span>850 pi²</span>
+            </div>
+            <div class="prop-foot">
+              <span class="prop-type" data-fr>Résidentiel</span><span class="prop-type" data-en>Residential</span>
+            </div>
+          </div>
+        </a>
+        <a href="detail.html" class="prop-card">
+          <div class="prop-media">
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80" alt="3½ Brossard" loading="lazy" />
+            <span class="pill pill-available" data-fr>Disponible</span><span class="pill pill-available" data-en>Available</span>
+            <button type="button" class="prop-heart" aria-label="Favori"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+            <span class="prop-count">1 / 8</span>
+          </div>
+          <div class="prop-body">
+            <div class="prop-price">1 395 $ <span data-fr>/mois</span><span data-en>/mo</span></div>
+            <div class="prop-addr">7850 boul. Taschereau, Brossard</div>
+            <div class="pill-dot available" data-fr>Disponible</div><div class="pill-dot available" data-en>Available</div>
+            <div class="prop-specs">
+              <span>1 ch.</span><span>1 sdb</span><span>720 pi²</span>
+            </div>
+            <div class="prop-foot"><span class="prop-type" data-fr>Résidentiel</span><span class="prop-type" data-en>Residential</span></div>
+          </div>
+        </a>
+        <a href="detail.html" class="prop-card">
+          <div class="prop-media">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Bureau Saint-Lambert" loading="lazy" />
+            <span class="pill pill-rented" data-fr>Loué</span><span class="pill pill-rented" data-en>Rented</span>
+            <button type="button" class="prop-heart" aria-label="Favori"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+            <span class="prop-count">1 / 6</span>
+          </div>
+          <div class="prop-body">
+            <div class="prop-price">22 $ <span data-fr>/pi²</span><span data-en>/sq ft</span></div>
+            <div class="prop-addr">145 rue Victoria, Saint-Lambert</div>
+            <div class="pill-dot rented" data-fr>Loué</div><div class="pill-dot rented" data-en>Rented</div>
+            <div class="prop-specs"><span>1 200 pi²</span><span data-fr>Bureau</span><span data-en>Office</span></div>
+            <div class="prop-foot"><span class="prop-type" data-fr>Bureaux</span><span class="prop-type" data-en>Offices</span></div>
+          </div>
+        </a>
+      </div>
+      <div class="text-center mt-4">
+        <a href="listings.html" class="btn btn-outline">
+          <span data-fr>Voir toutes les locations</span><span data-en>See all rentals</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <strong>Gestion XLT</strong>
+        <p data-fr>Gestion immobilière de confiance — locations résidentielles et commerciales dans le Grand Montréal.</p>
+        <p data-en>Trusted property management — residential and commercial rentals in Greater Montreal.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-fr>Navigation</h4><h4 data-en>Navigate</h4>
+        <a href="listings.html" data-fr>À louer</a><a href="listings.html" data-en>For rent</a>
+        <a href="map.html" data-fr>Carte</a><a href="map.html" data-en>Map</a>
+        <a href="detail.html" data-fr>Planifier une visite</a><a href="detail.html" data-en>Book a visit</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-fr>Contact</h4><h4 data-en>Contact</h4>
+        <a href="tel:5149631918">514-963-1918</a>
+        <a href="mailto:gestionxlt@gmail.com">gestionxlt@gmail.com</a>
+        <p data-fr>Grand Montréal, QC</p><p data-en>Greater Montreal, QC</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 Gestion XLT</span>
+      <span data-fr>Location uniquement — aucun bien à vendre</span>
+      <span data-en>Rentals only — nothing for sale</span>
+    </div>
+  </footer>
+
+  <nav class="bottom-nav" aria-label="Mobile">
+    <a href="listings.html" class="active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9.5z"/></svg>
+      <span data-fr>Propriétés</span><span data-en>Listings</span>
+    </a>
+    <a href="map.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      <span data-fr>Carte</span><span data-en>Map</span>
+    </a>
+    <a href="mailto:gestionxlt@gmail.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 7 8 6 8-6"/></svg>
+      <span>Contact</span>
+    </a>
+  </nav>
+
   <script src="app.js"></script>
 </body>
 </html>

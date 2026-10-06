@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carte — Gestion XLT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body { overflow: hidden; height: 100vh; }
+    .has-bottom-nav { padding-bottom: 0; }
+    @media (max-width: 899px) {
+      .map-page { height: calc(100vh - var(--header-h) - 56px); }
+      .bottom-nav { display: flex; }
+    }
+  </style>
+</head>
+<body class="has-bottom-nav">
+
+<header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Gestion XLT">
+        <div class="logo-mark"><span>XLT</span></div>
+        <div class="logo-text"><strong>Gestion XLT</strong><small data-fr>Locations</small><small data-en>Rentals</small></div>
+      </a>
+      <nav class="nav-desktop" style="gap:8px;">
+        <a href="listings.html" style="display:inline-flex;align-items:center;gap:6px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          <span data-fr>Galerie</span><span data-en>Gallery</span>
+        </a>
+        <a href="map.html" class="active" style="display:inline-flex;align-items:center;gap:6px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span data-fr>Carte</span><span data-en>Map</span>
+        </a>
+      </nav>
+      <div class="header-actions">
+        <div class="lang-toggle">
+          <button type="button" class="active" data-lang="fr">FR</button>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+        <button type="button" class="menu-btn" id="menuBtn" aria-label="Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="listings.html" data-fr>Galerie</a><a href="listings.html" data-en>Gallery</a>
+    <a href="map.html" class="active" data-fr>Carte</a><a href="map.html" class="active" data-en>Map</a>
+    <a href="index.html" data-fr>Accueil</a><a href="index.html" data-en>Home</a>
+  </nav>
+
+  <div class="map-page">
+    <div class="map-view-bar">
+      <a href="#" id="showList" class="active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+        <span data-fr>Liste</span><span data-en>List</span>
+      </a>
+      <a href="#" id="showMap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3z"/></svg>
+        <span data-fr>Carte</span><span data-en>Map</span>
+      </a>
+      <a href="listings.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        <span data-fr>Galerie</span><span data-en>Gallery</span>
+      </a>
+    </div>
+
+    <div class="map-split">
+      <aside class="map-list-panel open-mobile" id="listPanel">
+        <div class="map-list-head">
+          <h2 data-fr>Rive-Sud de Montréal</h2>
+          <h2 data-en>Montreal South Shore</h2>
+          <p data-fr>9 locations trouvées</p>
+          <p data-en>9 rentals found</p>
+          <div class="map-list-actions">
+            <button type="button" class="btn btn-sm btn-outline" data-fr>Filtres</button>
+            <button type="button" class="btn btn-sm btn-outline" data-en>Filters</button>
+            <button type="button" class="btn btn-sm btn-outline" data-fr>Trier ▾</button>
+            <button type="button" class="btn btn-sm btn-outline" data-en>Sort ▾</button>
+          </div>
+        </div>
+        <div class="map-list-body">
+          <a href="detail.html" class="prop-card-h">
+            <div class="prop-media">
+              <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=400&q=70" alt="" />
+              <span class="pill pill-available" data-fr>Disponible</span><span class="pill pill-available" data-en>Available</span>
+            </div>
+            <div class="prop-body">
+              <div class="prop-price">1 650 $ <span data-fr>/mois</span><span data-en>/mo</span></div>
+              <div class="prop-specs"><span>2 ch.</span><span>·</span><span>1 sdb</span></div>
+              <div class="prop-addr">1297 chemin de Chambly, Longueuil</div>
+              <div style="font-size:11px;color:var(--text-light);margin-top:2px;" data-fr>À 450 m du métro Longueuil</div>
+              <div style="font-size:11px;color:var(--text-light);margin-top:2px;" data-en>450 m from Longueuil metro</div>
+            </div>
+          </a>
+          <a href="detail.html" class="prop-card-h">
+            <div class="prop-media">
+              <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=400&q=70" alt="" />
+              <span class="pill pill-available" data-fr>Disponible</span><span class="pill pill-available" data-en>Available</span>
+            </div>
+            <div class="prop-body">
+              <div class="prop-price">1 395 $ <span data-fr>/mois</span><span data-en>/mo</span></div>
+              <div class="prop-specs"><span>1 ch.</span><span>·</span><span>1 sdb</span></div>
+              <div class="prop-addr">7850 boul. Taschereau, Brossard</div>
+            </div>
+          </a>
+          <a href="detail.html" class="prop-card-h">
+            <div class="prop-media">
+              <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=400&q=70" alt="" />
+              <span class="pill pill-rented" data-fr>Loué</span><span class="pill pill-rented" data-en>Rented</span>
+            </div>
+            <div class="prop-body">
+              <div class="prop-price">1 850 $ <span data-fr>/mois</span><span data-en>/mo</span></div>
+              <div class="prop-specs"><span>2 ch.</span><span>·</span><span>1 sdb</span></div>
+              <div class="prop-addr">455 rue Ste-Catherine E, Montréal</div>
+            </div>
+          </a>
+          <a href="detail.html" class="prop-card-h">
+            <div class="prop-media">
+              <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=400&q=70" alt="" />
+              <span class="pill pill-available" data-fr>Disponible</span><span class="pill pill-available" data-en>Available</span>
+            </div>
+            <div class="prop-body">
+              <div class="prop-price">1 275 $ <span data-fr>/mois</span><span data-en>/mo</span></div>
+              <div class="prop-specs"><span>1 ch.</span><span>·</span><span>1 sdb</span></div>
+              <div class="prop-addr">88 rue Saint-Charles O, Longueuil</div>
+            </div>
+          </a>
+          <a href="detail.html" class="prop-card-h">
+            <div class="prop-media">
+              <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=400&q=70" alt="" />
+              <span class="pill pill-available" data-fr>Disponible</span><span class="pill pill-available" data-en>Available</span>
+            </div>
+            <div class="prop-body">
+              <div class="prop-price">28 $ <span data-fr>/pi²</span><span data-en>/sq ft</span></div>
+              <div class="prop-specs"><span>1 450 pi²</span></div>
+              <div class="prop-addr">2100 rue King O, Longueuil</div>
+            </div>
+          </a>
+          <a href="detail.html" class="prop-card-h">
+            <div class="prop-media">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=70" alt="" />
+              <span class="pill pill-rented" data-fr>Loué</span><span class="pill pill-rented" data-en>Rented</span>
+            </div>
+            <div class="prop-body">
+              <div class="prop-price">22 $ <span data-fr>/pi²</span><span data-en>/sq ft</span></div>
+              <div class="prop-specs"><span>1 200 pi²</span></div>
+              <div class="prop-addr">145 rue Victoria, Saint-Lambert</div>
+            </div>
+          </a>
+        </div>
+        <div class="map-list-foot">
+          <span data-fr>1 à 6 de 9</span><span data-en>1–6 of 9</span>
+          <span>
+            <button type="button" class="btn btn-sm btn-outline" style="padding:4px 10px;">‹</button>
+            <button type="button" class="btn btn-sm btn-outline" style="padding:4px 10px;">›</button>
+          </span>
+        </div>
+      </aside>
+
+      <section class="map-panel" id="mapPanel">
+        <div class="fake-map">
+          <div class="river" style="width:100px;height:140%;top:-20%;left:38%;transform:rotate(12deg);border-radius:50%;"></div>
+          <div class="river" style="width:60px;height:80%;top:40%;left:55%;transform:rotate(-25deg);opacity:.45;"></div>
+          <div class="map-search">
+            <input type="search" placeholder="Chercher sur la carte" data-fr-placeholder="Chercher sur la carte" data-en-placeholder="Search the map" />
+          </div>
+          <div class="map-tools">
+            <button type="button" data-fr>Couches</button><button type="button" data-en>Layers</button>
+            <button type="button" data-fr>Plein écran</button><button type="button" data-en>Fullscreen</button>
+          </div>
+          <!-- Price pins -->
+          <a href="detail.html" class="map-pin active" style="top:42%;left:48%;">1 650 $</a>
+          <a href="detail.html" class="map-pin" style="top:55%;left:58%;">1 395 $</a>
+          <a href="detail.html" class="map-pin" style="top:35%;left:62%;">1 275 $</a>
+          <a href="detail.html" class="map-pin" style="top:60%;left:42%;">1 525 $</a>
+          <a href="detail.html" class="map-pin" style="top:48%;left:70%;">2 100 $</a>
+          <a href="detail.html" class="map-pin" style="top:68%;left:52%;">28 $/pi²</a>
+          <span class="map-pin rented" style="top:40%;left:35%;" data-fr>Loué</span>
+          <span class="map-pin rented" style="top:58%;left:30%;" data-fr>Loué</span>
+          <span class="map-pin rented" style="top:40%;left:35%;" data-en>Rented</span>
+          <span class="map-pin rented" style="top:58%;left:30%;" data-en>Rented</span>
+          <div class="map-zoom">
+            <button type="button">+</button>
+            <button type="button">−</button>
+          </div>
+          <p class="map-disclaimer" data-fr>Prix à titre indicatif. Consultez l’annonce pour les détails.</p>
+          <p class="map-disclaimer" data-en>Prices are indicative. See the listing for details.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <nav class="bottom-nav" aria-label="Mobile">
+    <a href="listings.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9.5z"/></svg>
+      <span data-fr>Propriétés</span><span data-en>Listings</span>
+    </a>
+    <a href="map.html" class="active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      <span data-fr>Carte</span><span data-en>Map</span>
+    </a>
+    <a href="mailto:gestionxlt@gmail.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 7 8 6 8-6"/></svg>
+      <span>Contact</span>
+    </a>
+  </nav>
+  <script src="app.js"></script>
+  <script>
+    (function(){
+      var list = document.getElementById('listPanel');
+      var map = document.getElementById('mapPanel');
+      var showList = document.getElementById('showList');
+      var showMap = document.getElementById('showMap');
+      function isMobile(){ return window.matchMedia('(max-width:899px)').matches; }
+      function setMode(mode){
+        if(!isMobile()){
+          list.classList.add('open-mobile');
+          map.classList.add('open-mobile');
+          return;
+        }
+        if(mode==='list'){
+          list.classList.add('open-mobile');
+          map.classList.remove('open-mobile');
+          showList.classList.add('active');
+          showMap.classList.remove('active');
+        } else {
+          map.classList.add('open-mobile');
+          list.classList.remove('open-mobile');
+          showMap.classList.add('active');
+          showList.classList.remove('active');
+        }
+      }
+      showList.addEventListener('click', function(e){ e.preventDefault(); setMode('list'); });
+      showMap.addEventListener('click', function(e){ e.preventDefault(); setMode('map'); });
+      window.addEventListener('resize', function(){ setMode(showMap.classList.contains('active')?'map':'list'); });
+      setMode('list');
+    })();
+  </script>
+</body>
+</html>

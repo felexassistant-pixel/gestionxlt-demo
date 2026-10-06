@@ -2,594 +2,363 @@
   "contact": {
     "phone": "514-963-1918",
     "email": "gestionxlt@gmail.com",
-    "address": "8500 Boulevard Taschereau, Unit 10, Brossard, QC J4X 2T4",
-    "hours": "Daily 9:00–19:00"
+    "region": {
+      "fr": "Grand Montréal, QC",
+      "en": "Greater Montreal, QC"
+    }
   },
   "listings": [
     {
-      "id": "brossard-774",
-      "address": "505 Rue De l'Escale (Oria 2)",
-      "city": "Brossard",
-      "type": "residential",
-      "size_sqft": 774,
-      "year_built": 2024,
+      "id": "xlt-001",
       "status": "available",
-      "features": [
-        "4½",
-        "Near services"
+      "type": "res",
+      "typeLabel": {
+        "fr": "Résidentiel",
+        "en": "Residential"
+      },
+      "title": {
+        "fr": "4½ à louer, Longueuil",
+        "en": "4½ for rent, Longueuil"
+      },
+      "address": "1297 chemin de Chambly, Longueuil",
+      "city": "Longueuil",
+      "price": 1650,
+      "priceUnit": "month",
+      "priceDisplay": {
+        "fr": "1 650 $ /mois",
+        "en": "1 650 $ /mo"
+      },
+      "beds": 2,
+      "baths": 1,
+      "sqft": 850,
+      "photoCount": 12,
+      "image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1400&q=80",
+        "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=1400&q=80"
       ],
-      "transit": "STL buses",
-      "unit": null,
-      "demo": true
+      "featured": true,
+      "map": {
+        "top": "42%",
+        "left": "48%"
+      },
+      "near": {
+        "fr": "À 450 m du métro Longueuil",
+        "en": "450 m from Longueuil metro"
+      },
+      "availability": {
+        "fr": "Immédiate",
+        "en": "Immediate"
+      },
+      "description": {
+        "fr": "Lumineux 4½ moderne dans un secteur recherché de Longueuil. Proche du transport en commun, des services et des commerces. Cuisine ouverte, balcon privé, électroménagers inclus. Gestion professionnelle par Gestion XLT.",
+        "en": "Bright modern 4½ in a sought-after Longueuil neighbourhood. Close to transit, services and shops. Open kitchen, private balcony, appliances included. Professionally managed by Gestion XLT."
+      },
+      "amenities": {
+        "fr": [
+          "Balcon privé",
+          "Électroménagers inclus",
+          "Chauffage inclus",
+          "Stationnement externe",
+          "Près du métro",
+          "Animaux sur demande"
+        ],
+        "en": [
+          "Private balcony",
+          "Appliances included",
+          "Heating included",
+          "Outdoor parking",
+          "Near metro",
+          "Pets on request"
+        ]
+      },
+      "details": {
+        "floor": 2,
+        "unitType": {
+          "fr": "Appartement 4½",
+          "en": "4½ apartment"
+        }
+      },
+      "nearby": {
+        "fr": [
+          "Métro Longueuil — 450 m",
+          "Épicerie — 5 min",
+          "Parc — 8 min",
+          "École — 10 min"
+        ],
+        "en": [
+          "Longueuil metro — 450 m",
+          "Grocery — 5 min",
+          "Park — 8 min",
+          "School — 10 min"
+        ]
+      }
     },
     {
-      "id": "brossard-905",
-      "address": "5860 Rue Corneille",
-      "city": "Brossard",
-      "type": "residential",
-      "size_sqft": 905,
-      "year_built": 2010,
-      "status": "not_available",
-      "features": [
-        "4½",
-        "Near services"
-      ],
-      "transit": "STL buses",
-      "unit": null,
-      "demo": false
-    },
-    {
-      "id": "brossard-879",
-      "address": "7130 Rue Du Chardonneret",
-      "city": "Brossard",
-      "type": "residential",
-      "size_sqft": 879,
-      "year_built": 2009,
-      "status": "not_available",
-      "features": [
-        "4½",
-        "Near services"
-      ],
-      "transit": "STL buses",
-      "unit": null,
-      "demo": false
-    },
-    {
-      "id": "taschereau-3",
-      "address": "8500 Boulevard Taschereau",
-      "city": "Brossard",
-      "type": "retail",
-      "size_sqft": 1122,
-      "year_built": 1991,
-      "status": "not_available",
-      "features": [
-        "Retail plaza",
-        "Parking"
-      ],
-      "transit": "Bus + highway access",
-      "unit": "3",
-      "demo": false
-    },
-    {
-      "id": "taschereau-4",
-      "address": "8500 Boulevard Taschereau",
-      "city": "Brossard",
-      "type": "retail",
-      "size_sqft": 1950,
-      "year_built": 1991,
-      "status": "not_available",
-      "features": [
-        "Retail plaza",
-        "Parking"
-      ],
-      "transit": "Bus + highway access",
-      "unit": "4",
-      "demo": false
-    },
-    {
-      "id": "taschereau-5",
-      "address": "8500 Boulevard Taschereau",
-      "city": "Brossard",
-      "type": "retail",
-      "size_sqft": 4814,
-      "year_built": 1991,
+      "id": "xlt-002",
       "status": "available",
-      "features": [
-        "Retail plaza",
-        "Parking"
-      ],
-      "transit": "Bus + highway access",
-      "unit": "5",
-      "demo": false
-    },
-    {
-      "id": "taschereau-7",
-      "address": "8500 Boulevard Taschereau",
+      "type": "res",
+      "typeLabel": {
+        "fr": "Résidentiel",
+        "en": "Residential"
+      },
+      "title": {
+        "fr": "3½ à louer, Brossard",
+        "en": "3½ for rent, Brossard"
+      },
+      "address": "7850 boul. Taschereau, Brossard",
       "city": "Brossard",
-      "type": "retail",
-      "size_sqft": 1057,
-      "year_built": 1991,
-      "status": "not_available",
-      "features": [
-        "Retail plaza",
-        "Parking"
-      ],
-      "transit": "Bus + highway access",
-      "unit": "7",
-      "demo": false
+      "price": 1395,
+      "priceUnit": "month",
+      "priceDisplay": {
+        "fr": "1 395 $ /mois",
+        "en": "1 395 $ /mo"
+      },
+      "beds": 1,
+      "baths": 1,
+      "sqft": 720,
+      "photoCount": 8,
+      "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80",
+      "featured": true,
+      "map": {
+        "top": "55%",
+        "left": "58%"
+      }
     },
     {
-      "id": "taschereau-10",
-      "address": "8500 Boulevard Taschereau",
-      "city": "Brossard",
-      "type": "retail",
-      "size_sqft": 2591,
-      "year_built": 1991,
-      "status": "not_available",
-      "features": [
-        "Retail plaza",
-        "Parking"
-      ],
-      "transit": "Bus + highway access",
-      "unit": "10",
-      "demo": false
+      "id": "xlt-003",
+      "status": "rented",
+      "type": "res",
+      "typeLabel": {
+        "fr": "Résidentiel",
+        "en": "Residential"
+      },
+      "title": {
+        "fr": "4½ à louer, Montréal",
+        "en": "4½ for rent, Montreal"
+      },
+      "address": "455 rue Sainte-Catherine E, Montréal",
+      "city": "Montréal",
+      "price": 1850,
+      "priceUnit": "month",
+      "priceDisplay": {
+        "fr": "1 850 $ /mois",
+        "en": "1 850 $ /mo"
+      },
+      "beds": 2,
+      "baths": 1,
+      "sqft": 920,
+      "photoCount": 10,
+      "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80",
+      "featured": false,
+      "map": {
+        "top": "40%",
+        "left": "35%",
+        "rented": true
+      }
     },
     {
-      "id": "taschereau-11",
-      "address": "8500 Boulevard Taschereau",
-      "city": "Brossard",
-      "type": "retail",
-      "size_sqft": 1188,
-      "year_built": 1991,
+      "id": "xlt-004",
       "status": "available",
-      "features": [
-        "Retail plaza",
-        "Parking"
-      ],
-      "transit": "Bus + highway access",
-      "unit": "11",
-      "demo": false
+      "type": "com",
+      "typeLabel": {
+        "fr": "Commerce",
+        "en": "Retail"
+      },
+      "title": {
+        "fr": "Local commercial, Longueuil",
+        "en": "Retail space, Longueuil"
+      },
+      "address": "2100 rue King Ouest, Sherbrooke / Longueuil",
+      "city": "Longueuil",
+      "price": 28,
+      "priceUnit": "sqft",
+      "priceDisplay": {
+        "fr": "28 $ /pi²",
+        "en": "28 $ /sq ft"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 1450,
+      "photoCount": 7,
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80",
+      "featured": false,
+      "map": {
+        "top": "68%",
+        "left": "52%"
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      }
     },
     {
-      "id": "taschereau-15b",
-      "address": "8500 Boulevard Taschereau",
-      "city": "Brossard",
-      "type": "retail",
-      "size_sqft": 1618,
-      "year_built": 1991,
-      "status": "not_available",
-      "features": [
-        "Retail plaza",
-        "Parking"
-      ],
-      "transit": "Bus + highway access",
-      "unit": "15B",
-      "demo": false
-    },
-    {
-      "id": "taschereau-17",
-      "address": "8500 Boulevard Taschereau",
-      "city": "Brossard",
-      "type": "retail",
-      "size_sqft": 946,
-      "year_built": 1991,
+      "id": "xlt-005",
       "status": "available",
-      "features": [
-        "Retail plaza",
-        "Parking"
-      ],
-      "transit": "Bus + highway access",
-      "unit": "17",
-      "demo": true
+      "type": "res",
+      "typeLabel": {
+        "fr": "Résidentiel",
+        "en": "Residential"
+      },
+      "title": {
+        "fr": "3½ à louer, Longueuil",
+        "en": "3½ for rent, Longueuil"
+      },
+      "address": "88 rue Saint-Charles O, Longueuil",
+      "city": "Longueuil",
+      "price": 1275,
+      "priceUnit": "month",
+      "priceDisplay": {
+        "fr": "1 275 $ /mois",
+        "en": "1 275 $ /mo"
+      },
+      "beds": 1,
+      "baths": 1,
+      "sqft": 650,
+      "photoCount": 9,
+      "image": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=80",
+      "featured": false,
+      "map": {
+        "top": "35%",
+        "left": "62%"
+      }
     },
     {
-      "id": "taschereau-20",
-      "address": "8500 Boulevard Taschereau",
-      "city": "Brossard",
-      "type": "retail",
-      "size_sqft": 2269,
-      "year_built": 1991,
+      "id": "xlt-006",
+      "status": "rented",
+      "type": "off",
+      "typeLabel": {
+        "fr": "Bureaux",
+        "en": "Offices"
+      },
+      "title": {
+        "fr": "Bureau, Saint-Lambert",
+        "en": "Office, Saint-Lambert"
+      },
+      "address": "145 rue Victoria, Saint-Lambert",
+      "city": "Saint-Lambert",
+      "price": 22,
+      "priceUnit": "sqft",
+      "priceDisplay": {
+        "fr": "22 $ /pi²",
+        "en": "22 $ /sq ft"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 1200,
+      "photoCount": 6,
+      "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+      "featured": true,
+      "map": {
+        "top": "58%",
+        "left": "30%",
+        "rented": true
+      },
+      "specExtra": {
+        "fr": "Bureau",
+        "en": "Office"
+      }
+    },
+    {
+      "id": "xlt-007",
       "status": "available",
-      "features": [
-        "Retail plaza",
-        "Parking"
-      ],
-      "transit": "Bus + highway access",
-      "unit": "20",
-      "demo": false
+      "type": "res",
+      "typeLabel": {
+        "fr": "Résidentiel",
+        "en": "Residential"
+      },
+      "title": {
+        "fr": "5½ à louer, Laval",
+        "en": "5½ for rent, Laval"
+      },
+      "address": "3200 rang du Haut-Saint-François, Laval",
+      "city": "Laval",
+      "price": 2100,
+      "priceUnit": "month",
+      "priceDisplay": {
+        "fr": "2 100 $ /mois",
+        "en": "2 100 $ /mo"
+      },
+      "beds": 3,
+      "baths": 2,
+      "sqft": 1150,
+      "photoCount": 11,
+      "image": "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=80",
+      "featured": false,
+      "map": {
+        "top": "48%",
+        "left": "70%"
+      }
     },
     {
-      "id": "chambly-1295",
-      "address": "1295 Ch. Chambly",
-      "city": "Longueuil",
-      "type": "retail",
-      "size_sqft": 1400,
-      "year_built": 1957,
-      "status": "not_available",
-      "features": [
-        "Retail space",
-        "Public transport nearby"
-      ],
-      "transit": "RTL",
-      "unit": null,
-      "demo": false
+      "id": "xlt-008",
+      "status": "rented",
+      "type": "com",
+      "typeLabel": {
+        "fr": "Commerce",
+        "en": "Retail"
+      },
+      "title": {
+        "fr": "Commerce, Saint-Hubert",
+        "en": "Retail, Saint-Hubert"
+      },
+      "address": "5500 boul. Cousineau, Saint-Hubert",
+      "city": "Saint-Hubert",
+      "price": 18,
+      "priceUnit": "sqft",
+      "priceDisplay": {
+        "fr": "18 $ /pi²",
+        "en": "18 $ /sq ft"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 900,
+      "photoCount": 5,
+      "image": "https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=800&q=80",
+      "featured": false,
+      "map": {
+        "top": "58%",
+        "left": "30%",
+        "rented": true
+      },
+      "specExtra": {
+        "fr": "Commerce",
+        "en": "Retail"
+      }
     },
     {
-      "id": "chambly-1297",
-      "address": "1297 Ch. Chambly",
-      "city": "Longueuil",
-      "type": "retail",
-      "size_sqft": 3000,
-      "year_built": 1957,
-      "status": "not_available",
-      "features": [
-        "Retail space",
-        "Public transport nearby"
-      ],
-      "transit": "RTL",
-      "unit": null,
-      "demo": false
-    },
-    {
-      "id": "chambly-1299",
-      "address": "1299 Ch. Chambly",
-      "city": "Longueuil",
-      "type": "retail",
-      "size_sqft": 1600,
-      "year_built": 1957,
-      "status": "not_available",
-      "features": [
-        "Retail space",
-        "Public transport nearby"
-      ],
-      "transit": "RTL",
-      "unit": null,
-      "demo": false
-    },
-    {
-      "id": "stjean-593",
-      "address": "593 Rue Saint-Jean",
-      "city": "Longueuil",
-      "type": "retail",
-      "size_sqft": 1550,
-      "year_built": 1970,
-      "status": "not_available",
-      "features": [
-        "Retail"
-      ],
-      "transit": "RTL",
-      "unit": null,
-      "demo": false
-    },
-    {
-      "id": "stjean-597-201",
-      "address": "597 Rue Saint-Jean",
-      "city": "Longueuil",
-      "type": "retail",
-      "size_sqft": 2750,
-      "year_built": 1980,
-      "status": "not_available",
-      "features": [
-        "Retail unit"
-      ],
-      "transit": "RTL",
-      "unit": "201",
-      "demo": false
-    },
-    {
-      "id": "stjean-597-202",
-      "address": "597 Rue Saint-Jean",
-      "city": "Longueuil",
-      "type": "retail",
-      "size_sqft": 400,
-      "year_built": 1980,
-      "status": "not_available",
-      "features": [
-        "Retail unit"
-      ],
-      "transit": "RTL",
-      "unit": "202",
-      "demo": false
-    },
-    {
-      "id": "stjean-597-203",
-      "address": "597 Rue Saint-Jean",
-      "city": "Longueuil",
-      "type": "retail",
-      "size_sqft": 400,
-      "year_built": 1980,
-      "status": "not_available",
-      "features": [
-        "Retail unit"
-      ],
-      "transit": "RTL",
-      "unit": "203",
-      "demo": false
-    },
-    {
-      "id": "stjean-597-204",
-      "address": "597 Rue Saint-Jean",
-      "city": "Longueuil",
-      "type": "retail",
-      "size_sqft": 500,
-      "year_built": 1980,
+      "id": "xlt-009",
       "status": "available",
-      "features": [
-        "Retail unit"
-      ],
-      "transit": "RTL",
-      "unit": "204",
-      "demo": false
-    },
-    {
-      "id": "stjean-597-205",
-      "address": "597 Rue Saint-Jean",
-      "city": "Longueuil",
-      "type": "retail",
-      "size_sqft": 325,
-      "year_built": 1980,
-      "status": "not_available",
-      "features": [
-        "Retail unit"
-      ],
-      "transit": "RTL",
-      "unit": "205",
-      "demo": false
-    },
-    {
-      "id": "stjean-599",
-      "address": "599 Rue Saint-Jean",
-      "city": "Longueuil",
-      "type": "retail",
-      "size_sqft": 975,
-      "year_built": 1975,
-      "status": "not_available",
-      "features": [
-        "Retail"
-      ],
-      "transit": "RTL",
-      "unit": null,
-      "demo": false
-    },
-    {
-      "id": "stthomas-a",
-      "address": "620 Rue Saint-Thomas",
-      "city": "Longueuil",
-      "type": "retail",
-      "size_sqft": 2200,
-      "year_built": 1965,
-      "status": "not_available",
-      "features": [
-        "Retail"
-      ],
-      "transit": "RTL",
-      "unit": "A",
-      "demo": false
-    },
-    {
-      "id": "stthomas-b",
-      "address": "620 Rue Saint-Thomas",
-      "city": "Longueuil",
-      "type": "retail",
-      "size_sqft": 1000,
-      "year_built": 1965,
-      "status": "not_available",
-      "features": [
-        "Retail"
-      ],
-      "transit": "RTL",
-      "unit": "B",
-      "demo": false
-    },
-    {
-      "id": "1729-rue-balmoral",
-      "address": "1729 Rue Balmoral",
-      "city": "Longueuil",
-      "type": "residential",
-      "size_sqft": 950,
-      "year_built": 1985,
-      "status": "not_available",
-      "features": [
-        "3½/4½"
-      ],
-      "transit": "RTL",
-      "unit": null,
-      "demo": false
-    },
-    {
-      "id": "1729a-rue-balmoral",
-      "address": "1729A Rue Balmoral",
-      "city": "Longueuil",
-      "type": "residential",
-      "size_sqft": 900,
-      "year_built": 1985,
-      "status": "available",
-      "features": [
-        "3½/4½"
-      ],
-      "transit": "RTL",
-      "unit": null,
-      "demo": true
-    },
-    {
-      "id": "1731-rue-balmoral",
-      "address": "1731 Rue Balmoral",
-      "city": "Longueuil",
-      "type": "residential",
-      "size_sqft": 1000,
-      "year_built": 1985,
-      "status": "not_available",
-      "features": [
-        "3½/4½"
-      ],
-      "transit": "RTL",
-      "unit": null,
-      "demo": false
-    },
-    {
-      "id": "monk-6518",
-      "address": "6518 Boul. Monk",
-      "city": "Montreal",
-      "type": "residential",
-      "size_sqft": 850,
-      "year_built": 1930,
-      "status": "not_available",
-      "features": [
-        "Near Monk Metro"
-      ],
-      "transit": "Metro Monk",
-      "unit": null,
-      "demo": false
-    },
-    {
-      "id": "monk-6520",
-      "address": "6520 Boul. Monk",
-      "city": "Montreal",
-      "type": "retail",
-      "size_sqft": 850,
-      "year_built": 1930,
-      "status": "not_available",
-      "features": [
-        "Near Monk Metro"
-      ],
-      "transit": "Metro Monk",
-      "unit": null,
-      "demo": false
-    },
-    {
-      "id": "monk-6522",
-      "address": "6522 Boul. Monk",
-      "city": "Montreal",
-      "type": "residential",
-      "size_sqft": 850,
-      "year_built": 1930,
-      "status": "available",
-      "features": [
-        "Near Monk Metro"
-      ],
-      "transit": "Metro Monk",
-      "unit": null,
-      "demo": false
-    },
-    {
-      "id": "monk-6524",
-      "address": "6524 Boul. Monk",
-      "city": "Montreal",
-      "type": "retail",
-      "size_sqft": 850,
-      "year_built": 1930,
-      "status": "not_available",
-      "features": [
-        "Near Monk Metro"
-      ],
-      "transit": "Metro Monk",
-      "unit": null,
-      "demo": false
-    },
-    {
-      "id": "monk-6526",
-      "address": "6526 Boul. Monk",
-      "city": "Montreal",
-      "type": "residential",
-      "size_sqft": 850,
-      "year_built": 1930,
-      "status": "not_available",
-      "features": [
-        "Near Monk Metro"
-      ],
-      "transit": "Metro Monk",
-      "unit": null,
-      "demo": false
-    },
-    {
-      "id": "monk-6528",
-      "address": "6528 Boul. Monk",
-      "city": "Montreal",
-      "type": "residential",
-      "size_sqft": 850,
-      "year_built": 1930,
-      "status": "not_available",
-      "features": [
-        "Near Monk Metro"
-      ],
-      "transit": "Metro Monk",
-      "unit": null,
-      "demo": false
-    },
-    {
-      "id": "lamont-6851",
-      "address": "6851 Av. Lamont",
-      "city": "Montreal",
-      "type": "residential",
-      "size_sqft": 900,
-      "year_built": 1991,
-      "status": "not_available",
-      "features": [
-        "Near Angrignon Metro"
-      ],
-      "transit": "Metro Angrignon",
-      "unit": null,
-      "demo": false
-    },
-    {
-      "id": "lamont-6853",
-      "address": "6853 Av. Lamont",
-      "city": "Montreal",
-      "type": "residential",
-      "size_sqft": 900,
-      "year_built": 1991,
-      "status": "not_available",
-      "features": [
-        "Near Angrignon Metro"
-      ],
-      "transit": "Metro Angrignon",
-      "unit": null,
-      "demo": false
-    },
-    {
-      "id": "lamont-6855",
-      "address": "6855 Av. Lamont",
-      "city": "Montreal",
-      "type": "residential",
-      "size_sqft": 900,
-      "year_built": 1991,
-      "status": "not_available",
-      "features": [
-        "Near Angrignon Metro"
-      ],
-      "transit": "Metro Angrignon",
-      "unit": null,
-      "demo": false
-    },
-    {
-      "id": "lamont-6857",
-      "address": "6857 Av. Lamont",
-      "city": "Montreal",
-      "type": "residential",
-      "size_sqft": 900,
-      "year_built": 1991,
-      "status": "not_available",
-      "features": [
-        "Near Angrignon Metro"
-      ],
-      "transit": "Metro Angrignon",
-      "unit": null,
-      "demo": false
-    },
-    {
-      "id": "land-vacant",
-      "address": "Vacant Land (ref 4642888)",
-      "city": "St-Hubert",
-      "type": "land",
-      "size_sqft": 0,
-      "year_built": null,
-      "status": "available",
-      "features": [
-        "No electricity/water/road currently"
-      ],
-      "transit": "—",
-      "unit": null,
-      "demo": true
+      "type": "res",
+      "typeLabel": {
+        "fr": "Résidentiel",
+        "en": "Residential"
+      },
+      "title": {
+        "fr": "4½ à louer, Montréal",
+        "en": "4½ for rent, Montreal"
+      },
+      "address": "1675 rue Joliette, Montréal",
+      "city": "Montréal",
+      "price": 1525,
+      "priceUnit": "month",
+      "priceDisplay": {
+        "fr": "1 525 $ /mois",
+        "en": "1 525 $ /mo"
+      },
+      "beds": 2,
+      "baths": 1,
+      "sqft": 780,
+      "photoCount": 14,
+      "image": "https://images.unsplash.com/photo-1560185127-6ed189bf61f2?auto=format&fit=crop&w=800&q=80",
+      "featured": false,
+      "map": {
+        "top": "60%",
+        "left": "42%"
+      }
     }
   ]
 }
