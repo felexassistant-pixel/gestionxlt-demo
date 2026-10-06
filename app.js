@@ -323,6 +323,7 @@
       if (show) visible++;
     });
     updateVisibleCount(visible);
+    updateCounts(listings);
     return visible;
   }
 
@@ -430,15 +431,53 @@
   }
 
   function updateCounts(listings) {
-    var all = listings.length;
-    var avail = listings.filter(function (l) { return l.status === 'available'; }).length;
-    var rented = listings.filter(function (l) { return l.status === 'rented'; }).length;
+    var state = getFilterState();
+    // Tab counts ignore status (tabs ARE status) but honor loc/type/price/avail + type chips
+    var baseState = {
+      type: state.type,
+      loc: state.loc,
+      price: state.price,
+      avail: state.avail,
+      status: ''
+    };
+    var base = listings.filter(function (l) { return listingMatches(l, baseState); });
+    var chip = _activeChip;
+    if (chip === 'res' || chip === 'com') {
+      base = base.filter(function (l) {
+        if (chip === 'res') return l.type === 'res';
+        return l.type === 'com' || l.type === 'off';
+      });
+    }
+    var all = base.length;
+    var avail = base.filter(function (l) { return l.status === 'available'; }).length;
+    var rented = base.filter(function (l) { return l.status === 'rented'; }).length;
     var tabs = document.getElementById('statusTabs');
     if (tabs) {
       var btns = tabs.querySelectorAll('button');
       if (btns[0]) btns[0].innerHTML = '<span data-fr>Toutes (' + all + ')</span><span data-en>All (' + all + ')</span>';
       if (btns[1]) btns[1].innerHTML = '<span data-fr>Disponibles (' + avail + ')</span><span data-en>Available (' + avail + ')</span>';
       if (btns[2]) btns[2].innerHTML = '<span data-fr>Louées (' + rented + ')</span><span data-en>Rented (' + rented + ')</span>';
+      applyLang(currentLang());
+    }
+    updateFilterBadge(state);
+  }
+
+  function updateFilterBadge(state) {
+    state = state || getFilterState();
+    var n = 0;
+    if (state.loc) n++;
+    if (state.type) n++;
+    if (state.status) n++;
+    if (state.avail) n++;
+    if (state.price) n++;
+    var badge = document.getElementById('filterCount');
+    if (!badge) return;
+    if (n > 0) {
+      badge.hidden = false;
+      badge.textContent = String(n);
+    } else {
+      badge.hidden = true;
+      badge.textContent = '';
     }
   }
 
@@ -760,9 +799,85 @@
     }
   }
 
+  function sortListings(mode) {
+    var grid = document.getElementById('listingsGrid');
+    if (!grid) return;
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.prop-card'));
+    var orderIndex = {};
+    (_listingsCache || []).forEach(function (l, i) { orderIndex[l.id] = i; });
+    cards.sort(function (a, b) {
+      var ida = a.getAttribute('data-id') || '';
+      var idb = b.getAttribute('data-id') || '';
+      var pa = parseFloat(a.getAttribute('data-price')) || 0;
+      var pb = parseFloat(b.getAttribute('data-price')) || 0;
+      var ua = a.getAttribute('data-price-unit') || '';
+      var ub = b.getAttribute('data-price-unit') || '';
+      // Keep sqft and monthly somewhat comparable by sorting within unit groups first for price modes
+      if (mode === 'price-asc' || mode === 'price-desc') {
+        if (ua !== ub) {
+          // monthly first, then sqft
+          if (ua === 'month' && ub !== 'month') return -1;
+          if (ub === 'month' && ua !== 'month') return 1;
+        }
+        return mode === 'price-asc' ? (pa - pb) : (pb - pa);
+      }
+      if (mode === 'newest') {
+        return idb.localeCompare(ida, undefined, { numeric: true });
+      }
+      // relevance: original JSON order
+      var ia = orderIndex.hasOwnProperty(ida) ? orderIndex[ida] : 999;
+      var ib = orderIndex.hasOwnProperty(idb) ? orderIndex[idb] : 999;
+      return ia - ib;
+    });
+    cards.forEach(function (c) { grid.appendChild(c); });
+  }
+
+  function bindSort() {
+    var sel = document.querySelector('.sort-select');
+    if (!sel || sel._xltBound) return;
+    sel._xltBound = true;
+    sel.addEventListener('change', function () {
+      sortListings(sel.value);
+    });
+  }
+
+  function bindFilterDrawer() {
+    var toggle = document.getElementById('filtersToggle');
+    var drawer = document.getElementById('filterDrawer');
+    var closeBtn = document.getElementById('filtersClose');
+    var backdrop = document.getElementById('filterDrawerBackdrop');
+    if (!toggle || !drawer) return;
+    function setOpen(open) {
+      drawer.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.classList.toggle('filter-drawer-open', open);
+      if (backdrop) backdrop.hidden = !open;
+    }
+    if (!toggle._xltBound) {
+      toggle._xltBound = true;
+      toggle.addEventListener('click', function () {
+        setOpen(!drawer.classList.contains('open'));
+      });
+    }
+    if (closeBtn && !closeBtn._xltBound) {
+      closeBtn._xltBound = true;
+      closeBtn.addEventListener('click', function () { setOpen(false); });
+    }
+    if (backdrop && !backdrop._xltBound) {
+      backdrop._xltBound = true;
+      backdrop.addEventListener('click', function () { setOpen(false); });
+    }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) setOpen(false);
+    });
+  }
+
   // Heart buttons on static content
   bindHearts(document);
   bindFilters();
+  bindSort();
+  bindFilterDrawer();
+  updateFilterBadge(getFilterState());
 
   fetch(DATA_URL)
     .then(function (r) {
