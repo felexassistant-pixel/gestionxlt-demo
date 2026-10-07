@@ -9,275 +9,7 @@
   },
   "listings": [
     {
-      "id": "xlt-001",
-      "status": "available",
-      "type": "res",
-      "typeLabel": {
-        "fr": "Résidentiel",
-        "en": "Residential"
-      },
-      "title": {
-        "fr": "4½ à louer, Longueuil",
-        "en": "4½ for rent, Longueuil"
-      },
-      "address": "1297 chemin de Chambly, Longueuil",
-      "city": "Longueuil",
-      "price": 1650,
-      "priceUnit": "month",
-      "priceDisplay": {
-        "fr": "1 650 $ /mois",
-        "en": "1 650 $ /mo"
-      },
-      "beds": 2,
-      "baths": 1,
-      "sqft": 850,
-      "photoCount": 12,
-      "image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80",
-      "images": [
-        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=1400&q=80"
-      ],
-      "featured": true,
-      "map": {
-        "top": "42%",
-        "left": "48%"
-      },
-      "near": {
-        "fr": "À 450 m du métro Longueuil",
-        "en": "450 m from Longueuil metro"
-      },
-      "availability": {
-        "fr": "Immédiate",
-        "en": "Immediate"
-      },
-      "description": {
-        "fr": "Lumineux 4½ moderne dans un secteur recherché de Longueuil. Proche du transport en commun, des services et des commerces. Cuisine ouverte, balcon privé, électroménagers inclus. Gestion professionnelle par Gestion XLT.",
-        "en": "Bright modern 4½ in a sought-after Longueuil neighbourhood. Close to transit, services and shops. Open kitchen, private balcony, appliances included. Professionally managed by Gestion XLT."
-      },
-      "amenities": {
-        "fr": [
-          "Balcon privé",
-          "Électroménagers inclus",
-          "Chauffage inclus",
-          "Stationnement externe",
-          "Près du métro",
-          "Animaux sur demande"
-        ],
-        "en": [
-          "Private balcony",
-          "Appliances included",
-          "Heating included",
-          "Outdoor parking",
-          "Near metro",
-          "Pets on request"
-        ]
-      },
-      "details": {
-        "floor": 2,
-        "unitType": {
-          "fr": "Appartement 4½",
-          "en": "4½ apartment"
-        }
-      },
-      "nearby": {
-        "fr": [
-          "Métro Longueuil — 450 m",
-          "Épicerie — 5 min",
-          "Parc — 8 min",
-          "École — 10 min"
-        ],
-        "en": [
-          "Longueuil metro — 450 m",
-          "Grocery — 5 min",
-          "Park — 8 min",
-          "School — 10 min"
-        ]
-      }
-    },
-    {
-      "id": "xlt-002",
-      "status": "available",
-      "type": "res",
-      "typeLabel": {
-        "fr": "Résidentiel",
-        "en": "Residential"
-      },
-      "title": {
-        "fr": "3½ à louer, Brossard",
-        "en": "3½ for rent, Brossard"
-      },
-      "address": "7850 boul. Taschereau, Brossard",
-      "city": "Brossard",
-      "price": 1395,
-      "priceUnit": "month",
-      "priceDisplay": {
-        "fr": "1 395 $ /mois",
-        "en": "1 395 $ /mo"
-      },
-      "beds": 1,
-      "baths": 1,
-      "sqft": 720,
-      "photoCount": 8,
-      "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80",
-      "featured": true,
-      "map": {
-        "top": "55%",
-        "left": "58%"
-      },
-      "images": [
-        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=1400&q=80"
-      ],
-      "near": {
-        "fr": "Près du Dix30 et du REM",
-        "en": "Near Dix30 and the REM"
-      },
-      "availability": {
-        "fr": "Immédiate",
-        "en": "Immediate"
-      },
-      "description": {
-        "fr": "Charmant 3½ lumineux à Brossard, idéal pour un couple ou une personne seule. Proche des commerces du Dix30, du transport et des axes routiers. Cuisine fonctionnelle, rangement abondant et balcon. Géré par Gestion XLT.",
-        "en": "Charming bright 3½ in Brossard, ideal for a couple or single occupant. Close to Dix30 shops, transit and major roads. Functional kitchen, ample storage and a balcony. Managed by Gestion XLT."
-      },
-      "amenities": {
-        "fr": [
-          "Balcon",
-          "Électroménagers inclus",
-          "Chauffage inclus",
-          "Stationnement disponible",
-          "Près du Dix30",
-          "Animaux sur demande"
-        ],
-        "en": [
-          "Balcony",
-          "Appliances included",
-          "Heating included",
-          "Parking available",
-          "Near Dix30",
-          "Pets on request"
-        ]
-      },
-      "details": {
-        "floor": 3,
-        "unitType": {
-          "fr": "Appartement 3½",
-          "en": "3½ apartment"
-        }
-      },
-      "nearby": {
-        "fr": [
-          "Mail Champlain — 10 min",
-          "Dix30 — 8 min",
-          "REM Brossard — 12 min",
-          "Épicerie — 5 min"
-        ],
-        "en": [
-          "Mail Champlain — 10 min",
-          "Dix30 — 8 min",
-          "REM Brossard — 12 min",
-          "Grocery — 5 min"
-        ]
-      }
-    },
-    {
-      "id": "xlt-003",
-      "status": "rented",
-      "type": "res",
-      "typeLabel": {
-        "fr": "Résidentiel",
-        "en": "Residential"
-      },
-      "title": {
-        "fr": "4½ à louer, Montréal",
-        "en": "4½ for rent, Montreal"
-      },
-      "address": "455 rue Sainte-Catherine E, Montréal",
-      "city": "Montréal",
-      "price": 1850,
-      "priceUnit": "month",
-      "priceDisplay": {
-        "fr": "1 850 $ /mois",
-        "en": "1 850 $ /mo"
-      },
-      "beds": 2,
-      "baths": 1,
-      "sqft": 920,
-      "photoCount": 10,
-      "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80",
-      "featured": false,
-      "map": {
-        "top": "40%",
-        "left": "35%",
-        "rented": true
-      },
-      "images": [
-        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1560448204-603b3fc33ddc?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80"
-      ],
-      "near": {
-        "fr": "Centre-ville, près du métro Berri-UQAM",
-        "en": "Downtown, near Berri-UQAM metro"
-      },
-      "availability": {
-        "fr": "Loué",
-        "en": "Rented"
-      },
-      "description": {
-        "fr": "Spacieux 4½ au cœur de Montréal, à deux pas de la rue Sainte-Catherine. Grands espaces de vie, beaucoup de lumière naturelle et accès facile au métro. Ce logement est actuellement loué.",
-        "en": "Spacious 4½ in the heart of Montreal, steps from Sainte-Catherine Street. Large living areas, plenty of natural light and easy metro access. This unit is currently rented."
-      },
-      "amenities": {
-        "fr": [
-          "Proche du métro",
-          "Cuisine ouverte",
-          "Buanderie dans l'immeuble",
-          "Chauffage inclus",
-          "Rangement",
-          "Ascenseur"
-        ],
-        "en": [
-          "Near metro",
-          "Open kitchen",
-          "Laundry in building",
-          "Heating included",
-          "Storage",
-          "Elevator"
-        ]
-      },
-      "details": {
-        "floor": 5,
-        "unitType": {
-          "fr": "Appartement 4½",
-          "en": "4½ apartment"
-        }
-      },
-      "nearby": {
-        "fr": [
-          "Métro Berri-UQAM — 400 m",
-          "UQAM — 5 min",
-          "Commerces Sainte-Catherine — 3 min",
-          "Parc Émilie-Gamelin — 5 min"
-        ],
-        "en": [
-          "Berri-UQAM metro — 400 m",
-          "UQAM — 5 min",
-          "Sainte-Catherine shops — 3 min",
-          "Émilie-Gamelin Park — 5 min"
-        ]
-      }
-    },
-    {
-      "id": "xlt-004",
+      "id": "597-rue-saint-jean-unit-203-longueuil",
       "status": "available",
       "type": "com",
       "typeLabel": {
@@ -288,361 +20,1393 @@
         "fr": "Local commercial, Longueuil",
         "en": "Retail space, Longueuil"
       },
-      "address": "2100 rue King Ouest, Longueuil",
+      "address": "597 Rue Saint-Jean #203, Longueuil",
       "city": "Longueuil",
-      "price": 28,
-      "priceUnit": "sqft",
+      "price": null,
+      "priceUnit": null,
       "priceDisplay": {
-        "fr": "28 $ /pi²",
-        "en": "28 $ /sq ft"
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
       },
       "beds": null,
       "baths": null,
-      "sqft": 1450,
-      "photoCount": 7,
-      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80",
-      "featured": false,
+      "sqft": 400,
+      "photoCount": 5,
+      "image": "assets/units/597-rue-saint-jean-unit-203-longueuil/cover.jpg",
+      "images": [
+        "assets/units/597-rue-saint-jean-unit-203-longueuil/01.jpg",
+        "assets/units/597-rue-saint-jean-unit-203-longueuil/02.jpg",
+        "assets/units/597-rue-saint-jean-unit-203-longueuil/03.jpg",
+        "assets/units/597-rue-saint-jean-unit-203-longueuil/04.jpg",
+        "assets/units/597-rue-saint-jean-unit-203-longueuil/05.jpg"
+      ],
+      "featured": true,
       "map": {
-        "top": "68%",
-        "left": "52%"
+        "lat": 45.534114,
+        "lng": -73.503467,
+        "precision": "address",
+        "top": "12.4%",
+        "left": "54.3%"
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Local commercial de 400 pi², au 597 Rue Saint-Jean #203. Construit en 1953. Transport en commun à proximité.",
+        "en": "400 sq ft retail space at 597 Rue Saint-Jean #203. Built in 1953. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : local commercial",
+          "Superficie commerciale disponible : 400 pi²",
+          "Année de construction : 1953",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: retail space",
+          "Available commercial area: 400 sq ft",
+          "Year built: 1953",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1953
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
       },
       "specExtra": {
         "fr": "Local commercial",
         "en": "Retail space"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1555529771-835f59fc5efe?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1400&q=80"
-      ],
-      "near": {
-        "fr": "Axe commercial achalandé",
-        "en": "Busy commercial corridor"
-      },
-      "availability": {
-        "fr": "Immédiate",
-        "en": "Immediate"
-      },
-      "description": {
-        "fr": "Local commercial de 1 450 pi² sur un axe fréquenté à Longueuil. Grande vitrine, espace ouvert modulable et stationnement à proximité. Idéal pour commerce de détail, services ou showroom. Gestion XLT.",
-        "en": "1,450 sq ft retail space on a busy Longueuil corridor. Large storefront, flexible open floor plan and nearby parking. Ideal for retail, services or a showroom. Managed by Gestion XLT."
-      },
-      "amenities": {
-        "fr": [
-          "Grande vitrine",
-          "Espace ouvert",
-          "Stationnement client",
-          "Accès livraison",
-          "Climatisation",
-          "Enseigne possible"
-        ],
-        "en": [
-          "Large storefront",
-          "Open floor plan",
-          "Customer parking",
-          "Delivery access",
-          "Air conditioning",
-          "Signage possible"
-        ]
-      },
-      "details": {
-        "floor": 1,
-        "unitType": {
-          "fr": "Local commercial",
-          "en": "Retail space"
-        }
-      },
-      "nearby": {
-        "fr": [
-          "Autoroute 20 — 5 min",
-          "Centropolis — 10 min",
-          "Transport en commun — 2 min",
-          "Stationnement public — adjacent"
-        ],
-        "en": [
-          "Highway 20 — 5 min",
-          "Centropolis — 10 min",
-          "Transit — 2 min",
-          "Public parking — adjacent"
-        ]
-      }
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy-bnwb9-f628b-jbczc-zg7sm-n7ncp-ekhrh-rbct5"
     },
     {
-      "id": "xlt-005",
+      "id": "8500-boulevard-taschereau-unit-5-brossard",
       "status": "available",
-      "type": "res",
+      "type": "com",
       "typeLabel": {
-        "fr": "Résidentiel",
-        "en": "Residential"
+        "fr": "Commerce",
+        "en": "Retail"
       },
       "title": {
-        "fr": "3½ à louer, Longueuil",
-        "en": "3½ for rent, Longueuil"
+        "fr": "Local commercial, Brossard",
+        "en": "Retail space, Brossard"
       },
-      "address": "88 rue Saint-Charles O, Longueuil",
-      "city": "Longueuil",
-      "price": 1275,
-      "priceUnit": "month",
+      "address": "8500 Boulevard Taschereau #5, Brossard",
+      "city": "Brossard",
+      "price": null,
+      "priceUnit": null,
       "priceDisplay": {
-        "fr": "1 275 $ /mois",
-        "en": "1 275 $ /mo"
-      },
-      "beds": 1,
-      "baths": 1,
-      "sqft": 650,
-      "photoCount": 9,
-      "image": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=80",
-      "featured": false,
-      "map": {
-        "top": "35%",
-        "left": "62%"
-      },
-      "images": [
-        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1400&q=80"
-      ],
-      "near": {
-        "fr": "Vieux-Longueuil, près des services",
-        "en": "Old Longueuil, near services"
-      },
-      "availability": {
-        "fr": "Sous 30 jours",
-        "en": "Within 30 days"
-      },
-      "description": {
-        "fr": "Coquet 3½ dans le Vieux-Longueuil, à distance de marche des cafés, restaurants et du fleuve. Parfait pour un premier appartement. Électroménagers inclus, chauffage inclus.",
-        "en": "Cozy 3½ in Old Longueuil, walking distance to cafés, restaurants and the river. Perfect as a first apartment. Appliances and heating included."
-      },
-      "amenities": {
-        "fr": [
-          "Électroménagers inclus",
-          "Chauffage inclus",
-          "Près du fleuve",
-          "Commerces à pied",
-          "Rangement",
-          "Animaux sur demande"
-        ],
-        "en": [
-          "Appliances included",
-          "Heating included",
-          "Near the river",
-          "Shops within walking distance",
-          "Storage",
-          "Pets on request"
-        ]
-      },
-      "details": {
-        "floor": 2,
-        "unitType": {
-          "fr": "Appartement 3½",
-          "en": "3½ apartment"
-        }
-      },
-      "nearby": {
-        "fr": [
-          "Rue Saint-Charles — 3 min",
-          "Parc Michel-Chartrand — 12 min",
-          "Métro Longueuil — 15 min",
-          "Épicerie — 5 min"
-        ],
-        "en": [
-          "Saint-Charles Street — 3 min",
-          "Michel-Chartrand Park — 12 min",
-          "Longueuil metro — 15 min",
-          "Grocery — 5 min"
-        ]
-      }
-    },
-    {
-      "id": "xlt-006",
-      "status": "rented",
-      "type": "off",
-      "typeLabel": {
-        "fr": "Bureaux",
-        "en": "Offices"
-      },
-      "title": {
-        "fr": "Bureau, Saint-Lambert",
-        "en": "Office, Saint-Lambert"
-      },
-      "address": "145 rue Victoria, Saint-Lambert",
-      "city": "Saint-Lambert",
-      "price": 22,
-      "priceUnit": "sqft",
-      "priceDisplay": {
-        "fr": "22 $ /pi²",
-        "en": "22 $ /sq ft"
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
       },
       "beds": null,
       "baths": null,
-      "sqft": 1200,
-      "photoCount": 6,
-      "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+      "sqft": 4814,
+      "photoCount": 2,
+      "image": "assets/units/8500-boulevard-taschereau-unit-5-brossard/cover.jpg",
+      "images": [
+        "assets/units/8500-boulevard-taschereau-unit-5-brossard/01.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-5-brossard/02.jpg"
+      ],
       "featured": true,
       "map": {
-        "top": "58%",
-        "left": "30%",
-        "rented": true
+        "lat": 45.444073,
+        "lng": -73.473456,
+        "precision": "building",
+        "top": "84.0%",
+        "left": "68.6%"
       },
-      "specExtra": {
-        "fr": "Bureau",
-        "en": "Office"
-      },
-      "images": [
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=80"
-      ],
       "near": {
-        "fr": "Secteur Victoria, Saint-Lambert",
-        "en": "Victoria sector, Saint-Lambert"
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
       },
-      "availability": {
-        "fr": "Loué",
-        "en": "Rented"
-      },
+      "availability": null,
       "description": {
-        "fr": "Bureau de 1 200 pi² à Saint-Lambert, bien situé près des services et du pont Victoria. Espaces de travail ouverts, salles de réunion possibles et stationnement. Actuellement loué.",
-        "en": "1,200 sq ft office in Saint-Lambert, well located near services and the Victoria Bridge. Open work areas, meeting-room potential and parking. Currently rented."
+        "fr": "Local commercial de 4 814 pi², au 8500 Boulevard Taschereau #5. Construit en 1991. Transport en commun à proximité.",
+        "en": "4,814 sq ft retail space at 8500 Boulevard Taschereau #5. Built in 1991. Public transport nearby."
       },
       "amenities": {
         "fr": [
-          "Espace ouvert",
-          "Fibre disponible",
-          "Stationnement",
-          "Climatisation",
-          "Salle de pause",
-          "Accès 24/7"
+          "Usage : local commercial",
+          "Superficie commerciale disponible : 4 814 pi²",
+          "Année de construction : 1991",
+          "Transport en commun à proximité"
         ],
         "en": [
-          "Open space",
-          "Fibre available",
-          "Parking",
-          "Air conditioning",
-          "Break room",
-          "24/7 access"
+          "Use: retail space",
+          "Available commercial area: 4,814 sq ft",
+          "Year built: 1991",
+          "Public transport nearby"
         ]
       },
       "details": {
-        "floor": 2,
+        "floor": null,
         "unitType": {
-          "fr": "Bureau",
-          "en": "Office"
-        }
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1991
       },
       "nearby": {
         "fr": [
-          "Gare Saint-Lambert — 8 min",
-          "Pont Victoria — 10 min",
-          "Commerces Victoria — 5 min",
-          "Cafés — 3 min"
+          "Transport en commun à proximité"
         ],
         "en": [
-          "Saint-Lambert station — 8 min",
-          "Victoria Bridge — 10 min",
-          "Victoria shops — 5 min",
-          "Cafés — 3 min"
+          "Public transport nearby"
         ]
-      }
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-ypdsc"
     },
     {
-      "id": "xlt-007",
-      "status": "available",
+      "id": "505-rue-de-l-escale-oria-2-brossard",
+      "status": "rented",
       "type": "res",
       "typeLabel": {
         "fr": "Résidentiel",
         "en": "Residential"
       },
       "title": {
-        "fr": "5½ à louer, Laval",
-        "en": "5½ for rent, Laval"
+        "fr": "Logement 4½, Brossard",
+        "en": "4½ unit, Brossard"
       },
-      "address": "3200 rang du Haut-Saint-François, Laval",
-      "city": "Laval",
-      "price": 2100,
-      "priceUnit": "month",
+      "address": "505 Rue de l'Escale #804 (Oria 2), Brossard",
+      "city": "Brossard",
+      "price": null,
+      "priceUnit": null,
       "priceDisplay": {
-        "fr": "2 100 $ /mois",
-        "en": "2 100 $ /mo"
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
       },
-      "beds": 3,
-      "baths": 2,
-      "sqft": 1150,
-      "photoCount": 11,
-      "image": "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=80",
-      "featured": false,
-      "map": {
-        "top": "48%",
-        "left": "70%"
-      },
+      "beds": null,
+      "baths": null,
+      "sqft": 774,
+      "photoCount": 40,
+      "image": "assets/units/505-rue-de-l-escale-oria-2-brossard/cover.jpg",
       "images": [
-        "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1600047509807-ba8f99d2cd41?auto=format&fit=crop&w=1400&q=80"
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/01.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/02.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/03.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/04.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/05.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/06.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/07.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/08.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/09.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/10.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/11.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/12.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/13.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/14.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/15.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/16.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/17.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/18.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/19.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/20.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/21.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/22.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/23.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/24.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/25.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/26.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/27.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/28.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/29.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/30.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/31.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/32.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/33.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/34.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/35.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/36.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/37.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/38.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/39.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/40.jpg"
       ],
+      "featured": true,
+      "map": {
+        "lat": 45.448985,
+        "lng": -73.428251,
+        "precision": "street",
+        "top": "80.1%",
+        "left": "83.3%",
+        "rented": true
+      },
       "near": {
-        "fr": "Secteur résidentiel calme à Laval",
-        "en": "Quiet residential area in Laval"
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
       },
-      "availability": {
-        "fr": "Sous 30 jours",
-        "en": "Within 30 days"
-      },
+      "availability": null,
       "description": {
-        "fr": "Grand 5½ familial à Laval avec 3 chambres et 2 salles de bain. Idéal pour une famille : espaces généreux, rangement et proximité des écoles et parcs. Disponibilité sous 30 jours.",
-        "en": "Large family 5½ in Laval with 3 bedrooms and 2 bathrooms. Ideal for a family: generous rooms, storage and close to schools and parks. Available within 30 days."
+        "fr": "Espace résidentiel de type 4½ d’environ 774 pi², au 505 Rue de l'Escale. Construit en 2024. Transport en commun à proximité.",
+        "en": "Residential space (4½) of about 774 sq ft at 505 Rue de l'Escale. Built in 2024. Public transport nearby."
       },
       "amenities": {
         "fr": [
-          "3 chambres",
-          "2 salles de bain",
-          "Stationnement inclus",
-          "Cour / espace extérieur",
-          "Chauffage inclus",
-          "Près des écoles"
+          "Usage : espace résidentiel",
+          "Type de logement : 4½",
+          "Superficie habitable : ± 774 pi²",
+          "Année de construction : 2024",
+          "Transport en commun à proximité"
         ],
         "en": [
-          "3 bedrooms",
-          "2 bathrooms",
-          "Parking included",
-          "Yard / outdoor space",
-          "Heating included",
-          "Near schools"
+          "Use: residential space",
+          "Residence type: 4½",
+          "Living space: ± 774 sq ft",
+          "Year built: 2024",
+          "Public transport nearby"
         ]
       },
       "details": {
-        "floor": 1,
+        "floor": null,
         "unitType": {
-          "fr": "Appartement 5½",
-          "en": "5½ apartment"
-        }
+          "fr": "Logement 4½",
+          "en": "4½ unit"
+        },
+        "yearBuilt": 2024
       },
       "nearby": {
         "fr": [
-          "École primaire — 8 min",
-          "Parc — 5 min",
-          "Épicerie — 7 min",
-          "Autoroute 25 — 10 min"
+          "Transport en commun à proximité"
         ],
         "en": [
-          "Elementary school — 8 min",
-          "Park — 5 min",
-          "Grocery — 7 min",
-          "Highway 25 — 10 min"
+          "Public transport nearby"
         ]
-      }
+      },
+      "specExtra": {
+        "fr": "4½",
+        "en": "4½"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-384t3"
     },
     {
-      "id": "xlt-008",
+      "id": "6857-av-lamont-montreal",
+      "status": "rented",
+      "type": "res",
+      "typeLabel": {
+        "fr": "Résidentiel",
+        "en": "Residential"
+      },
+      "title": {
+        "fr": "Logement résidentiel, Montréal",
+        "en": "Residential unit, Montreal"
+      },
+      "address": "6857 Avenue Lamont, Montréal",
+      "city": "Montréal",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": null,
+      "photoCount": 2,
+      "image": "assets/units/6857-av-lamont-montreal/cover.jpg",
+      "images": [
+        "assets/units/6857-av-lamont-montreal/01.jpg",
+        "assets/units/6857-av-lamont-montreal/02.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.448553,
+        "lng": -73.603002,
+        "precision": "building",
+        "top": "80.4%",
+        "left": "12.9%",
+        "rented": true
+      },
+      "near": {
+        "fr": "À 3 min à pied du métro Angrignon",
+        "en": "3 min walk to Angrignon metro"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Espace résidentiel, au 6857 Avenue Lamont. Construit en 1991. À 3 minutes à pied du métro Angrignon.",
+        "en": "Residential space at 6857 Avenue Lamont. Built in 1991. 3-minute walk to Angrignon metro."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : espace résidentiel",
+          "Année de construction : 1991",
+          "À 3 min à pied du métro Angrignon"
+        ],
+        "en": [
+          "Use: residential space",
+          "Year built: 1991",
+          "3 min walk to Angrignon metro"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Logement résidentiel",
+          "en": "Residential unit"
+        },
+        "yearBuilt": 1991
+      },
+      "nearby": {
+        "fr": [
+          "À 3 min à pied du métro Angrignon"
+        ],
+        "en": [
+          "3 min walk to Angrignon metro"
+        ]
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy-bnwb9-f628b-jbczc-zg7sm-n7ncp"
+    },
+    {
+      "id": "6855-av-lamont-montreal",
+      "status": "rented",
+      "type": "res",
+      "typeLabel": {
+        "fr": "Résidentiel",
+        "en": "Residential"
+      },
+      "title": {
+        "fr": "Logement résidentiel, Montréal",
+        "en": "Residential unit, Montreal"
+      },
+      "address": "6855 Avenue Lamont, Montréal",
+      "city": "Montréal",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": null,
+      "photoCount": 2,
+      "image": "assets/units/6855-av-lamont-montreal/cover.jpg",
+      "images": [
+        "assets/units/6855-av-lamont-montreal/01.jpg",
+        "assets/units/6855-av-lamont-montreal/02.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.448553,
+        "lng": -73.603002,
+        "precision": "building",
+        "top": "84.0%",
+        "left": "10.0%",
+        "rented": true
+      },
+      "near": {
+        "fr": "À 3 min à pied du métro Angrignon",
+        "en": "3 min walk to Angrignon metro"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Espace résidentiel, au 6855 Avenue Lamont. Construit en 1991. À 3 minutes à pied du métro Angrignon.",
+        "en": "Residential space at 6855 Avenue Lamont. Built in 1991. 3-minute walk to Angrignon metro."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : espace résidentiel",
+          "Année de construction : 1991",
+          "À 3 min à pied du métro Angrignon"
+        ],
+        "en": [
+          "Use: residential space",
+          "Year built: 1991",
+          "3 min walk to Angrignon metro"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Logement résidentiel",
+          "en": "Residential unit"
+        },
+        "yearBuilt": 1991
+      },
+      "nearby": {
+        "fr": [
+          "À 3 min à pied du métro Angrignon"
+        ],
+        "en": [
+          "3 min walk to Angrignon metro"
+        ]
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy-bnwb9-f628b-jbczc-zg7sm"
+    },
+    {
+      "id": "6853-av-lamont-montreal",
+      "status": "rented",
+      "type": "res",
+      "typeLabel": {
+        "fr": "Résidentiel",
+        "en": "Residential"
+      },
+      "title": {
+        "fr": "Logement résidentiel, Montréal",
+        "en": "Residential unit, Montreal"
+      },
+      "address": "6853 Avenue Lamont, Montréal",
+      "city": "Montréal",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": null,
+      "photoCount": 2,
+      "image": "assets/units/6853-av-lamont-montreal/cover.jpg",
+      "images": [
+        "assets/units/6853-av-lamont-montreal/01.jpg",
+        "assets/units/6853-av-lamont-montreal/02.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.448553,
+        "lng": -73.603002,
+        "precision": "building",
+        "top": "80.4%",
+        "left": "7.1%",
+        "rented": true
+      },
+      "near": {
+        "fr": "À 3 min à pied du métro Angrignon",
+        "en": "3 min walk to Angrignon metro"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Espace résidentiel, au 6853 Avenue Lamont. Construit en 1991. À 3 minutes à pied du métro Angrignon.",
+        "en": "Residential space at 6853 Avenue Lamont. Built in 1991. 3-minute walk to Angrignon metro."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : espace résidentiel",
+          "Année de construction : 1991",
+          "À 3 min à pied du métro Angrignon"
+        ],
+        "en": [
+          "Use: residential space",
+          "Year built: 1991",
+          "3 min walk to Angrignon metro"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Logement résidentiel",
+          "en": "Residential unit"
+        },
+        "yearBuilt": 1991
+      },
+      "nearby": {
+        "fr": [
+          "À 3 min à pied du métro Angrignon"
+        ],
+        "en": [
+          "3 min walk to Angrignon metro"
+        ]
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy-bnwb9-f628b-jbczc"
+    },
+    {
+      "id": "6851-av-lamont-montreal",
+      "status": "rented",
+      "type": "res",
+      "typeLabel": {
+        "fr": "Résidentiel",
+        "en": "Residential"
+      },
+      "title": {
+        "fr": "Logement résidentiel, Montréal",
+        "en": "Residential unit, Montreal"
+      },
+      "address": "6851 Avenue Lamont, Montréal",
+      "city": "Montréal",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": null,
+      "photoCount": 2,
+      "image": "assets/units/6851-av-lamont-montreal/cover.jpg",
+      "images": [
+        "assets/units/6851-av-lamont-montreal/01.jpg",
+        "assets/units/6851-av-lamont-montreal/02.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.448553,
+        "lng": -73.603002,
+        "precision": "address",
+        "top": "76.8%",
+        "left": "10.0%",
+        "rented": true
+      },
+      "near": {
+        "fr": "À 3 min à pied du métro Angrignon",
+        "en": "3 min walk to Angrignon metro"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Espace résidentiel, au 6851 Avenue Lamont. Construit en 1991. À 3 minutes à pied du métro Angrignon.",
+        "en": "Residential space at 6851 Avenue Lamont. Built in 1991. 3-minute walk to Angrignon metro."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : espace résidentiel",
+          "Année de construction : 1991",
+          "À 3 min à pied du métro Angrignon"
+        ],
+        "en": [
+          "Use: residential space",
+          "Year built: 1991",
+          "3 min walk to Angrignon metro"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Logement résidentiel",
+          "en": "Residential unit"
+        },
+        "yearBuilt": 1991
+      },
+      "nearby": {
+        "fr": [
+          "À 3 min à pied du métro Angrignon"
+        ],
+        "en": [
+          "3 min walk to Angrignon metro"
+        ]
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy-bnwb9-f628b"
+    },
+    {
+      "id": "6524-boul-monk-montreal",
+      "status": "rented",
+      "type": "res",
+      "typeLabel": {
+        "fr": "Résidentiel",
+        "en": "Residential"
+      },
+      "title": {
+        "fr": "Logement résidentiel, Montréal",
+        "en": "Residential unit, Montreal"
+      },
+      "address": "6524 Boulevard Monk, Montréal",
+      "city": "Montréal",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": null,
+      "photoCount": 2,
+      "image": "assets/units/6524-boul-monk-montreal/cover.jpg",
+      "images": [
+        "assets/units/6524-boul-monk-montreal/01.jpg",
+        "assets/units/6524-boul-monk-montreal/02.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.45365,
+        "lng": -73.594028,
+        "precision": "address",
+        "top": "76.4%",
+        "left": "13.8%",
+        "rented": true
+      },
+      "near": {
+        "fr": "À 4 min à pied du métro Monk",
+        "en": "4 min walk to Monk metro"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Espace résidentiel, au 6524 Boulevard Monk. Construit en 1930. À 4 minutes à pied du métro Monk.",
+        "en": "Residential space at 6524 Boulevard Monk. Built in 1930. 4-minute walk to Monk metro."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : espace résidentiel",
+          "Année de construction : 1930",
+          "À 4 min à pied du métro Monk"
+        ],
+        "en": [
+          "Use: residential space",
+          "Year built: 1930",
+          "4 min walk to Monk metro"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Logement résidentiel",
+          "en": "Residential unit"
+        },
+        "yearBuilt": 1930
+      },
+      "nearby": {
+        "fr": [
+          "À 4 min à pied du métro Monk"
+        ],
+        "en": [
+          "4 min walk to Monk metro"
+        ]
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy-bnwb9-y7tsg"
+    },
+    {
+      "id": "6520-boul-monk-montreal",
+      "status": "rented",
+      "type": "res",
+      "typeLabel": {
+        "fr": "Résidentiel",
+        "en": "Residential"
+      },
+      "title": {
+        "fr": "Logement résidentiel, Montréal",
+        "en": "Residential unit, Montreal"
+      },
+      "address": "6520 Boulevard Monk, Montréal",
+      "city": "Montréal",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": null,
+      "photoCount": 2,
+      "image": "assets/units/6520-boul-monk-montreal/cover.jpg",
+      "images": [
+        "assets/units/6520-boul-monk-montreal/01.jpg",
+        "assets/units/6520-boul-monk-montreal/02.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.453672,
+        "lng": -73.594036,
+        "precision": "address",
+        "top": "76.4%",
+        "left": "16.4%",
+        "rented": true
+      },
+      "near": {
+        "fr": "À 4 min à pied du métro Monk",
+        "en": "4 min walk to Monk metro"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Espace résidentiel, au 6520 Boulevard Monk. Construit en 1930. À 4 minutes à pied du métro Monk.",
+        "en": "Residential space at 6520 Boulevard Monk. Built in 1930. 4-minute walk to Monk metro."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : espace résidentiel",
+          "Année de construction : 1930",
+          "À 4 min à pied du métro Monk"
+        ],
+        "en": [
+          "Use: residential space",
+          "Year built: 1930",
+          "4 min walk to Monk metro"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Logement résidentiel",
+          "en": "Residential unit"
+        },
+        "yearBuilt": 1930
+      },
+      "nearby": {
+        "fr": [
+          "À 4 min à pied du métro Monk"
+        ],
+        "en": [
+          "4 min walk to Monk metro"
+        ]
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy-bnwb9"
+    },
+    {
+      "id": "6518-boul-monk-montreal",
+      "status": "rented",
+      "type": "res",
+      "typeLabel": {
+        "fr": "Résidentiel",
+        "en": "Residential"
+      },
+      "title": {
+        "fr": "Logement résidentiel, Montréal",
+        "en": "Residential unit, Montreal"
+      },
+      "address": "6518 Boulevard Monk, Montréal",
+      "city": "Montréal",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": null,
+      "photoCount": 2,
+      "image": "assets/units/6518-boul-monk-montreal/cover.jpg",
+      "images": [
+        "assets/units/6518-boul-monk-montreal/01.jpg",
+        "assets/units/6518-boul-monk-montreal/02.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.453672,
+        "lng": -73.594036,
+        "precision": "building",
+        "top": "79.2%",
+        "left": "12.5%",
+        "rented": true
+      },
+      "near": {
+        "fr": "À 4 min à pied du métro Monk",
+        "en": "4 min walk to Monk metro"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Espace résidentiel, au 6518 Boulevard Monk. Construit en 1930. À 4 minutes à pied du métro Monk.",
+        "en": "Residential space at 6518 Boulevard Monk. Built in 1930. 4-minute walk to Monk metro."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : espace résidentiel",
+          "Année de construction : 1930",
+          "À 4 min à pied du métro Monk"
+        ],
+        "en": [
+          "Use: residential space",
+          "Year built: 1930",
+          "4 min walk to Monk metro"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Logement résidentiel",
+          "en": "Residential unit"
+        },
+        "yearBuilt": 1930
+      },
+      "nearby": {
+        "fr": [
+          "À 4 min à pied du métro Monk"
+        ],
+        "en": [
+          "4 min walk to Monk metro"
+        ]
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy"
+    },
+    {
+      "id": "6522-boul-monk-montreal",
+      "status": "rented",
+      "type": "res",
+      "typeLabel": {
+        "fr": "Résidentiel",
+        "en": "Residential"
+      },
+      "title": {
+        "fr": "Logement résidentiel, Montréal",
+        "en": "Residential unit, Montreal"
+      },
+      "address": "6522 Boulevard Monk, Montréal",
+      "city": "Montréal",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": null,
+      "photoCount": 2,
+      "image": "assets/units/6522-boul-monk-montreal/cover.jpg",
+      "images": [
+        "assets/units/6522-boul-monk-montreal/01.jpg",
+        "assets/units/6522-boul-monk-montreal/02.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.453672,
+        "lng": -73.594036,
+        "precision": "address",
+        "top": "73.5%",
+        "left": "12.5%",
+        "rented": true
+      },
+      "near": {
+        "fr": "À 4 min à pied du métro Monk",
+        "en": "4 min walk to Monk metro"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Espace résidentiel, au 6522 Boulevard Monk. Construit en 1930. À 4 minutes à pied du métro Monk.",
+        "en": "Residential space at 6522 Boulevard Monk. Built in 1930. 4-minute walk to Monk metro."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : espace résidentiel",
+          "Année de construction : 1930",
+          "À 4 min à pied du métro Monk"
+        ],
+        "en": [
+          "Use: residential space",
+          "Year built: 1930",
+          "4 min walk to Monk metro"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Logement résidentiel",
+          "en": "Residential unit"
+        },
+        "yearBuilt": 1930
+      },
+      "nearby": {
+        "fr": [
+          "À 4 min à pied du métro Monk"
+        ],
+        "en": [
+          "4 min walk to Monk metro"
+        ]
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33"
+    },
+    {
+      "id": "1731-rue-balmoral-longueuil",
+      "status": "rented",
+      "type": "res",
+      "typeLabel": {
+        "fr": "Résidentiel",
+        "en": "Residential"
+      },
+      "title": {
+        "fr": "Logement 4½, Saint-Hubert",
+        "en": "4½ unit, Saint-Hubert"
+      },
+      "address": "1731 Rue Balmoral, Saint-Hubert (Longueuil)",
+      "city": "Longueuil",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 1000,
+      "photoCount": 22,
+      "image": "assets/units/1731-rue-balmoral-longueuil/cover.jpg",
+      "images": [
+        "assets/units/1731-rue-balmoral-longueuil/01.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/02.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/03.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/04.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/05.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/06.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/07.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/08.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/09.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/10.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/11.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/12.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/13.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/14.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/15.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/16.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/17.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/18.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/19.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/20.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/21.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/22.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.489643,
+        "lng": -73.461265,
+        "precision": "address",
+        "top": "47.8%",
+        "left": "69.4%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Espace résidentiel de type 4½ d’environ 1 000 pi², au 1731 Rue Balmoral. Construit en 1958. Transport en commun à proximité.",
+        "en": "Residential space (4½) of about 1,000 sq ft at 1731 Rue Balmoral. Built in 1958. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : espace résidentiel",
+          "Type de logement : 4½",
+          "Superficie habitable : ± 1 000 pi²",
+          "Année de construction : 1958",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: residential space",
+          "Residence type: 4½",
+          "Living space: ± 1,000 sq ft",
+          "Year built: 1958",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Logement 4½",
+          "en": "4½ unit"
+        },
+        "yearBuilt": 1958
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "4½",
+        "en": "4½"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-jrasb-wb238"
+    },
+    {
+      "id": "1729-rue-balmoral-longueuil",
+      "status": "rented",
+      "type": "res",
+      "typeLabel": {
+        "fr": "Résidentiel",
+        "en": "Residential"
+      },
+      "title": {
+        "fr": "Logement 4½, Saint-Hubert",
+        "en": "4½ unit, Saint-Hubert"
+      },
+      "address": "1729 Rue Balmoral, Saint-Hubert (Longueuil)",
+      "city": "Longueuil",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 900,
+      "photoCount": 12,
+      "image": "assets/units/1729-rue-balmoral-longueuil/cover.jpg",
+      "images": [
+        "assets/units/1729-rue-balmoral-longueuil/01.jpg",
+        "assets/units/1729-rue-balmoral-longueuil/02.jpg",
+        "assets/units/1729-rue-balmoral-longueuil/03.jpg",
+        "assets/units/1729-rue-balmoral-longueuil/04.jpg",
+        "assets/units/1729-rue-balmoral-longueuil/05.jpg",
+        "assets/units/1729-rue-balmoral-longueuil/06.jpg",
+        "assets/units/1729-rue-balmoral-longueuil/07.jpg",
+        "assets/units/1729-rue-balmoral-longueuil/08.jpg",
+        "assets/units/1729-rue-balmoral-longueuil/09.jpg",
+        "assets/units/1729-rue-balmoral-longueuil/10.jpg",
+        "assets/units/1729-rue-balmoral-longueuil/11.jpg",
+        "assets/units/1729-rue-balmoral-longueuil/12.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.489666,
+        "lng": -73.461225,
+        "precision": "address",
+        "top": "47.7%",
+        "left": "71.8%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Espace résidentiel de type 4½ d’environ 900 pi², au 1729 Rue Balmoral. Construit en 1958. Transport en commun à proximité.",
+        "en": "Residential space (4½) of about 900 sq ft at 1729 Rue Balmoral. Built in 1958. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : espace résidentiel",
+          "Type de logement : 4½",
+          "Superficie habitable : ± 900 pi²",
+          "Année de construction : 1958",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: residential space",
+          "Residence type: 4½",
+          "Living space: ± 900 sq ft",
+          "Year built: 1958",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Logement 4½",
+          "en": "4½ unit"
+        },
+        "yearBuilt": 1958
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "4½",
+        "en": "4½"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-jrasb"
+    },
+    {
+      "id": "1729a-rue-balmoral-longueuil",
+      "status": "rented",
+      "type": "res",
+      "typeLabel": {
+        "fr": "Résidentiel",
+        "en": "Residential"
+      },
+      "title": {
+        "fr": "Logement 3½, Saint-Hubert",
+        "en": "3½ unit, Saint-Hubert"
+      },
+      "address": "1729A Rue Balmoral, Saint-Hubert (Longueuil)",
+      "city": "Longueuil",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 900,
+      "photoCount": 22,
+      "image": "assets/units/1729a-rue-balmoral-longueuil/cover.jpg",
+      "images": [
+        "assets/units/1729a-rue-balmoral-longueuil/01.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/02.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/03.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/04.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/05.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/06.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/07.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/08.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/09.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/10.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/11.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/12.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/13.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/14.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/15.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/16.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/17.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/18.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/19.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/20.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/21.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/22.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.489666,
+        "lng": -73.461225,
+        "precision": "building",
+        "top": "47.7%",
+        "left": "67.1%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Espace résidentiel de type 3½ d’environ 900 pi², au 1729A Rue Balmoral. Construit en 1958. Transport en commun à proximité.",
+        "en": "Residential space (3½) of about 900 sq ft at 1729A Rue Balmoral. Built in 1958. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : espace résidentiel",
+          "Type de logement : 3½",
+          "Superficie habitable : ± 900 pi²",
+          "Année de construction : 1958",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: residential space",
+          "Residence type: 3½",
+          "Living space: ± 900 sq ft",
+          "Year built: 1958",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Logement 3½",
+          "en": "3½ unit"
+        },
+        "yearBuilt": 1958
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "3½",
+        "en": "3½"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p"
+    },
+    {
+      "id": "5860-rue-corneille-brossard",
+      "status": "rented",
+      "type": "res",
+      "typeLabel": {
+        "fr": "Résidentiel",
+        "en": "Residential"
+      },
+      "title": {
+        "fr": "Logement 4½, Brossard",
+        "en": "4½ unit, Brossard"
+      },
+      "address": "5860 Rue Corneille, Brossard",
+      "city": "Brossard",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 905,
+      "photoCount": 9,
+      "image": "assets/units/5860-rue-corneille-brossard/cover.jpg",
+      "images": [
+        "assets/units/5860-rue-corneille-brossard/01.jpg",
+        "assets/units/5860-rue-corneille-brossard/02.jpg",
+        "assets/units/5860-rue-corneille-brossard/03.jpg",
+        "assets/units/5860-rue-corneille-brossard/04.jpg",
+        "assets/units/5860-rue-corneille-brossard/05.jpg",
+        "assets/units/5860-rue-corneille-brossard/06.jpg",
+        "assets/units/5860-rue-corneille-brossard/07.jpg",
+        "assets/units/5860-rue-corneille-brossard/08.jpg",
+        "assets/units/5860-rue-corneille-brossard/09.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.46366,
+        "lng": -73.431934,
+        "precision": "street",
+        "top": "68.4%",
+        "left": "81.7%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Espace résidentiel de type 4½ d’environ 905 pi², au 5860 Rue Corneille. Construit en 2010. Transport en commun à proximité.",
+        "en": "Residential space (4½) of about 905 sq ft at 5860 Rue Corneille. Built in 2010. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : espace résidentiel",
+          "Type de logement : 4½",
+          "Superficie habitable : ± 905 pi²",
+          "Année de construction : 2010",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: residential space",
+          "Residence type: 4½",
+          "Living space: ± 905 sq ft",
+          "Year built: 2010",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Logement 4½",
+          "en": "4½ unit"
+        },
+        "yearBuilt": 2010
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "4½",
+        "en": "4½"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh"
+    },
+    {
+      "id": "7130-rue-du-chardonneret-brossard",
+      "status": "rented",
+      "type": "res",
+      "typeLabel": {
+        "fr": "Résidentiel",
+        "en": "Residential"
+      },
+      "title": {
+        "fr": "Logement 4½, Brossard",
+        "en": "4½ unit, Brossard"
+      },
+      "address": "7130 Rue du Chardonneret, Brossard",
+      "city": "Brossard",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 879,
+      "photoCount": 11,
+      "image": "assets/units/7130-rue-du-chardonneret-brossard/cover.jpg",
+      "images": [
+        "assets/units/7130-rue-du-chardonneret-brossard/01.jpg",
+        "assets/units/7130-rue-du-chardonneret-brossard/02.jpg",
+        "assets/units/7130-rue-du-chardonneret-brossard/03.jpg",
+        "assets/units/7130-rue-du-chardonneret-brossard/04.jpg",
+        "assets/units/7130-rue-du-chardonneret-brossard/05.jpg",
+        "assets/units/7130-rue-du-chardonneret-brossard/06.jpg",
+        "assets/units/7130-rue-du-chardonneret-brossard/07.jpg",
+        "assets/units/7130-rue-du-chardonneret-brossard/08.jpg",
+        "assets/units/7130-rue-du-chardonneret-brossard/09.jpg",
+        "assets/units/7130-rue-du-chardonneret-brossard/10.jpg",
+        "assets/units/7130-rue-du-chardonneret-brossard/11.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.460483,
+        "lng": -73.4236,
+        "precision": "street",
+        "top": "70.9%",
+        "left": "85.2%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Espace résidentiel de type 4½ d’environ 879 pi², au 7130 Rue du Chardonneret. Construit en 2009. Transport en commun à proximité.",
+        "en": "Residential space (4½) of about 879 sq ft at 7130 Rue du Chardonneret. Built in 2009. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : espace résidentiel",
+          "Type de logement : 4½",
+          "Superficie habitable : ± 879 pi²",
+          "Année de construction : 2009",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: residential space",
+          "Residence type: 4½",
+          "Living space: ± 879 sq ft",
+          "Year built: 2009",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Logement 4½",
+          "en": "4½ unit"
+        },
+        "yearBuilt": 2009
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "4½",
+        "en": "4½"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms"
+    },
+    {
+      "id": "1297-ch-chambly-longueuil",
       "status": "rented",
       "type": "com",
       "typeLabel": {
@@ -650,179 +1414,1739 @@
         "en": "Retail"
       },
       "title": {
-        "fr": "Commerce, Saint-Hubert",
-        "en": "Retail, Saint-Hubert"
+        "fr": "Local commercial, Longueuil",
+        "en": "Retail space, Longueuil"
       },
-      "address": "5500 boul. Cousineau, Saint-Hubert",
-      "city": "Saint-Hubert",
-      "price": 18,
-      "priceUnit": "sqft",
+      "address": "1297 Chemin de Chambly, Longueuil",
+      "city": "Longueuil",
+      "price": null,
+      "priceUnit": null,
       "priceDisplay": {
-        "fr": "18 $ /pi²",
-        "en": "18 $ /sq ft"
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
       },
       "beds": null,
       "baths": null,
-      "sqft": 900,
-      "photoCount": 5,
-      "image": "https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=800&q=80",
+      "sqft": 3000,
+      "photoCount": 14,
+      "image": "assets/units/1297-ch-chambly-longueuil/cover.jpg",
+      "images": [
+        "assets/units/1297-ch-chambly-longueuil/01.jpg",
+        "assets/units/1297-ch-chambly-longueuil/02.jpg",
+        "assets/units/1297-ch-chambly-longueuil/03.jpg",
+        "assets/units/1297-ch-chambly-longueuil/04.jpg",
+        "assets/units/1297-ch-chambly-longueuil/05.jpg",
+        "assets/units/1297-ch-chambly-longueuil/06.jpg",
+        "assets/units/1297-ch-chambly-longueuil/07.jpg",
+        "assets/units/1297-ch-chambly-longueuil/08.jpg",
+        "assets/units/1297-ch-chambly-longueuil/09.jpg",
+        "assets/units/1297-ch-chambly-longueuil/10.jpg",
+        "assets/units/1297-ch-chambly-longueuil/11.jpg",
+        "assets/units/1297-ch-chambly-longueuil/12.jpg",
+        "assets/units/1297-ch-chambly-longueuil/13.jpg",
+        "assets/units/1297-ch-chambly-longueuil/14.jpg"
+      ],
       "featured": false,
       "map": {
-        "top": "70%",
-        "left": "22%",
+        "lat": 45.531749,
+        "lng": -73.488072,
+        "precision": "address",
+        "top": "14.3%",
+        "left": "58.2%",
         "rented": true
       },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Local commercial de 3 000 pi², au 1297 Chemin de Chambly. Construit en 1957. Transport en commun à proximité.",
+        "en": "3,000 sq ft retail space at 1297 Chemin de Chambly. Built in 1957. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : local commercial",
+          "Superficie commerciale disponible : 3 000 pi²",
+          "Année de construction : 1957",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: retail space",
+          "Available commercial area: 3,000 sq ft",
+          "Year built: 1957",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1957
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
       "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy-bnwb9-f628b-jbczc-zg7sm-n7ncp-ekhrh-rbct5-5dx3e-nxlcw-kcl3k-k3gya-5ekhw"
+    },
+    {
+      "id": "1299-ch-chambly-longueuil",
+      "status": "rented",
+      "type": "com",
+      "typeLabel": {
         "fr": "Commerce",
         "en": "Retail"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1555529771-835f59fc5efe?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?auto=format&fit=crop&w=1400&q=80"
-      ],
-      "near": {
-        "fr": "Boulevard Cousineau, Saint-Hubert",
-        "en": "Cousineau Blvd, Saint-Hubert"
-      },
-      "availability": {
-        "fr": "Loué",
-        "en": "Rented"
-      },
-      "description": {
-        "fr": "Local commercial de 900 pi² sur le boulevard Cousineau à Saint-Hubert. Bonne visibilité, accès facile et stationnement. Convient à un commerce de proximité. Actuellement loué.",
-        "en": "900 sq ft retail unit on Cousineau Boulevard in Saint-Hubert. Good visibility, easy access and parking. Suitable for a neighbourhood business. Currently rented."
-      },
-      "amenities": {
-        "fr": [
-          "Vitrine sur rue",
-          "Stationnement",
-          "Accès facile",
-          "Climatisation",
-          "Entreposage arrière",
-          "Enseigne"
-        ],
-        "en": [
-          "Street storefront",
-          "Parking",
-          "Easy access",
-          "Air conditioning",
-          "Rear storage",
-          "Signage"
-        ]
-      },
-      "details": {
-        "floor": 1,
-        "unitType": {
-          "fr": "Commerce",
-          "en": "Retail"
-        }
-      },
-      "nearby": {
-        "fr": [
-          "Promenades St-Bruno — 12 min",
-          "Transport en commun — 3 min",
-          "Épicerie — 5 min",
-          "Autoroute 30 — 8 min"
-        ],
-        "en": [
-          "Promenades St-Bruno — 12 min",
-          "Transit — 3 min",
-          "Grocery — 5 min",
-          "Highway 30 — 8 min"
-        ]
-      }
-    },
-    {
-      "id": "xlt-009",
-      "status": "available",
-      "type": "res",
-      "typeLabel": {
-        "fr": "Résidentiel",
-        "en": "Residential"
-      },
       "title": {
-        "fr": "4½ à louer, Montréal",
-        "en": "4½ for rent, Montreal"
+        "fr": "Local commercial, Longueuil",
+        "en": "Retail space, Longueuil"
       },
-      "address": "1675 rue Joliette, Montréal",
-      "city": "Montréal",
-      "price": 1525,
-      "priceUnit": "month",
+      "address": "1299 Chemin de Chambly, Longueuil",
+      "city": "Longueuil",
+      "price": null,
+      "priceUnit": null,
       "priceDisplay": {
-        "fr": "1 525 $ /mois",
-        "en": "1 525 $ /mo"
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
       },
-      "beds": 2,
-      "baths": 1,
-      "sqft": 780,
-      "photoCount": 14,
-      "image": "https://images.unsplash.com/photo-1560448204-61dc36dc98c8?auto=format&fit=crop&w=800&q=80",
+      "beds": null,
+      "baths": null,
+      "sqft": 1600,
+      "photoCount": 12,
+      "image": "assets/units/1299-ch-chambly-longueuil/cover.jpg",
+      "images": [
+        "assets/units/1299-ch-chambly-longueuil/01.jpg",
+        "assets/units/1299-ch-chambly-longueuil/02.jpg",
+        "assets/units/1299-ch-chambly-longueuil/03.jpg",
+        "assets/units/1299-ch-chambly-longueuil/04.jpg",
+        "assets/units/1299-ch-chambly-longueuil/05.jpg",
+        "assets/units/1299-ch-chambly-longueuil/06.jpg",
+        "assets/units/1299-ch-chambly-longueuil/07.jpg",
+        "assets/units/1299-ch-chambly-longueuil/08.jpg",
+        "assets/units/1299-ch-chambly-longueuil/09.jpg",
+        "assets/units/1299-ch-chambly-longueuil/10.jpg",
+        "assets/units/1299-ch-chambly-longueuil/11.jpg",
+        "assets/units/1299-ch-chambly-longueuil/12.jpg"
+      ],
       "featured": false,
       "map": {
-        "top": "60%",
-        "left": "42%"
+        "lat": 45.532241,
+        "lng": -73.488246,
+        "precision": "address",
+        "top": "13.9%",
+        "left": "58.1%",
+        "rented": true
       },
-      "images": [
-        "https://images.unsplash.com/photo-1560448204-61dc36dc98c8?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1400&q=80",
-        "https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=1400&q=80"
-      ],
       "near": {
-        "fr": "Hochelaga, près des services",
-        "en": "Hochelaga, near services"
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
       },
-      "availability": {
-        "fr": "Immédiate",
-        "en": "Immediate"
-      },
+      "availability": null,
       "description": {
-        "fr": "Bel 4½ à louer sur la rue Joliette à Montréal. Quartier vivant d'Hochelaga avec commerces, cafés et parcs à proximité. Deux chambres, cuisine moderne et disponibilité immédiate.",
-        "en": "Nice 4½ for rent on Joliette Street in Montreal. Lively Hochelaga neighbourhood with shops, cafés and parks nearby. Two bedrooms, modern kitchen and immediate availability."
+        "fr": "Local commercial de 1 600 pi², au 1299 Chemin de Chambly. Construit en 1957. Transport en commun à proximité.",
+        "en": "1,600 sq ft retail space at 1299 Chemin de Chambly. Built in 1957. Public transport nearby."
       },
       "amenities": {
         "fr": [
-          "Cuisine moderne",
-          "2 chambres",
-          "Chauffage inclus",
-          "Près des commerces",
-          "Transport en commun",
-          "Animaux sur demande"
+          "Usage : local commercial",
+          "Superficie commerciale disponible : 1 600 pi²",
+          "Année de construction : 1957",
+          "Transport en commun à proximité"
         ],
         "en": [
-          "Modern kitchen",
-          "2 bedrooms",
-          "Heating included",
-          "Near shops",
-          "Public transit",
-          "Pets on request"
+          "Use: retail space",
+          "Available commercial area: 1,600 sq ft",
+          "Year built: 1957",
+          "Public transport nearby"
         ]
       },
       "details": {
-        "floor": 3,
+        "floor": null,
         "unitType": {
-          "fr": "Appartement 4½",
-          "en": "4½ apartment"
-        }
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1957
       },
       "nearby": {
         "fr": [
-          "Métro Joliette — 600 m",
-          "Parc Morgan — 8 min",
-          "Épicerie — 4 min",
-          "Café de quartier — 3 min"
+          "Transport en commun à proximité"
         ],
         "en": [
-          "Joliette metro — 600 m",
-          "Morgan Park — 8 min",
-          "Grocery — 4 min",
-          "Neighbourhood café — 3 min"
+          "Public transport nearby"
         ]
-      }
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy-bnwb9-f628b-jbczc-zg7sm-n7ncp-ekhrh-rbct5-5dx3e-nxlcw-kcl3k-k3gya"
+    },
+    {
+      "id": "1295-ch-chambly-longueuil",
+      "status": "rented",
+      "type": "com",
+      "typeLabel": {
+        "fr": "Commerce",
+        "en": "Retail"
+      },
+      "title": {
+        "fr": "Local commercial, Longueuil",
+        "en": "Retail space, Longueuil"
+      },
+      "address": "1295 Chemin de Chambly, Longueuil",
+      "city": "Longueuil",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 1400,
+      "photoCount": 11,
+      "image": "assets/units/1295-ch-chambly-longueuil/cover.jpg",
+      "images": [
+        "assets/units/1295-ch-chambly-longueuil/01.jpg",
+        "assets/units/1295-ch-chambly-longueuil/02.jpg",
+        "assets/units/1295-ch-chambly-longueuil/03.jpg",
+        "assets/units/1295-ch-chambly-longueuil/04.jpg",
+        "assets/units/1295-ch-chambly-longueuil/05.jpg",
+        "assets/units/1295-ch-chambly-longueuil/06.jpg",
+        "assets/units/1295-ch-chambly-longueuil/07.jpg",
+        "assets/units/1295-ch-chambly-longueuil/08.jpg",
+        "assets/units/1295-ch-chambly-longueuil/09.jpg",
+        "assets/units/1295-ch-chambly-longueuil/10.jpg",
+        "assets/units/1295-ch-chambly-longueuil/11.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.53227,
+        "lng": -73.488314,
+        "precision": "address",
+        "top": "13.8%",
+        "left": "58.1%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Local commercial de 1 400 pi², au 1295 Chemin de Chambly. Construit en 1957. Transport en commun à proximité.",
+        "en": "1,400 sq ft retail space at 1295 Chemin de Chambly. Built in 1957. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : local commercial",
+          "Superficie commerciale disponible : 1 400 pi²",
+          "Année de construction : 1957",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: retail space",
+          "Available commercial area: 1,400 sq ft",
+          "Year built: 1957",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1957
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy-bnwb9-f628b-jbczc-zg7sm-n7ncp-ekhrh-rbct5-5dx3e-nxlcw-kcl3k"
+    },
+    {
+      "id": "620-b-rue-saint-thomas-longueuil",
+      "status": "rented",
+      "type": "com",
+      "typeLabel": {
+        "fr": "Commerce",
+        "en": "Retail"
+      },
+      "title": {
+        "fr": "Local commercial, Longueuil",
+        "en": "Retail space, Longueuil"
+      },
+      "address": "620 B Rue Saint-Thomas, Longueuil",
+      "city": "Longueuil",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 1000,
+      "photoCount": 13,
+      "image": "assets/units/620-b-rue-saint-thomas-longueuil/cover.jpg",
+      "images": [
+        "assets/units/620-b-rue-saint-thomas-longueuil/01.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/02.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/03.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/04.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/05.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/06.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/07.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/08.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/09.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/10.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/11.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/12.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/13.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.534585,
+        "lng": -73.503261,
+        "precision": "address",
+        "top": "12.0%",
+        "left": "54.1%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Local commercial de 1 000 pi², au 620 B Rue Saint-Thomas. Construit en 1953. Transport en commun à proximité. Pour toute demande, contactez-nous au 514-963-1918.",
+        "en": "1,000 sq ft retail space at 620 B Rue Saint-Thomas. Built in 1953. Public transport nearby. If interested, contact us at 514-963-1918."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : local commercial",
+          "Superficie commerciale disponible : 1 000 pi²",
+          "Année de construction : 1953",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: retail space",
+          "Available commercial area: 1,000 sq ft",
+          "Year built: 1953",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1953
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy-bnwb9-f628b-jbczc-zg7sm-n7ncp-ekhrh-rbct5-5dx3e-nxlcw-k945n-mcmhf"
+    },
+    {
+      "id": "620-a-rue-saint-thomas-longueuil",
+      "status": "rented",
+      "type": "com",
+      "typeLabel": {
+        "fr": "Commerce",
+        "en": "Retail"
+      },
+      "title": {
+        "fr": "Local commercial, Longueuil",
+        "en": "Retail space, Longueuil"
+      },
+      "address": "620 A Rue Saint-Thomas, Longueuil",
+      "city": "Longueuil",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 2200,
+      "photoCount": 13,
+      "image": "assets/units/620-a-rue-saint-thomas-longueuil/cover.jpg",
+      "images": [
+        "assets/units/620-a-rue-saint-thomas-longueuil/01.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/02.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/03.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/04.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/05.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/06.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/07.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/08.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/09.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/10.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/11.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/12.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/13.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.534585,
+        "lng": -73.503261,
+        "precision": "address",
+        "top": "12.0%",
+        "left": "49.5%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Local commercial de 2 200 pi², au 620 A Rue Saint-Thomas. Construit en 1953. Transport en commun à proximité. Pour toute demande, contactez-nous au 514-963-1918.",
+        "en": "2,200 sq ft retail space at 620 A Rue Saint-Thomas. Built in 1953. Public transport nearby. If interested, contact us at 514-963-1918."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : local commercial",
+          "Superficie commerciale disponible : 2 200 pi²",
+          "Année de construction : 1953",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: retail space",
+          "Available commercial area: 2,200 sq ft",
+          "Year built: 1953",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1953
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy-bnwb9-f628b-jbczc-zg7sm-n7ncp-ekhrh-rbct5-5dx3e-nxlcw-k945n"
+    },
+    {
+      "id": "599-rue-saint-jean-longueuil",
+      "status": "rented",
+      "type": "com",
+      "typeLabel": {
+        "fr": "Commerce",
+        "en": "Retail"
+      },
+      "title": {
+        "fr": "Local commercial, Longueuil",
+        "en": "Retail space, Longueuil"
+      },
+      "address": "599 Rue Saint-Jean, Longueuil",
+      "city": "Longueuil",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 975,
+      "photoCount": 5,
+      "image": "assets/units/599-rue-saint-jean-longueuil/cover.jpg",
+      "images": [
+        "assets/units/599-rue-saint-jean-longueuil/01.jpg",
+        "assets/units/599-rue-saint-jean-longueuil/02.jpg",
+        "assets/units/599-rue-saint-jean-longueuil/03.jpg",
+        "assets/units/599-rue-saint-jean-longueuil/04.jpg",
+        "assets/units/599-rue-saint-jean-longueuil/05.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.5341,
+        "lng": -73.503427,
+        "precision": "address",
+        "top": "12.4%",
+        "left": "51.7%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Local commercial de 975 pi², au 599 Rue Saint-Jean. Construit en 1953. Transport en commun à proximité.",
+        "en": "975 sq ft retail space at 599 Rue Saint-Jean. Built in 1953. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : local commercial",
+          "Superficie commerciale disponible : 975 pi²",
+          "Année de construction : 1953",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: retail space",
+          "Available commercial area: 975 sq ft",
+          "Year built: 1953",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1953
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy-bnwb9-f628b-jbczc-zg7sm-n7ncp-ekhrh-rbct5-5dx3e-nxlcw"
+    },
+    {
+      "id": "597-rue-saint-jean-unit-205-longueuil",
+      "status": "rented",
+      "type": "com",
+      "typeLabel": {
+        "fr": "Commerce",
+        "en": "Retail"
+      },
+      "title": {
+        "fr": "Local commercial, Longueuil",
+        "en": "Retail space, Longueuil"
+      },
+      "address": "597 Rue Saint-Jean #205, Longueuil",
+      "city": "Longueuil",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 325,
+      "photoCount": 6,
+      "image": "assets/units/597-rue-saint-jean-unit-205-longueuil/cover.jpg",
+      "images": [
+        "assets/units/597-rue-saint-jean-unit-205-longueuil/01.jpg",
+        "assets/units/597-rue-saint-jean-unit-205-longueuil/02.jpg",
+        "assets/units/597-rue-saint-jean-unit-205-longueuil/03.jpg",
+        "assets/units/597-rue-saint-jean-unit-205-longueuil/04.jpg",
+        "assets/units/597-rue-saint-jean-unit-205-longueuil/05.jpg",
+        "assets/units/597-rue-saint-jean-unit-205-longueuil/06.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.534114,
+        "lng": -73.503467,
+        "precision": "address",
+        "top": "15.2%",
+        "left": "50.4%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Local commercial de 325 pi², au 597 Rue Saint-Jean #205. Construit en 1953. Transport en commun à proximité.",
+        "en": "325 sq ft retail space at 597 Rue Saint-Jean #205. Built in 1953. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : local commercial",
+          "Superficie commerciale disponible : 325 pi²",
+          "Année de construction : 1953",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: retail space",
+          "Available commercial area: 325 sq ft",
+          "Year built: 1953",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1953
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy-bnwb9-f628b-jbczc-zg7sm-n7ncp-ekhrh-rbct5-5dx3e"
+    },
+    {
+      "id": "597-rue-saint-jean-unit-201-204-longueuil",
+      "status": "rented",
+      "type": "com",
+      "typeLabel": {
+        "fr": "Commerce",
+        "en": "Retail"
+      },
+      "title": {
+        "fr": "Local commercial, Longueuil",
+        "en": "Retail space, Longueuil"
+      },
+      "address": "597 Rue Saint-Jean #201-204, Longueuil",
+      "city": "Longueuil",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 2750,
+      "photoCount": 9,
+      "image": "assets/units/597-rue-saint-jean-unit-201-204-longueuil/cover.jpg",
+      "images": [
+        "assets/units/597-rue-saint-jean-unit-201-204-longueuil/01.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-204-longueuil/02.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-204-longueuil/03.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-204-longueuil/04.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-204-longueuil/05.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-204-longueuil/06.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-204-longueuil/07.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-204-longueuil/08.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-204-longueuil/09.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.534114,
+        "lng": -73.503467,
+        "precision": "address",
+        "top": "9.6%",
+        "left": "50.4%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Local commercial de 2 750 pi², au 597 Rue Saint-Jean #201-204. Construit en 1953. Transport en commun à proximité.",
+        "en": "2,750 sq ft retail space at 597 Rue Saint-Jean #201-204. Built in 1953. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : local commercial",
+          "Superficie commerciale disponible : 2 750 pi²",
+          "Année de construction : 1953",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: retail space",
+          "Available commercial area: 2,750 sq ft",
+          "Year built: 1953",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1953
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy-bnwb9-f628b-jbczc-zg7sm-n7ncp-ekhrh-fcy24"
+    },
+    {
+      "id": "593-rue-saint-jean-longueuil",
+      "status": "rented",
+      "type": "com",
+      "typeLabel": {
+        "fr": "Commerce",
+        "en": "Retail"
+      },
+      "title": {
+        "fr": "Local commercial, Longueuil",
+        "en": "Retail space, Longueuil"
+      },
+      "address": "593 Rue Saint-Jean, Longueuil",
+      "city": "Longueuil",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 1550,
+      "photoCount": 3,
+      "image": "assets/units/593-rue-saint-jean-longueuil/cover.jpg",
+      "images": [
+        "assets/units/593-rue-saint-jean-longueuil/01.jpg",
+        "assets/units/593-rue-saint-jean-longueuil/02.jpg",
+        "assets/units/593-rue-saint-jean-longueuil/03.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.534141,
+        "lng": -73.503547,
+        "precision": "address",
+        "top": "12.4%",
+        "left": "51.7%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Local commercial de 1 550 pi², au 593 Rue Saint-Jean. Construit en 1953. Transport en commun à proximité.",
+        "en": "1,550 sq ft retail space at 593 Rue Saint-Jean. Built in 1953. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : local commercial",
+          "Superficie commerciale disponible : 1 550 pi²",
+          "Année de construction : 1953",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: retail space",
+          "Available commercial area: 1,550 sq ft",
+          "Year built: 1953",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1953
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy-bnwb9-f628b-jbczc-zg7sm-n7ncp-ekhrh"
+    },
+    {
+      "id": "6528-boul-monk-montreal",
+      "status": "rented",
+      "type": "com",
+      "typeLabel": {
+        "fr": "Commerce",
+        "en": "Retail"
+      },
+      "title": {
+        "fr": "Local commercial, Montréal",
+        "en": "Retail space, Montreal"
+      },
+      "address": "6528 Boulevard Monk, Montréal",
+      "city": "Montréal",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": null,
+      "photoCount": 3,
+      "image": "assets/units/6528-boul-monk-montreal/cover.jpg",
+      "images": [
+        "assets/units/6528-boul-monk-montreal/01.jpg",
+        "assets/units/6528-boul-monk-montreal/02.jpg",
+        "assets/units/6528-boul-monk-montreal/03.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.453661,
+        "lng": -73.594032,
+        "precision": "address",
+        "top": "76.4%",
+        "left": "13.8%",
+        "rented": true
+      },
+      "near": {
+        "fr": "À 4 min à pied du métro Monk",
+        "en": "4 min walk to Monk metro"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Local commercial, au 6528 Boulevard Monk. Construit en 1930. À 4 minutes à pied du métro Monk.",
+        "en": "Retail space at 6528 Boulevard Monk. Built in 1930. 4-minute walk to Monk metro."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : local commercial",
+          "Année de construction : 1930",
+          "À 4 min à pied du métro Monk"
+        ],
+        "en": [
+          "Use: retail space",
+          "Year built: 1930",
+          "4 min walk to Monk metro"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1930
+      },
+      "nearby": {
+        "fr": [
+          "À 4 min à pied du métro Monk"
+        ],
+        "en": [
+          "4 min walk to Monk metro"
+        ]
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-n6sdx"
+    },
+    {
+      "id": "6526-boul-monk-montreal",
+      "status": "rented",
+      "type": "com",
+      "typeLabel": {
+        "fr": "Commerce",
+        "en": "Retail"
+      },
+      "title": {
+        "fr": "Local commercial, Montréal",
+        "en": "Retail space, Montreal"
+      },
+      "address": "6526 Boulevard Monk, Montréal",
+      "city": "Montréal",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": null,
+      "photoCount": 5,
+      "image": "assets/units/6526-boul-monk-montreal/cover.jpg",
+      "images": [
+        "assets/units/6526-boul-monk-montreal/01.jpg",
+        "assets/units/6526-boul-monk-montreal/02.jpg",
+        "assets/units/6526-boul-monk-montreal/03.jpg",
+        "assets/units/6526-boul-monk-montreal/04.jpg",
+        "assets/units/6526-boul-monk-montreal/05.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.453683,
+        "lng": -73.59404,
+        "precision": "address",
+        "top": "76.4%",
+        "left": "13.8%",
+        "rented": true
+      },
+      "near": {
+        "fr": "À 4 min à pied du métro Monk",
+        "en": "4 min walk to Monk metro"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Local commercial, au 6526 Boulevard Monk. Construit en 1930. À 4 minutes à pied du métro Monk.",
+        "en": "Retail space at 6526 Boulevard Monk. Built in 1930. 4-minute walk to Monk metro."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : local commercial",
+          "Année de construction : 1930",
+          "À 4 min à pied du métro Monk"
+        ],
+        "en": [
+          "Use: retail space",
+          "Year built: 1930",
+          "4 min walk to Monk metro"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1930
+      },
+      "nearby": {
+        "fr": [
+          "À 4 min à pied du métro Monk"
+        ],
+        "en": [
+          "4 min walk to Monk metro"
+        ]
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f"
+    },
+    {
+      "id": "8500-boulevard-taschereau-unit-15b-brossard",
+      "status": "rented",
+      "type": "com",
+      "typeLabel": {
+        "fr": "Commerce",
+        "en": "Retail"
+      },
+      "title": {
+        "fr": "Local commercial, Brossard",
+        "en": "Retail space, Brossard"
+      },
+      "address": "8500 Boulevard Taschereau #15B, Brossard",
+      "city": "Brossard",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 1618,
+      "photoCount": 3,
+      "image": "assets/units/8500-boulevard-taschereau-unit-15b-brossard/cover.jpg",
+      "images": [
+        "assets/units/8500-boulevard-taschereau-unit-15b-brossard/01.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-15b-brossard/02.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-15b-brossard/03.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.444073,
+        "lng": -73.473456,
+        "precision": "building",
+        "top": "87.4%",
+        "left": "67.6%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Local commercial de 1 618 pi², au 8500 Boulevard Taschereau #15B. Construit en 1991. Transport en commun à proximité.",
+        "en": "1,618 sq ft retail space at 8500 Boulevard Taschereau #15B. Built in 1991. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : local commercial",
+          "Superficie commerciale disponible : 1 618 pi²",
+          "Année de construction : 1991",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: retail space",
+          "Available commercial area: 1,618 sq ft",
+          "Year built: 1991",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1991
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-ypdsc-6zjga-e9yah"
+    },
+    {
+      "id": "8500-boulevard-taschereau-unit-7-brossard",
+      "status": "rented",
+      "type": "com",
+      "typeLabel": {
+        "fr": "Commerce",
+        "en": "Retail"
+      },
+      "title": {
+        "fr": "Local commercial, Brossard",
+        "en": "Retail space, Brossard"
+      },
+      "address": "8500 Boulevard Taschereau #7, Brossard",
+      "city": "Brossard",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 1057,
+      "photoCount": 3,
+      "image": "assets/units/8500-boulevard-taschereau-unit-7-brossard/cover.jpg",
+      "images": [
+        "assets/units/8500-boulevard-taschereau-unit-7-brossard/01.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-7-brossard/02.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-7-brossard/03.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.444073,
+        "lng": -73.473456,
+        "precision": "building",
+        "top": "89.3%",
+        "left": "65.0%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Local commercial de 1 057 pi², au 8500 Boulevard Taschereau #7. Construit en 1991. Transport en commun à proximité.",
+        "en": "1,057 sq ft retail space at 8500 Boulevard Taschereau #7. Built in 1991. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : local commercial",
+          "Superficie commerciale disponible : 1 057 pi²",
+          "Année de construction : 1991",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: retail space",
+          "Available commercial area: 1,057 sq ft",
+          "Year built: 1991",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1991
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-ypdsc-6zjga-hbbfh"
+    },
+    {
+      "id": "8500-boulevard-taschereau-unit-17-brossard",
+      "status": "rented",
+      "type": "com",
+      "typeLabel": {
+        "fr": "Commerce",
+        "en": "Retail"
+      },
+      "title": {
+        "fr": "Local commercial, Brossard",
+        "en": "Retail space, Brossard"
+      },
+      "address": "8500 Boulevard Taschereau #17, Brossard",
+      "city": "Brossard",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 946,
+      "photoCount": 3,
+      "image": "assets/units/8500-boulevard-taschereau-unit-17-brossard/cover.jpg",
+      "images": [
+        "assets/units/8500-boulevard-taschereau-unit-17-brossard/01.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-17-brossard/02.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-17-brossard/03.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.444073,
+        "lng": -73.473456,
+        "precision": "building",
+        "top": "88.6%",
+        "left": "62.2%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Local commercial de 946 pi², au 8500 Boulevard Taschereau #17. Construit en 1991. Transport en commun à proximité.",
+        "en": "946 sq ft retail space at 8500 Boulevard Taschereau #17. Built in 1991. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : local commercial",
+          "Superficie commerciale disponible : 946 pi²",
+          "Année de construction : 1991",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: retail space",
+          "Available commercial area: 946 sq ft",
+          "Year built: 1991",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1991
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-ypdsc-6zjga"
+    },
+    {
+      "id": "8500-boulevard-taschereau-unit-11-brossard",
+      "status": "rented",
+      "type": "com",
+      "typeLabel": {
+        "fr": "Commerce",
+        "en": "Retail"
+      },
+      "title": {
+        "fr": "Local commercial, Brossard",
+        "en": "Retail space, Brossard"
+      },
+      "address": "8500 Boulevard Taschereau #11, Brossard",
+      "city": "Brossard",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 1188,
+      "photoCount": 4,
+      "image": "assets/units/8500-boulevard-taschereau-unit-11-brossard/cover.jpg",
+      "images": [
+        "assets/units/8500-boulevard-taschereau-unit-11-brossard/01.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-11-brossard/02.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-11-brossard/03.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-11-brossard/04.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.444073,
+        "lng": -73.473456,
+        "precision": "building",
+        "top": "85.8%",
+        "left": "60.3%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Local commercial de 1 188 pi², au 8500 Boulevard Taschereau #11. Construit en 1991. Transport en commun à proximité.",
+        "en": "1,188 sq ft retail space at 8500 Boulevard Taschereau #11. Built in 1991. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : local commercial",
+          "Superficie commerciale disponible : 1 188 pi²",
+          "Année de construction : 1991",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: retail space",
+          "Available commercial area: 1,188 sq ft",
+          "Year built: 1991",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1991
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-rkggx"
+    },
+    {
+      "id": "8500-boulevard-taschereau-unit-3-brossard",
+      "status": "rented",
+      "type": "com",
+      "typeLabel": {
+        "fr": "Commerce",
+        "en": "Retail"
+      },
+      "title": {
+        "fr": "Local commercial, Brossard",
+        "en": "Retail space, Brossard"
+      },
+      "address": "8500 Boulevard Taschereau #3, Brossard",
+      "city": "Brossard",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 1122,
+      "photoCount": 7,
+      "image": "assets/units/8500-boulevard-taschereau-unit-3-brossard/cover.jpg",
+      "images": [
+        "assets/units/8500-boulevard-taschereau-unit-3-brossard/01.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-3-brossard/02.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-3-brossard/03.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-3-brossard/04.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-3-brossard/05.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-3-brossard/06.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-3-brossard/07.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.444073,
+        "lng": -73.473456,
+        "precision": "building",
+        "top": "82.2%",
+        "left": "60.3%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Local commercial de 1 122 pi², au 8500 Boulevard Taschereau #3. Construit en 1991. Transport en commun à proximité.",
+        "en": "1,122 sq ft retail space at 8500 Boulevard Taschereau #3. Built in 1991. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : local commercial",
+          "Superficie commerciale disponible : 1 122 pi²",
+          "Année de construction : 1991",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: retail space",
+          "Available commercial area: 1,122 sq ft",
+          "Year built: 1991",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1991
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as"
+    },
+    {
+      "id": "8500-boulevard-taschereau-unit-4-brossard",
+      "status": "rented",
+      "type": "com",
+      "typeLabel": {
+        "fr": "Commerce",
+        "en": "Retail"
+      },
+      "title": {
+        "fr": "Local commercial, Brossard",
+        "en": "Retail space, Brossard"
+      },
+      "address": "8500 Boulevard Taschereau #4, Brossard",
+      "city": "Brossard",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 1950,
+      "photoCount": 3,
+      "image": "assets/units/8500-boulevard-taschereau-unit-4-brossard/cover.jpg",
+      "images": [
+        "assets/units/8500-boulevard-taschereau-unit-4-brossard/01.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-4-brossard/02.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-4-brossard/03.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.444073,
+        "lng": -73.473456,
+        "precision": "building",
+        "top": "79.4%",
+        "left": "62.2%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Local commercial de 1 950 pi², au 8500 Boulevard Taschereau #4. Construit en 1991. Transport en commun à proximité.",
+        "en": "1,950 sq ft retail space at 8500 Boulevard Taschereau #4. Built in 1991. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : local commercial",
+          "Superficie commerciale disponible : 1 950 pi²",
+          "Année de construction : 1991",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: retail space",
+          "Available commercial area: 1,950 sq ft",
+          "Year built: 1991",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1991
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-xzync"
+    },
+    {
+      "id": "8500-boulevard-taschereau-unit-20-brossard",
+      "status": "rented",
+      "type": "com",
+      "typeLabel": {
+        "fr": "Commerce",
+        "en": "Retail"
+      },
+      "title": {
+        "fr": "Local commercial, Brossard",
+        "en": "Retail space, Brossard"
+      },
+      "address": "8500 Boulevard Taschereau #20, Brossard",
+      "city": "Brossard",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 2269,
+      "photoCount": 9,
+      "image": "assets/units/8500-boulevard-taschereau-unit-20-brossard/cover.jpg",
+      "images": [
+        "assets/units/8500-boulevard-taschereau-unit-20-brossard/01.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-20-brossard/02.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-20-brossard/03.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-20-brossard/04.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-20-brossard/05.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-20-brossard/06.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-20-brossard/07.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-20-brossard/08.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-20-brossard/09.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.444073,
+        "lng": -73.473456,
+        "precision": "building",
+        "top": "78.7%",
+        "left": "65.0%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Local commercial de 2 269 pi², au 8500 Boulevard Taschereau #20. Construit en 1991. Transport en commun à proximité.",
+        "en": "2,269 sq ft retail space at 8500 Boulevard Taschereau #20. Built in 1991. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : local commercial",
+          "Superficie commerciale disponible : 2 269 pi²",
+          "Année de construction : 1991",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: retail space",
+          "Available commercial area: 2,269 sq ft",
+          "Year built: 1991",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1991
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/8500"
+    },
+    {
+      "id": "8500-boulevard-taschereau-unit-10-brossard",
+      "status": "rented",
+      "type": "com",
+      "typeLabel": {
+        "fr": "Commerce",
+        "en": "Retail"
+      },
+      "title": {
+        "fr": "Local commercial, Brossard",
+        "en": "Retail space, Brossard"
+      },
+      "address": "8500 Boulevard Taschereau #10, Brossard",
+      "city": "Brossard",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": 2591,
+      "photoCount": 7,
+      "image": "assets/units/8500-boulevard-taschereau-unit-10-brossard/cover.jpg",
+      "images": [
+        "assets/units/8500-boulevard-taschereau-unit-10-brossard/01.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-10-brossard/02.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-10-brossard/03.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-10-brossard/04.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-10-brossard/05.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-10-brossard/06.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-10-brossard/07.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.444073,
+        "lng": -73.473456,
+        "precision": "building",
+        "top": "80.6%",
+        "left": "67.6%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Local commercial de 2 591 pi², au 8500 Boulevard Taschereau #10. Construit en 1991. Transport en commun à proximité.",
+        "en": "2,591 sq ft retail space at 8500 Boulevard Taschereau #10. Built in 1991. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : local commercial",
+          "Superficie commerciale disponible : 2 591 pi²",
+          "Année de construction : 1991",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: retail space",
+          "Available commercial area: 2,591 sq ft",
+          "Year built: 1991",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1991
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8"
+    },
+    {
+      "id": "vacant-land-4642888-1136832702",
+      "status": "rented",
+      "type": "land",
+      "typeLabel": {
+        "fr": "Terrain",
+        "en": "Land"
+      },
+      "title": {
+        "fr": "Terrain vacant, Saint-Hubert",
+        "en": "Vacant land, Saint-Hubert"
+      },
+      "address": "Lot 4 642 888, Saint-Hubert (Longueuil)",
+      "city": "Longueuil",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": null,
+      "photoCount": 3,
+      "image": "assets/units/vacant-land-4642888-1136832702/cover.jpg",
+      "images": [
+        "assets/units/vacant-land-4642888-1136832702/01.jpg",
+        "assets/units/vacant-land-4642888-1136832702/02.jpg",
+        "assets/units/vacant-land-4642888-1136832702/03.jpg"
+      ],
+      "featured": false,
+      "map": {
+        "lat": 45.504275,
+        "lng": -73.421698,
+        "precision": "area",
+        "top": "36.1%",
+        "left": "86.0%",
+        "rented": true
+      },
+      "near": null,
+      "availability": null,
+      "description": {
+        "fr": "Terrain vacant, pour le moment sans électricité, sans eau et sans accès routier. Numéro de cadastre : 4 642 888. Numéro d’enregistrement : 58227-1136-83-2702 (1136832702). Secteur Saint-Hubert, Longueuil.",
+        "en": "Vacant land, without electricity, water or road access for the time being. Cadastral number: 4642888. Registration number: 58227-1136-83-2702 (1136832702). Saint-Hubert area, Longueuil."
+      },
+      "amenities": {
+        "fr": [
+          "Sans électricité ni eau pour le moment",
+          "Sans accès routier pour le moment",
+          "Cadastre : 4 642 888"
+        ],
+        "en": [
+          "No electricity or water for the time being",
+          "No road access for the time being",
+          "Cadastral number: 4642888"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Terrain vacant",
+          "en": "Vacant land"
+        },
+        "yearBuilt": null
+      },
+      "nearby": {
+        "fr": [],
+        "en": []
+      },
+      "specExtra": {
+        "fr": "Terrain vacant",
+        "en": "Vacant land"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-meaps"
     }
   ]
 }

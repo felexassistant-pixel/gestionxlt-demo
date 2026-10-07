@@ -82,7 +82,26 @@
     return lang === 'en' ? 'Rented' : 'Loué';
   }
 
+  function hasPrice(item) {
+    return item.price != null && item.price !== '' && Number(item.price) > 0;
+  }
+
+  function askText(item, lang) {
+    var d = item.priceDisplay || {};
+    if (lang === 'en') return d.en || 'Contact us for pricing';
+    return d.fr || 'Contactez-nous pour le prix';
+  }
+
+  /** Bilingual price HTML; never shows $0 — falls back to "Contact us for pricing". */
+  function priceHtml(item, unitFr, unitEn) {
+    if (!hasPrice(item)) {
+      return '<span class="price-ask" data-fr>' + askText(item, 'fr') + '</span><span class="price-ask" data-en>' + askText(item, 'en') + '</span>';
+    }
+    return priceParts(item, 'fr').main + ' <span data-fr>' + (unitFr != null ? unitFr : priceParts(item, 'fr').unit) + '</span><span data-en>' + (unitEn != null ? unitEn : priceParts(item, 'en').unit) + '</span>';
+  }
+
   function priceParts(item, lang) {
+    if (!hasPrice(item)) return { main: askText(item, lang), unit: '' };
     if (item.priceUnit === 'sqft') {
       return { main: item.price + ' $', unit: lang === 'en' ? '/sq ft' : '/pi²' };
     }
@@ -123,7 +142,7 @@
     var dotClass = item.status === 'available' ? 'available' : 'rented';
     var href = 'detail.html?id=' + encodeURIComponent(item.id);
     return (
-      '<a href="' + href + '" class="prop-card" data-status="' + item.status + '" data-type="' + item.type + '" data-id="' + item.id + '" data-city="' + (item.city || '') + '" data-price="' + item.price + '" data-price-unit="' + item.priceUnit + '" data-avail="' + ((item.availability && item.availability.fr) || '') + '">' +
+      '<a href="' + href + '" class="prop-card" data-status="' + item.status + '" data-type="' + item.type + '" data-id="' + item.id + '" data-city="' + (item.city || '') + '" data-price="' + (hasPrice(item) ? item.price : '') + '" data-price-unit="' + (item.priceUnit || '') + '" data-avail="' + ((item.availability && item.availability.fr) || '') + '">' +
         '<div class="prop-media">' +
           '<img src="' + item.image + '" alt="" loading="lazy" />' +
           '<span class="pill ' + pillClass + '" data-fr>' + statusLabel(item.status, 'fr') + '</span>' +
@@ -132,7 +151,7 @@
           '<span class="prop-count">1 / ' + (item.photoCount || 1) + '</span>' +
         '</div>' +
         '<div class="prop-body">' +
-          '<div class="prop-price">' + p.main + ' <span data-fr>' + priceParts(item, 'fr').unit + '</span><span data-en>' + priceParts(item, 'en').unit + '</span></div>' +
+          '<div class="prop-price">' + priceHtml(item) + '</div>' +
           '<div class="prop-addr">' + item.address + '</div>' +
           '<div class="pill-dot ' + dotClass + '" data-fr>' + statusLabel(item.status, 'fr') + '</div>' +
           '<div class="pill-dot ' + dotClass + '" data-en>' + statusLabel(item.status, 'en') + '</div>' +
@@ -158,6 +177,10 @@
     if (item.beds == null && item.sqft != null) {
       specs.push('<span data-fr>' + formatSqft(item.sqft, 'fr') + '</span><span data-en>' + formatSqft(item.sqft, 'en') + '</span>');
     }
+    if (item.beds == null && item.specExtra) {
+      if (specs.length) specs.push('<span aria-hidden="true">·</span>');
+      specs.push('<span data-fr>' + item.specExtra.fr + '</span><span data-en>' + item.specExtra.en + '</span>');
+    }
     var near = '';
     if (item.near) {
       near = '<div style="font-size:11px;color:var(--text-light);margin-top:2px;" data-fr>' + item.near.fr + '</div>' +
@@ -166,12 +189,12 @@
     return (
       '<a href="' + href + '" class="prop-card-h" data-id="' + item.id + '" data-status="' + item.status + '" data-type="' + item.type + '">' +
         '<div class="prop-media">' +
-          '<img src="' + item.image.replace('w=800', 'w=400').replace('q=80', 'q=70') + '" alt="" />' +
+          '<img src="' + item.image.replace('w=800', 'w=400').replace('q=80', 'q=70') + '" alt="" loading="lazy" />' +
           '<span class="pill ' + pillClass + '" data-fr>' + statusLabel(item.status, 'fr') + '</span>' +
           '<span class="pill ' + pillClass + '" data-en>' + statusLabel(item.status, 'en') + '</span>' +
         '</div>' +
         '<div class="prop-body">' +
-          '<div class="prop-price">' + p.main + ' <span data-fr>' + priceParts(item, 'fr').unit + '</span><span data-en>' + priceParts(item, 'en').unit + '</span></div>' +
+          '<div class="prop-price">' + priceHtml(item) + '</div>' +
           '<div class="prop-specs">' + specs.join('') + '</div>' +
           '<div class="prop-addr">' + item.address + '</div>' + near +
         '</div>' +
@@ -254,7 +277,7 @@
     var lim = parsePriceLimit(priceRaw);
     if (!lim) return true;
     // Max/min monthly rent filter: only apply to monthly listings
-    if (item.priceUnit === 'sqft') return false;
+    if (!hasPrice(item) || item.priceUnit === 'sqft') return false;
     if (lim.min) return item.price >= lim.value;
     return item.price <= lim.value;
   }
@@ -812,14 +835,14 @@
       } else {
         var isActive = firstAvail;
         firstAvail = false;
-        if (item.priceUnit === 'sqft') {
+        if (!hasPrice(item) || item.priceUnit === 'sqft') {
           ['fr', 'en'].forEach(function (lg) {
             var el = document.createElement('a');
             el.href = 'detail.html?id=' + encodeURIComponent(item.id);
             el.className = 'map-pin' + (isActive ? ' active' : '');
             el.setAttribute('data-' + lg, '');
             el.setAttribute('data-id', item.id);
-            el.textContent = item.price + (lg === 'en' ? ' $/sq ft' : ' $/pi²');
+            el.textContent = hasPrice(item) ? item.price + (lg === 'en' ? ' $/sq ft' : ' $/pi²') : statusLabel(item.status, lg);
             el.style.top = m.top;
             el.style.left = m.left;
             fakeMap.appendChild(el);
@@ -838,16 +861,36 @@
     });
   }
 
+  function unitFrTable(item) { return item.priceUnit === 'sqft' ? '/pi²' : '/mois'; }
+  function unitEnTable(item) { return item.priceUnit === 'sqft' ? '/sq ft' : '/mo'; }
+
   function findDetailHeading(frText) {
     return Array.prototype.find.call(document.querySelectorAll('.detail-content h2'), function (h) {
       return h.getAttribute('data-fr') === frText || h.textContent.trim() === frText;
     });
   }
 
+  function toggleDetailSection(frHeading, show) {
+    var h = findDetailHeading(frHeading);
+    if (!h) return;
+    var el = h;
+    // FR heading, EN heading, then the content block(s) until next heading/section
+    var nodes = [];
+    while (el) {
+      nodes.push(el);
+      var next = el.nextElementSibling;
+      if (!next || (next.tagName === 'H2' && nodes.length >= 2) || next.tagName === 'SECTION') break;
+      el = next;
+    }
+    var wrap = h.parentElement && h.parentElement.tagName === 'SECTION' ? h.parentElement : null;
+    if (wrap) { wrap.style.display = show ? '' : 'none'; return; }
+    nodes.forEach(function (n) { n.style.display = show ? '' : 'none'; });
+  }
+
   function renderDetail(listings) {
     if (!document.querySelector('.detail-layout')) return;
     var params = new URLSearchParams(location.search);
-    var id = params.get('id') || 'xlt-001';
+    var id = params.get('id') || '';
     var item = listings.find(function (l) { return l.id === id; }) || listings[0];
     if (!item) return;
 
@@ -956,6 +999,9 @@
         amenList.innerHTML = html;
       }
     }
+    toggleDetailSection('Commodités', !!(item.amenities && (item.amenities.fr.length || item.amenities.en.length)));
+    var moreLink = document.querySelector('.detail-content .link-more');
+    if (moreLink) moreLink.style.display = (item.amenities && item.amenities.fr.length) ? '' : 'none';
 
     // Property details table
     if (item.details || item.sqft != null) {
@@ -963,14 +1009,17 @@
       if (table) {
         var unitFr = (item.details && item.details.unitType && item.details.unitType.fr) || item.typeLabel.fr;
         var unitEn = (item.details && item.details.unitType && item.details.unitType.en) || item.typeLabel.en;
-        var floor = (item.details && item.details.floor != null) ? item.details.floor : '—';
-        var availFr = (item.availability && item.availability.fr) || (item.status === 'available' ? 'Immédiate' : '—');
-        var availEn = (item.availability && item.availability.en) || (item.status === 'available' ? 'Immediate' : '—');
+        var floor = (item.details && item.details.floor != null) ? item.details.floor : null;
+        var year = (item.details && item.details.yearBuilt != null) ? item.details.yearBuilt : null;
+        var availFr = (item.availability && item.availability.fr) || (item.status === 'available' ? 'Contactez-nous' : '—');
+        var availEn = (item.availability && item.availability.en) || (item.status === 'available' ? 'Contact us' : '—');
         var pillClass = item.status === 'available' ? 'pill-available' : 'pill-rented';
         table.innerHTML =
           '<tr><th data-fr>Type</th><th data-en>Type</th><td data-fr>' + unitFr + '</td><td data-en>' + unitEn + '</td></tr>' +
-          '<tr><th data-fr>Superficie</th><th data-en>Area</th><td data-fr>' + formatSqft(item.sqft || 0, 'fr') + '</td><td data-en>' + formatSqft(item.sqft || 0, 'en') + '</td></tr>' +
-          '<tr><th data-fr>Étage</th><th data-en>Floor</th><td>' + floor + '</td></tr>' +
+          (item.sqft != null ? '<tr><th data-fr>Superficie</th><th data-en>Area</th><td data-fr>' + formatSqft(item.sqft, 'fr') + '</td><td data-en>' + formatSqft(item.sqft, 'en') + '</td></tr>' : '') +
+          (floor != null ? '<tr><th data-fr>Étage</th><th data-en>Floor</th><td>' + floor + '</td></tr>' : '') +
+          (year != null ? '<tr><th data-fr>Année de construction</th><th data-en>Year built</th><td>' + year + '</td></tr>' : '') +
+          '<tr><th data-fr>Loyer</th><th data-en>Rent</th><td>' + priceHtml(item, unitFrTable(item), unitEnTable(item)) + '</td></tr>' +
           '<tr><th data-fr>Disponibilité</th><th data-en>Availability</th><td data-fr>' + availFr + '</td><td data-en>' + availEn + '</td></tr>' +
           '<tr><th data-fr>Statut</th><th data-en>Status</th><td><span class="pill ' + pillClass + '" data-fr>' + statusLabel(item.status, 'fr') + '</span><span class="pill ' + pillClass + '" data-en>' + statusLabel(item.status, 'en') + '</span></td></tr>';
       }
@@ -1007,16 +1056,16 @@
       pin.className = 'map-pin active';
       pin.style.top = '48%';
       pin.style.left = '52%';
-      if (item.priceUnit === 'sqft') {
+      if (!hasPrice(item) || item.priceUnit === 'sqft') {
         pin.setAttribute('data-fr', '');
-        pin.textContent = item.price + ' $/pi²';
+        pin.textContent = hasPrice(item) ? item.price + ' $/pi²' : statusLabel(item.status, 'fr');
         miniMap.appendChild(pin);
         var pinEn = document.createElement('div');
         pinEn.className = 'map-pin active';
         pinEn.setAttribute('data-en', '');
         pinEn.style.top = '48%';
         pinEn.style.left = '52%';
-        pinEn.textContent = item.price + ' $/sq ft';
+        pinEn.textContent = hasPrice(item) ? item.price + ' $/sq ft' : statusLabel(item.status, 'en');
         miniMap.appendChild(pinEn);
       } else {
         pin.textContent = priceParts(item, 'fr').main;
@@ -1047,16 +1096,17 @@
         nearList.innerHTML = nh;
       }
     }
+    toggleDetailSection('Proximité', !!(item.nearby && (item.nearby.fr.length || item.nearby.en.length)));
 
     // Sidebar
     var sidebar = document.querySelector('.sidebar-card');
     if (sidebar) {
       var priceEl = sidebar.querySelector('.sidebar-price');
       if (priceEl) {
-        var p = priceParts(item, lang);
         var unitFr = item.priceUnit === 'sqft' ? 'par pi²' : 'par mois';
         var unitEn = item.priceUnit === 'sqft' ? 'per sq ft' : 'per month';
-        priceEl.innerHTML = p.main + ' <span data-fr>' + unitFr + '</span><span data-en>' + unitEn + '</span>';
+        priceEl.innerHTML = priceHtml(item, unitFr, unitEn);
+        priceEl.classList.toggle('is-ask', !hasPrice(item));
       }
       var pill = sidebar.querySelector('.pill');
       if (pill) {
@@ -1077,6 +1127,9 @@
             var bedLabelEn = specs[0].querySelector('span[data-en]');
             if (bedLabelFr) bedLabelFr.textContent = 'pi²';
             if (bedLabelEn) bedLabelEn.textContent = 'sq ft';
+            specs[0].style.display = '';
+          } else {
+            specs[0].style.display = 'none';
           }
         }
       }
@@ -1093,14 +1146,29 @@
             var bEn = specs[1].querySelector('span[data-en]');
             if (bFr) bFr.textContent = item.specExtra.fr;
             if (bEn) bEn.textContent = item.specExtra.en;
+            specs[1].style.display = '';
+          } else {
+            specs[1].style.display = 'none';
           }
         }
       }
-      if (specs[2] && item.availability) {
+      if (specs[2]) {
         var aFr = specs[2].querySelector('span[data-fr]');
         var aEn = specs[2].querySelector('span[data-en]');
-        if (aFr) aFr.textContent = item.availability.fr.toLowerCase();
-        if (aEn) aEn.textContent = item.availability.en.toLowerCase();
+        var sFr = specs[2].querySelector('strong[data-fr]');
+        var sEn = specs[2].querySelector('strong[data-en]');
+        if (sFr) sFr.textContent = 'Disponibilité';
+        if (sEn) sEn.textContent = 'Availability';
+        if (item.availability) {
+          if (aFr) aFr.textContent = item.availability.fr.toLowerCase();
+          if (aEn) aEn.textContent = item.availability.en.toLowerCase();
+        } else if (item.status === 'available') {
+          if (aFr) aFr.textContent = 'contactez-nous';
+          if (aEn) aEn.textContent = 'contact us';
+        } else {
+          if (aFr) aFr.textContent = 'loué';
+          if (aEn) aEn.textContent = 'rented';
+        }
       }
       var mailVisit = sidebar.querySelector('a.btn-primary');
       var mailApp = sidebar.querySelector('a.btn-outline');
@@ -1111,17 +1179,29 @@
 
     // Availability note
     var availNote = document.querySelector('.avail-note');
-    if (availNote && item.availability) {
+    if (availNote) {
       var nf = availNote.querySelector('span[data-fr]');
       var ne = availNote.querySelector('span[data-en]');
-      if (nf) nf.textContent = 'Date de disponibilité : ' + item.availability.fr;
-      if (ne) ne.textContent = 'Available: ' + item.availability.en;
+      if (item.availability) {
+        if (nf) nf.textContent = 'Date de disponibilité : ' + item.availability.fr;
+        if (ne) ne.textContent = 'Available: ' + item.availability.en;
+      } else if (item.status === 'available') {
+        if (nf) nf.textContent = 'Date de disponibilité : contactez-nous au 514-963-1918';
+        if (ne) ne.textContent = 'Availability date: contact us at 514-963-1918';
+      } else {
+        if (nf) nf.textContent = 'Ce bien est actuellement loué.';
+        if (ne) ne.textContent = 'This property is currently rented.';
+      }
     }
   }
 
   /** Shared sort for listings grid + map list. a/b: {id, price, unit, idx} */
   function compareByMode(a, b, mode) {
     if (mode === 'price-asc' || mode === 'price-desc') {
+      var ap = a.price != null && a.price !== '' && !isNaN(a.price) && Number(a.price) > 0;
+      var bp = b.price != null && b.price !== '' && !isNaN(b.price) && Number(b.price) > 0;
+      if (ap !== bp) return ap ? -1 : 1;
+      if (!ap && !bp) return a.idx - b.idx;
       // Monthly rents first, then $/sq ft (units are not comparable)
       if (a.unit !== b.unit) {
         if (a.unit === 'month') return -1;
@@ -1145,7 +1225,7 @@
       return {
         el: c,
         id: id,
-        price: parseFloat(c.getAttribute('data-price')) || 0,
+        price: c.getAttribute('data-price') === '' ? null : parseFloat(c.getAttribute('data-price')),
         unit: c.getAttribute('data-price-unit') || '',
         idx: orderIndex.hasOwnProperty(id) ? orderIndex[id] : 999
       };

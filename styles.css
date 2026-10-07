@@ -1512,3 +1512,9 @@ option[data-en][data-fr] { display: block !important; }
 
 .detail-section { scroll-margin-top: calc(var(--header-h) + 12px); }
 #amenities { scroll-margin-top: calc(var(--header-h) + 12px); }
+
+/* No public rent on the source site → "Contact us for pricing" (never $0) */
+.prop-price .price-ask { font-size: 14px; font-weight: 600; color: var(--navy); }
+.prop-card-h .prop-price .price-ask { font-size: 13px; }
+.sidebar-price.is-ask .price-ask { font-size: 18px; font-weight: 700; color: var(--navy); }
+.detail-table .price-ask { font-weight: 600; }
