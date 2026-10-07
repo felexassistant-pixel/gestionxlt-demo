@@ -1518,3 +1518,47 @@ option[data-en][data-fr] { display: block !important; }
 .prop-card-h .prop-price .price-ask { font-size: 13px; }
 .sidebar-price.is-ask .price-ask { font-size: 18px; font-weight: 700; color: var(--navy); }
 .detail-table .price-ask { font-weight: 600; }
+
+/* —— QA pass 6 —— */
+/* P6-09 map pins: available on top, grouped pins with count badge + popover */
+.map-pin.available { background: var(--green); }
+.map-pin.map-cluster { border: 0; font-family: inherit; line-height: 1.2; }
+.map-pin.map-cluster.has-avail { background: var(--navy); box-shadow: 0 0 0 2px var(--green), var(--shadow); }
+.map-pin .pin-badge {
+  position: absolute; top: -8px; right: -8px;
+  min-width: 18px; height: 18px; padding: 0 5px;
+  border-radius: 9px; background: var(--green); color: #fff;
+  font-size: 10px; font-weight: 800; line-height: 18px; text-align: center;
+  box-shadow: 0 0 0 2px #fff;
+}
+.map-pin:hover, .map-pin:focus-visible { z-index: 8 !important; }
+.map-pop {
+  position: absolute; z-index: 20;
+  background: #fff; border-radius: 12px; box-shadow: 0 10px 30px rgba(11,31,58,.22);
+  border: 1px solid var(--border); overflow: hidden;
+  max-height: 60%; display: flex; flex-direction: column;
+}
+.map-pop-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 12px; font-size: 13px; font-weight: 700; color: var(--navy); border-bottom: 1px solid var(--border); }
+.map-pop-close { border: 0; background: transparent; font-size: 20px; line-height: 1; cursor: pointer; color: var(--text-muted); padding: 0 4px; }
+.map-pop ul { list-style: none; margin: 0; padding: 4px 0; overflow-y: auto; }
+.map-pop li a { display: flex; align-items: center; gap: 8px; padding: 8px 12px; font-size: 13px; color: var(--navy); text-decoration: none; }
+.map-pop li a:hover, .map-pop li a:focus-visible { background: var(--teal-soft); }
+.map-pop .pill { flex-shrink: 0; font-size: 10px; padding: 2px 8px; }
+.map-pop-addr { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* P6-14 map list empty state */
+.map-empty { padding: 32px 20px; text-align: center; color: var(--text-muted); font-size: 14px; }
+.map-empty strong { color: var(--navy); font-size: 15px; }
+.map-empty .btn { margin-top: 12px; }
+/* P6-12 visit CTA high on mobile detail */
+.detail-mobile-cta { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 4px; }
+.detail-mobile-cta .mobile-price { flex-basis: 100%; font-size: 20px; font-weight: 800; color: var(--navy); }
+.detail-mobile-cta .mobile-price.is-ask { font-size: 15px; font-weight: 600; color: var(--muted, #64748b); }
+.detail-mobile-cta .btn { flex: 1; justify-content: center; }
+.detail-mobile-cta .btn svg { width: 16px; height: 16px; }
+@media (min-width: 900px) { .detail-mobile-cta { display: none; } }
+/* P6-15 featured with fewer than 3 cards stays centred */
+@media (min-width: 960px) {
+  .featured-grid.featured-few { grid-template-columns: repeat(auto-fit, minmax(280px, 360px)); justify-content: center; }
+}
+.prop-price .price-amt, .sidebar-price .price-amt { font-size: inherit; font-weight: inherit; color: inherit; }
+.status-tabs button.is-empty, .status-tabs button:disabled { opacity: .45; cursor: default; pointer-events: none; }

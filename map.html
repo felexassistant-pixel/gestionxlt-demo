@@ -8,6 +8,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <style>
     body { overflow: hidden; height: 100vh; }
     .has-bottom-nav { padding-bottom: 0; }
@@ -40,6 +43,10 @@
           <button type="button" class="active" data-lang="fr">FR</button>
           <button type="button" data-lang="en">EN</button>
         </div>
+        <a href="mailto:gestionxlt@gmail.com?subject=Planifier%20une%20visite" data-mailto-fr="mailto:gestionxlt@gmail.com?subject=Planifier%20une%20visite" data-mailto-en="mailto:gestionxlt@gmail.com?subject=Book%20a%20visit" class="btn-cta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <span data-fr>Planifier une visite</span><span data-en>Book a visit</span>
+        </a>
         <button type="button" class="menu-btn" id="menuBtn" aria-label="Menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
@@ -50,6 +57,7 @@
     <a href="listings.html" data-fr>Galerie</a><a href="listings.html" data-en>Gallery</a>
     <a href="map.html" class="active" data-fr>Carte</a><a href="map.html" class="active" data-en>Map</a>
     <a href="index.html" data-fr>Accueil</a><a href="index.html" data-en>Home</a>
+    <a href="mailto:gestionxlt@gmail.com?subject=Planifier%20une%20visite" data-mailto-fr="mailto:gestionxlt@gmail.com?subject=Planifier%20une%20visite" data-mailto-en="mailto:gestionxlt@gmail.com?subject=Book%20a%20visit" class="btn-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span data-fr>Planifier une visite</span><span data-en>Book a visit</span></a>
   </nav>
 
   <div class="map-page">
@@ -90,8 +98,6 @@
               </button>
               <div class="map-sort-menu" id="mapSortMenu" role="menu" aria-labelledby="mapSortToggle" hidden>
                 <button type="button" role="menuitemradio" aria-checked="true" data-sort="relevance" tabindex="-1"><span data-fr>Pertinence</span><span data-en>Relevance</span></button>
-                <button type="button" role="menuitemradio" aria-checked="false" data-sort="price-asc" tabindex="-1"><span data-fr>Prix ↑</span><span data-en>Price ↑</span></button>
-                <button type="button" role="menuitemradio" aria-checked="false" data-sort="price-desc" tabindex="-1"><span data-fr>Prix ↓</span><span data-en>Price ↓</span></button>
                 <button type="button" role="menuitemradio" aria-checked="false" data-sort="newest" tabindex="-1"><span data-fr>Plus récent</span><span data-en>Newest</span></button>
               </div>
             </div>
@@ -147,7 +153,7 @@
           <div class="search-field">
             <div>
               <label for="mfType"><span data-fr>Type de propriété</span><span data-en>Property type</span></label>
-              <select name="type" id="mfType"><option value="" data-fr="Tous les types" data-en="All types">Tous les types</option><option value="res" data-fr="Résidentiel" data-en="Residential">Résidentiel</option><option value="com" data-fr="Commerce" data-en="Retail">Commerce</option><option value="off" data-fr="Bureau" data-en="Office">Bureau</option></select>
+              <select name="type" id="mfType"><option value="" data-fr="Tous les types" data-en="All types">Tous les types</option><option value="res" data-fr="Résidentiel" data-en="Residential">Résidentiel</option><option value="com" data-fr="Commerce" data-en="Retail">Commerce</option><option value="land" data-fr="Terrain" data-en="Land">Terrain</option></select>
             </div>
           </div>
           <div class="search-field">
@@ -160,18 +166,6 @@
             <div>
               <label for="mfLoc"><span data-fr>Emplacement</span><span data-en>Location</span></label>
               <select name="loc" id="mfLoc"><option value="" data-fr="Grand Montréal" data-en="Greater Montreal">Grand Montréal</option><option value="Longueuil">Longueuil</option><option value="Brossard">Brossard</option><option value="Montréal">Montréal</option><option value="Saint-Hubert">Saint-Hubert</option></select>
-            </div>
-          </div>
-          <div class="search-field">
-            <div>
-              <label for="mfPrice"><span data-fr>Prix maximum</span><span data-en>Max price</span></label>
-              <select name="price" id="mfPrice"><option value="" data-fr="Tout prix" data-en="Any price">Tout prix</option><option value="1 200 $">1 200 $</option><option value="1 500 $">1 500 $</option><option value="2 000 $">2 000 $</option><option value="2 500 $+">2 500 $+</option></select>
-            </div>
-          </div>
-          <div class="search-field">
-            <div>
-              <label for="mfAvail"><span data-fr>Disponibilité</span><span data-en>Availability</span></label>
-              <select name="avail" id="mfAvail"><option value="" data-fr="Tous" data-en="All">Tous</option><option value="Immédiate" data-fr="Immédiate" data-en="Immediate">Immédiate</option><option value="Sous 30 jours" data-fr="Sous 30 jours" data-en="Within 30 days">Sous 30 jours</option></select>
             </div>
           </div>
         </div>
@@ -192,7 +186,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
       <span data-fr>Carte</span><span data-en>Map</span>
     </a>
-    <a href="mailto:gestionxlt@gmail.com">
+    <a href="mailto:gestionxlt@gmail.com?subject=Demande%20d%E2%80%99information" data-mailto-fr="mailto:gestionxlt@gmail.com?subject=Demande%20d%E2%80%99information" data-mailto-en="mailto:gestionxlt@gmail.com?subject=Information%20request">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 7 8 6 8-6"/></svg>
       <span>Contact</span>
     </a>

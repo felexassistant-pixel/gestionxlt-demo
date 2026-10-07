@@ -22,11 +22,11 @@
       },
       "address": "597 Rue Saint-Jean #203, Longueuil",
       "city": "Longueuil",
-      "price": null,
-      "priceUnit": null,
+      "price": 1000,
+      "priceUnit": "month",
       "priceDisplay": {
-        "fr": "Contactez-nous pour le prix",
-        "en": "Contact us for pricing"
+        "fr": "1 000 $ / mois",
+        "en": "$1,000/month"
       },
       "beds": null,
       "baths": null,
@@ -40,13 +40,21 @@
         "assets/units/597-rue-saint-jean-unit-203-longueuil/04.jpg",
         "assets/units/597-rue-saint-jean-unit-203-longueuil/05.jpg"
       ],
+      "thumbs": [
+        "assets/units/597-rue-saint-jean-unit-203-longueuil/t/01.jpg",
+        "assets/units/597-rue-saint-jean-unit-203-longueuil/t/02.jpg",
+        "assets/units/597-rue-saint-jean-unit-203-longueuil/t/03.jpg",
+        "assets/units/597-rue-saint-jean-unit-203-longueuil/t/04.jpg",
+        "assets/units/597-rue-saint-jean-unit-203-longueuil/t/05.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": true,
       "map": {
         "lat": 45.534114,
         "lng": -73.503467,
         "precision": "address",
         "top": "12.4%",
-        "left": "54.3%"
+        "left": "51.7%"
       },
       "near": {
         "fr": "Transport en commun à proximité",
@@ -122,13 +130,18 @@
         "assets/units/8500-boulevard-taschereau-unit-5-brossard/01.jpg",
         "assets/units/8500-boulevard-taschereau-unit-5-brossard/02.jpg"
       ],
+      "thumbs": [
+        "assets/units/8500-boulevard-taschereau-unit-5-brossard/t/01.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-5-brossard/t/02.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": true,
       "map": {
         "lat": 45.444073,
         "lng": -73.473456,
         "precision": "building",
         "top": "84.0%",
-        "left": "68.6%"
+        "left": "64.3%"
       },
       "near": {
         "fr": "Transport en commun à proximité",
@@ -198,7 +211,7 @@
       "beds": null,
       "baths": null,
       "sqft": 774,
-      "photoCount": 40,
+      "photoCount": 39,
       "image": "assets/units/505-rue-de-l-escale-oria-2-brossard/cover.jpg",
       "images": [
         "assets/units/505-rue-de-l-escale-oria-2-brossard/01.jpg",
@@ -239,10 +252,51 @@
         "assets/units/505-rue-de-l-escale-oria-2-brossard/36.jpg",
         "assets/units/505-rue-de-l-escale-oria-2-brossard/37.jpg",
         "assets/units/505-rue-de-l-escale-oria-2-brossard/38.jpg",
-        "assets/units/505-rue-de-l-escale-oria-2-brossard/39.jpg",
-        "assets/units/505-rue-de-l-escale-oria-2-brossard/40.jpg"
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/39.jpg"
       ],
-      "featured": true,
+      "thumbs": [
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/01.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/02.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/03.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/04.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/05.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/06.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/07.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/08.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/09.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/10.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/11.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/12.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/13.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/14.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/15.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/16.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/17.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/18.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/19.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/20.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/21.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/22.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/23.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/24.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/25.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/26.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/27.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/28.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/29.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/30.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/31.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/32.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/33.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/34.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/35.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/36.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/37.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/38.jpg",
+        "assets/units/505-rue-de-l-escale-oria-2-brossard/t/39.jpg"
+      ],
+      "listedOn": "2024-10-26",
+      "featured": false,
       "map": {
         "lat": 45.448985,
         "lng": -73.428251,
@@ -321,19 +375,22 @@
       "beds": null,
       "baths": null,
       "sqft": null,
-      "photoCount": 2,
+      "photoCount": 1,
       "image": "assets/units/6857-av-lamont-montreal/cover.jpg",
       "images": [
-        "assets/units/6857-av-lamont-montreal/01.jpg",
-        "assets/units/6857-av-lamont-montreal/02.jpg"
+        "assets/units/6857-av-lamont-montreal/01.jpg"
       ],
+      "thumbs": [
+        "assets/units/6857-av-lamont-montreal/t/01.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.448553,
         "lng": -73.603002,
         "precision": "building",
         "top": "80.4%",
-        "left": "12.9%",
+        "left": "10.0%",
         "rented": true
       },
       "near": {
@@ -398,18 +455,21 @@
       "beds": null,
       "baths": null,
       "sqft": null,
-      "photoCount": 2,
+      "photoCount": 1,
       "image": "assets/units/6855-av-lamont-montreal/cover.jpg",
       "images": [
-        "assets/units/6855-av-lamont-montreal/01.jpg",
-        "assets/units/6855-av-lamont-montreal/02.jpg"
+        "assets/units/6855-av-lamont-montreal/01.jpg"
       ],
+      "thumbs": [
+        "assets/units/6855-av-lamont-montreal/t/01.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.448553,
         "lng": -73.603002,
         "precision": "building",
-        "top": "84.0%",
+        "top": "80.4%",
         "left": "10.0%",
         "rented": true
       },
@@ -475,19 +535,22 @@
       "beds": null,
       "baths": null,
       "sqft": null,
-      "photoCount": 2,
+      "photoCount": 1,
       "image": "assets/units/6853-av-lamont-montreal/cover.jpg",
       "images": [
-        "assets/units/6853-av-lamont-montreal/01.jpg",
-        "assets/units/6853-av-lamont-montreal/02.jpg"
+        "assets/units/6853-av-lamont-montreal/01.jpg"
       ],
+      "thumbs": [
+        "assets/units/6853-av-lamont-montreal/t/01.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.448553,
         "lng": -73.603002,
         "precision": "building",
         "top": "80.4%",
-        "left": "7.1%",
+        "left": "10.0%",
         "rented": true
       },
       "near": {
@@ -552,18 +615,21 @@
       "beds": null,
       "baths": null,
       "sqft": null,
-      "photoCount": 2,
+      "photoCount": 1,
       "image": "assets/units/6851-av-lamont-montreal/cover.jpg",
       "images": [
-        "assets/units/6851-av-lamont-montreal/01.jpg",
-        "assets/units/6851-av-lamont-montreal/02.jpg"
+        "assets/units/6851-av-lamont-montreal/01.jpg"
       ],
+      "thumbs": [
+        "assets/units/6851-av-lamont-montreal/t/01.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.448553,
         "lng": -73.603002,
         "precision": "address",
-        "top": "76.8%",
+        "top": "80.4%",
         "left": "10.0%",
         "rented": true
       },
@@ -629,12 +695,15 @@
       "beds": null,
       "baths": null,
       "sqft": null,
-      "photoCount": 2,
+      "photoCount": 1,
       "image": "assets/units/6524-boul-monk-montreal/cover.jpg",
       "images": [
-        "assets/units/6524-boul-monk-montreal/01.jpg",
-        "assets/units/6524-boul-monk-montreal/02.jpg"
+        "assets/units/6524-boul-monk-montreal/01.jpg"
       ],
+      "thumbs": [
+        "assets/units/6524-boul-monk-montreal/t/01.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.45365,
@@ -706,19 +775,22 @@
       "beds": null,
       "baths": null,
       "sqft": null,
-      "photoCount": 2,
+      "photoCount": 1,
       "image": "assets/units/6520-boul-monk-montreal/cover.jpg",
       "images": [
-        "assets/units/6520-boul-monk-montreal/01.jpg",
-        "assets/units/6520-boul-monk-montreal/02.jpg"
+        "assets/units/6520-boul-monk-montreal/01.jpg"
       ],
+      "thumbs": [
+        "assets/units/6520-boul-monk-montreal/t/01.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.453672,
         "lng": -73.594036,
         "precision": "address",
         "top": "76.4%",
-        "left": "16.4%",
+        "left": "13.8%",
         "rented": true
       },
       "near": {
@@ -783,19 +855,22 @@
       "beds": null,
       "baths": null,
       "sqft": null,
-      "photoCount": 2,
+      "photoCount": 1,
       "image": "assets/units/6518-boul-monk-montreal/cover.jpg",
       "images": [
-        "assets/units/6518-boul-monk-montreal/01.jpg",
-        "assets/units/6518-boul-monk-montreal/02.jpg"
+        "assets/units/6518-boul-monk-montreal/01.jpg"
       ],
+      "thumbs": [
+        "assets/units/6518-boul-monk-montreal/t/01.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.453672,
         "lng": -73.594036,
         "precision": "building",
-        "top": "79.2%",
-        "left": "12.5%",
+        "top": "76.4%",
+        "left": "13.8%",
         "rented": true
       },
       "near": {
@@ -860,19 +935,22 @@
       "beds": null,
       "baths": null,
       "sqft": null,
-      "photoCount": 2,
+      "photoCount": 1,
       "image": "assets/units/6522-boul-monk-montreal/cover.jpg",
       "images": [
-        "assets/units/6522-boul-monk-montreal/01.jpg",
-        "assets/units/6522-boul-monk-montreal/02.jpg"
+        "assets/units/6522-boul-monk-montreal/01.jpg"
       ],
+      "thumbs": [
+        "assets/units/6522-boul-monk-montreal/t/01.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.453672,
         "lng": -73.594036,
         "precision": "address",
-        "top": "73.5%",
-        "left": "12.5%",
+        "top": "76.4%",
+        "left": "13.8%",
         "rented": true
       },
       "near": {
@@ -937,7 +1015,7 @@
       "beds": null,
       "baths": null,
       "sqft": 1000,
-      "photoCount": 22,
+      "photoCount": 21,
       "image": "assets/units/1731-rue-balmoral-longueuil/cover.jpg",
       "images": [
         "assets/units/1731-rue-balmoral-longueuil/01.jpg",
@@ -960,9 +1038,32 @@
         "assets/units/1731-rue-balmoral-longueuil/18.jpg",
         "assets/units/1731-rue-balmoral-longueuil/19.jpg",
         "assets/units/1731-rue-balmoral-longueuil/20.jpg",
-        "assets/units/1731-rue-balmoral-longueuil/21.jpg",
-        "assets/units/1731-rue-balmoral-longueuil/22.jpg"
+        "assets/units/1731-rue-balmoral-longueuil/21.jpg"
       ],
+      "thumbs": [
+        "assets/units/1731-rue-balmoral-longueuil/t/01.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/t/02.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/t/03.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/t/04.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/t/05.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/t/06.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/t/07.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/t/08.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/t/09.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/t/10.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/t/11.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/t/12.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/t/13.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/t/14.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/t/15.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/t/16.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/t/17.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/t/18.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/t/19.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/t/20.jpg",
+        "assets/units/1731-rue-balmoral-longueuil/t/21.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.489643,
@@ -1042,7 +1143,7 @@
       "beds": null,
       "baths": null,
       "sqft": 900,
-      "photoCount": 12,
+      "photoCount": 11,
       "image": "assets/units/1729-rue-balmoral-longueuil/cover.jpg",
       "images": [
         "assets/units/1729-rue-balmoral-longueuil/01.jpg",
@@ -1055,16 +1156,29 @@
         "assets/units/1729-rue-balmoral-longueuil/08.jpg",
         "assets/units/1729-rue-balmoral-longueuil/09.jpg",
         "assets/units/1729-rue-balmoral-longueuil/10.jpg",
-        "assets/units/1729-rue-balmoral-longueuil/11.jpg",
-        "assets/units/1729-rue-balmoral-longueuil/12.jpg"
+        "assets/units/1729-rue-balmoral-longueuil/11.jpg"
       ],
+      "thumbs": [
+        "assets/units/1729-rue-balmoral-longueuil/t/01.jpg",
+        "assets/units/1729-rue-balmoral-longueuil/t/02.jpg",
+        "assets/units/1729-rue-balmoral-longueuil/t/03.jpg",
+        "assets/units/1729-rue-balmoral-longueuil/t/04.jpg",
+        "assets/units/1729-rue-balmoral-longueuil/t/05.jpg",
+        "assets/units/1729-rue-balmoral-longueuil/t/06.jpg",
+        "assets/units/1729-rue-balmoral-longueuil/t/07.jpg",
+        "assets/units/1729-rue-balmoral-longueuil/t/08.jpg",
+        "assets/units/1729-rue-balmoral-longueuil/t/09.jpg",
+        "assets/units/1729-rue-balmoral-longueuil/t/10.jpg",
+        "assets/units/1729-rue-balmoral-longueuil/t/11.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.489666,
         "lng": -73.461225,
         "precision": "address",
         "top": "47.7%",
-        "left": "71.8%",
+        "left": "69.4%",
         "rented": true
       },
       "near": {
@@ -1137,7 +1251,7 @@
       "beds": null,
       "baths": null,
       "sqft": 900,
-      "photoCount": 22,
+      "photoCount": 21,
       "image": "assets/units/1729a-rue-balmoral-longueuil/cover.jpg",
       "images": [
         "assets/units/1729a-rue-balmoral-longueuil/01.jpg",
@@ -1160,16 +1274,39 @@
         "assets/units/1729a-rue-balmoral-longueuil/18.jpg",
         "assets/units/1729a-rue-balmoral-longueuil/19.jpg",
         "assets/units/1729a-rue-balmoral-longueuil/20.jpg",
-        "assets/units/1729a-rue-balmoral-longueuil/21.jpg",
-        "assets/units/1729a-rue-balmoral-longueuil/22.jpg"
+        "assets/units/1729a-rue-balmoral-longueuil/21.jpg"
       ],
+      "thumbs": [
+        "assets/units/1729a-rue-balmoral-longueuil/t/01.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/t/02.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/t/03.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/t/04.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/t/05.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/t/06.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/t/07.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/t/08.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/t/09.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/t/10.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/t/11.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/t/12.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/t/13.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/t/14.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/t/15.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/t/16.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/t/17.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/t/18.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/t/19.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/t/20.jpg",
+        "assets/units/1729a-rue-balmoral-longueuil/t/21.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.489666,
         "lng": -73.461225,
         "precision": "building",
         "top": "47.7%",
-        "left": "67.1%",
+        "left": "69.4%",
         "rented": true
       },
       "near": {
@@ -1242,7 +1379,7 @@
       "beds": null,
       "baths": null,
       "sqft": 905,
-      "photoCount": 9,
+      "photoCount": 8,
       "image": "assets/units/5860-rue-corneille-brossard/cover.jpg",
       "images": [
         "assets/units/5860-rue-corneille-brossard/01.jpg",
@@ -1252,9 +1389,19 @@
         "assets/units/5860-rue-corneille-brossard/05.jpg",
         "assets/units/5860-rue-corneille-brossard/06.jpg",
         "assets/units/5860-rue-corneille-brossard/07.jpg",
-        "assets/units/5860-rue-corneille-brossard/08.jpg",
-        "assets/units/5860-rue-corneille-brossard/09.jpg"
+        "assets/units/5860-rue-corneille-brossard/08.jpg"
       ],
+      "thumbs": [
+        "assets/units/5860-rue-corneille-brossard/t/01.jpg",
+        "assets/units/5860-rue-corneille-brossard/t/02.jpg",
+        "assets/units/5860-rue-corneille-brossard/t/03.jpg",
+        "assets/units/5860-rue-corneille-brossard/t/04.jpg",
+        "assets/units/5860-rue-corneille-brossard/t/05.jpg",
+        "assets/units/5860-rue-corneille-brossard/t/06.jpg",
+        "assets/units/5860-rue-corneille-brossard/t/07.jpg",
+        "assets/units/5860-rue-corneille-brossard/t/08.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.46366,
@@ -1334,7 +1481,7 @@
       "beds": null,
       "baths": null,
       "sqft": 879,
-      "photoCount": 11,
+      "photoCount": 10,
       "image": "assets/units/7130-rue-du-chardonneret-brossard/cover.jpg",
       "images": [
         "assets/units/7130-rue-du-chardonneret-brossard/01.jpg",
@@ -1346,9 +1493,21 @@
         "assets/units/7130-rue-du-chardonneret-brossard/07.jpg",
         "assets/units/7130-rue-du-chardonneret-brossard/08.jpg",
         "assets/units/7130-rue-du-chardonneret-brossard/09.jpg",
-        "assets/units/7130-rue-du-chardonneret-brossard/10.jpg",
-        "assets/units/7130-rue-du-chardonneret-brossard/11.jpg"
+        "assets/units/7130-rue-du-chardonneret-brossard/10.jpg"
       ],
+      "thumbs": [
+        "assets/units/7130-rue-du-chardonneret-brossard/t/01.jpg",
+        "assets/units/7130-rue-du-chardonneret-brossard/t/02.jpg",
+        "assets/units/7130-rue-du-chardonneret-brossard/t/03.jpg",
+        "assets/units/7130-rue-du-chardonneret-brossard/t/04.jpg",
+        "assets/units/7130-rue-du-chardonneret-brossard/t/05.jpg",
+        "assets/units/7130-rue-du-chardonneret-brossard/t/06.jpg",
+        "assets/units/7130-rue-du-chardonneret-brossard/t/07.jpg",
+        "assets/units/7130-rue-du-chardonneret-brossard/t/08.jpg",
+        "assets/units/7130-rue-du-chardonneret-brossard/t/09.jpg",
+        "assets/units/7130-rue-du-chardonneret-brossard/t/10.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.460483,
@@ -1428,7 +1587,7 @@
       "beds": null,
       "baths": null,
       "sqft": 3000,
-      "photoCount": 14,
+      "photoCount": 13,
       "image": "assets/units/1297-ch-chambly-longueuil/cover.jpg",
       "images": [
         "assets/units/1297-ch-chambly-longueuil/01.jpg",
@@ -1443,9 +1602,24 @@
         "assets/units/1297-ch-chambly-longueuil/10.jpg",
         "assets/units/1297-ch-chambly-longueuil/11.jpg",
         "assets/units/1297-ch-chambly-longueuil/12.jpg",
-        "assets/units/1297-ch-chambly-longueuil/13.jpg",
-        "assets/units/1297-ch-chambly-longueuil/14.jpg"
+        "assets/units/1297-ch-chambly-longueuil/13.jpg"
       ],
+      "thumbs": [
+        "assets/units/1297-ch-chambly-longueuil/t/01.jpg",
+        "assets/units/1297-ch-chambly-longueuil/t/02.jpg",
+        "assets/units/1297-ch-chambly-longueuil/t/03.jpg",
+        "assets/units/1297-ch-chambly-longueuil/t/04.jpg",
+        "assets/units/1297-ch-chambly-longueuil/t/05.jpg",
+        "assets/units/1297-ch-chambly-longueuil/t/06.jpg",
+        "assets/units/1297-ch-chambly-longueuil/t/07.jpg",
+        "assets/units/1297-ch-chambly-longueuil/t/08.jpg",
+        "assets/units/1297-ch-chambly-longueuil/t/09.jpg",
+        "assets/units/1297-ch-chambly-longueuil/t/10.jpg",
+        "assets/units/1297-ch-chambly-longueuil/t/11.jpg",
+        "assets/units/1297-ch-chambly-longueuil/t/12.jpg",
+        "assets/units/1297-ch-chambly-longueuil/t/13.jpg"
+      ],
+      "listedOn": "2024-10-26",
       "featured": false,
       "map": {
         "lat": 45.531749,
@@ -1523,7 +1697,7 @@
       "beds": null,
       "baths": null,
       "sqft": 1600,
-      "photoCount": 12,
+      "photoCount": 11,
       "image": "assets/units/1299-ch-chambly-longueuil/cover.jpg",
       "images": [
         "assets/units/1299-ch-chambly-longueuil/01.jpg",
@@ -1536,9 +1710,22 @@
         "assets/units/1299-ch-chambly-longueuil/08.jpg",
         "assets/units/1299-ch-chambly-longueuil/09.jpg",
         "assets/units/1299-ch-chambly-longueuil/10.jpg",
-        "assets/units/1299-ch-chambly-longueuil/11.jpg",
-        "assets/units/1299-ch-chambly-longueuil/12.jpg"
+        "assets/units/1299-ch-chambly-longueuil/11.jpg"
       ],
+      "thumbs": [
+        "assets/units/1299-ch-chambly-longueuil/t/01.jpg",
+        "assets/units/1299-ch-chambly-longueuil/t/02.jpg",
+        "assets/units/1299-ch-chambly-longueuil/t/03.jpg",
+        "assets/units/1299-ch-chambly-longueuil/t/04.jpg",
+        "assets/units/1299-ch-chambly-longueuil/t/05.jpg",
+        "assets/units/1299-ch-chambly-longueuil/t/06.jpg",
+        "assets/units/1299-ch-chambly-longueuil/t/07.jpg",
+        "assets/units/1299-ch-chambly-longueuil/t/08.jpg",
+        "assets/units/1299-ch-chambly-longueuil/t/09.jpg",
+        "assets/units/1299-ch-chambly-longueuil/t/10.jpg",
+        "assets/units/1299-ch-chambly-longueuil/t/11.jpg"
+      ],
+      "listedOn": "2024-10-26",
       "featured": false,
       "map": {
         "lat": 45.532241,
@@ -1616,7 +1803,7 @@
       "beds": null,
       "baths": null,
       "sqft": 1400,
-      "photoCount": 11,
+      "photoCount": 10,
       "image": "assets/units/1295-ch-chambly-longueuil/cover.jpg",
       "images": [
         "assets/units/1295-ch-chambly-longueuil/01.jpg",
@@ -1628,9 +1815,21 @@
         "assets/units/1295-ch-chambly-longueuil/07.jpg",
         "assets/units/1295-ch-chambly-longueuil/08.jpg",
         "assets/units/1295-ch-chambly-longueuil/09.jpg",
-        "assets/units/1295-ch-chambly-longueuil/10.jpg",
-        "assets/units/1295-ch-chambly-longueuil/11.jpg"
+        "assets/units/1295-ch-chambly-longueuil/10.jpg"
       ],
+      "thumbs": [
+        "assets/units/1295-ch-chambly-longueuil/t/01.jpg",
+        "assets/units/1295-ch-chambly-longueuil/t/02.jpg",
+        "assets/units/1295-ch-chambly-longueuil/t/03.jpg",
+        "assets/units/1295-ch-chambly-longueuil/t/04.jpg",
+        "assets/units/1295-ch-chambly-longueuil/t/05.jpg",
+        "assets/units/1295-ch-chambly-longueuil/t/06.jpg",
+        "assets/units/1295-ch-chambly-longueuil/t/07.jpg",
+        "assets/units/1295-ch-chambly-longueuil/t/08.jpg",
+        "assets/units/1295-ch-chambly-longueuil/t/09.jpg",
+        "assets/units/1295-ch-chambly-longueuil/t/10.jpg"
+      ],
+      "listedOn": "2024-10-26",
       "featured": false,
       "map": {
         "lat": 45.53227,
@@ -1708,7 +1907,7 @@
       "beds": null,
       "baths": null,
       "sqft": 1000,
-      "photoCount": 13,
+      "photoCount": 12,
       "image": "assets/units/620-b-rue-saint-thomas-longueuil/cover.jpg",
       "images": [
         "assets/units/620-b-rue-saint-thomas-longueuil/01.jpg",
@@ -1722,16 +1921,30 @@
         "assets/units/620-b-rue-saint-thomas-longueuil/09.jpg",
         "assets/units/620-b-rue-saint-thomas-longueuil/10.jpg",
         "assets/units/620-b-rue-saint-thomas-longueuil/11.jpg",
-        "assets/units/620-b-rue-saint-thomas-longueuil/12.jpg",
-        "assets/units/620-b-rue-saint-thomas-longueuil/13.jpg"
+        "assets/units/620-b-rue-saint-thomas-longueuil/12.jpg"
       ],
+      "thumbs": [
+        "assets/units/620-b-rue-saint-thomas-longueuil/t/01.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/t/02.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/t/03.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/t/04.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/t/05.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/t/06.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/t/07.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/t/08.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/t/09.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/t/10.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/t/11.jpg",
+        "assets/units/620-b-rue-saint-thomas-longueuil/t/12.jpg"
+      ],
+      "listedOn": "2023-04-10",
       "featured": false,
       "map": {
         "lat": 45.534585,
         "lng": -73.503261,
         "precision": "address",
         "top": "12.0%",
-        "left": "54.1%",
+        "left": "51.8%",
         "rented": true
       },
       "near": {
@@ -1802,7 +2015,7 @@
       "beds": null,
       "baths": null,
       "sqft": 2200,
-      "photoCount": 13,
+      "photoCount": 12,
       "image": "assets/units/620-a-rue-saint-thomas-longueuil/cover.jpg",
       "images": [
         "assets/units/620-a-rue-saint-thomas-longueuil/01.jpg",
@@ -1816,16 +2029,30 @@
         "assets/units/620-a-rue-saint-thomas-longueuil/09.jpg",
         "assets/units/620-a-rue-saint-thomas-longueuil/10.jpg",
         "assets/units/620-a-rue-saint-thomas-longueuil/11.jpg",
-        "assets/units/620-a-rue-saint-thomas-longueuil/12.jpg",
-        "assets/units/620-a-rue-saint-thomas-longueuil/13.jpg"
+        "assets/units/620-a-rue-saint-thomas-longueuil/12.jpg"
       ],
+      "thumbs": [
+        "assets/units/620-a-rue-saint-thomas-longueuil/t/01.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/t/02.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/t/03.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/t/04.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/t/05.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/t/06.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/t/07.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/t/08.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/t/09.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/t/10.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/t/11.jpg",
+        "assets/units/620-a-rue-saint-thomas-longueuil/t/12.jpg"
+      ],
+      "listedOn": "2023-01-04",
       "featured": false,
       "map": {
         "lat": 45.534585,
         "lng": -73.503261,
         "precision": "address",
         "top": "12.0%",
-        "left": "49.5%",
+        "left": "51.8%",
         "rented": true
       },
       "near": {
@@ -1896,15 +2123,21 @@
       "beds": null,
       "baths": null,
       "sqft": 975,
-      "photoCount": 5,
+      "photoCount": 4,
       "image": "assets/units/599-rue-saint-jean-longueuil/cover.jpg",
       "images": [
         "assets/units/599-rue-saint-jean-longueuil/01.jpg",
         "assets/units/599-rue-saint-jean-longueuil/02.jpg",
         "assets/units/599-rue-saint-jean-longueuil/03.jpg",
-        "assets/units/599-rue-saint-jean-longueuil/04.jpg",
-        "assets/units/599-rue-saint-jean-longueuil/05.jpg"
+        "assets/units/599-rue-saint-jean-longueuil/04.jpg"
       ],
+      "thumbs": [
+        "assets/units/599-rue-saint-jean-longueuil/t/01.jpg",
+        "assets/units/599-rue-saint-jean-longueuil/t/02.jpg",
+        "assets/units/599-rue-saint-jean-longueuil/t/03.jpg",
+        "assets/units/599-rue-saint-jean-longueuil/t/04.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.5341,
@@ -1982,23 +2215,30 @@
       "beds": null,
       "baths": null,
       "sqft": 325,
-      "photoCount": 6,
+      "photoCount": 5,
       "image": "assets/units/597-rue-saint-jean-unit-205-longueuil/cover.jpg",
       "images": [
         "assets/units/597-rue-saint-jean-unit-205-longueuil/01.jpg",
         "assets/units/597-rue-saint-jean-unit-205-longueuil/02.jpg",
         "assets/units/597-rue-saint-jean-unit-205-longueuil/03.jpg",
         "assets/units/597-rue-saint-jean-unit-205-longueuil/04.jpg",
-        "assets/units/597-rue-saint-jean-unit-205-longueuil/05.jpg",
-        "assets/units/597-rue-saint-jean-unit-205-longueuil/06.jpg"
+        "assets/units/597-rue-saint-jean-unit-205-longueuil/05.jpg"
       ],
+      "thumbs": [
+        "assets/units/597-rue-saint-jean-unit-205-longueuil/t/01.jpg",
+        "assets/units/597-rue-saint-jean-unit-205-longueuil/t/02.jpg",
+        "assets/units/597-rue-saint-jean-unit-205-longueuil/t/03.jpg",
+        "assets/units/597-rue-saint-jean-unit-205-longueuil/t/04.jpg",
+        "assets/units/597-rue-saint-jean-unit-205-longueuil/t/05.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.534114,
         "lng": -73.503467,
         "precision": "address",
-        "top": "15.2%",
-        "left": "50.4%",
+        "top": "12.4%",
+        "left": "51.7%",
         "rented": true
       },
       "near": {
@@ -2047,7 +2287,7 @@
       "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy-bnwb9-f628b-jbczc-zg7sm-n7ncp-ekhrh-rbct5-5dx3e"
     },
     {
-      "id": "597-rue-saint-jean-unit-201-204-longueuil",
+      "id": "597-rue-saint-jean-unit-201-longueuil",
       "status": "rented",
       "type": "com",
       "typeLabel": {
@@ -2058,7 +2298,7 @@
         "fr": "Local commercial, Longueuil",
         "en": "Retail space, Longueuil"
       },
-      "address": "597 Rue Saint-Jean #201-204, Longueuil",
+      "address": "597 Rue Saint-Jean #201, Longueuil",
       "city": "Longueuil",
       "price": null,
       "priceUnit": null,
@@ -2068,27 +2308,37 @@
       },
       "beds": null,
       "baths": null,
-      "sqft": 2750,
-      "photoCount": 9,
-      "image": "assets/units/597-rue-saint-jean-unit-201-204-longueuil/cover.jpg",
+      "sqft": null,
+      "photoCount": 8,
+      "image": "assets/units/597-rue-saint-jean-unit-201-longueuil/cover.jpg",
       "images": [
-        "assets/units/597-rue-saint-jean-unit-201-204-longueuil/01.jpg",
-        "assets/units/597-rue-saint-jean-unit-201-204-longueuil/02.jpg",
-        "assets/units/597-rue-saint-jean-unit-201-204-longueuil/03.jpg",
-        "assets/units/597-rue-saint-jean-unit-201-204-longueuil/04.jpg",
-        "assets/units/597-rue-saint-jean-unit-201-204-longueuil/05.jpg",
-        "assets/units/597-rue-saint-jean-unit-201-204-longueuil/06.jpg",
-        "assets/units/597-rue-saint-jean-unit-201-204-longueuil/07.jpg",
-        "assets/units/597-rue-saint-jean-unit-201-204-longueuil/08.jpg",
-        "assets/units/597-rue-saint-jean-unit-201-204-longueuil/09.jpg"
+        "assets/units/597-rue-saint-jean-unit-201-longueuil/01.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-longueuil/02.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-longueuil/03.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-longueuil/04.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-longueuil/05.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-longueuil/06.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-longueuil/07.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-longueuil/08.jpg"
       ],
+      "thumbs": [
+        "assets/units/597-rue-saint-jean-unit-201-longueuil/t/01.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-longueuil/t/02.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-longueuil/t/03.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-longueuil/t/04.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-longueuil/t/05.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-longueuil/t/06.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-longueuil/t/07.jpg",
+        "assets/units/597-rue-saint-jean-unit-201-longueuil/t/08.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.534114,
         "lng": -73.503467,
         "precision": "address",
-        "top": "9.6%",
-        "left": "50.4%",
+        "top": "12.4%",
+        "left": "51.7%",
         "rented": true
       },
       "near": {
@@ -2097,19 +2347,17 @@
       },
       "availability": null,
       "description": {
-        "fr": "Local commercial de 2 750 pi², au 597 Rue Saint-Jean #201-204. Construit en 1953. Transport en commun à proximité.",
-        "en": "2,750 sq ft retail space at 597 Rue Saint-Jean #201-204. Built in 1953. Public transport nearby."
+        "fr": "Local commercial, au 597 Rue Saint-Jean #201. Construit en 1953. Transport en commun à proximité.",
+        "en": "Retail space at 597 Rue Saint-Jean #201. Built in 1953. Public transport nearby."
       },
       "amenities": {
         "fr": [
           "Usage : local commercial",
-          "Superficie commerciale disponible : 2 750 pi²",
           "Année de construction : 1953",
           "Transport en commun à proximité"
         ],
         "en": [
           "Use: retail space",
-          "Available commercial area: 2,750 sq ft",
           "Year built: 1953",
           "Public transport nearby"
         ]
@@ -2134,7 +2382,206 @@
         "fr": "Local commercial",
         "en": "Retail space"
       },
-      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy-bnwb9-f628b-jbczc-zg7sm-n7ncp-ekhrh-fcy24"
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy-bnwb9-f628b-jbczc-zg7sm-n7ncp-ekhrh-fcy24",
+      "sourceNote": "Split from the combined gestionxlt.com listing \"597 Rue Saint-Jean, Unit 201 - 204\" per owner decision (2026-10-07); unit #201 confirmed by the property manager. Photos and building info shared; combined sq ft dropped."
+    },
+    {
+      "id": "597-rue-saint-jean-unit-202-longueuil",
+      "status": "rented",
+      "type": "com",
+      "typeLabel": {
+        "fr": "Commerce",
+        "en": "Retail"
+      },
+      "title": {
+        "fr": "Local commercial, Longueuil",
+        "en": "Retail space, Longueuil"
+      },
+      "address": "597 Rue Saint-Jean #202, Longueuil",
+      "city": "Longueuil",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": null,
+      "photoCount": 8,
+      "image": "assets/units/597-rue-saint-jean-unit-202-longueuil/cover.jpg",
+      "images": [
+        "assets/units/597-rue-saint-jean-unit-202-longueuil/01.jpg",
+        "assets/units/597-rue-saint-jean-unit-202-longueuil/02.jpg",
+        "assets/units/597-rue-saint-jean-unit-202-longueuil/03.jpg",
+        "assets/units/597-rue-saint-jean-unit-202-longueuil/04.jpg",
+        "assets/units/597-rue-saint-jean-unit-202-longueuil/05.jpg",
+        "assets/units/597-rue-saint-jean-unit-202-longueuil/06.jpg",
+        "assets/units/597-rue-saint-jean-unit-202-longueuil/07.jpg",
+        "assets/units/597-rue-saint-jean-unit-202-longueuil/08.jpg"
+      ],
+      "thumbs": [
+        "assets/units/597-rue-saint-jean-unit-202-longueuil/t/01.jpg",
+        "assets/units/597-rue-saint-jean-unit-202-longueuil/t/02.jpg",
+        "assets/units/597-rue-saint-jean-unit-202-longueuil/t/03.jpg",
+        "assets/units/597-rue-saint-jean-unit-202-longueuil/t/04.jpg",
+        "assets/units/597-rue-saint-jean-unit-202-longueuil/t/05.jpg",
+        "assets/units/597-rue-saint-jean-unit-202-longueuil/t/06.jpg",
+        "assets/units/597-rue-saint-jean-unit-202-longueuil/t/07.jpg",
+        "assets/units/597-rue-saint-jean-unit-202-longueuil/t/08.jpg"
+      ],
+      "listedOn": "2022-12-27",
+      "featured": false,
+      "map": {
+        "lat": 45.534114,
+        "lng": -73.503467,
+        "precision": "address",
+        "top": "12.4%",
+        "left": "51.7%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Local commercial, au 597 Rue Saint-Jean #202. Construit en 1953. Transport en commun à proximité.",
+        "en": "Retail space at 597 Rue Saint-Jean #202. Built in 1953. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : local commercial",
+          "Année de construction : 1953",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: retail space",
+          "Year built: 1953",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1953
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy-bnwb9-f628b-jbczc-zg7sm-n7ncp-ekhrh-fcy24",
+      "sourceNote": "Split from the combined gestionxlt.com listing \"597 Rue Saint-Jean, Unit 201 - 204\" per owner decision (2026-10-07); unit #202 confirmed by the property manager. Photos and building info shared; combined sq ft dropped."
+    },
+    {
+      "id": "597-rue-saint-jean-unit-204-longueuil",
+      "status": "rented",
+      "type": "com",
+      "typeLabel": {
+        "fr": "Commerce",
+        "en": "Retail"
+      },
+      "title": {
+        "fr": "Local commercial, Longueuil",
+        "en": "Retail space, Longueuil"
+      },
+      "address": "597 Rue Saint-Jean #204, Longueuil",
+      "city": "Longueuil",
+      "price": null,
+      "priceUnit": null,
+      "priceDisplay": {
+        "fr": "Contactez-nous pour le prix",
+        "en": "Contact us for pricing"
+      },
+      "beds": null,
+      "baths": null,
+      "sqft": null,
+      "photoCount": 8,
+      "image": "assets/units/597-rue-saint-jean-unit-204-longueuil/cover.jpg",
+      "images": [
+        "assets/units/597-rue-saint-jean-unit-204-longueuil/01.jpg",
+        "assets/units/597-rue-saint-jean-unit-204-longueuil/02.jpg",
+        "assets/units/597-rue-saint-jean-unit-204-longueuil/03.jpg",
+        "assets/units/597-rue-saint-jean-unit-204-longueuil/04.jpg",
+        "assets/units/597-rue-saint-jean-unit-204-longueuil/05.jpg",
+        "assets/units/597-rue-saint-jean-unit-204-longueuil/06.jpg",
+        "assets/units/597-rue-saint-jean-unit-204-longueuil/07.jpg",
+        "assets/units/597-rue-saint-jean-unit-204-longueuil/08.jpg"
+      ],
+      "thumbs": [
+        "assets/units/597-rue-saint-jean-unit-204-longueuil/t/01.jpg",
+        "assets/units/597-rue-saint-jean-unit-204-longueuil/t/02.jpg",
+        "assets/units/597-rue-saint-jean-unit-204-longueuil/t/03.jpg",
+        "assets/units/597-rue-saint-jean-unit-204-longueuil/t/04.jpg",
+        "assets/units/597-rue-saint-jean-unit-204-longueuil/t/05.jpg",
+        "assets/units/597-rue-saint-jean-unit-204-longueuil/t/06.jpg",
+        "assets/units/597-rue-saint-jean-unit-204-longueuil/t/07.jpg",
+        "assets/units/597-rue-saint-jean-unit-204-longueuil/t/08.jpg"
+      ],
+      "listedOn": "2022-12-27",
+      "featured": false,
+      "map": {
+        "lat": 45.534114,
+        "lng": -73.503467,
+        "precision": "address",
+        "top": "12.4%",
+        "left": "51.7%",
+        "rented": true
+      },
+      "near": {
+        "fr": "Transport en commun à proximité",
+        "en": "Public transport nearby"
+      },
+      "availability": null,
+      "description": {
+        "fr": "Local commercial, au 597 Rue Saint-Jean #204. Construit en 1953. Transport en commun à proximité.",
+        "en": "Retail space at 597 Rue Saint-Jean #204. Built in 1953. Public transport nearby."
+      },
+      "amenities": {
+        "fr": [
+          "Usage : local commercial",
+          "Année de construction : 1953",
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Use: retail space",
+          "Year built: 1953",
+          "Public transport nearby"
+        ]
+      },
+      "details": {
+        "floor": null,
+        "unitType": {
+          "fr": "Local commercial",
+          "en": "Retail space"
+        },
+        "yearBuilt": 1953
+      },
+      "nearby": {
+        "fr": [
+          "Transport en commun à proximité"
+        ],
+        "en": [
+          "Public transport nearby"
+        ]
+      },
+      "specExtra": {
+        "fr": "Local commercial",
+        "en": "Retail space"
+      },
+      "sourceUrl": "https://www.gestionxlt.com/property-listings/p/style-03-g2rtt-n5ss8-pd5as-t5zms-y27hh-3sk6p-tfd8f-k6w33-49swy-bnwb9-f628b-jbczc-zg7sm-n7ncp-ekhrh-fcy24",
+      "sourceNote": "Split from the combined gestionxlt.com listing \"597 Rue Saint-Jean, Unit 201 - 204\" per owner decision (2026-10-07); unit #204 confirmed by the property manager. Photos and building info shared; combined sq ft dropped."
     },
     {
       "id": "593-rue-saint-jean-longueuil",
@@ -2159,13 +2606,17 @@
       "beds": null,
       "baths": null,
       "sqft": 1550,
-      "photoCount": 3,
+      "photoCount": 2,
       "image": "assets/units/593-rue-saint-jean-longueuil/cover.jpg",
       "images": [
         "assets/units/593-rue-saint-jean-longueuil/01.jpg",
-        "assets/units/593-rue-saint-jean-longueuil/02.jpg",
-        "assets/units/593-rue-saint-jean-longueuil/03.jpg"
+        "assets/units/593-rue-saint-jean-longueuil/02.jpg"
       ],
+      "thumbs": [
+        "assets/units/593-rue-saint-jean-longueuil/t/01.jpg",
+        "assets/units/593-rue-saint-jean-longueuil/t/02.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.534141,
@@ -2243,13 +2694,17 @@
       "beds": null,
       "baths": null,
       "sqft": null,
-      "photoCount": 3,
+      "photoCount": 2,
       "image": "assets/units/6528-boul-monk-montreal/cover.jpg",
       "images": [
         "assets/units/6528-boul-monk-montreal/01.jpg",
-        "assets/units/6528-boul-monk-montreal/02.jpg",
-        "assets/units/6528-boul-monk-montreal/03.jpg"
+        "assets/units/6528-boul-monk-montreal/02.jpg"
       ],
+      "thumbs": [
+        "assets/units/6528-boul-monk-montreal/t/01.jpg",
+        "assets/units/6528-boul-monk-montreal/t/02.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.453661,
@@ -2325,15 +2780,21 @@
       "beds": null,
       "baths": null,
       "sqft": null,
-      "photoCount": 5,
+      "photoCount": 4,
       "image": "assets/units/6526-boul-monk-montreal/cover.jpg",
       "images": [
         "assets/units/6526-boul-monk-montreal/01.jpg",
         "assets/units/6526-boul-monk-montreal/02.jpg",
         "assets/units/6526-boul-monk-montreal/03.jpg",
-        "assets/units/6526-boul-monk-montreal/04.jpg",
-        "assets/units/6526-boul-monk-montreal/05.jpg"
+        "assets/units/6526-boul-monk-montreal/04.jpg"
       ],
+      "thumbs": [
+        "assets/units/6526-boul-monk-montreal/t/01.jpg",
+        "assets/units/6526-boul-monk-montreal/t/02.jpg",
+        "assets/units/6526-boul-monk-montreal/t/03.jpg",
+        "assets/units/6526-boul-monk-montreal/t/04.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.453683,
@@ -2409,20 +2870,24 @@
       "beds": null,
       "baths": null,
       "sqft": 1618,
-      "photoCount": 3,
+      "photoCount": 2,
       "image": "assets/units/8500-boulevard-taschereau-unit-15b-brossard/cover.jpg",
       "images": [
         "assets/units/8500-boulevard-taschereau-unit-15b-brossard/01.jpg",
-        "assets/units/8500-boulevard-taschereau-unit-15b-brossard/02.jpg",
-        "assets/units/8500-boulevard-taschereau-unit-15b-brossard/03.jpg"
+        "assets/units/8500-boulevard-taschereau-unit-15b-brossard/02.jpg"
       ],
+      "thumbs": [
+        "assets/units/8500-boulevard-taschereau-unit-15b-brossard/t/01.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-15b-brossard/t/02.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.444073,
         "lng": -73.473456,
         "precision": "building",
-        "top": "87.4%",
-        "left": "67.6%",
+        "top": "84.0%",
+        "left": "64.3%",
         "rented": true
       },
       "near": {
@@ -2493,20 +2958,24 @@
       "beds": null,
       "baths": null,
       "sqft": 1057,
-      "photoCount": 3,
+      "photoCount": 2,
       "image": "assets/units/8500-boulevard-taschereau-unit-7-brossard/cover.jpg",
       "images": [
         "assets/units/8500-boulevard-taschereau-unit-7-brossard/01.jpg",
-        "assets/units/8500-boulevard-taschereau-unit-7-brossard/02.jpg",
-        "assets/units/8500-boulevard-taschereau-unit-7-brossard/03.jpg"
+        "assets/units/8500-boulevard-taschereau-unit-7-brossard/02.jpg"
       ],
+      "thumbs": [
+        "assets/units/8500-boulevard-taschereau-unit-7-brossard/t/01.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-7-brossard/t/02.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.444073,
         "lng": -73.473456,
         "precision": "building",
-        "top": "89.3%",
-        "left": "65.0%",
+        "top": "84.0%",
+        "left": "64.3%",
         "rented": true
       },
       "near": {
@@ -2577,20 +3046,24 @@
       "beds": null,
       "baths": null,
       "sqft": 946,
-      "photoCount": 3,
+      "photoCount": 2,
       "image": "assets/units/8500-boulevard-taschereau-unit-17-brossard/cover.jpg",
       "images": [
         "assets/units/8500-boulevard-taschereau-unit-17-brossard/01.jpg",
-        "assets/units/8500-boulevard-taschereau-unit-17-brossard/02.jpg",
-        "assets/units/8500-boulevard-taschereau-unit-17-brossard/03.jpg"
+        "assets/units/8500-boulevard-taschereau-unit-17-brossard/02.jpg"
       ],
+      "thumbs": [
+        "assets/units/8500-boulevard-taschereau-unit-17-brossard/t/01.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-17-brossard/t/02.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.444073,
         "lng": -73.473456,
         "precision": "building",
-        "top": "88.6%",
-        "left": "62.2%",
+        "top": "84.0%",
+        "left": "64.3%",
         "rented": true
       },
       "near": {
@@ -2661,21 +3134,26 @@
       "beds": null,
       "baths": null,
       "sqft": 1188,
-      "photoCount": 4,
+      "photoCount": 3,
       "image": "assets/units/8500-boulevard-taschereau-unit-11-brossard/cover.jpg",
       "images": [
         "assets/units/8500-boulevard-taschereau-unit-11-brossard/01.jpg",
         "assets/units/8500-boulevard-taschereau-unit-11-brossard/02.jpg",
-        "assets/units/8500-boulevard-taschereau-unit-11-brossard/03.jpg",
-        "assets/units/8500-boulevard-taschereau-unit-11-brossard/04.jpg"
+        "assets/units/8500-boulevard-taschereau-unit-11-brossard/03.jpg"
       ],
+      "thumbs": [
+        "assets/units/8500-boulevard-taschereau-unit-11-brossard/t/01.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-11-brossard/t/02.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-11-brossard/t/03.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.444073,
         "lng": -73.473456,
         "precision": "building",
-        "top": "85.8%",
-        "left": "60.3%",
+        "top": "84.0%",
+        "left": "64.3%",
         "rented": true
       },
       "near": {
@@ -2746,7 +3224,7 @@
       "beds": null,
       "baths": null,
       "sqft": 1122,
-      "photoCount": 7,
+      "photoCount": 6,
       "image": "assets/units/8500-boulevard-taschereau-unit-3-brossard/cover.jpg",
       "images": [
         "assets/units/8500-boulevard-taschereau-unit-3-brossard/01.jpg",
@@ -2754,16 +3232,24 @@
         "assets/units/8500-boulevard-taschereau-unit-3-brossard/03.jpg",
         "assets/units/8500-boulevard-taschereau-unit-3-brossard/04.jpg",
         "assets/units/8500-boulevard-taschereau-unit-3-brossard/05.jpg",
-        "assets/units/8500-boulevard-taschereau-unit-3-brossard/06.jpg",
-        "assets/units/8500-boulevard-taschereau-unit-3-brossard/07.jpg"
+        "assets/units/8500-boulevard-taschereau-unit-3-brossard/06.jpg"
       ],
+      "thumbs": [
+        "assets/units/8500-boulevard-taschereau-unit-3-brossard/t/01.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-3-brossard/t/02.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-3-brossard/t/03.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-3-brossard/t/04.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-3-brossard/t/05.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-3-brossard/t/06.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.444073,
         "lng": -73.473456,
         "precision": "building",
-        "top": "82.2%",
-        "left": "60.3%",
+        "top": "84.0%",
+        "left": "64.3%",
         "rented": true
       },
       "near": {
@@ -2834,20 +3320,24 @@
       "beds": null,
       "baths": null,
       "sqft": 1950,
-      "photoCount": 3,
+      "photoCount": 2,
       "image": "assets/units/8500-boulevard-taschereau-unit-4-brossard/cover.jpg",
       "images": [
         "assets/units/8500-boulevard-taschereau-unit-4-brossard/01.jpg",
-        "assets/units/8500-boulevard-taschereau-unit-4-brossard/02.jpg",
-        "assets/units/8500-boulevard-taschereau-unit-4-brossard/03.jpg"
+        "assets/units/8500-boulevard-taschereau-unit-4-brossard/02.jpg"
       ],
+      "thumbs": [
+        "assets/units/8500-boulevard-taschereau-unit-4-brossard/t/01.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-4-brossard/t/02.jpg"
+      ],
+      "listedOn": "2022-12-27",
       "featured": false,
       "map": {
         "lat": 45.444073,
         "lng": -73.473456,
         "precision": "building",
-        "top": "79.4%",
-        "left": "62.2%",
+        "top": "84.0%",
+        "left": "64.3%",
         "rented": true
       },
       "near": {
@@ -2918,7 +3408,7 @@
       "beds": null,
       "baths": null,
       "sqft": 2269,
-      "photoCount": 9,
+      "photoCount": 8,
       "image": "assets/units/8500-boulevard-taschereau-unit-20-brossard/cover.jpg",
       "images": [
         "assets/units/8500-boulevard-taschereau-unit-20-brossard/01.jpg",
@@ -2928,16 +3418,26 @@
         "assets/units/8500-boulevard-taschereau-unit-20-brossard/05.jpg",
         "assets/units/8500-boulevard-taschereau-unit-20-brossard/06.jpg",
         "assets/units/8500-boulevard-taschereau-unit-20-brossard/07.jpg",
-        "assets/units/8500-boulevard-taschereau-unit-20-brossard/08.jpg",
-        "assets/units/8500-boulevard-taschereau-unit-20-brossard/09.jpg"
+        "assets/units/8500-boulevard-taschereau-unit-20-brossard/08.jpg"
       ],
+      "thumbs": [
+        "assets/units/8500-boulevard-taschereau-unit-20-brossard/t/01.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-20-brossard/t/02.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-20-brossard/t/03.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-20-brossard/t/04.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-20-brossard/t/05.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-20-brossard/t/06.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-20-brossard/t/07.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-20-brossard/t/08.jpg"
+      ],
+      "listedOn": "2022-12-26",
       "featured": false,
       "map": {
         "lat": 45.444073,
         "lng": -73.473456,
         "precision": "building",
-        "top": "78.7%",
-        "left": "65.0%",
+        "top": "84.0%",
+        "left": "64.3%",
         "rented": true
       },
       "near": {
@@ -3008,7 +3508,7 @@
       "beds": null,
       "baths": null,
       "sqft": 2591,
-      "photoCount": 7,
+      "photoCount": 6,
       "image": "assets/units/8500-boulevard-taschereau-unit-10-brossard/cover.jpg",
       "images": [
         "assets/units/8500-boulevard-taschereau-unit-10-brossard/01.jpg",
@@ -3016,16 +3516,24 @@
         "assets/units/8500-boulevard-taschereau-unit-10-brossard/03.jpg",
         "assets/units/8500-boulevard-taschereau-unit-10-brossard/04.jpg",
         "assets/units/8500-boulevard-taschereau-unit-10-brossard/05.jpg",
-        "assets/units/8500-boulevard-taschereau-unit-10-brossard/06.jpg",
-        "assets/units/8500-boulevard-taschereau-unit-10-brossard/07.jpg"
+        "assets/units/8500-boulevard-taschereau-unit-10-brossard/06.jpg"
       ],
+      "thumbs": [
+        "assets/units/8500-boulevard-taschereau-unit-10-brossard/t/01.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-10-brossard/t/02.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-10-brossard/t/03.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-10-brossard/t/04.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-10-brossard/t/05.jpg",
+        "assets/units/8500-boulevard-taschereau-unit-10-brossard/t/06.jpg"
+      ],
+      "listedOn": "2019-06-18",
       "featured": false,
       "map": {
         "lat": 45.444073,
         "lng": -73.473456,
         "precision": "building",
-        "top": "80.6%",
-        "left": "67.6%",
+        "top": "84.0%",
+        "left": "64.3%",
         "rented": true
       },
       "near": {
@@ -3103,6 +3611,12 @@
         "assets/units/vacant-land-4642888-1136832702/02.jpg",
         "assets/units/vacant-land-4642888-1136832702/03.jpg"
       ],
+      "thumbs": [
+        "assets/units/vacant-land-4642888-1136832702/t/01.jpg",
+        "assets/units/vacant-land-4642888-1136832702/t/02.jpg",
+        "assets/units/vacant-land-4642888-1136832702/t/03.jpg"
+      ],
+      "listedOn": "2023-12-03",
       "featured": false,
       "map": {
         "lat": 45.504275,

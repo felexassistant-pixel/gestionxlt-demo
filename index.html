@@ -8,6 +8,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 </head>
 <body class="has-bottom-nav">
 
@@ -24,14 +27,14 @@
         <a href="listings.html" class="active" data-fr>À louer</a><a href="listings.html" class="active" data-en>For rent</a>
         <a href="listings.html?type=residential" data-fr>Résidentiel</a><a href="listings.html?type=residential" data-en>Residential</a>
         <a href="listings.html?type=commercial" data-fr>Commercial</a><a href="listings.html?type=commercial" data-en>Commercial</a>
-        <a href="listings.html?type=office" data-fr>Bureaux</a><a href="listings.html?type=office" data-en>Offices</a>
+        <a href="listings.html?type=land" data-fr>Terrain</a><a href="listings.html?type=land" data-en>Land</a>
       </nav>
       <div class="header-actions">
         <div class="lang-toggle" role="group" aria-label="Language">
           <button type="button" class="active" data-lang="fr">FR</button>
           <button type="button" data-lang="en">EN</button>
         </div>
-        <a href="mailto:gestionxlt@gmail.com?subject=Planifier%20une%20visite%20%2F%20Book%20a%20visit" class="btn-cta">
+        <a href="mailto:gestionxlt@gmail.com?subject=Planifier%20une%20visite" data-mailto-fr="mailto:gestionxlt@gmail.com?subject=Planifier%20une%20visite" data-mailto-en="mailto:gestionxlt@gmail.com?subject=Book%20a%20visit" class="btn-cta">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
           <span data-fr>Planifier une visite</span><span data-en>Book a visit</span>
         </a>
@@ -46,9 +49,9 @@
     <a href="listings.html" class="active" data-fr>À louer</a><a href="listings.html" class="active" data-en>For rent</a>
     <a href="listings.html?type=residential" data-fr>Résidentiel</a><a href="listings.html?type=residential" data-en>Residential</a>
     <a href="listings.html?type=commercial" data-fr>Commercial</a><a href="listings.html?type=commercial" data-en>Commercial</a>
-    <a href="listings.html?type=office" data-fr>Bureaux</a><a href="listings.html?type=office" data-en>Offices</a>
+    <a href="listings.html?type=land" data-fr>Terrain</a><a href="listings.html?type=land" data-en>Land</a>
     <a href="map.html" data-fr>Carte</a><a href="map.html" data-en>Map</a>
-    <a href="mailto:gestionxlt@gmail.com?subject=Planifier%20une%20visite%20%2F%20Book%20a%20visit" class="btn-cta">
+    <a href="mailto:gestionxlt@gmail.com?subject=Planifier%20une%20visite" data-mailto-fr="mailto:gestionxlt@gmail.com?subject=Planifier%20une%20visite" data-mailto-en="mailto:gestionxlt@gmail.com?subject=Book%20a%20visit" class="btn-cta">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
       <span data-fr>Planifier une visite</span><span data-en>Book a visit</span>
     </a>
@@ -97,20 +100,7 @@
               <option value="" data-fr="À louer" data-en="For rent">À louer</option>
               <option value="apt" data-fr="Appartement" data-en="Apartment">Appartement</option>
               <option value="com" data-fr="Commerce" data-en="Retail">Commerce</option>
-              <option value="off" data-fr="Bureau" data-en="Office">Bureau</option>
-            </select>
-          </div>
-        </div>
-        <div class="search-field">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          <div>
-            <label data-fr>Prix maximum</label><label data-en>Max price</label>
-            <select name="price">
-              <option value="" data-fr="Tout prix" data-en="Any price">Tout prix</option>
-              <option value="1 200 $">1 200 $</option>
-              <option value="1 500 $">1 500 $</option>
-              <option value="2 000 $">2 000 $</option>
-              <option value="2 500 $+">2 500 $+</option>
+              <option value="land" data-fr="Terrain" data-en="Land">Terrain</option>
             </select>
           </div>
         </div>
@@ -143,13 +133,13 @@
           <p data-en>Ideal locations for your business.</p>
           <span class="cat-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
         </a>
-        <a href="listings.html?type=office" class="cat-card">
+        <a href="listings.html?type=land" class="cat-card">
           <div class="cat-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 21v-6h6v6M8 7h.01M12 7h.01M16 7h.01M8 11h.01M12 11h.01M16 11h.01"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 20h18M5 20l4-9 3 5 2-3 5 7"/><circle cx="17" cy="6" r="2"/></svg>
           </div>
-          <h3 data-fr>Bureaux</h3><h3 data-en>Offices</h3>
-          <p data-fr>Espaces de travail flexibles et professionnels.</p>
-          <p data-en>Flexible, professional workspaces.</p>
+          <h3 data-fr>Terrain</h3><h3 data-en>Land</h3>
+          <p data-fr>Terrain vacant à Saint-Hubert (Longueuil).</p>
+          <p data-en>Vacant land in Saint-Hubert (Longueuil).</p>
           <span class="cat-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
         </a>
         <a href="map.html" class="cat-card">
@@ -167,10 +157,10 @@
 
   <section class="section" style="padding-top:0;">
     <div class="container">
-      <h2 class="section-title" data-fr>Propriétés en vedette</h2>
-      <h2 class="section-title" data-en>Featured rentals</h2>
-      <p class="section-sub" data-fr>Sélection de logements et locaux gérés par Gestion XLT dans le Grand Montréal.</p>
-      <p class="section-sub" data-en>A selection of homes and commercial spaces managed by Gestion XLT across Greater Montreal.</p>
+      <h2 class="section-title" data-fr>Disponibles maintenant</h2>
+      <h2 class="section-title" data-en>Available now</h2>
+      <p class="section-sub" data-fr>Les locaux actuellement disponibles chez Gestion XLT.</p>
+      <p class="section-sub" data-en>Spaces currently available from Gestion XLT.</p>
       <div class="featured-grid">
         <!-- Rendered from data/listings.json (featured: true) -->
       </div>
@@ -193,7 +183,7 @@
         <h4 data-fr>Navigation</h4><h4 data-en>Navigate</h4>
         <a href="listings.html" data-fr>À louer</a><a href="listings.html" data-en>For rent</a>
         <a href="map.html" data-fr>Carte</a><a href="map.html" data-en>Map</a>
-        <a href="mailto:gestionxlt@gmail.com?subject=Planifier%20une%20visite%20%2F%20Book%20a%20visit" data-fr>Planifier une visite</a><a href="mailto:gestionxlt@gmail.com?subject=Planifier%20une%20visite%20%2F%20Book%20a%20visit" data-en>Book a visit</a>
+        <a href="mailto:gestionxlt@gmail.com?subject=Planifier%20une%20visite" data-mailto-fr="mailto:gestionxlt@gmail.com?subject=Planifier%20une%20visite" data-mailto-en="mailto:gestionxlt@gmail.com?subject=Book%20a%20visit" data-fr>Planifier une visite</a><a href="mailto:gestionxlt@gmail.com?subject=Planifier%20une%20visite" data-mailto-fr="mailto:gestionxlt@gmail.com?subject=Planifier%20une%20visite" data-mailto-en="mailto:gestionxlt@gmail.com?subject=Book%20a%20visit" data-en>Book a visit</a>
       </div>
       <div class="footer-col">
         <h4 data-fr>Contact</h4><h4 data-en>Contact</h4>
@@ -218,7 +208,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
       <span data-fr>Carte</span><span data-en>Map</span>
     </a>
-    <a href="mailto:gestionxlt@gmail.com">
+    <a href="mailto:gestionxlt@gmail.com?subject=Demande%20d%E2%80%99information" data-mailto-fr="mailto:gestionxlt@gmail.com?subject=Demande%20d%E2%80%99information" data-mailto-en="mailto:gestionxlt@gmail.com?subject=Information%20request">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 7 8 6 8-6"/></svg>
       <span>Contact</span>
     </a>

@@ -18,6 +18,10 @@
     document.querySelectorAll('option[data-fr][data-en]').forEach(function (opt) {
       opt.textContent = lang === 'en' ? opt.getAttribute('data-en') : opt.getAttribute('data-fr');
     });
+    // P6-07: localized mailto links (data-mailto-fr / data-mailto-en)
+    document.querySelectorAll('[data-mailto-fr][data-mailto-en]').forEach(function (a) {
+      a.setAttribute('href', a.getAttribute(lang === 'en' ? 'data-mailto-en' : 'data-mailto-fr'));
+    });
     localStorage.setItem('xlt-lang', lang);
     document.dispatchEvent(new CustomEvent('xlt-lang', { detail: lang }));
   }
@@ -93,11 +97,25 @@
   }
 
   /** Bilingual price HTML; never shows $0 — falls back to "Contact us for pricing". */
+  /** Owner rule: only Disponible units show price info; Loué units show none. */
+  function showsPrice(item) { return item.status === 'available'; }
+
   function priceHtml(item, unitFr, unitEn) {
+    if (!showsPrice(item)) return '';
     if (!hasPrice(item)) {
       return '<span class="price-ask" data-fr>' + askText(item, 'fr') + '</span><span class="price-ask" data-en>' + askText(item, 'en') + '</span>';
     }
-    return priceParts(item, 'fr').main + ' <span data-fr>' + (unitFr != null ? unitFr : priceParts(item, 'fr').unit) + '</span><span data-en>' + (unitEn != null ? unitEn : priceParts(item, 'en').unit) + '</span>';
+    return '<span class="price-amt" data-fr>' + fmtPrice(item, 'fr') + '</span><span class="price-amt" data-en>' + fmtPrice(item, 'en') + '</span>';
+  }
+
+  function groupDigits(n, sep) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, sep); }
+  /** FR "1 000 $ / mois" · EN "$1,000/month" (short: FR "1 000 $" · EN "$1,000") */
+  function fmtPrice(item, lang, short) {
+    var fr = groupDigits(item.price, '\u00a0') + '\u00a0$';
+    var en = '$' + groupDigits(item.price, ',');
+    if (short) return lang === 'en' ? en : fr;
+    if (item.priceUnit === 'sqft') return lang === 'en' ? en + '/sq ft' : fr + ' / pi²';
+    return lang === 'en' ? en + '/month' : fr + ' / mois';
   }
 
   function priceParts(item, lang) {
@@ -142,16 +160,16 @@
     var dotClass = item.status === 'available' ? 'available' : 'rented';
     var href = 'detail.html?id=' + encodeURIComponent(item.id);
     return (
-      '<a href="' + href + '" class="prop-card" data-status="' + item.status + '" data-type="' + item.type + '" data-id="' + item.id + '" data-city="' + (item.city || '') + '" data-price="' + (hasPrice(item) ? item.price : '') + '" data-price-unit="' + (item.priceUnit || '') + '" data-avail="' + ((item.availability && item.availability.fr) || '') + '">' +
+      '<a href="' + href + '" class="prop-card" data-status="' + item.status + '" data-type="' + item.type + '" data-id="' + item.id + '" data-city="' + (item.city || '') + '" data-price="' + (hasPrice(item) ? item.price : '') + '" data-price-unit="' + (item.priceUnit || '') + '" data-avail="' + ((item.availability && item.availability.fr) || '') + '" data-listed="' + (item.listedOn || '') + '">' +
         '<div class="prop-media">' +
-          '<img src="' + item.image + '" alt="" loading="lazy" />' +
+          '<img src="' + item.image + '" alt="' + (item.title[currentLang()] || item.title.fr).replace(/"/g, '&quot;') + '" loading="lazy" />' +
           '<span class="pill ' + pillClass + '" data-fr>' + statusLabel(item.status, 'fr') + '</span>' +
           '<span class="pill ' + pillClass + '" data-en>' + statusLabel(item.status, 'en') + '</span>' +
           '<button type="button" class="prop-heart" aria-label="Favori">' + heartSvg() + '</button>' +
           '<span class="prop-count">1 / ' + (item.photoCount || 1) + '</span>' +
         '</div>' +
         '<div class="prop-body">' +
-          '<div class="prop-price">' + priceHtml(item) + '</div>' +
+          (showsPrice(item) ? '<div class="prop-price">' + priceHtml(item) + '</div>' : '') +
           '<div class="prop-addr">' + item.address + '</div>' +
           '<div class="pill-dot ' + dotClass + '" data-fr>' + statusLabel(item.status, 'fr') + '</div>' +
           '<div class="pill-dot ' + dotClass + '" data-en>' + statusLabel(item.status, 'en') + '</div>' +
@@ -194,7 +212,7 @@
           '<span class="pill ' + pillClass + '" data-en>' + statusLabel(item.status, 'en') + '</span>' +
         '</div>' +
         '<div class="prop-body">' +
-          '<div class="prop-price">' + priceHtml(item) + '</div>' +
+          (showsPrice(item) ? '<div class="prop-price">' + priceHtml(item) + '</div>' : '') +
           '<div class="prop-specs">' + specs.join('') + '</div>' +
           '<div class="prop-addr">' + item.address + '</div>' + near +
         '</div>' +
@@ -222,6 +240,7 @@
     if (t === 'residential' || t === 'res' || t === 'apt' || t === 'apartment') return 'res';
     if (t === 'commercial' || t === 'com' || t === 'retail') return 'com';
     if (t === 'office' || t === 'off' || t === 'bureau') return 'off';
+    if (t === 'land' || t === 'terrain' || t === 'lot') return 'land';
     return t;
   }
 
@@ -304,15 +323,85 @@
     return item.type === typeNorm;
   }
 
+  // Data capabilities, set once listings.json is loaded. Filters on data that does not exist
+  // (no rents, no availability dates, no office units) are ignored instead of returning 0.
+  var PRICE_FILTER_ENABLED = false;
+  var _caps = null;
+  function computeCaps(listings) {
+    var types = {};
+    listings.forEach(function (l) { types[l.type] = true; if (l.type === 'off') types.com = true; });
+    return {
+      // Price filter/sorts are off by owner decision (only one unit has a rent).
+      // Set PRICE_FILTER_ENABLED = true to re-enable once rents are published.
+      price: PRICE_FILTER_ENABLED && listings.some(hasPrice),
+      avail: listings.some(function (l) { return l.availability && (l.availability.fr || l.availability.en); }),
+      types: types
+    };
+  }
+
   function getFilterState() {
     var params = new URLSearchParams(location.search);
-    return {
+    var st = {
       type: normalizeType(params.get('type')),
       loc: params.get('loc') || '',
       price: params.get('price') || '',
       status: normalizeStatus(params.get('status')),
       avail: params.get('avail') || ''
     };
+    if (_caps) {
+      if (!_caps.price) st.price = '';
+      if (!_caps.avail) st.avail = '';
+      if (st.type && !_caps.types[st.type]) st.type = '';
+    }
+    return st;
+  }
+
+  /** Remove URL params that getFilterState ignores, so badges and forms stay honest. */
+  function sanitizeUrl() {
+    if (!_caps || !window.history || !history.replaceState) return;
+    var params = new URLSearchParams(location.search);
+    var st = getFilterState();
+    var changed = false;
+    if (params.has('price') && !st.price) { params.delete('price'); changed = true; }
+    if (params.has('avail') && !st.avail) { params.delete('avail'); changed = true; }
+    if (params.has('type') && !st.type) { params.delete('type'); changed = true; }
+    if (changed) {
+      var qs = params.toString();
+      history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+    }
+  }
+
+  /** Hide select options that would return 0 results given the form's other fields. */
+  function pruneFormOptions(form, listings, extraState) {
+    if (!form || !listings.length) return;
+    var selects = Array.prototype.filter.call(form.querySelectorAll('select[name]'), function (s) {
+      return ['loc', 'type', 'status', 'price', 'avail'].indexOf(s.name) >= 0;
+    });
+    function stateFrom(override) {
+      var st = { type: '', loc: '', price: '', status: '', avail: '' };
+      selects.forEach(function (s) {
+        if (s.disabled && s.name === 'type') return;
+        var v = override && override.name === s.name ? override.value : s.value;
+        if (s.name === 'type') st.type = normalizeType(v);
+        else if (s.name === 'status') st.status = normalizeStatus(v);
+        else st[s.name] = v;
+      });
+      if (extraState) {
+        var ex = extraState();
+        Object.keys(ex).forEach(function (k) { if (!st[k] && !(override && override.name === k && override.value)) st[k] = ex[k]; });
+      }
+      return st;
+    }
+    selects.forEach(function (sel) {
+      Array.prototype.forEach.call(sel.options, function (o) {
+        if (!o.value) { o.hidden = false; o.disabled = false; return; }
+        var st = stateFrom({ name: sel.name, value: o.value });
+        var n = listings.filter(function (l) { return listingMatches(l, st); }).length;
+        o.hidden = n === 0;
+        o.disabled = n === 0;
+      });
+      if (sel.selectedOptions[0] && sel.selectedOptions[0].disabled) sel.value = '';
+    });
   }
 
   function listingMatches(item, state) {
@@ -353,6 +442,8 @@
           show = cType === 'res';
         } else if (chipFilter === 'com') {
           show = cType === 'com' || cType === 'off';
+        } else if (chipFilter === 'land') {
+          show = cType === 'land';
         }
       }
       card.style.display = show ? '' : 'none';
@@ -451,6 +542,11 @@
         c.classList.toggle('active', c.getAttribute('data-filter') === 'com');
       });
       _activeChip = 'com';
+    } else if (state.type === 'land') {
+      document.querySelectorAll('.chip[data-filter]').forEach(function (c) {
+        c.classList.toggle('active', c.getAttribute('data-filter') === 'land');
+      });
+      _activeChip = 'land';
     } else if (state.type === 'off') {
       // no dedicated chip; leave all
       _activeChip = 'all';
@@ -478,9 +574,10 @@
     };
     var base = listings.filter(function (l) { return listingMatches(l, baseState); });
     var chip = _activeChip;
-    if (chip === 'res' || chip === 'com') {
+    if (chip === 'res' || chip === 'com' || chip === 'land') {
       base = base.filter(function (l) {
         if (chip === 'res') return l.type === 'res';
+        if (chip === 'land') return l.type === 'land';
         return l.type === 'com' || l.type === 'off';
       });
     }
@@ -493,6 +590,13 @@
       if (btns[0]) btns[0].innerHTML = '<span data-fr>Toutes (' + all + ')</span><span data-en>All (' + all + ')</span>';
       if (btns[1]) btns[1].innerHTML = '<span data-fr>Disponibles (' + avail + ')</span><span data-en>Available (' + avail + ')</span>';
       if (btns[2]) btns[2].innerHTML = '<span data-fr>Louées (' + rented + ')</span><span data-en>Rented (' + rented + ')</span>';
+      // A tab that would show 0 results (and isn't the current one) is disabled
+      [all, avail, rented].forEach(function (n, i) {
+        if (!btns[i]) return;
+        var off = n === 0 && !btns[i].classList.contains('active');
+        btns[i].disabled = off;
+        btns[i].classList.toggle('is-empty', off);
+      });
       applyLang(currentLang());
     }
     updateFilterBadge(state);
@@ -524,7 +628,7 @@
     var grid = document.getElementById('listingsGrid');
     if (!grid) return;
     _listingsCache = listings;
-    grid.innerHTML = listings.map(cardHtml).join('');
+    grid.innerHTML = sortByMode(listings, 'relevance').map(cardHtml).join('');
     updateCounts(listings);
     bindHearts(grid);
     bindFilters();
@@ -536,7 +640,7 @@
     // If URL has type/status, prefer those as primary; chip "all" unless highlighted
     if (state.type || state.status || state.loc || state.price || state.avail) {
       // Don't double-apply type via chip if URL already has type
-      if (state.type && (chip === 'res' || chip === 'com')) chip = 'all';
+      if (state.type && (chip === 'res' || chip === 'com' || chip === 'land')) chip = 'all';
       if (state.status && (chip === 'available' || chip === 'rented')) chip = 'all';
     }
     applyListingFilters(listings, chip);
@@ -545,8 +649,12 @@
   function renderFeatured(listings) {
     var grid = document.querySelector('.featured-grid');
     if (!grid) return;
-    var featured = listings.filter(function (l) { return l.featured; }).slice(0, 3);
-    if (!featured.length) featured = listings.slice(0, 3);
+    // P6-15: show the Disponible units (featured first); never a Loué unit ahead of an available one.
+    var avail = listings.filter(function (l) { return l.status === 'available'; });
+    var featured = avail.filter(function (l) { return l.featured; })
+      .concat(avail.filter(function (l) { return !l.featured; })).slice(0, 3);
+    if (!featured.length) featured = listings.filter(function (l) { return l.featured; }).slice(0, 3);
+    grid.classList.toggle('featured-few', featured.length < 3);
     grid.innerHTML = featured.map(cardHtml).join('');
     bindHearts(grid);
   }
@@ -562,13 +670,22 @@
     'price-desc': { fr: 'Prix ↓', en: 'Price ↓' },
     'newest': { fr: 'Plus récent', en: 'Newest' }
   };
+
+  function sortKey(l, idx) {
+    return { item: l, id: l.id, price: hasPrice(l) ? l.price : null, unit: l.priceUnit, idx: idx, status: l.status, listed: l.listedOn || '' };
+  }
+  function sortByMode(items, mode) {
+    return items.map(function (l, i) { return sortKey(l, i); })
+      .sort(function (a, b) { return compareByMode(a, b, mode); })
+      .map(function (k) { return k.item; });
+  }
   var FILTER_NAMES = ['loc', 'type', 'status', 'price', 'avail'];
 
   function sortMapItems(items, mode) {
     var idx = {};
     _mapAll.forEach(function (l, i) { idx[l.id] = i; });
     return items.map(function (l) {
-      return { item: l, id: l.id, price: l.price, unit: l.priceUnit, idx: idx.hasOwnProperty(l.id) ? idx[l.id] : 999 };
+      return sortKey(l, idx.hasOwnProperty(l.id) ? idx[l.id] : 999);
     }).sort(function (a, b) { return compareByMode(a, b, mode); })
       .map(function (k) { return k.item; });
   }
@@ -620,9 +737,9 @@
     return {
       type: normalizeType(el.type.value),
       loc: el.loc.value,
-      price: el.price.value,
+      price: el.price ? el.price.value : '',
       status: normalizeStatus(el.status.value),
-      avail: el.avail.value
+      avail: el.avail ? el.avail.value : ''
     };
   }
 
@@ -768,7 +885,12 @@
     if (_mapPage < 0) _mapPage = 0;
     var start = _mapPage * MAP_PAGE_SIZE;
     var slice = _mapFiltered.slice(start, start + MAP_PAGE_SIZE);
-    body.innerHTML = slice.map(mapCardHtml).join('');
+    body.innerHTML = total ? slice.map(mapCardHtml).join('') :
+      '<div class="map-empty" role="status">' +
+        '<p data-fr><strong>Aucun résultat</strong><br>Aucune propriété ne correspond à ces filtres.</p>' +
+        '<p data-en><strong>No results</strong><br>No property matches these filters.</p>' +
+        '<a href="map.html" class="btn btn-sm btn-outline"><span data-fr>Réinitialiser les filtres</span><span data-en>Reset filters</span></a>' +
+      '</div>';
     var from = total ? start + 1 : 0;
     var to = start + slice.length;
     var rFr = document.getElementById('mapRangeFr');
@@ -816,49 +938,129 @@
 
     var fakeMap = document.querySelector('#mapPanel .fake-map');
     if (!fakeMap) return;
-    fakeMap.querySelectorAll('.map-pin').forEach(function (pin) { pin.remove(); });
-    var firstAvail = true;
-    _mapFiltered.forEach(function (item, i) {
+    renderMapPins(fakeMap, _mapFiltered);
+    if (!fakeMap._xltObserved && window.ResizeObserver) {
+      fakeMap._xltObserved = true;
+      var t = null;
+      new ResizeObserver(function () {
+        clearTimeout(t);
+        t = setTimeout(function () { renderMapPins(fakeMap, _mapFiltered); }, 60);
+      }).observe(fakeMap);
+    }
+  }
+
+  // —— P6-09: pins grouped when they would overlap; Disponible drawn on top; count badge + popover ——
+  function pinLabel(item, lg) {
+    if (item.status === 'available' && hasPrice(item)) {
+      return item.priceUnit === 'sqft' ? fmtPrice(item, lg) : fmtPrice(item, lg, true);
+    }
+    return statusLabel(item.status, lg);
+  }
+  function bi(fr, en) { return '<span data-fr>' + fr + '</span><span data-en>' + en + '</span>'; }
+  function closeMapPop(map) {
+    var pop = map.querySelector('.map-pop');
+    if (pop) pop.remove();
+    map.querySelectorAll('.map-cluster[aria-expanded="true"]').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
+  }
+  function openMapPop(map, cluster, btn) {
+    closeMapPop(map);
+    var pop = document.createElement('div');
+    pop.className = 'map-pop';
+    pop.setAttribute('role', 'dialog');
+    var items = cluster.items.slice().sort(function (a, b) { return (a.status === 'available' ? 0 : 1) - (b.status === 'available' ? 0 : 1); });
+    pop.innerHTML = '<div class="map-pop-head">' + bi(cluster.items.length + ' unités à cet endroit', cluster.items.length + ' units here') +
+      '<button type="button" class="map-pop-close" aria-label="Fermer / Close">×</button></div>' +
+      '<ul>' + items.map(function (it) {
+        var pc = it.status === 'available' ? 'pill-available' : 'pill-rented';
+        return '<li><a href="detail.html?id=' + encodeURIComponent(it.id) + '"><span class="pill ' + pc + '">' + bi(statusLabel(it.status, 'fr'), statusLabel(it.status, 'en')) + '</span><span class="map-pop-addr">' + it.address + '</span></a></li>';
+      }).join('') + '</ul>';
+    map.appendChild(pop);
+    var W = map.clientWidth, H = map.clientHeight;
+    var pw = Math.min(280, W - 16);
+    pop.style.width = pw + 'px';
+    var left = Math.max(8, Math.min(W - pw - 8, cluster.x - pw / 2));
+    var ph = pop.offsetHeight;
+    var top = cluster.y + 8;
+    if (top + ph > H - 8) top = Math.max(8, cluster.y - 40 - ph);
+    pop.style.left = left + 'px';
+    pop.style.top = top + 'px';
+    btn.setAttribute('aria-expanded', 'true');
+    pop.querySelector('.map-pop-close').addEventListener('click', function () { closeMapPop(map); btn.focus(); });
+    applyLang(currentLang());
+  }
+  function renderMapPins(map, items) {
+    map.querySelectorAll('.map-pin').forEach(function (pin) { pin.remove(); });
+    closeMapPop(map);
+    var W = map.clientWidth, H = map.clientHeight;
+    if (!W || !H) return; // hidden (mobile list mode); ResizeObserver re-renders when shown
+    var PW = 92, PH = 34, TOP_SAFE = 96;
+    var pts = items.map(function (item, i) {
       var m = item.map || { top: (30 + i * 5) + '%', left: (35 + i * 4) + '%' };
-      if (item.status === 'rented') {
-        ['fr', 'en'].forEach(function (lg) {
-          var el = document.createElement('a');
-          el.href = 'detail.html?id=' + encodeURIComponent(item.id);
-          el.className = 'map-pin rented';
-          el.setAttribute('data-' + lg, '');
-          el.setAttribute('data-id', item.id);
-          el.textContent = lg === 'en' ? 'Rented' : 'Loué';
-          el.style.top = m.top;
-          el.style.left = m.left;
-          fakeMap.appendChild(el);
-        });
-      } else {
-        var isActive = firstAvail;
-        firstAvail = false;
-        if (!hasPrice(item) || item.priceUnit === 'sqft') {
-          ['fr', 'en'].forEach(function (lg) {
-            var el = document.createElement('a');
-            el.href = 'detail.html?id=' + encodeURIComponent(item.id);
-            el.className = 'map-pin' + (isActive ? ' active' : '');
-            el.setAttribute('data-' + lg, '');
-            el.setAttribute('data-id', item.id);
-            el.textContent = hasPrice(item) ? item.price + (lg === 'en' ? ' $/sq ft' : ' $/pi²') : statusLabel(item.status, lg);
-            el.style.top = m.top;
-            el.style.left = m.left;
-            fakeMap.appendChild(el);
-          });
-        } else {
-          var el = document.createElement('a');
-          el.href = 'detail.html?id=' + encodeURIComponent(item.id);
-          el.className = 'map-pin' + (isActive ? ' active' : '');
-          el.setAttribute('data-id', item.id);
-          el.textContent = priceParts(item, 'fr').main;
-          el.style.top = m.top;
-          el.style.left = m.left;
-          fakeMap.appendChild(el);
+      var x = parseFloat(m.left) / 100 * W, y = parseFloat(m.top) / 100 * H;
+      x = Math.max(PW / 2 + 6, Math.min(W - PW / 2 - 6, x));
+      y = Math.max(TOP_SAFE, Math.min(H - 28, y));
+      return { items: [item], x: x, y: y };
+    });
+    // Greedy agglomerative grouping until no two pins overlap
+    var merged = true;
+    while (merged) {
+      merged = false;
+      for (var i = 0; i < pts.length && !merged; i++) {
+        for (var j = i + 1; j < pts.length; j++) {
+          if (Math.abs(pts[i].x - pts[j].x) < PW && Math.abs(pts[i].y - pts[j].y) < PH) {
+            var a = pts[i], b = pts[j], na = a.items.length, nb = b.items.length;
+            a.x = (a.x * na + b.x * nb) / (na + nb);
+            a.y = (a.y * na + b.y * nb) / (na + nb);
+            a.items = a.items.concat(b.items);
+            pts.splice(j, 1);
+            merged = true;
+            break;
+          }
         }
       }
+    }
+    pts.forEach(function (c) {
+      var nAvail = c.items.filter(function (it) { return it.status === 'available'; }).length;
+      var el;
+      if (c.items.length === 1) {
+        var it = c.items[0];
+        el = document.createElement('a');
+        el.href = 'detail.html?id=' + encodeURIComponent(it.id);
+        el.className = 'map-pin ' + (it.status === 'available' ? 'available' : 'rented');
+        el.setAttribute('data-id', it.id);
+        el.innerHTML = bi(pinLabel(it, 'fr'), pinLabel(it, 'en'));
+        el.setAttribute('title', it.address);
+      } else {
+        var n = c.items.length;
+        el = document.createElement('button');
+        el.type = 'button';
+        el.className = 'map-pin map-cluster ' + (nAvail ? 'has-avail' : 'rented');
+        el.setAttribute('aria-expanded', 'false');
+        el.setAttribute('data-count', n);
+        el.innerHTML = (nAvail ? bi(n + ' unités', n + ' units') : bi(n + ' loués', n + ' rented')) +
+          (nAvail ? '<span class="pin-badge" aria-hidden="true">' + nAvail + '</span>' : '');
+        el.setAttribute('aria-label', nAvail
+          ? (currentLang() === 'en' ? n + ' units, ' + nAvail + ' available' : n + ' unités, dont ' + nAvail + ' disponible' + (nAvail > 1 ? 's' : ''))
+          : (currentLang() === 'en' ? n + ' rented units' : n + ' unités louées'));
+        el.addEventListener('click', function (e) {
+          e.stopPropagation();
+          if (el.getAttribute('aria-expanded') === 'true') closeMapPop(map); else openMapPop(map, c, el);
+        });
+      }
+      el.style.left = c.x + 'px';
+      el.style.top = c.y + 'px';
+      el.style.zIndex = nAvail ? 6 : 3;
+      map.appendChild(el);
     });
+    if (!map._xltPopBound) {
+      map._xltPopBound = true;
+      document.addEventListener('click', function (e) {
+        var pop = map.querySelector('.map-pop');
+        if (pop && !pop.contains(e.target)) closeMapPop(map);
+      });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMapPop(map); });
+    }
+    applyLang(currentLang());
   }
 
   function unitFrTable(item) { return item.priceUnit === 'sqft' ? '/pi²' : '/mois'; }
@@ -895,7 +1097,12 @@
     if (!item) return;
 
     var lang = currentLang();
-    document.title = (item.title[lang] || item.title.fr) + ' — Gestion XLT';
+    var setTitle = function (lg) { document.title = (item.title[lg] || item.title.fr) + ' — Gestion XLT'; };
+    setTitle(lang);
+    if (!document._xltTitleBound) {
+      document._xltTitleBound = true;
+      document.addEventListener('xlt-lang', function (e) { setTitle(e.detail); });
+    }
 
     var mainPhoto = document.getElementById('mainPhoto');
     var images = item.images && item.images.length ? item.images : [item.image];
@@ -917,10 +1124,13 @@
     if (thumbs) {
       var thumbImgs = images.slice(0, 4);
       var more = Math.max(0, (item.photoCount || images.length) - thumbImgs.length);
+      var thumbSrc = function (i) {
+        return (item.thumbs && item.thumbs[i]) || images[i].replace('w=1400', 'w=300').replace('q=80', 'q=70');
+      };
       thumbs.innerHTML = thumbImgs.map(function (src, idx) {
-        return '<button type="button" data-src="' + src + '" data-idx="' + (idx + 1) + '"><img src="' + src.replace('w=1400', 'w=300').replace('q=80', 'q=70') + '" alt="" /></button>';
+        return '<button type="button" data-src="' + src + '" data-idx="' + (idx + 1) + '"><img src="' + thumbSrc(idx) + '" alt="" loading="lazy" /></button>';
       }).join('') + (more > 0
-        ? '<button type="button" class="more-thumbs" aria-label="Plus de photos / More photos"><img src="' + (images[Math.min(4, images.length - 1)]).replace('w=1400', 'w=300').replace('q=80', 'q=70') + '" alt="" /><span class="more-overlay">+ ' + more + '</span></button>'
+        ? '<button type="button" class="more-thumbs" aria-label="Plus de photos / More photos"><img src="' + thumbSrc(Math.min(4, images.length - 1)) + '" alt="" loading="lazy" /><span class="more-overlay">+ ' + more + '</span></button>'
         : '');
       var showPhoto = function (idx) {
         var i = ((idx % images.length) + images.length) % images.length;
@@ -1019,7 +1229,7 @@
           (item.sqft != null ? '<tr><th data-fr>Superficie</th><th data-en>Area</th><td data-fr>' + formatSqft(item.sqft, 'fr') + '</td><td data-en>' + formatSqft(item.sqft, 'en') + '</td></tr>' : '') +
           (floor != null ? '<tr><th data-fr>Étage</th><th data-en>Floor</th><td>' + floor + '</td></tr>' : '') +
           (year != null ? '<tr><th data-fr>Année de construction</th><th data-en>Year built</th><td>' + year + '</td></tr>' : '') +
-          '<tr><th data-fr>Loyer</th><th data-en>Rent</th><td>' + priceHtml(item, unitFrTable(item), unitEnTable(item)) + '</td></tr>' +
+          (showsPrice(item) ? '<tr><th data-fr>Loyer</th><th data-en>Rent</th><td>' + priceHtml(item, unitFrTable(item), unitEnTable(item)) + '</td></tr>' : '') +
           '<tr><th data-fr>Disponibilité</th><th data-en>Availability</th><td data-fr>' + availFr + '</td><td data-en>' + availEn + '</td></tr>' +
           '<tr><th data-fr>Statut</th><th data-en>Status</th><td><span class="pill ' + pillClass + '" data-fr>' + statusLabel(item.status, 'fr') + '</span><span class="pill ' + pillClass + '" data-en>' + statusLabel(item.status, 'en') + '</span></td></tr>';
       }
@@ -1030,7 +1240,7 @@
     var locHeadingEn = Array.prototype.find.call(document.querySelectorAll('.detail-content h2'), function (h) {
       return h.getAttribute('data-en') === 'Location';
     });
-    var addrText = item.address + (item.address.indexOf('(QC)') >= 0 ? '' : ' (QC)');
+    var addrText = /\bQC\b/.test(item.address) ? item.address : item.address + ', QC';
     function setAddressAfter(heading) {
       if (!heading) return;
       var sib = heading.nextElementSibling;
@@ -1048,29 +1258,29 @@
       setAddressAfter(locHeadingEn);
     }
 
+    // Mobile: price line right above the visit CTA (available units only)
+    var mcta = document.getElementById('detailMobileCta');
+    if (mcta) {
+      var mp = mcta.querySelector('.mobile-price');
+      if (mp) mp.remove();
+      if (showsPrice(item)) {
+        mp = document.createElement('div');
+        mp.className = 'mobile-price' + (hasPrice(item) ? '' : ' is-ask');
+        mp.innerHTML = priceHtml(item);
+        mcta.insertBefore(mp, mcta.firstChild);
+      }
+    }
+
     // Detail mini-map: single pin for this listing
     var miniMap = document.querySelector('.detail-content .fake-map');
     if (miniMap) {
       miniMap.querySelectorAll('.map-pin').forEach(function (p) { p.remove(); });
       var pin = document.createElement('div');
-      pin.className = 'map-pin active';
+      pin.className = 'map-pin active ' + (item.status === 'available' ? 'available' : 'rented');
       pin.style.top = '48%';
       pin.style.left = '52%';
-      if (!hasPrice(item) || item.priceUnit === 'sqft') {
-        pin.setAttribute('data-fr', '');
-        pin.textContent = hasPrice(item) ? item.price + ' $/pi²' : statusLabel(item.status, 'fr');
-        miniMap.appendChild(pin);
-        var pinEn = document.createElement('div');
-        pinEn.className = 'map-pin active';
-        pinEn.setAttribute('data-en', '');
-        pinEn.style.top = '48%';
-        pinEn.style.left = '52%';
-        pinEn.textContent = hasPrice(item) ? item.price + ' $/sq ft' : statusLabel(item.status, 'en');
-        miniMap.appendChild(pinEn);
-      } else {
-        pin.textContent = priceParts(item, 'fr').main;
-        miniMap.appendChild(pin);
-      }
+      pin.innerHTML = bi(pinLabel(item, 'fr'), pinLabel(item, 'en'));
+      miniMap.appendChild(pin);
     }
 
     // Nearby
@@ -1107,6 +1317,7 @@
         var unitEn = item.priceUnit === 'sqft' ? 'per sq ft' : 'per month';
         priceEl.innerHTML = priceHtml(item, unitFr, unitEn);
         priceEl.classList.toggle('is-ask', !hasPrice(item));
+        priceEl.style.display = showsPrice(item) ? '' : 'none';
       }
       var pill = sidebar.querySelector('.pill');
       if (pill) {
@@ -1170,11 +1381,21 @@
           if (aEn) aEn.textContent = 'rented';
         }
       }
-      var mailVisit = sidebar.querySelector('a.btn-primary');
-      var mailApp = sidebar.querySelector('a.btn-outline');
-      var subj = encodeURIComponent(item.address);
-      if (mailVisit) mailVisit.href = 'mailto:gestionxlt@gmail.com?subject=Visite%20-%20' + subj;
-      if (mailApp) mailApp.href = 'mailto:gestionxlt@gmail.com?subject=Dossier%20-%20' + subj;
+      var pageUrl = location.href.split('#')[0];
+      var mk = function (subject, body) {
+        return 'mailto:gestionxlt@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      };
+      var visitFr = mk('Visite - ' + item.address, 'Bonjour,\n\nJ’aimerais planifier une visite pour : ' + item.address + '\n' + pageUrl + '\n\nMerci,');
+      var visitEn = mk('Visit - ' + item.address, 'Hello,\n\nI would like to book a visit for: ' + item.address + '\n' + pageUrl + '\n\nThank you,');
+      var appFr = mk('Dossier - ' + item.address, 'Bonjour,\n\nJ’aimerais recevoir le dossier de location pour : ' + item.address + '\n' + pageUrl + '\n\nMerci,');
+      var appEn = mk('Application - ' + item.address, 'Hello,\n\nI would like to receive the rental application for: ' + item.address + '\n' + pageUrl + '\n\nThank you,');
+      document.querySelectorAll('a.js-visit-mailto').forEach(function (a) {
+        a.setAttribute('data-mailto-fr', visitFr); a.setAttribute('data-mailto-en', visitEn);
+      });
+      document.querySelectorAll('a.js-app-mailto').forEach(function (a) {
+        a.setAttribute('data-mailto-fr', appFr); a.setAttribute('data-mailto-en', appEn);
+      });
+      applyLang(currentLang());
     }
 
     // Availability note
@@ -1210,9 +1431,13 @@
       return mode === 'price-asc' ? (a.price - b.price) : (b.price - a.price);
     }
     if (mode === 'newest') {
-      return String(b.id).localeCompare(String(a.id), undefined, { numeric: true });
+      // Most recently published on gestionxlt.com first (listedOn), then relevance
+      if (a.listed !== b.listed) return a.listed < b.listed ? 1 : -1;
     }
-    return a.idx - b.idx; // relevance = data order
+    // relevance: Disponible first, then data order
+    var sa = a.status === 'available' ? 0 : 1, sb = b.status === 'available' ? 0 : 1;
+    if (sa !== sb) return sa - sb;
+    return a.idx - b.idx;
   }
 
   function sortListings(mode) {
@@ -1226,6 +1451,8 @@
         el: c,
         id: id,
         price: c.getAttribute('data-price') === '' ? null : parseFloat(c.getAttribute('data-price')),
+        status: c.getAttribute('data-status') || '',
+        listed: c.getAttribute('data-listed') || '',
         unit: c.getAttribute('data-price-unit') || '',
         idx: orderIndex.hasOwnProperty(id) ? orderIndex[id] : 999
       };
@@ -1323,6 +1550,37 @@
     }
   }
 
+  /** Keep every visible filter option meaningful for the data (never an option that yields 0). */
+  function bindOptionPruning(listings) {
+    var home = document.querySelector('form.search-card');
+    if (home) {
+      var homeTab = function () {
+        var t = home.querySelector('select[name="type"]');
+        if (t && t.value) return {};
+        var a = home.querySelector('.search-tab.active');
+        return a ? { type: normalizeType(a.getAttribute('data-tab')) } : {};
+      };
+      var runHome = function () { pruneFormOptions(home, listings, homeTab); };
+      home.addEventListener('change', runHome);
+      home.querySelectorAll('.search-tab').forEach(function (t) { t.addEventListener('click', runHome); });
+      runHome();
+    }
+    var lf = document.querySelector('form.filter-search');
+    if (lf) {
+      var runL = function () { pruneFormOptions(lf, listings); };
+      lf.addEventListener('change', runL);
+      runL();
+    }
+    var mf = document.getElementById('mapFilterForm');
+    if (mf) {
+      var runM = function () { pruneFormOptions(mf, listings); };
+      mf.addEventListener('change', runM);
+      var tog = document.getElementById('mapFiltersToggle');
+      if (tog) tog.addEventListener('click', function () { setTimeout(function () { runM(); updateMapApplyLabel(); }, 0); });
+      runM();
+    }
+  }
+
   // Heart buttons on static content
   bindHearts(document);
   bindFilters();
@@ -1340,10 +1598,14 @@
     .then(function (data) {
       var listings = data.listings || [];
       window.XLT = { data: data, listings: listings };
+      _caps = computeCaps(listings);
+      sanitizeUrl();
+      updateFilterBadge(getFilterState());
       renderListingsPage(listings);
       renderFeatured(listings);
       renderMapPage(listings);
       renderDetail(listings);
+      bindOptionPruning(listings);
       // Re-apply option translations after any dynamic HTML
       applyLang(currentLang());
     })
