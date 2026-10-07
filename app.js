@@ -22,6 +22,9 @@
     document.querySelectorAll('[data-mailto-fr][data-mailto-en]').forEach(function (a) {
       a.setAttribute('href', a.getAttribute(lang === 'en' ? 'data-mailto-en' : 'data-mailto-fr'));
     });
+    // P8-08: document title follows the language
+    var tEl = document.querySelector('title[data-doc-fr][data-doc-en]');
+    if (tEl) document.title = tEl.getAttribute(lang === 'en' ? 'data-doc-en' : 'data-doc-fr');
     // P7-09: screen-reader text follows the language
     ['aria', 'alt', 'title'].forEach(function (k) {
       document.querySelectorAll('[data-' + k + '-fr][data-' + k + '-en]').forEach(function (el) {
@@ -815,6 +818,8 @@
     });
     document.getElementById('mapFilterReset').addEventListener('click', function () {
       FILTER_NAMES.forEach(function (n) { if (form.elements[n]) form.elements[n].value = ''; });
+      var fm = document.querySelector('#mapPanel .fake-map');
+      if (fm) resetMapView(fm);
       applyMapFilterParams(new URLSearchParams());
       updateMapApplyLabel();
     });
@@ -986,70 +991,162 @@
     applyLang(currentLang());
   }
 
-  // —— P7-04: static map zoom (+/−, clamped) with drag-to-pan, and fullscreen ——
+  // —— P7-04 / P8: static map zoom (+/−), pan (drag, arrow keys), fullscreen ——
+  // The view is stored as a zoom level + the centre point as a FRACTION of the map, so it survives
+  // any resize (fullscreen, rotation). Pins are drawn at their true projected position (no edge clamp).
   var MAP_ZOOMS = [1, 1.5, 2, 2.5];
-  function mapView(map) { return map._view || (map._view = { z: 0, ox: 0, oy: 0 }); }
+  var MAP_FRAME = { l: 52, r: 52, t: 72, b: 28 }; // data % positions are projected inside this frame at z0
+  function mapView(map) { return map._view || (map._view = { z: 0, cx: 0.5, cy: 0.5 }); }
   function clampMapView(map) {
+    var v = mapView(map), h = 0.5 / MAP_ZOOMS[v.z];
+    v.cx = Math.max(h, Math.min(1 - h, v.cx));
+    v.cy = Math.max(h, Math.min(1 - h, v.cy));
+  }
+  function mapOffsets(map) {
     var v = mapView(map), s = MAP_ZOOMS[v.z], W = map.clientWidth, H = map.clientHeight;
-    v.ox = Math.max(0, Math.min(W * s - W, v.ox));
-    v.oy = Math.max(0, Math.min(H * s - H, v.oy));
+    return { s: s, W: W, H: H, ox: v.cx * W * s - W / 2, oy: v.cy * H * s - H / 2 };
+  }
+  function resetMapView(map) { var v = mapView(map); v.z = 0; v.cx = 0.5; v.cy = 0.5; }
+  function setCtlDisabled(btn, off) {
+    if (!btn) return;
+    btn.setAttribute('aria-disabled', off ? 'true' : 'false');
+    btn.classList.toggle('is-disabled', off);
   }
   function applyMapBg(map) {
-    var v = mapView(map), s = MAP_ZOOMS[v.z];
+    clampMapView(map);
+    var v = mapView(map), o = mapOffsets(map);
     var bg = map.querySelector('.map-bg');
-    if (bg) bg.style.transform = 'translate(' + (-v.ox) + 'px,' + (-v.oy) + 'px) scale(' + s + ')';
+    if (bg) bg.style.transform = 'translate(' + (-o.ox) + 'px,' + (-o.oy) + 'px) scale(' + o.s + ')';
     map.classList.toggle('is-zoomed', v.z > 0);
-    var zi = document.getElementById('mapZoomIn'), zo = document.getElementById('mapZoomOut');
-    if (zi) zi.disabled = v.z >= MAP_ZOOMS.length - 1;
-    if (zo) zo.disabled = v.z <= 0;
+    setCtlDisabled(document.getElementById('mapZoomIn'), v.z >= MAP_ZOOMS.length - 1);
+    setCtlDisabled(document.getElementById('mapZoomOut'), v.z <= 0);
   }
   function zoomMap(map, dir) {
-    var v = mapView(map), W = map.clientWidth, H = map.clientHeight;
+    var v = mapView(map);
     var nz = Math.max(0, Math.min(MAP_ZOOMS.length - 1, v.z + dir));
-    if (nz === v.z) return;
-    var s1 = MAP_ZOOMS[v.z], s2 = MAP_ZOOMS[nz];
-    v.ox = (v.ox + W / 2) * s2 / s1 - W / 2;
-    v.oy = (v.oy + H / 2) * s2 / s1 - H / 2;
-    v.z = nz;
-    clampMapView(map);
-    applyMapBg(map);
+    if (nz === v.z) return false;
+    v.z = nz; // zooms about the current centre (cx/cy unchanged)
     renderMapPins(map, _mapFiltered);
+    return true;
+  }
+  function panMap(map, dx, dy) {
+    var v = mapView(map), o = mapOffsets(map);
+    if (!v.z) return;
+    v.cx += dx / (o.W * o.s);
+    v.cy += dy / (o.H * o.s);
+    applyMapBg(map);
+    if (!map._raf) map._raf = requestAnimationFrame(function () { map._raf = 0; renderMapPins(map, _mapFiltered); });
+  }
+  function mapStatusEl(map) {
+    var el = map.querySelector('.map-status');
+    if (!el) {
+      el = document.createElement('div');
+      el.className = 'map-status';
+      el.setAttribute('role', 'status');
+      el.setAttribute('aria-live', 'polite');
+      map.appendChild(el);
+      el.addEventListener('click', function (e) {
+        var b = e.target.closest('button[data-act="recenter"]');
+        if (!b) return;
+        e.stopPropagation();
+        resetMapView(map);
+        renderMapPins(map, _mapFiltered);
+        map.focus({ preventScroll: true });
+      });
+    }
+    return el;
+  }
+  function setMapStatus(map, key) {
+    var el = mapStatusEl(map);
+    if (map._statusKey === key) return;
+    map._statusKey = key;
+    if (key === 'none') {
+      el.innerHTML = '<strong>' + bi('Aucun résultat', 'No results') + '</strong> ' +
+        bi('Aucune propriété ne correspond à ces filtres.', 'No property matches these filters.') +
+        ' <a href="map.html">' + bi('Réinitialiser les filtres', 'Reset filters') + '</a>';
+    } else if (key === 'view') {
+      el.innerHTML = bi('Aucune propriété dans cette vue.', 'No properties in this view.') +
+        ' <button type="button" data-act="recenter">' + bi('Recentrer', 'Recenter') + '</button>';
+    } else {
+      el.innerHTML = '';
+    }
+    el.classList.toggle('has-msg', !!key);
+    el.classList.toggle('is-none', key === 'none');
   }
   function bindMapView(map) {
     if (map._xltViewBound) return;
     map._xltViewBound = true;
+    mapStatusEl(map);
     var zi = document.getElementById('mapZoomIn'), zo = document.getElementById('mapZoomOut');
-    if (zi) zi.addEventListener('click', function (e) { e.stopPropagation(); zoomMap(map, 1); });
-    if (zo) zo.addEventListener('click', function (e) { e.stopPropagation(); zoomMap(map, -1); });
-    var drag = null, raf = 0;
+    [[zi, 1], [zo, -1]].forEach(function (pair) {
+      var btn = pair[0];
+      if (!btn) return;
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (btn.getAttribute('aria-disabled') === 'true') return; // focus stays on the button
+        zoomMap(map, pair[1]);
+      });
+    });
+    // Drag to pan (mouse, touch, pen). No native drag/selection may hijack the gesture.
+    var drag = null, suppressClick = false;
+    map.addEventListener('dragstart', function (e) { e.preventDefault(); });
     map.addEventListener('pointerdown', function (e) {
-      if (!mapView(map).z || e.button > 0) return;
-      if (e.target.closest('.map-pin, .map-pop, .map-zoom, .map-tools, a, button')) return;
-      var v = mapView(map);
-      drag = { x: e.clientX, y: e.clientY, ox: v.ox, oy: v.oy };
-      try { map.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ }
-      map.classList.add('is-dragging');
+      if (!mapView(map).z) return;
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      if (e.target.closest('.map-tools, .map-zoom, .map-pop, .map-status')) return;
+      if (e.pointerType === 'mouse') e.preventDefault();
+      var sel = window.getSelection && window.getSelection();
+      if (sel && sel.removeAllRanges) sel.removeAllRanges();
+      drag = { id: e.pointerId, x: e.clientX, y: e.clientY, lx: e.clientX, ly: e.clientY, moved: false };
     });
     map.addEventListener('pointermove', function (e) {
-      if (!drag) return;
-      var v = mapView(map);
-      v.ox = drag.ox - (e.clientX - drag.x);
-      v.oy = drag.oy - (e.clientY - drag.y);
-      clampMapView(map);
-      applyMapBg(map);
-      if (!raf) raf = requestAnimationFrame(function () { raf = 0; renderMapPins(map, _mapFiltered); });
+      if (!drag || e.pointerId !== drag.id) return;
+      if (!drag.moved) {
+        if (Math.abs(e.clientX - drag.x) + Math.abs(e.clientY - drag.y) < 5) return;
+        drag.moved = true;
+        try { map.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ }
+        map.classList.add('is-dragging');
+        closeMapPop(map);
+      }
+      panMap(map, -(e.clientX - drag.lx), -(e.clientY - drag.ly));
+      drag.lx = e.clientX;
+      drag.ly = e.clientY;
     });
-    var end = function () { if (drag) { drag = null; map.classList.remove('is-dragging'); } };
+    var end = function (e) {
+      if (!drag || (e && e.pointerId !== drag.id)) return;
+      if (drag.moved) { suppressClick = true; setTimeout(function () { suppressClick = false; }, 0); }
+      drag = null;
+      map.classList.remove('is-dragging');
+    };
     map.addEventListener('pointerup', end);
     map.addEventListener('pointercancel', end);
+    map.addEventListener('lostpointercapture', end);
+    // A drag that ends over a pin must not open it
+    map.addEventListener('click', function (e) {
+      if (suppressClick) { e.preventDefault(); e.stopPropagation(); suppressClick = false; }
+    }, true);
+    // Keyboard: arrows pan when zoomed, +/- zoom (map surface must have focus)
+    map.addEventListener('keydown', function (e) {
+      if (e.target !== map || e.altKey || e.ctrlKey || e.metaKey) return;
+      var o = mapOffsets(map), z = mapView(map).z, handled = true;
+      var stepX = o.W * 0.15, stepY = o.H * 0.15;
+      if (e.key === 'ArrowLeft' && z) panMap(map, -stepX, 0);
+      else if (e.key === 'ArrowRight' && z) panMap(map, stepX, 0);
+      else if (e.key === 'ArrowUp' && z) panMap(map, 0, -stepY);
+      else if (e.key === 'ArrowDown' && z) panMap(map, 0, stepY);
+      else if (e.key === '+' || e.key === '=') zoomMap(map, 1);
+      else if (e.key === '-' || e.key === '_') zoomMap(map, -1);
+      else handled = false;
+      if (handled) e.preventDefault();
+    });
     applyMapBg(map);
 
+    // Fullscreen (native API; full-viewport overlay where it isn't available, e.g. iPhone Safari)
     var panel = document.getElementById('mapPanel');
     var fsBtn = document.getElementById('mapFsBtn');
     if (!panel || !fsBtn) return;
     var setFs = function (on) {
       panel.classList.toggle('is-fs', on);
-      fsBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
       document.body.classList.toggle('map-fs-lock', on);
     };
     var native = !!(panel.requestFullscreen && document.fullscreenEnabled);
@@ -1060,19 +1157,21 @@
         else setFs(false);
         return;
       }
-      if (native) {
-        panel.requestFullscreen().then(function () { setFs(true); }).catch(function () { setFs(true); });
-      } else {
-        setFs(true); // e.g. iPhone Safari: full-viewport overlay instead
-      }
+      if (native) panel.requestFullscreen().then(function () { setFs(true); }).catch(function () { setFs(true); });
+      else setFs(true);
     });
     document.addEventListener('fullscreenchange', function () {
       if (document.fullscreenElement === panel) setFs(true);
       else if (!document.fullscreenElement && panel.classList.contains('is-fs')) setFs(false);
+      renderMapPins(map, _mapFiltered); // view centre is fractional, so it is kept
     });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && panel.classList.contains('is-fs') && !document.fullscreenElement && !map.querySelector('.map-pop')) setFs(false);
     });
+  }
+
+  function rectsOverlap(a, b, pad) {
+    return a.left < b.right + pad && b.left < a.right + pad && a.top < b.bottom + pad && b.top < a.bottom + pad;
   }
 
   function renderMapPins(map, items) {
@@ -1080,16 +1179,16 @@
     closeMapPop(map);
     var W = map.clientWidth, H = map.clientHeight;
     if (!W || !H) return; // hidden (mobile list mode); ResizeObserver re-renders when shown
-    var PW = 92, PH = 34, TOP_SAFE = 72;
-    clampMapView(map);
-    var v = mapView(map), s = MAP_ZOOMS[v.z];
+    var PW = 92, PH = 34;
+    applyMapBg(map);
+    var o = mapOffsets(map), z = mapView(map).z;
+    var fw = W - MAP_FRAME.l - MAP_FRAME.r, fh = H - MAP_FRAME.t - MAP_FRAME.b;
     var pts = [];
     items.forEach(function (item, i) {
       var m = item.map || { top: (30 + i * 5) + '%', left: (35 + i * 4) + '%' };
-      var x = parseFloat(m.left) / 100 * W * s - v.ox, y = parseFloat(m.top) / 100 * H * s - v.oy;
-      if (v.z && (x < 0 || x > W || y < 0 || y > H + PH)) return; // panned out of view
-      x = Math.max(PW / 2 + 6, Math.min(W - PW / 2 - 6, x));
-      y = Math.max(TOP_SAFE, Math.min(H - 28, y));
+      var x = (MAP_FRAME.l + parseFloat(m.left) / 100 * fw) * o.s - o.ox;
+      var y = (MAP_FRAME.t + parseFloat(m.top) / 100 * fh) * o.s - o.oy;
+      if (x < 0 || x > W || y < 0 || y > H) return; // location outside the view: not drawn
       pts.push({ items: [item], x: x, y: y });
     });
     // Greedy agglomerative grouping until no two pins overlap
@@ -1110,22 +1209,11 @@
         }
       }
     }
-    // Zoomed into an empty area: say so, with a one-tap way back
-    var hint = map.querySelector('.map-view-empty');
-    if (v.z && !pts.length && items.length) {
-      if (!hint) {
-        hint = document.createElement('div');
-        hint.className = 'map-view-empty';
-        hint.innerHTML = bi('Aucune propriété dans cette vue.', 'No properties in this view.') +
-          ' <button type="button">' + bi('Recentrer', 'Recenter') + '</button>';
-        hint.querySelector('button').addEventListener('click', function (e) {
-          e.stopPropagation();
-          var vv = mapView(map); vv.z = 0; vv.ox = 0; vv.oy = 0;
-          applyMapBg(map); renderMapPins(map, _mapFiltered);
-        });
-        map.appendChild(hint);
-      }
-    } else if (hint) hint.remove();
+    // Control areas (zoom stack, fullscreen): pins never sit under them
+    var mr = map.getBoundingClientRect();
+    var ctlRects = Array.prototype.map.call(map.querySelectorAll('.map-tools, .map-zoom'), function (c) { return c.getBoundingClientRect(); })
+      .filter(function (r) { return r.width && r.height; });
+    var drawn = 0;
     pts.forEach(function (c) {
       var nAvail = c.items.filter(function (it) { return it.status === 'available'; }).length;
       var el;
@@ -1135,6 +1223,7 @@
         el.href = 'detail.html?id=' + encodeURIComponent(it.id);
         el.className = 'map-pin ' + (it.status === 'available' ? 'available' : 'rented');
         el.setAttribute('data-id', it.id);
+        el.setAttribute('draggable', 'false');
         el.innerHTML = bi(pinLabel(it, 'fr'), pinLabel(it, 'en'));
         el.setAttribute('title', it.address);
       } else {
@@ -1158,7 +1247,11 @@
       el.style.top = c.y + 'px';
       el.style.zIndex = nAvail ? 6 : 3;
       map.appendChild(el);
+      var r = el.getBoundingClientRect();
+      if (ctlRects.some(function (cr) { return rectsOverlap(r, cr, 6); })) { el.remove(); return; }
+      drawn++;
     });
+    setMapStatus(map, !items.length ? 'none' : (z && !drawn ? 'view' : ''));
     if (!map._xltPopBound) {
       map._xltPopBound = true;
       document.addEventListener('click', function (e) {
@@ -1167,7 +1260,6 @@
       });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMapPop(map); });
     }
-    applyLang(currentLang());
   }
 
   function unitFrTable(item) { return item.priceUnit === 'sqft' ? '/pi²' : '/mois'; }

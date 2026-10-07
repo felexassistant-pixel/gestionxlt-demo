@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Carte — Gestion XLT</title>
+  <title data-doc-fr="Carte — Gestion XLT" data-doc-en="Map — Gestion XLT">Carte — Gestion XLT</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -116,18 +116,18 @@
       </aside>
 
       <section class="map-panel" id="mapPanel">
-        <div class="fake-map">
+        <div class="fake-map" tabindex="0" role="region" aria-label="Carte des propriétés. Agrandissez avec + puis utilisez les flèches pour vous déplacer." data-aria-fr="Carte des propriétés. Agrandissez avec + puis utilisez les flèches pour vous déplacer." data-aria-en="Property map. Zoom in with + then use the arrow keys to pan.">
           <div class="map-bg" aria-hidden="true">
             <div class="river" style="width:100px;height:140%;top:-20%;left:38%;transform:rotate(12deg);border-radius:50%;"></div>
             <div class="river" style="width:60px;height:80%;top:40%;left:55%;transform:rotate(-25deg);opacity:.45;"></div>
           </div>
           <div class="map-tools">
-            <button type="button" class="map-fs-btn" id="mapFsBtn" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg><span class="fs-enter" data-fr>Plein écran</span><span class="fs-enter" data-en>Fullscreen</span><span class="fs-exit" data-fr>Quitter le plein écran</span><span class="fs-exit" data-en>Exit fullscreen</span></button>
+            <button type="button" class="map-fs-btn" id="mapFsBtn"><svg class="fs-exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 3v3a2 2 0 0 1-2 2H3M21 8h-3a2 2 0 0 1-2-2V3M3 16h3a2 2 0 0 1 2 2v3M16 21v-3a2 2 0 0 1 2-2h3"/></svg><svg class="fs-enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg><span class="fs-enter" data-fr>Plein écran</span><span class="fs-enter" data-en>Fullscreen</span><span class="fs-exit" data-fr>Quitter le plein écran</span><span class="fs-exit" data-en>Exit fullscreen</span></button>
           </div>
           <!-- Pins (rendered from data/listings.json) -->
           <div class="map-zoom">
-            <button type="button" id="mapZoomIn" aria-label="Zoom avant" data-aria-fr="Zoom avant" data-aria-en="Zoom in" data-title-fr="Zoom avant" data-title-en="Zoom in" title="Zoom avant">+</button>
-            <button type="button" id="mapZoomOut" aria-label="Zoom arrière" data-aria-fr="Zoom arrière" data-aria-en="Zoom out" data-title-fr="Zoom arrière" data-title-en="Zoom out" title="Zoom arrière" disabled>−</button>
+            <button type="button" id="mapZoomIn" aria-disabled="false" aria-label="Zoom avant" data-aria-fr="Zoom avant" data-aria-en="Zoom in" data-title-fr="Zoom avant" data-title-en="Zoom in" title="Zoom avant">+</button>
+            <button type="button" id="mapZoomOut" aria-label="Zoom arrière" data-aria-fr="Zoom arrière" data-aria-en="Zoom out" data-title-fr="Zoom arrière" data-title-en="Zoom out" title="Zoom arrière" aria-disabled="true" class="is-disabled">−</button>
           </div>
           <p class="map-disclaimer" data-fr>Emplacements approximatifs. Consultez l’annonce pour les détails.</p>
           <p class="map-disclaimer" data-en>Locations are approximate. See the listing for details.</p>
