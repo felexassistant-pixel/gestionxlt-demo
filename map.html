@@ -81,8 +81,8 @@
         <div class="map-list-head">
           <h2 data-fr>Grand Montréal</h2>
           <h2 data-en>Greater Montreal</h2>
-          <p data-fr>36 locations trouvées</p>
-          <p data-en>36 rentals found</p>
+          <p data-fr>38 locations trouvées</p>
+          <p data-en>38 rentals found</p>
           <div class="map-list-actions">
             <div class="map-action">
               <button type="button" class="btn btn-sm btn-outline map-action-btn" id="mapFiltersToggle" aria-haspopup="dialog" aria-expanded="false" aria-controls="mapFilterPanel">
@@ -107,7 +107,7 @@
           <!-- Rendered from data/listings.json -->
         </div>
         <div class="map-list-foot" id="mapListFoot">
-          <span data-fr id="mapRangeFr">1 à 10 de 36</span><span data-en id="mapRangeEn">1–10 of 36</span>
+          <span data-fr id="mapRangeFr">1 à 10 de 38</span><span data-en id="mapRangeEn">1–10 of 38</span>
           <span class="map-pager" id="mapPager" hidden>
             <button type="button" class="btn btn-sm btn-outline" id="mapPrev" aria-label="Page précédente" style="padding:4px 10px;">‹</button>
             <button type="button" class="btn btn-sm btn-outline" id="mapNext" aria-label="Page suivante" style="padding:4px 10px;">›</button>
@@ -117,19 +117,17 @@
 
       <section class="map-panel" id="mapPanel">
         <div class="fake-map">
-          <div class="river" style="width:100px;height:140%;top:-20%;left:38%;transform:rotate(12deg);border-radius:50%;"></div>
-          <div class="river" style="width:60px;height:80%;top:40%;left:55%;transform:rotate(-25deg);opacity:.45;"></div>
-          <div class="map-search">
-            <input type="search" placeholder="Chercher sur la carte" data-fr-placeholder="Chercher sur la carte" data-en-placeholder="Search the map" />
+          <div class="map-bg" aria-hidden="true">
+            <div class="river" style="width:100px;height:140%;top:-20%;left:38%;transform:rotate(12deg);border-radius:50%;"></div>
+            <div class="river" style="width:60px;height:80%;top:40%;left:55%;transform:rotate(-25deg);opacity:.45;"></div>
           </div>
           <div class="map-tools">
-            <button type="button" data-fr>Couches</button><button type="button" data-en>Layers</button>
-            <button type="button" data-fr>Plein écran</button><button type="button" data-en>Fullscreen</button>
+            <button type="button" class="map-fs-btn" id="mapFsBtn" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg><span class="fs-enter" data-fr>Plein écran</span><span class="fs-enter" data-en>Fullscreen</span><span class="fs-exit" data-fr>Quitter le plein écran</span><span class="fs-exit" data-en>Exit fullscreen</span></button>
           </div>
-          <!-- Price pins (rendered from data/listings.json) -->
+          <!-- Pins (rendered from data/listings.json) -->
           <div class="map-zoom">
-            <button type="button">+</button>
-            <button type="button">−</button>
+            <button type="button" id="mapZoomIn" aria-label="Zoom avant" data-aria-fr="Zoom avant" data-aria-en="Zoom in" data-title-fr="Zoom avant" data-title-en="Zoom in" title="Zoom avant">+</button>
+            <button type="button" id="mapZoomOut" aria-label="Zoom arrière" data-aria-fr="Zoom arrière" data-aria-en="Zoom out" data-title-fr="Zoom arrière" data-title-en="Zoom out" title="Zoom arrière" disabled>−</button>
           </div>
           <p class="map-disclaimer" data-fr>Emplacements approximatifs. Consultez l’annonce pour les détails.</p>
           <p class="map-disclaimer" data-en>Locations are approximate. See the listing for details.</p>

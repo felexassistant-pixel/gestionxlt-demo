@@ -69,7 +69,11 @@
   <div class="container search-widget">
     <form class="search-card" action="listings.html" method="get">
       <div class="search-tabs">
-        <button type="button" class="search-tab active" data-tab="res">
+        <button type="button" class="search-tab active" data-tab="">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span data-fr>Tous</span><span data-en>All</span>
+        </button>
+        <button type="button" class="search-tab" data-tab="res">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9.5z"/><path d="M9 21v-7h6v7"/></svg>
           <span data-fr>Résidentiel</span><span data-en>Residential</span>
         </button>
@@ -97,7 +101,7 @@
           <div>
             <label data-fr>Type de location</label><label data-en>Rental type</label>
             <select name="type">
-              <option value="" data-fr="À louer" data-en="For rent">À louer</option>
+              <option value="" data-fr="Tous les types" data-en="All types">Tous les types</option>
               <option value="apt" data-fr="Appartement" data-en="Apartment">Appartement</option>
               <option value="com" data-fr="Commerce" data-en="Retail">Commerce</option>
               <option value="land" data-fr="Terrain" data-en="Land">Terrain</option>

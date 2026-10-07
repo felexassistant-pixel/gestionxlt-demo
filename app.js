@@ -22,6 +22,12 @@
     document.querySelectorAll('[data-mailto-fr][data-mailto-en]').forEach(function (a) {
       a.setAttribute('href', a.getAttribute(lang === 'en' ? 'data-mailto-en' : 'data-mailto-fr'));
     });
+    // P7-09: screen-reader text follows the language
+    ['aria', 'alt', 'title'].forEach(function (k) {
+      document.querySelectorAll('[data-' + k + '-fr][data-' + k + '-en]').forEach(function (el) {
+        el.setAttribute(k === 'aria' ? 'aria-label' : k, el.getAttribute('data-' + k + '-' + (lang === 'en' ? 'en' : 'fr')));
+      });
+    });
     localStorage.setItem('xlt-lang', lang);
     document.dispatchEvent(new CustomEvent('xlt-lang', { detail: lang }));
   }
@@ -77,6 +83,11 @@
     });
   });
 
+  window.addEventListener('pageshow', function () {
+    document.querySelectorAll('form.search-card select[name="type"]').forEach(function (s) { s.disabled = false; });
+    document.querySelectorAll('form.search-card input[data-xlt-tab]').forEach(function (h) { h.remove(); });
+  });
+
   function currentLang() {
     return localStorage.getItem('xlt-lang') || 'fr';
   }
@@ -108,6 +119,7 @@
     return '<span class="price-amt" data-fr>' + fmtPrice(item, 'fr') + '</span><span class="price-amt" data-en>' + fmtPrice(item, 'en') + '</span>';
   }
 
+  function esc(t) { return String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;'); }
   function groupDigits(n, sep) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, sep); }
   /** FR "1 000 $ / mois" · EN "$1,000/month" (short: FR "1 000 $" · EN "$1,000") */
   function fmtPrice(item, lang, short) {
@@ -162,10 +174,10 @@
     return (
       '<a href="' + href + '" class="prop-card" data-status="' + item.status + '" data-type="' + item.type + '" data-id="' + item.id + '" data-city="' + (item.city || '') + '" data-price="' + (hasPrice(item) ? item.price : '') + '" data-price-unit="' + (item.priceUnit || '') + '" data-avail="' + ((item.availability && item.availability.fr) || '') + '" data-listed="' + (item.listedOn || '') + '">' +
         '<div class="prop-media">' +
-          '<img src="' + item.image + '" alt="' + (item.title[currentLang()] || item.title.fr).replace(/"/g, '&quot;') + '" loading="lazy" />' +
+          '<img src="' + item.image + '" alt="' + esc(item.title[currentLang()] || item.title.fr) + '" data-alt-fr="' + esc(item.title.fr) + '" data-alt-en="' + esc(item.title.en || item.title.fr) + '" loading="lazy" />' +
           '<span class="pill ' + pillClass + '" data-fr>' + statusLabel(item.status, 'fr') + '</span>' +
           '<span class="pill ' + pillClass + '" data-en>' + statusLabel(item.status, 'en') + '</span>' +
-          '<button type="button" class="prop-heart" aria-label="Favori">' + heartSvg() + '</button>' +
+          '<button type="button" class="prop-heart" aria-label="' + (currentLang() === 'en' ? 'Favourite' : 'Favori') + '" data-aria-fr="Favori" data-aria-en="Favourite">' + heartSvg() + '</button>' +
           '<span class="prop-count">1 / ' + (item.photoCount || 1) + '</span>' +
         '</div>' +
         '<div class="prop-body">' +
@@ -371,12 +383,15 @@
     }
   }
 
-  /** Hide select options that would return 0 results given the form's other fields. */
-  function pruneFormOptions(form, listings, extraState) {
+  /** Hide select options that would return 0 results given the form's other fields.
+   *  keep: 'all' (initial sync from the URL: never drop a selected value) or the <select> the user
+   *  just changed (its value wins; other selects that now conflict are reset). */
+  function pruneFormOptions(form, listings, extraState, keep) {
     if (!form || !listings.length) return;
     var selects = Array.prototype.filter.call(form.querySelectorAll('select[name]'), function (s) {
       return ['loc', 'type', 'status', 'price', 'avail'].indexOf(s.name) >= 0;
     });
+    function isKept(sel) { return keep === 'all' || keep === sel; }
     function stateFrom(override) {
       var st = { type: '', loc: '', price: '', status: '', avail: '' };
       selects.forEach(function (s) {
@@ -392,16 +407,23 @@
       }
       return st;
     }
-    selects.forEach(function (sel) {
-      Array.prototype.forEach.call(sel.options, function (o) {
-        if (!o.value) { o.hidden = false; o.disabled = false; return; }
-        var st = stateFrom({ name: sel.name, value: o.value });
-        var n = listings.filter(function (l) { return listingMatches(l, st); }).length;
-        o.hidden = n === 0;
-        o.disabled = n === 0;
+    function pass() {
+      selects.forEach(function (sel) {
+        Array.prototype.forEach.call(sel.options, function (o) {
+          if (!o.value || (o.selected && isKept(sel))) { o.hidden = false; o.disabled = false; return; }
+          var st = stateFrom({ name: sel.name, value: o.value });
+          var n = listings.filter(function (l) { return listingMatches(l, st); }).length;
+          o.hidden = n === 0;
+          o.disabled = n === 0;
+        });
       });
-      if (sel.selectedOptions[0] && sel.selectedOptions[0].disabled) sel.value = '';
+    }
+    pass();
+    var reset = false;
+    selects.forEach(function (sel) {
+      if (!isKept(sel) && sel.selectedOptions[0] && sel.selectedOptions[0].disabled) { sel.value = ''; reset = true; }
     });
+    if (reset) pass();
   }
 
   function listingMatches(item, state) {
@@ -413,45 +435,40 @@
     return true;
   }
 
-  function applyListingFilters(listings, chipFilter) {
+  function applyListingFilters(listings) {
     var state = getFilterState();
-    var cards = document.querySelectorAll('#listingsGrid .prop-card');
+    var byId = {};
+    listings.forEach(function (l) { byId[l.id] = l; });
     var visible = 0;
-    cards.forEach(function (card) {
-      var id = card.getAttribute('data-id');
-      var item = listings.find(function (l) { return l.id === id; });
-      var show = true;
-      if (item) {
-        show = listingMatches(item, state);
-      } else {
-        // fallback to data attrs
-        var status = card.getAttribute('data-status');
-        var type = card.getAttribute('data-type');
-        if (state.status && status !== state.status) show = false;
-        if (state.type === 'res' && type !== 'res') show = false;
-        if (state.type === 'off' && type !== 'off') show = false;
-        if (state.type === 'com' && type !== 'com' && type !== 'off') show = false;
-      }
-      // Chip overlay (quick filters) — further narrow
-      if (show && chipFilter && chipFilter !== 'all') {
-        var cStatus = card.getAttribute('data-status');
-        var cType = card.getAttribute('data-type');
-        if (chipFilter === 'available' || chipFilter === 'rented') {
-          show = cStatus === chipFilter;
-        } else if (chipFilter === 'res') {
-          show = cType === 'res';
-        } else if (chipFilter === 'com') {
-          show = cType === 'com' || cType === 'off';
-        } else if (chipFilter === 'land') {
-          show = cType === 'land';
-        }
-      }
+    document.querySelectorAll('#listingsGrid .prop-card').forEach(function (card) {
+      var item = byId[card.getAttribute('data-id')];
+      var show = item ? listingMatches(item, state) : true;
       card.style.display = show ? '' : 'none';
       if (show) visible++;
     });
     updateVisibleCount(visible);
-    updateCounts(listings);
+    updateListingsEmpty(visible);
+    updateCounts(listings, state);
+    syncListingsUi(listings, state);
     return visible;
+  }
+
+  function updateListingsEmpty(visible) {
+    var grid = document.getElementById('listingsGrid');
+    if (!grid) return;
+    var el = document.getElementById('listingsEmpty');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'listingsEmpty';
+      el.className = 'listings-empty';
+      el.setAttribute('role', 'status');
+      el.innerHTML = '<strong data-fr>Aucun résultat</strong><strong data-en>No results</strong>' +
+        '<p data-fr>Aucune propriété ne correspond à ces filtres.</p><p data-en>No property matches these filters.</p>' +
+        '<a class="btn btn-outline" href="listings.html"><span data-fr>Réinitialiser les filtres</span><span data-en>Reset filters</span></a>';
+      grid.parentNode.insertBefore(el, grid.nextSibling);
+    }
+    el.hidden = visible > 0 || !_listingsCache.length;
+    el.querySelector('a').setAttribute('href', 'listings.html' + (location.hash === '#list' ? '#list' : ''));
   }
 
   function updateVisibleCount(n) {
@@ -461,44 +478,78 @@
     if (metaEn) metaEn.textContent = n + ' propert' + (n === 1 ? 'y' : 'ies') + ' found';
   }
 
-  // Back-compat for chip handlers
   var _listingsCache = [];
-  var _activeChip = 'all';
+  var STATUS_CHIPS = ['available', 'rented'];
 
-  function filterCards(filter) {
-    _activeChip = filter || 'all';
-    applyListingFilters(_listingsCache, _activeChip);
+  function copyState(st) { var o = {}; Object.keys(st).forEach(function (k) { o[k] = st[k]; }); return o; }
+  /** State after clicking a chip: Tous clears type+status; a status or type chip sets (or, if active, clears) its dimension. */
+  function chipState(state, f) {
+    var st = copyState(state);
+    if (f === 'all') { st.type = ''; st.status = ''; }
+    else if (STATUS_CHIPS.indexOf(f) >= 0) st.status = state.status === f ? '' : f;
+    else st.type = state.type === f ? '' : f;
+    return st;
+  }
+  function chipIsActive(state, f) {
+    if (f === 'all') return !state.type && !state.status;
+    if (STATUS_CHIPS.indexOf(f) >= 0) return state.status === f;
+    return state.type === f;
+  }
+  function setListingsUrl(st) {
+    if (!window.history || !history.replaceState) return;
+    var params = new URLSearchParams(location.search);
+    params.delete('type');
+    params.delete('status');
+    if (st.type) params.set('type', st.type);
+    if (st.status) params.set('status', st.status === 'available' ? 'open' : st.status);
+    var qs = params.toString();
+    history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
   }
 
   function bindFilters() {
+    if (!document.getElementById('listingsGrid')) return;
     document.querySelectorAll('.chip[data-filter]').forEach(function (chip) {
       if (chip._xltBound) return;
       chip._xltBound = true;
       chip.addEventListener('click', function () {
-        var f = chip.getAttribute('data-filter');
-        document.querySelectorAll('.chip[data-filter]').forEach(function (c) { c.classList.remove('active'); });
-        document.querySelectorAll('.chip[data-filter="' + f + '"]').forEach(function (c) { c.classList.add('active'); });
-        if (['all', 'available', 'rented'].indexOf(f) >= 0) {
-          document.querySelectorAll('#statusTabs button').forEach(function (b) {
-            b.classList.toggle('active', b.getAttribute('data-filter') === f);
-          });
-        }
-        filterCards(f);
+        if (chip.disabled || !_listingsCache.length) return;
+        setListingsUrl(chipState(getFilterState(), chip.getAttribute('data-filter')));
+        applyListingFilters(_listingsCache);
       });
     });
     document.querySelectorAll('#statusTabs button').forEach(function (btn) {
       if (btn._xltBound) return;
       btn._xltBound = true;
       btn.addEventListener('click', function () {
+        if (btn.disabled || !_listingsCache.length) return;
+        var st = getFilterState();
         var f = btn.getAttribute('data-filter');
-        document.querySelectorAll('#statusTabs button').forEach(function (b) { b.classList.remove('active'); });
-        btn.classList.add('active');
-        document.querySelectorAll('.chip[data-filter]').forEach(function (c) {
-          c.classList.toggle('active', c.getAttribute('data-filter') === f);
-        });
-        filterCards(f);
+        st.status = f === 'all' ? '' : f;
+        setListingsUrl(st);
+        applyListingFilters(_listingsCache);
       });
     });
+  }
+
+  /** Chips, status tabs and the filter form all mirror the one filter state (the URL). */
+  function syncListingsUi(listings, state) {
+    document.querySelectorAll('.chip[data-filter]').forEach(function (c) {
+      var f = c.getAttribute('data-filter');
+      var active = chipIsActive(state, f);
+      c.classList.toggle('active', active);
+      c.setAttribute('aria-pressed', active ? 'true' : 'false');
+      var empty = !active && !listings.some(function (l) { return listingMatches(l, chipState(state, f)); });
+      c.disabled = empty;
+      c.classList.toggle('is-empty', empty);
+    });
+    document.querySelectorAll('#statusTabs button').forEach(function (b) {
+      var active = b.getAttribute('data-filter') === (state.status || 'all');
+      b.classList.toggle('active', active);
+      b.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    syncFilterForm(state);
+    pruneFormOptions(document.querySelector('form.filter-search'), listings, null, 'all');
+    applyLang(currentLang());
   }
 
   function syncFilterForm(state) {
@@ -507,97 +558,41 @@
     var locSel = form.querySelector('select[name="loc"]');
     var typeSel = form.querySelector('select[name="type"]');
     var statusSel = form.querySelector('select[name="status"]');
-    var availSel = form.querySelector('select[name="avail"]');
-    if (locSel && state.loc) {
+    if (locSel) {
+      var lv = '';
       Array.prototype.forEach.call(locSel.options, function (o) {
-        if (o.value === state.loc || o.textContent === state.loc) o.selected = true;
+        if (state.loc && o.value && (o.value === state.loc || o.textContent === state.loc)) lv = o.value;
       });
+      locSel.value = lv;
     }
-    if (typeSel && state.type) {
-      // Map normalized back to form values (res/com/off)
-      typeSel.value = state.type;
-    }
-    if (statusSel && state.status) {
-      statusSel.value = state.status === 'available' ? 'open' : state.status;
-    }
-    if (availSel && state.avail) {
-      Array.prototype.forEach.call(availSel.options, function (o) {
-        if (o.value === state.avail || o.textContent === state.avail ||
-            (o.getAttribute('data-fr') === state.avail) ||
-            (o.getAttribute('data-en') && o.getAttribute('data-en').toLowerCase() === state.avail.toLowerCase())) {
-          o.selected = true;
-        }
-      });
-    }
+    if (typeSel) typeSel.value = state.type || '';
+    if (statusSel) statusSel.value = state.status === 'available' ? 'open' : (state.status || '');
   }
 
-  function highlightChipsFromState(state) {
-    if (state.type === 'res') {
-      document.querySelectorAll('.chip[data-filter]').forEach(function (c) {
-        c.classList.toggle('active', c.getAttribute('data-filter') === 'res');
-      });
-      _activeChip = 'res';
-    } else if (state.type === 'com') {
-      document.querySelectorAll('.chip[data-filter]').forEach(function (c) {
-        c.classList.toggle('active', c.getAttribute('data-filter') === 'com');
-      });
-      _activeChip = 'com';
-    } else if (state.type === 'land') {
-      document.querySelectorAll('.chip[data-filter]').forEach(function (c) {
-        c.classList.toggle('active', c.getAttribute('data-filter') === 'land');
-      });
-      _activeChip = 'land';
-    } else if (state.type === 'off') {
-      // no dedicated chip; leave all
-      _activeChip = 'all';
-    }
-    if (state.status === 'available' || state.status === 'rented') {
-      document.querySelectorAll('.chip[data-filter]').forEach(function (c) {
-        c.classList.toggle('active', c.getAttribute('data-filter') === state.status);
-      });
-      document.querySelectorAll('#statusTabs button').forEach(function (b) {
-        b.classList.toggle('active', b.getAttribute('data-filter') === state.status);
-      });
-      _activeChip = state.status;
-    }
-  }
-
-  function updateCounts(listings) {
-    var state = getFilterState();
-    // Tab counts ignore status (tabs ARE status) but honor loc/type/price/avail + type chips
-    var baseState = {
-      type: state.type,
-      loc: state.loc,
-      price: state.price,
-      avail: state.avail,
-      status: ''
-    };
+  function updateCounts(listings, state) {
+    state = state || getFilterState();
+    // Tab counts ignore status (tabs ARE status) but honor everything else
+    var baseState = copyState(state);
+    baseState.status = '';
     var base = listings.filter(function (l) { return listingMatches(l, baseState); });
-    var chip = _activeChip;
-    if (chip === 'res' || chip === 'com' || chip === 'land') {
-      base = base.filter(function (l) {
-        if (chip === 'res') return l.type === 'res';
-        if (chip === 'land') return l.type === 'land';
-        return l.type === 'com' || l.type === 'off';
-      });
-    }
-    var all = base.length;
-    var avail = base.filter(function (l) { return l.status === 'available'; }).length;
-    var rented = base.filter(function (l) { return l.status === 'rented'; }).length;
+    var counts = {
+      all: base.length,
+      available: base.filter(function (l) { return l.status === 'available'; }).length,
+      rented: base.filter(function (l) { return l.status === 'rented'; }).length
+    };
+    var labels = { all: ['Toutes', 'All'], available: ['Disponibles', 'Available'], rented: ['Louées', 'Rented'] };
     var tabs = document.getElementById('statusTabs');
     if (tabs) {
-      var btns = tabs.querySelectorAll('button');
-      if (btns[0]) btns[0].innerHTML = '<span data-fr>Toutes (' + all + ')</span><span data-en>All (' + all + ')</span>';
-      if (btns[1]) btns[1].innerHTML = '<span data-fr>Disponibles (' + avail + ')</span><span data-en>Available (' + avail + ')</span>';
-      if (btns[2]) btns[2].innerHTML = '<span data-fr>Louées (' + rented + ')</span><span data-en>Rented (' + rented + ')</span>';
-      // A tab that would show 0 results (and isn't the current one) is disabled
-      [all, avail, rented].forEach(function (n, i) {
-        if (!btns[i]) return;
-        var off = n === 0 && !btns[i].classList.contains('active');
-        btns[i].disabled = off;
-        btns[i].classList.toggle('is-empty', off);
+      tabs.querySelectorAll('button').forEach(function (b) {
+        var f = b.getAttribute('data-filter');
+        if (!labels[f]) return;
+        var n = counts[f];
+        b.innerHTML = '<span data-fr>' + labels[f][0] + ' (' + n + ')</span><span data-en>' + labels[f][1] + ' (' + n + ')</span>';
+        // A tab that would show 0 results (and isn't the current one) is disabled
+        var off = n === 0 && f !== (state.status || 'all');
+        b.disabled = off;
+        b.classList.toggle('is-empty', off);
       });
-      applyLang(currentLang());
     }
     updateFilterBadge(state);
   }
@@ -629,21 +624,9 @@
     if (!grid) return;
     _listingsCache = listings;
     grid.innerHTML = sortByMode(listings, 'relevance').map(cardHtml).join('');
-    updateCounts(listings);
     bindHearts(grid);
     bindFilters();
-    var state = getFilterState();
-    syncFilterForm(state);
-    highlightChipsFromState(state);
-    // Apply URL filters; chip further narrows only if set to non-all without conflicting URL
-    var chip = _activeChip;
-    // If URL has type/status, prefer those as primary; chip "all" unless highlighted
-    if (state.type || state.status || state.loc || state.price || state.avail) {
-      // Don't double-apply type via chip if URL already has type
-      if (state.type && (chip === 'res' || chip === 'com' || chip === 'land')) chip = 'all';
-      if (state.status && (chip === 'available' || chip === 'rented')) chip = 'all';
-    }
-    applyListingFilters(listings, chip);
+    applyListingFilters(listings);
   }
 
   function renderFeatured(listings) {
@@ -938,6 +921,7 @@
 
     var fakeMap = document.querySelector('#mapPanel .fake-map');
     if (!fakeMap) return;
+    bindMapView(fakeMap);
     renderMapPins(fakeMap, _mapFiltered);
     if (!fakeMap._xltObserved && window.ResizeObserver) {
       fakeMap._xltObserved = true;
@@ -962,21 +946,34 @@
     if (pop) pop.remove();
     map.querySelectorAll('.map-cluster[aria-expanded="true"]').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
   }
+  function splitAddr(a) {
+    var i = (a || '').lastIndexOf(', ');
+    return i > 0 ? [a.slice(0, i), a.slice(i + 2)] : [a || '', ''];
+  }
   function openMapPop(map, cluster, btn) {
     closeMapPop(map);
     var pop = document.createElement('div');
     pop.className = 'map-pop';
     pop.setAttribute('role', 'dialog');
+    var n = cluster.items.length;
+    pop.setAttribute('data-aria-fr', n + ' unités dans ce secteur');
+    pop.setAttribute('data-aria-en', n + ' units in this area');
     var items = cluster.items.slice().sort(function (a, b) { return (a.status === 'available' ? 0 : 1) - (b.status === 'available' ? 0 : 1); });
-    pop.innerHTML = '<div class="map-pop-head">' + bi(cluster.items.length + ' unités à cet endroit', cluster.items.length + ' units here') +
-      '<button type="button" class="map-pop-close" aria-label="Fermer / Close">×</button></div>' +
+    pop.innerHTML = '<div class="map-pop-head">' + bi(n + ' unités dans ce secteur', n + ' units in this area') +
+      '<button type="button" class="map-pop-close" aria-label="Fermer" data-aria-fr="Fermer" data-aria-en="Close">×</button></div>' +
       '<ul>' + items.map(function (it) {
         var pc = it.status === 'available' ? 'pill-available' : 'pill-rented';
-        return '<li><a href="detail.html?id=' + encodeURIComponent(it.id) + '"><span class="pill ' + pc + '">' + bi(statusLabel(it.status, 'fr'), statusLabel(it.status, 'en')) + '</span><span class="map-pop-addr">' + it.address + '</span></a></li>';
+        var parts = splitAddr(it.address);
+        return '<li><a href="detail.html?id=' + encodeURIComponent(it.id) + '" title="' + esc(it.address) + '">' +
+          '<span class="pill ' + pc + '">' + bi(statusLabel(it.status, 'fr'), statusLabel(it.status, 'en')) + '</span>' +
+          '<span class="map-pop-text"><span class="map-pop-addr">' + parts[0] + '</span>' +
+          (parts[1] ? '<span class="map-pop-city">' + parts[1] + '</span>' : '') +
+          (showsPrice(it) ? '<span class="map-pop-price">' + priceHtml(it) + '</span>' : '') +
+          '</span></a></li>';
       }).join('') + '</ul>';
     map.appendChild(pop);
     var W = map.clientWidth, H = map.clientHeight;
-    var pw = Math.min(280, W - 16);
+    var pw = Math.min(310, W - 16);
     pop.style.width = pw + 'px';
     var left = Math.max(8, Math.min(W - pw - 8, cluster.x - pw / 2));
     var ph = pop.offsetHeight;
@@ -988,18 +985,112 @@
     pop.querySelector('.map-pop-close').addEventListener('click', function () { closeMapPop(map); btn.focus(); });
     applyLang(currentLang());
   }
+
+  // —— P7-04: static map zoom (+/−, clamped) with drag-to-pan, and fullscreen ——
+  var MAP_ZOOMS = [1, 1.5, 2, 2.5];
+  function mapView(map) { return map._view || (map._view = { z: 0, ox: 0, oy: 0 }); }
+  function clampMapView(map) {
+    var v = mapView(map), s = MAP_ZOOMS[v.z], W = map.clientWidth, H = map.clientHeight;
+    v.ox = Math.max(0, Math.min(W * s - W, v.ox));
+    v.oy = Math.max(0, Math.min(H * s - H, v.oy));
+  }
+  function applyMapBg(map) {
+    var v = mapView(map), s = MAP_ZOOMS[v.z];
+    var bg = map.querySelector('.map-bg');
+    if (bg) bg.style.transform = 'translate(' + (-v.ox) + 'px,' + (-v.oy) + 'px) scale(' + s + ')';
+    map.classList.toggle('is-zoomed', v.z > 0);
+    var zi = document.getElementById('mapZoomIn'), zo = document.getElementById('mapZoomOut');
+    if (zi) zi.disabled = v.z >= MAP_ZOOMS.length - 1;
+    if (zo) zo.disabled = v.z <= 0;
+  }
+  function zoomMap(map, dir) {
+    var v = mapView(map), W = map.clientWidth, H = map.clientHeight;
+    var nz = Math.max(0, Math.min(MAP_ZOOMS.length - 1, v.z + dir));
+    if (nz === v.z) return;
+    var s1 = MAP_ZOOMS[v.z], s2 = MAP_ZOOMS[nz];
+    v.ox = (v.ox + W / 2) * s2 / s1 - W / 2;
+    v.oy = (v.oy + H / 2) * s2 / s1 - H / 2;
+    v.z = nz;
+    clampMapView(map);
+    applyMapBg(map);
+    renderMapPins(map, _mapFiltered);
+  }
+  function bindMapView(map) {
+    if (map._xltViewBound) return;
+    map._xltViewBound = true;
+    var zi = document.getElementById('mapZoomIn'), zo = document.getElementById('mapZoomOut');
+    if (zi) zi.addEventListener('click', function (e) { e.stopPropagation(); zoomMap(map, 1); });
+    if (zo) zo.addEventListener('click', function (e) { e.stopPropagation(); zoomMap(map, -1); });
+    var drag = null, raf = 0;
+    map.addEventListener('pointerdown', function (e) {
+      if (!mapView(map).z || e.button > 0) return;
+      if (e.target.closest('.map-pin, .map-pop, .map-zoom, .map-tools, a, button')) return;
+      var v = mapView(map);
+      drag = { x: e.clientX, y: e.clientY, ox: v.ox, oy: v.oy };
+      try { map.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ }
+      map.classList.add('is-dragging');
+    });
+    map.addEventListener('pointermove', function (e) {
+      if (!drag) return;
+      var v = mapView(map);
+      v.ox = drag.ox - (e.clientX - drag.x);
+      v.oy = drag.oy - (e.clientY - drag.y);
+      clampMapView(map);
+      applyMapBg(map);
+      if (!raf) raf = requestAnimationFrame(function () { raf = 0; renderMapPins(map, _mapFiltered); });
+    });
+    var end = function () { if (drag) { drag = null; map.classList.remove('is-dragging'); } };
+    map.addEventListener('pointerup', end);
+    map.addEventListener('pointercancel', end);
+    applyMapBg(map);
+
+    var panel = document.getElementById('mapPanel');
+    var fsBtn = document.getElementById('mapFsBtn');
+    if (!panel || !fsBtn) return;
+    var setFs = function (on) {
+      panel.classList.toggle('is-fs', on);
+      fsBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      document.body.classList.toggle('map-fs-lock', on);
+    };
+    var native = !!(panel.requestFullscreen && document.fullscreenEnabled);
+    fsBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (panel.classList.contains('is-fs')) {
+        if (document.fullscreenElement) document.exitFullscreen().catch(function () { setFs(false); });
+        else setFs(false);
+        return;
+      }
+      if (native) {
+        panel.requestFullscreen().then(function () { setFs(true); }).catch(function () { setFs(true); });
+      } else {
+        setFs(true); // e.g. iPhone Safari: full-viewport overlay instead
+      }
+    });
+    document.addEventListener('fullscreenchange', function () {
+      if (document.fullscreenElement === panel) setFs(true);
+      else if (!document.fullscreenElement && panel.classList.contains('is-fs')) setFs(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && panel.classList.contains('is-fs') && !document.fullscreenElement && !map.querySelector('.map-pop')) setFs(false);
+    });
+  }
+
   function renderMapPins(map, items) {
     map.querySelectorAll('.map-pin').forEach(function (pin) { pin.remove(); });
     closeMapPop(map);
     var W = map.clientWidth, H = map.clientHeight;
     if (!W || !H) return; // hidden (mobile list mode); ResizeObserver re-renders when shown
-    var PW = 92, PH = 34, TOP_SAFE = 96;
-    var pts = items.map(function (item, i) {
+    var PW = 92, PH = 34, TOP_SAFE = 72;
+    clampMapView(map);
+    var v = mapView(map), s = MAP_ZOOMS[v.z];
+    var pts = [];
+    items.forEach(function (item, i) {
       var m = item.map || { top: (30 + i * 5) + '%', left: (35 + i * 4) + '%' };
-      var x = parseFloat(m.left) / 100 * W, y = parseFloat(m.top) / 100 * H;
+      var x = parseFloat(m.left) / 100 * W * s - v.ox, y = parseFloat(m.top) / 100 * H * s - v.oy;
+      if (v.z && (x < 0 || x > W || y < 0 || y > H + PH)) return; // panned out of view
       x = Math.max(PW / 2 + 6, Math.min(W - PW / 2 - 6, x));
       y = Math.max(TOP_SAFE, Math.min(H - 28, y));
-      return { items: [item], x: x, y: y };
+      pts.push({ items: [item], x: x, y: y });
     });
     // Greedy agglomerative grouping until no two pins overlap
     var merged = true;
@@ -1019,6 +1110,22 @@
         }
       }
     }
+    // Zoomed into an empty area: say so, with a one-tap way back
+    var hint = map.querySelector('.map-view-empty');
+    if (v.z && !pts.length && items.length) {
+      if (!hint) {
+        hint = document.createElement('div');
+        hint.className = 'map-view-empty';
+        hint.innerHTML = bi('Aucune propriété dans cette vue.', 'No properties in this view.') +
+          ' <button type="button">' + bi('Recentrer', 'Recenter') + '</button>';
+        hint.querySelector('button').addEventListener('click', function (e) {
+          e.stopPropagation();
+          var vv = mapView(map); vv.z = 0; vv.ox = 0; vv.oy = 0;
+          applyMapBg(map); renderMapPins(map, _mapFiltered);
+        });
+        map.appendChild(hint);
+      }
+    } else if (hint) hint.remove();
     pts.forEach(function (c) {
       var nAvail = c.items.filter(function (it) { return it.status === 'available'; }).length;
       var el;
@@ -1039,9 +1146,9 @@
         el.setAttribute('data-count', n);
         el.innerHTML = (nAvail ? bi(n + ' unités', n + ' units') : bi(n + ' loués', n + ' rented')) +
           (nAvail ? '<span class="pin-badge" aria-hidden="true">' + nAvail + '</span>' : '');
-        el.setAttribute('aria-label', nAvail
-          ? (currentLang() === 'en' ? n + ' units, ' + nAvail + ' available' : n + ' unités, dont ' + nAvail + ' disponible' + (nAvail > 1 ? 's' : ''))
-          : (currentLang() === 'en' ? n + ' rented units' : n + ' unités louées'));
+        el.setAttribute('data-aria-fr', nAvail ? n + ' unités, dont ' + nAvail + ' disponible' + (nAvail > 1 ? 's' : '') : n + ' unités louées');
+        el.setAttribute('data-aria-en', nAvail ? n + ' units, ' + nAvail + ' available' : n + ' rented units');
+        el.setAttribute('aria-label', el.getAttribute(currentLang() === 'en' ? 'data-aria-en' : 'data-aria-fr'));
         el.addEventListener('click', function (e) {
           e.stopPropagation();
           if (el.getAttribute('aria-expanded') === 'true') closeMapPop(map); else openMapPop(map, c, el);
@@ -1567,14 +1674,13 @@
     }
     var lf = document.querySelector('form.filter-search');
     if (lf) {
-      var runL = function () { pruneFormOptions(lf, listings); };
-      lf.addEventListener('change', runL);
-      runL();
+      lf.addEventListener('change', function (e) { pruneFormOptions(lf, listings, null, e.target); });
+      pruneFormOptions(lf, listings, null, 'all');
     }
     var mf = document.getElementById('mapFilterForm');
     if (mf) {
-      var runM = function () { pruneFormOptions(mf, listings); };
-      mf.addEventListener('change', runM);
+      var runM = function () { pruneFormOptions(mf, listings, null, 'all'); };
+      mf.addEventListener('change', function (e) { pruneFormOptions(mf, listings, null, e.target); });
       var tog = document.getElementById('mapFiltersToggle');
       if (tog) tog.addEventListener('click', function () { setTimeout(function () { runM(); updateMapApplyLabel(); }, 0); });
       runM();

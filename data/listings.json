@@ -3604,15 +3604,13 @@
       "beds": null,
       "baths": null,
       "sqft": null,
-      "photoCount": 3,
+      "photoCount": 2,
       "image": "assets/units/vacant-land-4642888-1136832702/cover.jpg",
       "images": [
-        "assets/units/vacant-land-4642888-1136832702/01.jpg",
         "assets/units/vacant-land-4642888-1136832702/02.jpg",
         "assets/units/vacant-land-4642888-1136832702/03.jpg"
       ],
       "thumbs": [
-        "assets/units/vacant-land-4642888-1136832702/t/01.jpg",
         "assets/units/vacant-land-4642888-1136832702/t/02.jpg",
         "assets/units/vacant-land-4642888-1136832702/t/03.jpg"
       ],
